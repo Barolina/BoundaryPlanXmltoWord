@@ -1,0 +1,6 @@
+docxtpl==0.4.7
+Jinja2==2.10
+lxml==4.2.1
+MarkupSafe==1.0
+python-docx==0.8.6
+six==1.11.0
