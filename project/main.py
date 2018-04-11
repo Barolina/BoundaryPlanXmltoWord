@@ -8,17 +8,16 @@ import memory_profiler
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.NOTSET)
 
+
+@profile
 def fast_iter(context, func, args=[], kwargs={}):
     # http://www.ibm.com/developerworks/xml/library/x-hiperfparse/
     # Author: Liza Daly
-    print(f"context {context}")
     for event, elem in context:
-        print(elem)
         func(elem, *args, **kwargs)
         elem.clear()
         while elem.getprevious() is not None:
             del elem.getparent()[0]
-    print("del ")
     del context
 
 def extract_file(path_zip):
@@ -48,14 +47,13 @@ def get_children_text(node, *args):
     return res
 
 
-
-
 class XmlTitleDict:
 
     def __init__(self, node):
         self.node = node
         self.contractor = None
 
+    @profile
     def _children_dict(self, node, *args):
         res = dict()
         for el in node:
@@ -134,7 +132,6 @@ class XmlInputDataDict:
                 name_list.append(_.text)
             elif _.tag in [self.NUMBER, self.DATE]:
                 note_list.append(_.text)
-        # del el
         return dict(zip(name_list, cnfg.INPUT_DATA_KEY))
         # for _ in el:
         #     for attrib_name in _.attrib:
@@ -168,7 +165,6 @@ def new_parcel_content(element):
     print(_entity_spatial)
     print('es')
 
-
 def start(path):
     # формирование шаблона title.doc
     context = etree.iterparse(path, events=('start', 'end',),tag='GeneralCadastralWorks')
@@ -184,3 +180,4 @@ if __name__ == '__main__':
     3. result  = render_template(content, tpl)
     """
     start("exml.xml")
+

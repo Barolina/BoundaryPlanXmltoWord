@@ -2,5 +2,7 @@ docxtpl==0.4.7
 Jinja2==2.10
 lxml==4.2.1
 MarkupSafe==1.0
+memory-profiler==0.52.0
+psutil==5.4.3
 python-docx==0.8.6
 six==1.11.0
