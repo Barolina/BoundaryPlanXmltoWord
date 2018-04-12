@@ -1,5 +1,4 @@
 import logging
-import os.un
 from tkinter import _cnfmerge
 
 from lxml import etree
@@ -190,20 +189,49 @@ class XmlInputDataDict(XMLElemenBase):
                 cnfg.OBJECTS_REALTY['name']: self.preparation_node(cnfg.OBJECTS_REALTY['attr'], self.xml_objects_realty_to_list())}
         return _res
 
+
+class Schema:
+    SCHEMA_SPACE = "{http://www.w3.org/2001/XMLSchema}"
+
+    def __init__(self, schemafile):
+        self.root = etree.parse(schemafile)
+
+    def findall(self, path):
+        return self.root.findall( path.replace("xs:", self.SCHEMA_SPACE) )
+
+    def find(self, path):
+        return self.root.find( path.replace("xs:", self.SCHEMA_SPACE) )
+
+    def names_of(self, nodes):
+        return [node.get("name") for node in nodes]
+
+    def get_Types(self, t_name):
+        return self.names_of( self.findall(t_name) )
+
+    def get_simpleTypes(self):
+        return self.get_Types("xs:simpleType")
+
+    def get_complexTypes(self):
+        return self.get_Types("xs:complexType")
+
+    def get_elements_of_attribute(self, attribute):
+        return self.names_of(self.findall(".//xs:restriction/xs:enumeration/xs:" + attribute + "/../.."))
+
+    def get_element_attributes(self, name):
+        node = self.find(".//xs:enumeration[@value='" + name + "']")
+        if node is None:
+            return None
+        else:
+            return node.attrib
+
 def value_from_xsd(path,key):
-    with open(path, 'rb') as f_xsd:
-        parser = etree.XMLParser(recover=True, encoding='utf-8', remove_comments=True, remove_blank_text=True)
-
-        xsd_source = f_xsd.read()
-        root = etree.fromstring(xsd_source, parser,namespaces='xs:"http://www.w3.org/2001/XMLSchema"')
-        # value = root.xpath('//xs:restriction')
-        val = root.xpath('//fg')
-        print(val)
-        print(root)
-        for _ in root:
-            print(_)
-
-        print(etree.tostring(root))
+    # with open(path) as f:
+    schema = Schema(path)
+    print(schema.get_simpleTypes())
+    print(schema.get_complexTypes())
+    print(schema.get_elements_of_attribute("all"))
+    print(schema.get_element_attributes("692001000000"))
+    print(schema.get_element_attributes("value"))
 
 
 class XmlSurveyDict(XMLElemenBase):
