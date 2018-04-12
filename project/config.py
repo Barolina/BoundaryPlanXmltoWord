@@ -18,7 +18,8 @@ MP_DATA = 'DATA'
 TITLE_KEY = ['REASON','PURPOSE','CLIENT','FIO','NCERTIFICATE','TELEPHONE','ADDRESS','EMAIL','ORGANIZATION','DATA']
 
 SYSTEM_COORD = 'system_coord'
-GEODESIC_BASES : {
+
+GEODESIC_BASES = {
     'name':'GEODESIC_BASES',
     'attr':['id','name','klass','x','y']
 }

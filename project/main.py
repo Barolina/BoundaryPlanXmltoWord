@@ -1,6 +1,12 @@
 import logging
+import os.un
+from tkinter import _cnfmerge
+
 from lxml import etree
 import io
+
+from pip._vendor.html5lib.treeadapters.sax import namespace
+
 import config as cnfg
 from docxtpl import DocxTemplate
 import memory_profiler
@@ -184,16 +190,39 @@ class XmlInputDataDict(XMLElemenBase):
                 cnfg.OBJECTS_REALTY['name']: self.preparation_node(cnfg.OBJECTS_REALTY['attr'], self.xml_objects_realty_to_list())}
         return _res
 
+def value_from_xsd(path,key):
+    with open(path, 'rb') as f_xsd:
+        parser = etree.XMLParser(recover=True, encoding='utf-8', remove_comments=True, remove_blank_text=True)
+
+        xsd_source = f_xsd.read()
+        root = etree.fromstring(xsd_source, parser,namespaces='xs:"http://www.w3.org/2001/XMLSchema"')
+        # value = root.xpath('//xs:restriction')
+        val = root.xpath('//fg')
+        print(val)
+        print(root)
+        for _ in root:
+            print(_)
+
+        print(etree.tostring(root))
+
+
 class XmlSurveyDict(XMLElemenBase):
     pathListGeopointsOpred = 'GeopointsOpred/child::*'
 
     def xml_geopoints_opres_to_list(self):
         el = self.node.xpath(self.pathListGeopointsOpred)
         res = []
-        res.append(''.join(self.node.xpath('CadastralNumberParcel/text()')))
+        value_from_xsd('xsd/dGeopointOpred_v01.xsd',1)
         for index, _ in enumerate(el):
-            res.append([str(index + 1), ''.join(_.xpath('Methods/child::*/text()'))])
+            res.append([str(index + 1),''.join(_.xpath('CadastralNumberDefinition/text()')), ''.join(_.xpath('Methods/child::*/text()')),''])
+        print(res)
         return res
+
+    def to_dict(self):
+        _res = {
+            cnfg.GEOPOINTS_OPRED['name']: self.preparation_node(cnfg.GEOPOINTS_OPRED['attr'], self.xml_geopoints_opres_to_list())
+        }
+        return _res
 
 
 
