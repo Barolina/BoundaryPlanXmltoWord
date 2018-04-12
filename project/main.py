@@ -196,11 +196,15 @@ class Schema:
     def __init__(self, schemafile):
         self.root = etree.parse(schemafile)
 
+    def __del__(self):
+        print('del')
+        del self.root
+
     def findall(self, path):
-        return self.root.findall( path.replace("xs:", self.SCHEMA_SPACE) )
+        return self.root.findall( path.replace("xs:", self.SCHEMA_SPACE))
 
     def find(self, path):
-        return self.root.find( path.replace("xs:", self.SCHEMA_SPACE) )
+        return self.root.find( path.replace("xs:", self.SCHEMA_SPACE))
 
     def names_of(self, nodes):
         return [node.get("name") for node in nodes]
@@ -214,9 +218,6 @@ class Schema:
     def get_complexTypes(self):
         return self.get_Types("xs:complexType")
 
-    def get_elements_of_attribute(self, attribute):
-        return self.names_of(self.findall(".//xs:restriction/xs:enumeration/xs:" + attribute + "/../.."))
-
     def get_element_attributes(self, name):
         node = self.find(".//xs:enumeration[@value='" + name + "']")
         if node is None:
@@ -224,14 +225,10 @@ class Schema:
         else:
             return node.attrib
 
+# @profile
 def value_from_xsd(path,key):
-    # with open(path) as f:
     schema = Schema(path)
-    print(schema.get_simpleTypes())
-    print(schema.get_complexTypes())
-    print(schema.get_elements_of_attribute("all"))
     print(schema.get_element_attributes("692001000000"))
-    print(schema.get_element_attributes("value"))
 
 
 class XmlSurveyDict(XMLElemenBase):
