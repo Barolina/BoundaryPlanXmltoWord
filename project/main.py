@@ -9,7 +9,6 @@ logger = logging.getLogger(__name__)
 logger.setLevel(logging.NOTSET)
 
 
-@profile
 def fast_iter(context, func, args=[], kwargs={}):
     # http://www.ibm.com/developerworks/xml/library/x-hiperfparse/
     # Author: Liza Daly
@@ -53,7 +52,6 @@ class XmlTitleDict:
         self.node = node
         self.contractor = None
 
-    @profile
     def _children_dict(self, node, *args):
         res = dict()
         for el in node:
@@ -109,38 +107,95 @@ class XmlTitleDict:
                        self.email(),self.organization(), self.data()]
         return dict(zip(cnfg.TITLE_KEY, value_title))
 
+class XMLElemenBase:
 
-class XmlInputDataDict:
+    def __init__(self,node):
+        self.node = node
+
+    def preparation_node(self, key, call):
+        res = []
+        _val = call
+        for index, _ in enumerate(_val):
+            res.append(dict(zip(key, _)))
+        return res
+
+
+
+
+class XmlInputDataDict(XMLElemenBase):
     NAME = 'Name'
     NUMBER = 'Number'
     DATE = 'Date'
-    pathListDocuments = 'Documents/child::*/child::*'
+    pathListDocuments = 'Documents/child::*'
+    pathGeodesicBses = 'GeodesicBases/child::*'
+    pathMeansSurveys = 'MeansSurvey/child::*'
+    pathObjectsRealty = 'ObjectsRealty/child::*'
+    pathListSystemCood= '../CoordSystems/child::*/@Name'
 
-    def __init__(self, node):
-        self.node = node
 
-    def name_doc(self):
-        pass
+    def preparation_sys_coord(self):
+        return ''.join(self.node.xpath(self.pathListSystemCood))
+
+    def xml_document_to_list(self):
+        el = self.node.xpath(self.pathListDocuments)
+        res = []
+        for index, _ in enumerate(el):
+            _tmp = f"{''.join(_.xpath('Number/text()'))} {''.join(_.xpath('Date/text()'))}"
+            res.append([str(index + 1),''.join(_.xpath('Name/text()')),_tmp])
+        return res
+
+    def xml_geodesic_base_to_list(self):
+        el = self.node.xpath(self.pathGeodesicBses)
+        res = []
+        for index, _ in enumerate(el):
+            _tmp = f"{''.join(_.xpath('PName/text()'))} {''.join(_.xpath('PKind/text()'))}"
+            res.append([str(index + 1), _tmp, ''.join(_.xpath('PKlass/text()')),
+                        ''.join(_.xpath('OrdX/text()')),
+                        ''.join(_.xpath('OrdY/text()'))])
+        return res
+
+    def xml_means_surveys_to_list(self):
+        el = self.node.xpath(self.pathMeansSurveys)
+        res = []
+        for index, _ in enumerate(el):
+            _tmp = ''.join(_.xpath('Registration/child::*/text()'))
+            res.append([str(index + 1), ''.join(_.xpath('Name/text()')),
+                        _tmp,
+                        ''.join(_.xpath('CertificateVerification/text()'))])
+        return res
+
+    def xml_objects_realty_to_list(self):
+        el= self.node.xpath(self.pathObjectsRealty)
+        res=[]
+        res.append(''.join(self.node.xpath('CadastralNumberParcel/text()')))
+        for index, _ in enumerate(el):
+            res.append([str(index + 1), ''.join(_.xpath('InnerCadastralNumbers/child::*/text()'))])
+        return res
+
+    def preparation_means_surveys(self):
+        key = cnfg.MEANS_SURVEY['attr']
+        return self.preparation_node(key, self.xml_means_surveys_to_list())
 
     def to_dict(self):
-        el = self.node.xpath(self.pathListDocuments)
-        print(etree.tostringlist(el))
-        name_list = []
-        note_list = []
-        for _ in el:
-            if _.tag == self.NAME:
-                name_list.append(_.text)
-            elif _.tag in [self.NUMBER, self.DATE]:
-                note_list.append(_.text)
-        return dict(zip(name_list, cnfg.INPUT_DATA_KEY))
-        # for _ in el:
-        #     for attrib_name in _.attrib:
-        #         print('@' + attrib_name + '=' + _.attrib[attrib_name])
-        #         _name.append(_.attrib)
-        #     subfields = _.getchildren()
-        #     for subfield in subfields:
-        #         print('subfield=' + subfield.text)
-        # print(_name)
+        _res = {cnfg.INPUT_DATA['name']: self.preparation_node(cnfg.INPUT_DATA['attr'], self.xml_document_to_list()),
+                cnfg.SYSTEM_COORD: self.preparation_sys_coord(),
+                cnfg.GEODESIC_BASES['name']: self.preparation_node(cnfg.GEODESIC_BASES['attr'], self.xml_geodesic_base_to_list()),
+                cnfg.MEANS_SURVEY['name']: self.preparation_means_surveys(),
+                cnfg.OBJECTS_REALTY['name']: self.preparation_node(cnfg.OBJECTS_REALTY['attr'], self.xml_objects_realty_to_list())}
+        return _res
+
+class XmlSurveyDict(XMLElemenBase):
+    pathListGeopointsOpred = 'GeopointsOpred/child::*'
+
+    def xml_geopoints_opres_to_list(self):
+        el = self.node.xpath(self.pathListGeopointsOpred)
+        res = []
+        res.append(''.join(self.node.xpath('CadastralNumberParcel/text()')))
+        for index, _ in enumerate(el):
+            res.append([str(index + 1), ''.join(_.xpath('Methods/child::*/text()'))])
+        return res
+
+
 
 
 def title_to_context_tpl(node,name_class, path_tpl, file_res):
@@ -153,7 +208,7 @@ def title_to_context_tpl(node,name_class, path_tpl, file_res):
         title = name_class(node)
         tpl.render(title.to_dict())
         tpl.save(file_res)
-        print(title.to_dict())
+        # print(title.to_dict())
 
 def process_element(element):
     pass
@@ -169,8 +224,12 @@ def start(path):
     # формирование шаблона title.doc
     context = etree.iterparse(path, events=('start', 'end',),tag='GeneralCadastralWorks')
     fast_iter(context, title_to_context_tpl, args=(XmlTitleDict,'template/common/title.docx', 'res/title.docx'))
+
     context = etree.iterparse(path, events=('start', 'end',),tag='InputData')
-    fast_iter(context, title_to_context_tpl, args=(XmlInputDataDict, 'template/common/title.docx', 'res/title.docx'))
+    fast_iter(context, title_to_context_tpl, args=(XmlInputDataDict, 'template/common/inputdata.docx', 'res/inputdata.docx'))
+
+    context = etree.iterparse(path, events=('start', 'end',), tag='Survey')
+    fast_iter(context, title_to_context_tpl,args=(XmlSurveyDict, 'template/common/survey.docx', 'res/res_survey.docx'))
 
 
 if __name__ == '__main__':
