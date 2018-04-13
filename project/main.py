@@ -1,14 +1,14 @@
 import logging
 from tkinter import _cnfmerge
-
 from lxml import etree
 import io
-
 from pip._vendor.html5lib.treeadapters.sax import namespace
-
-import config as cnfg
 from docxtpl import DocxTemplate
 import memory_profiler
+from core.xml_to_dict import  *
+import sys
+from docx import Document
+import os
 
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.NOTSET)
@@ -24,234 +24,6 @@ def fast_iter(context, func, args=[], kwargs={}):
             del elem.getparent()[0]
     del context
 
-def extract_file(path_zip):
-    pass
-
-
-def get_content(item, xpath):
-    # nodes = tree.xpath(xpath)
-    pass
-
-def render_template(content, tpl):
-    pass
-
-
-def client_text(element):
-    pass
-
-def node_to_dict(node):
-    pass
-
-
-def get_children_text(node, *args):
-    res = ''
-    for el in node:
-        if (el.tag in args) or (not args):
-            res += f" {el.text}"
-    return res
-
-
-class XmlTitleDict:
-
-    def __init__(self, node):
-        self.node = node
-        self.contractor = None
-
-    def _children_dict(self, node, *args):
-        res = dict()
-        for el in node:
-            res[el.tag] = el.text
-        return res
-
-    def setcontractor(self):
-        self.contractor= self._children_dict(self.node.xpath('Contractor/child::*'))
-
-    def getcontractor(self):
-        return self.contractor
-
-    def reason(self):
-        return ''.join(self.node.xpath('Reason/text()'))
-
-    def purpose(self):
-        return ''.join(self.node.xpath('Purpose/text()'))
-
-    def client(self):
-        return ' '.join(self.node.xpath('Clients/*[1]/child::*/node()/text()'))
-
-    def contrsactor_fio(self):
-        if not self.contractor:
-            self.setcontractor()
-        return f"{self.contractor.get('FamilyName', '')} " \
-               f"{self.contractor.get('FirstName', '')} " \
-               f"{self.contractor.get('Patronymic', '')}"
-
-    def ncertificate(self):
-        if not self.contractor:
-            self.setcontractor()
-        return self.contractor.get('NCertificate', '')
-
-    def telefon(self):
-        if not self.contractor:
-            self.setcontractor()
-        return self.contractor.get('Telephone', '')
-
-    def email(self):
-        if not self.contractor:
-            self.setcontractor()
-        return self.contractor.get('Email', '')
-
-    def organization(self):
-        return ' '.join(self.node.xpath('Contractor/Organization/node()/text()'))
-
-    def data(self):
-        return ' '.join(self.node.xpath('@DateCadastral'))
-
-    def to_dict(self):
-        value_title = [self.reason(),self.purpose(), self.client(),\
-                       self.contrsactor_fio(), self.ncertificate(), self.telefon(),\
-                       self.email(),self.organization(), self.data()]
-        return dict(zip(cnfg.TITLE_KEY, value_title))
-
-class XMLElemenBase:
-
-    def __init__(self,node):
-        self.node = node
-
-    def preparation_node(self, key, call):
-        res = []
-        _val = call
-        for index, _ in enumerate(_val):
-            res.append(dict(zip(key, _)))
-        return res
-
-
-
-
-class XmlInputDataDict(XMLElemenBase):
-    NAME = 'Name'
-    NUMBER = 'Number'
-    DATE = 'Date'
-    pathListDocuments = 'Documents/child::*'
-    pathGeodesicBses = 'GeodesicBases/child::*'
-    pathMeansSurveys = 'MeansSurvey/child::*'
-    pathObjectsRealty = 'ObjectsRealty/child::*'
-    pathListSystemCood= '../CoordSystems/child::*/@Name'
-
-
-    def preparation_sys_coord(self):
-        return ''.join(self.node.xpath(self.pathListSystemCood))
-
-    def xml_document_to_list(self):
-        el = self.node.xpath(self.pathListDocuments)
-        res = []
-        for index, _ in enumerate(el):
-            _tmp = f"{''.join(_.xpath('Number/text()'))} {''.join(_.xpath('Date/text()'))}"
-            res.append([str(index + 1),''.join(_.xpath('Name/text()')),_tmp])
-        return res
-
-    def xml_geodesic_base_to_list(self):
-        el = self.node.xpath(self.pathGeodesicBses)
-        res = []
-        for index, _ in enumerate(el):
-            _tmp = f"{''.join(_.xpath('PName/text()'))} {''.join(_.xpath('PKind/text()'))}"
-            res.append([str(index + 1), _tmp, ''.join(_.xpath('PKlass/text()')),
-                        ''.join(_.xpath('OrdX/text()')),
-                        ''.join(_.xpath('OrdY/text()'))])
-        return res
-
-    def xml_means_surveys_to_list(self):
-        el = self.node.xpath(self.pathMeansSurveys)
-        res = []
-        for index, _ in enumerate(el):
-            _tmp = ''.join(_.xpath('Registration/child::*/text()'))
-            res.append([str(index + 1), ''.join(_.xpath('Name/text()')),
-                        _tmp,
-                        ''.join(_.xpath('CertificateVerification/text()'))])
-        return res
-
-    def xml_objects_realty_to_list(self):
-        el= self.node.xpath(self.pathObjectsRealty)
-        res=[]
-        res.append(''.join(self.node.xpath('CadastralNumberParcel/text()')))
-        for index, _ in enumerate(el):
-            res.append([str(index + 1), ''.join(_.xpath('InnerCadastralNumbers/child::*/text()'))])
-        return res
-
-    def preparation_means_surveys(self):
-        key = cnfg.MEANS_SURVEY['attr']
-        return self.preparation_node(key, self.xml_means_surveys_to_list())
-
-    def to_dict(self):
-        _res = {cnfg.INPUT_DATA['name']: self.preparation_node(cnfg.INPUT_DATA['attr'], self.xml_document_to_list()),
-                cnfg.SYSTEM_COORD: self.preparation_sys_coord(),
-                cnfg.GEODESIC_BASES['name']: self.preparation_node(cnfg.GEODESIC_BASES['attr'], self.xml_geodesic_base_to_list()),
-                cnfg.MEANS_SURVEY['name']: self.preparation_means_surveys(),
-                cnfg.OBJECTS_REALTY['name']: self.preparation_node(cnfg.OBJECTS_REALTY['attr'], self.xml_objects_realty_to_list())}
-        return _res
-
-
-class Schema:
-    SCHEMA_SPACE = "{http://www.w3.org/2001/XMLSchema}"
-
-    def __init__(self, schemafile):
-        self.root = etree.parse(schemafile)
-
-    def __del__(self):
-        print('del')
-        del self.root
-
-    def findall(self, path):
-        return self.root.findall( path.replace("xs:", self.SCHEMA_SPACE))
-
-    def find(self, path):
-        return self.root.find( path.replace("xs:", self.SCHEMA_SPACE))
-
-    def names_of(self, nodes):
-        return [node.get("name") for node in nodes]
-
-    def get_Types(self, t_name):
-        return self.names_of( self.findall(t_name) )
-
-    def get_simpleTypes(self):
-        return self.get_Types("xs:simpleType")
-
-    def get_complexTypes(self):
-        return self.get_Types("xs:complexType")
-
-    def get_element_attributes(self, name):
-        node = self.find(".//xs:enumeration[@value='" + name + "']")
-        if node is None:
-            return None
-        else:
-            return node.attrib
-
-# @profile
-def value_from_xsd(path,key):
-    schema = Schema(path)
-    print(schema.get_element_attributes("692001000000"))
-
-
-class XmlSurveyDict(XMLElemenBase):
-    pathListGeopointsOpred = 'GeopointsOpred/child::*'
-
-    def xml_geopoints_opres_to_list(self):
-        el = self.node.xpath(self.pathListGeopointsOpred)
-        res = []
-        value_from_xsd('xsd/dGeopointOpred_v01.xsd',1)
-        for index, _ in enumerate(el):
-            res.append([str(index + 1),''.join(_.xpath('CadastralNumberDefinition/text()')), ''.join(_.xpath('Methods/child::*/text()')),''])
-        print(res)
-        return res
-
-    def to_dict(self):
-        _res = {
-            cnfg.GEOPOINTS_OPRED['name']: self.preparation_node(cnfg.GEOPOINTS_OPRED['attr'], self.xml_geopoints_opres_to_list())
-        }
-        return _res
-
-
-
-
 def title_to_context_tpl(node,name_class, path_tpl, file_res):
     """
     :param node: узел GeneralCadastralWorks
@@ -264,15 +36,88 @@ def title_to_context_tpl(node,name_class, path_tpl, file_res):
         tpl.save(file_res)
         # print(title.to_dict())
 
-def process_element(element):
-    pass
-    # for node in element:  # Перебираем элементы
-    #     print(node.tag, node.keys(), node.values())
-
 def new_parcel_content(element):
     _entity_spatial = element.xpath('//NewParcel/child::EntitySpatial/child::*/child::*/*[contains(name(),"Ordinate")]/@*')
     print(_entity_spatial)
     print('es')
+
+DOCUMENTS_TO_COMBINE = (
+    'title.docx',
+    'inputdata.docx',
+    'res_survey.docx'
+)
+
+
+def text_from_docx(path):
+    doc = Document(path)
+    for paragraph in doc.paragraphs:
+        yield paragraph.text
+
+
+
+def combineWORD():
+    sub_doc = Document(file)
+
+    # Don't add a page break if you've reached the last file.
+    if index < len(files) - 1:
+        sub_doc.add_page_break()
+
+    for element in sub_doc.element.body:
+        merged_document.element.body.append(element)
+    # for file_path in DOCUMENTS_TO_COMBINE:
+    #     for text in text_from_docx('res/'+file_path):
+    #         combined_doc.add_paragraph(text)
+    #
+    #     # Add page break except after last document
+    #     if not file_path is DOCUMENTS_TO_COMBINE[-1]:
+    #         combined_doc.add_page_break()
+
+    combined_doc.save('res/result.docx')
+
+files = ['title.docx', 'inputdata.docx','res_survey.docx','newparcel.docx',]
+
+def combine_word_documents(files):
+    merged_document = Document()
+
+    for index, file in enumerate(files):
+        sub_doc = Document('res/'+file)
+
+        # Don't add a page break if you've reached the last file.
+        if index < len(files)-1:
+           sub_doc.add_page_break()
+
+        for element in sub_doc.element.body:
+            merged_document.element.body.append(element)
+
+        merged_document.save('res/merged.docx')
+
+def combine_word_documents(input_files):
+    """
+    :param input_files: an iterable with full paths to docs
+    :return: a Document object with the merged files
+    """
+    for filnr, file in enumerate(input_files):
+        # in my case the docx templates are in a FileField of Django, add the MEDIA_ROOT, discard the next 2 lines if not appropriate for you.
+        if 'offerte_template' in file:
+            file = os.path.join('res', file)
+
+        if filnr == 0:
+            _ = os.path.join('res', file)
+            merged_document = Document(_)
+            merged_document.add_page_break()
+
+        else:
+            _ = os.path.join('res', file)
+            sub_doc = Document(_)
+
+            # Don't add a page break if you've reached the last file.
+            if filnr < len(input_files)-1:
+                sub_doc.add_page_break()
+
+            for element in sub_doc.element.body:
+                merged_document.element.body.append(element)
+    merged_document.save('res/re.docx')
+    return merged_document
 
 def start(path):
     # формирование шаблона title.doc
@@ -285,6 +130,9 @@ def start(path):
     context = etree.iterparse(path, events=('start', 'end',), tag='Survey')
     fast_iter(context, title_to_context_tpl,args=(XmlSurveyDict, 'template/common/survey.docx', 'res/res_survey.docx'))
 
+    context = etree.iterparse(path, events=('start', 'end',), tag='NewParcel')
+    fast_iter(context, title_to_context_tpl,args=(XmlNewParcel_EntitySpatial, 'template/common/newparcel.docx', 'res/newparcel.docx'))
+
 
 if __name__ == '__main__':
     """
@@ -293,4 +141,5 @@ if __name__ == '__main__':
     3. result  = render_template(content, tpl)
     """
     start("exml.xml")
+    combine_word_documents(files)
 

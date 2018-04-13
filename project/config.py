@@ -41,5 +41,48 @@ OBJECTS_REALTY= {
 """
 GEOPOINTS_OPRED = {
     'name': 'GEOPOINTS_OPRED',
-    'attr': ['id','cadastralnumber','method']
+    'attr': ['id','cadastralnumber','method'],
+    'dict':{
+        'geopointopred' : 'dGeopointOpred_v01.xsd'
+    }
 }
+
+TOCHN_AREA_PARCELS = {
+    'name': 'TOCHN_AREA_PARCELS',
+    'attr': ['id','cadastralnumber', 'area','formula']
+}
+
+"""
+  Сведения об образуемых  земельных учатсках
+"""
+ENTITY_SPATIAL = {
+    'name': 'ENTITY_SPATIAL',
+    'attr': ['numGeopoint','x','y','deltaGeopoint'],
+    'props': {
+        'cadnum':'cadastralnumber',
+        'zone':'zona'
+    }
+}
+BORDERS = {
+    'name':'BORDERS',
+    'attr':['point1','point2','length']
+}
+
+NEWPARCEL_COMMON = {
+    'address': 'address',
+    'location': 'location',
+    'location_note': 'location_note',
+    'category': 'category',
+    'utilizaton': 'utilization',
+    'are': 'area',
+    'min_area': 'min_area'
+    'max_area': 'max_area',
+    'note': 'note',
+    'dict': {
+        'address_code': 'adresCod.xsd',
+        'categories':'dCategories_v01.xsd',
+    }
+}
+
+
+PATH_XSD = 'xsd'
