@@ -1,23 +1,41 @@
 import config as cnfg
-from utils.xsd import Schema, value_from_xsd
+from utils.xsd import value_from_xsd
 import os
-class XMLElemenBase:
 
+
+class XMLElemenBase:
+    """
+        Базовый класс преобразователь
+        node - на вход узел дерева
+        всегда возвращает словарь данных (to_dict)
+    """
     def __init__(self,node):
         self.node = node
 
-    def preparation_node(self, key, call):
+    def preparation_node(self, key, value):
+        """
+            преобразоание  списка ключей и значений в словарь
+        :param key: ключи словаря
+        :param call: значения
+        :return:
+        """
         res = []
-        _val = call
-        for index, _ in enumerate(_val):
+        for _ in value:
             res.append(dict(zip(key, _)))
         return res
 
     def to_dict(self):
+        """
+            Обязательный метод для  наследников
+        :return:
+        """
         pass
 
 
 class XmlTitleDict:
+    """
+        Формированяи словаря для титульника
+    """
 
     def __init__(self, node):
         self.node = node
@@ -78,15 +96,17 @@ class XmlTitleDict:
                        self.email(),self.organization(), self.data()]
         return dict(zip(cnfg.TITLE_KEY, value_title))
 
+
 class XmlSurveyDict(XMLElemenBase):
+    """
+        Формирование словаря для  Сведени о выполненных измерениях и расчетах
+    """
     pathListGeopointsOpred = 'GeopointsOpred/child::*'
     pathTochAreaParcel = 'TochnAreaParcels/child::*'
-
 
     def xml_geopoints_opres_to_list(self):
         el = self.node.xpath(self.pathListGeopointsOpred)
         res = []
-        # value_from_xsd('xsd/dGeopointOpred_v01.xsd',1)
         for index, _ in enumerate(el):
             _method = ''.join(_.xpath('Methods/child::*/text()'))
             method_val = value_from_xsd('/'.join([cnfg.PATH_XSD,cnfg.GEOPOINTS_OPRED['dict']['geopointopred']]),_method)
@@ -103,15 +123,20 @@ class XmlSurveyDict(XMLElemenBase):
                         ])
         return res
 
-
     def to_dict(self):
         _res = {
-            cnfg.GEOPOINTS_OPRED['name']: self.preparation_node(cnfg.GEOPOINTS_OPRED['attr'], self.xml_geopoints_opres_to_list()),
-            cnfg.TOCHN_AREA_PARCELS['name']: self.preparation_node(cnfg.TOCHN_AREA_PARCELS['attr'], self.xml_toch_area_parcel_to_list())
+            cnfg.GEOPOINTS_OPRED['name']: self.preparation_node(cnfg.GEOPOINTS_OPRED['attr'],
+                                                                self.xml_geopoints_opres_to_list()),
+            cnfg.TOCHN_AREA_PARCELS['name']: self.preparation_node(cnfg.TOCHN_AREA_PARCELS['attr'],
+                                                                   self.xml_toch_area_parcel_to_list())
         }
         return _res
 
+
 class XmlInputDataDict(XMLElemenBase):
+    """
+        формирование словаря Исхпдные данные
+    """
     NAME = 'Name'
     NUMBER = 'Number'
     DATE = 'Date'
@@ -120,7 +145,6 @@ class XmlInputDataDict(XMLElemenBase):
     pathMeansSurveys = 'MeansSurvey/child::*'
     pathObjectsRealty = 'ObjectsRealty/child::*'
     pathListSystemCood= '../CoordSystems/child::*/@Name'
-
 
     def preparation_sys_coord(self):
         return ''.join(self.node.xpath(self.pathListSystemCood))
@@ -173,6 +197,7 @@ class XmlInputDataDict(XMLElemenBase):
                 cnfg.OBJECTS_REALTY['name']: self.preparation_node(cnfg.OBJECTS_REALTY['attr'], self.xml_objects_realty_to_list())}
         return _res
 
+
 class XmlNewParcel_EntitySpatial(XMLElemenBase):
     pathEntitySpatial1 = 'child::EntitySpatial/child::SpatialElement/child::*/*[contains(name(),"Ordinate")]'
     pathBorders = 'child::EntitySpatial/child::Borders/child::*'
@@ -202,32 +227,35 @@ class XmlNewParcel_EntitySpatial(XMLElemenBase):
         _list = node.xpath(path)
         res = ''
         if _list:
-            path = os.path.join(cnfg.PATH_XSD, cnfg.NEWPARCEL['dict'][xsd])
+            path = os.path.join(cnfg.PATH_XSD, cnfg.NEWPARCEL_COMMON['dict'][name_xsd])
             res = value_from_xsd(path, _list[0])
-        return _re
+        return  res
 
     def full_addres(self, node):
-        region_list = node.xpath('Region/text()')
         region = [self.node_to_text(node,'Region/text()','address_code')]
         region.extend(node.xpath('District/@*')[::-1])
-        city = node.xpath('City/@*')[::-1]
-        urbanDistrict = node.xpath('UrbanDistrict/@*')[::-1]
-        sovietVillage = node.xpath('SovietVillage/@*')[::-1]
-        locality = node.xpath('Locality/@*')[::-1]
-        street = node.xpath('Street/@*')[::-1]
-        level1 = node.xpath('Level1/@*')[::-1]
-        level2 = node.xpath('Level2/@*')[::-1]
-        apartment = node.xpath('Apartment/@*')[::-1]
+        region.extend(node.xpath('City/@*')[::-1])
+        region.extend(node.xpath('UrbanDistrict/@*')[::-1])
+        region.extend(node.xpath('SovietVillage/@*')[::-1])
+        region.extend(node.xpath('Locality/@*')[::-1])
+        region.extend(node.xpath('Street/@*')[::-1])
+        region.extend(node.xpath('Level1/@*')[::-1])
+        region.extend(node.xpath('Level2/@*')[::-1])
+        region.extend(node.xpath('Apartment/@*')[::-1])
         return ' '.join(region)
 
     def full_utilization(self,node):
-        el = self.xpath('')
+       byDoc = self.node_to_text(node,'@ByDoc')
+       return byDoc
 
+    def full_area(self,node):
+        return ''
 
     def xml_address_to_dict(self):
         dict_address = dict()
         xml_addrss = self.node.xpath('child::Address')
         xml_category = self.node.xpath('child::Category')
+        xml_utilization = self.node.xpath('child::Utilization')
         if xml_addrss:
             addres=xml_addrss[0]
             type_address = addres.xpath('@AddressOrLocation')[0]
@@ -237,10 +265,11 @@ class XmlNewParcel_EntitySpatial(XMLElemenBase):
             else:
                 dict_address['location'] = text_address
             dict_address['location_note'] = ''.join(addres.xpath("Other/text()"))
-
-            dict_address['category'] = self.node_to_text(addres,'Category/@Category','categories')
-            dict_address['utilizaton'] = ''.join(addres.xpath("Utilization/@ByDoc"))
-            dict_address['are'] = ''.join(addres.xpath("Other/text()"))
+            if xml_category:
+                dict_address['category'] = self.node_to_text(xml_category[0],'@Category','categories')
+            if xml_utilization:
+                dict_address['utilizaton'] =  self.full_utilization(xml_utilization[0])
+            dict_address['area'] = ''.join(addres.xpath("Other/text()"))
             dict_address['min_area'] = ''.join(addres.xpath("Other/text()"))
             dict_address['max_area'] = ''.join(addres.xpath("Other/text()"))
             dict_address['note'] = ''.join(addres.xpath("Other/text()"))
@@ -249,10 +278,11 @@ class XmlNewParcel_EntitySpatial(XMLElemenBase):
 
     def to_dict(self):
         _dict =self.preparation_node(cnfg.ENTITY_SPATIAL['attr'], self.xml_entity_spatial_to_list())
-        res= { cnfg.ENTITY_SPATIAL['props']['cadnum']: self.cadastralNumber,
+        res= {cnfg.ENTITY_SPATIAL['props']['cadnum']: self.cadastralNumber,
                 cnfg.ENTITY_SPATIAL['name']: _dict,
                 cnfg.BORDERS['name']: self.preparation_node(cnfg.BORDERS['attr'], self.xml_borders_to_list()),
-               }
+             }
         address = self.xml_address_to_dict()
         res.update(address)
+        print(address)
         return res
