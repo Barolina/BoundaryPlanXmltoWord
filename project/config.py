@@ -47,6 +47,10 @@ GEOPOINTS_OPRED = {
         'geopointopred': 'dGeopointOpred_v01.xsd'
     }
 }
+TOCHN_GEOPOINTS_PARCELS = {
+    'name': 'TOCHN_GEOPOINTS_PARCELS',
+    'attr': ['id', 'cadastralnumber', 'formula'],
+}
 
 TOCHN_AREA_PARCELS = {
     'name': 'TOCHN_AREA_PARCELS',
@@ -58,7 +62,7 @@ TOCHN_AREA_PARCELS = {
 """
 ENTITY_SPATIAL = {
     'name': 'ENTITY_SPATIAL',
-    'attr': ['numGeopoint', 'x', 'y', 'deltaGeopoint'],
+    'attr': ['numGeopoint', 'x', 'y', 'deltaGeopoint', 'empty'],
     'props': {
         'cadnum': 'cadastralnumber',
         'zone': 'zona'
@@ -66,7 +70,7 @@ ENTITY_SPATIAL = {
 }
 BORDERS = {
     'name': 'BORDERS',
-    'attr': ['point1', 'point2', 'length']
+    'attr': ['point1', 'point2', 'length','empty']
 }
 
 NEWPARCEL_COMMON = {
@@ -74,7 +78,7 @@ NEWPARCEL_COMMON = {
     'location': 'location',
     'location_note': 'location_note',
     'category': 'category',
-    'utilizaton': 'utilization',
+    'utilization_landuse': 'utilization_landuse',
     'are': 'area',
     'min_area': 'min_area',
     'max_area': 'max_area',
@@ -82,7 +86,8 @@ NEWPARCEL_COMMON = {
     'dict': {
         'address_code': 'adresCod.xsd',
         'categories': 'dCategories_v01.xsd',
-        'utilization': 'dCategories_v01.xsd', #ToDo заменить на реальный справочник
+        'utilization': 'dUtilizations_v01.xsd',
+        'landuse': 'dAllowedUse_v01.xsd'
     }
 }
 

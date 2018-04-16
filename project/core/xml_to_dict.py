@@ -1,6 +1,9 @@
 import config as cnfg
 from utils.xsd import value_from_xsd
 import os
+import logging
+logging.basicConfig(filename='mp_to_word.log',level=logging.DEBUG)
+from datetime import datetime
 
 
 class XMLElemenBase:
@@ -94,7 +97,9 @@ class XmlTitleDict:
         value_title = [self.reason(),self.purpose(), self.client(),\
                        self.contrsactor_fio(), self.ncertificate(), self.telefon(),\
                        self.email(),self.organization(), self.data()]
-        return dict(zip(cnfg.TITLE_KEY, value_title))
+        result = dict(zip(cnfg.TITLE_KEY, value_title))
+        logging.info(f"""Титульный лист {result}""")
+        return result
 
 
 class XmlSurveyDict(XMLElemenBase):
@@ -103,6 +108,8 @@ class XmlSurveyDict(XMLElemenBase):
     """
     pathListGeopointsOpred = 'GeopointsOpred/child::*'
     pathTochAreaParcel = 'TochnAreaParcels/child::*'
+    pathTochGeopoitsParcels = 'TochnGeopointsParcels/child::*'
+
 
     def xml_geopoints_opres_to_list(self):
         el = self.node.xpath(self.pathListGeopointsOpred)
@@ -117,8 +124,19 @@ class XmlSurveyDict(XMLElemenBase):
         el = self.node.xpath(self.pathTochAreaParcel)
         res = []
         for index, _ in enumerate(el):
-            res.append([str(index + 1),''.join(_.xpath('CadastralNumberDefinition/text()')),
+            res.append([str(index + 1),
+                        ''.join(_.xpath('CadastralNumberDefinition/text()')),
                         ''.join(_.xpath('Area/Area/text()')),
+                        ''.join(_.xpath('Formula/text()')),
+                        ])
+        return res
+
+    def xml_toch_geopoints_parcel_to_list(self):
+        el = self.node.xpath(self.pathTochGeopoitsParcels)
+        res = []
+        for index, _ in enumerate(el):
+            res.append([str(index + 1),
+                        ''.join(_.xpath('CadastralNumberDefinition/text()')),
                         ''.join(_.xpath('Formula/text()')),
                         ])
         return res
@@ -127,6 +145,8 @@ class XmlSurveyDict(XMLElemenBase):
         _res = {
             cnfg.GEOPOINTS_OPRED['name']: self.preparation_node(cnfg.GEOPOINTS_OPRED['attr'],
                                                                 self.xml_geopoints_opres_to_list()),
+            cnfg.TOCHN_GEOPOINTS_PARCELS['name']: self.preparation_node(cnfg.TOCHN_GEOPOINTS_PARCELS['attr'],
+                                                                        self.xml_toch_geopoints_parcel_to_list()),
             cnfg.TOCHN_AREA_PARCELS['name']: self.preparation_node(cnfg.TOCHN_AREA_PARCELS['attr'],
                                                                    self.xml_toch_area_parcel_to_list())
         }
@@ -153,7 +173,8 @@ class XmlInputDataDict(XMLElemenBase):
         el = self.node.xpath(self.pathListDocuments)
         res = []
         for index, _ in enumerate(el):
-            _tmp = f"{''.join(_.xpath('Number/text()'))} {''.join(_.xpath('Date/text()'))}"
+            _dt =  datetime.strptime(''.join(_.xpath('Date/text()')),'%Y-%m-%d').strftime('%d.%m.%Y')
+            _tmp = f" № {''.join(_.xpath('Number/text()'))} от { _dt } г."
             res.append([str(index + 1),''.join(_.xpath('Name/text()')),_tmp])
         return res
 
@@ -171,18 +192,17 @@ class XmlInputDataDict(XMLElemenBase):
         el = self.node.xpath(self.pathMeansSurveys)
         res = []
         for index, _ in enumerate(el):
-            _tmp = ''.join(_.xpath('Registration/child::*/text()'))
             res.append([str(index + 1), ''.join(_.xpath('Name/text()')),
-                        _tmp,
+                        ' '.join(_.xpath('Registration/child::*/text()')),
                         ''.join(_.xpath('CertificateVerification/text()'))])
         return res
 
     def xml_objects_realty_to_list(self):
         el= self.node.xpath(self.pathObjectsRealty)
-        res=[]
-        res.append(''.join(self.node.xpath('CadastralNumberParcel/text()')))
+        res= list()
         for index, _ in enumerate(el):
-            res.append([str(index + 1), ''.join(_.xpath('InnerCadastralNumbers/child::*/text()'))])
+            res.append([str(index + 1),''.join(_.xpath('CadastralNumberParcel/text()')), ', '.join(_.xpath('InnerCadastralNumbers/child::*/text()'))])
+        logging.info(f"""Сведения о наличии объектов недвижимости { res }""")
         return res
 
     def preparation_means_surveys(self):
@@ -198,10 +218,26 @@ class XmlInputDataDict(XMLElemenBase):
         return _res
 
 
-class XmlNewParcel_EntitySpatial(XMLElemenBase):
-    pathEntitySpatial1 = 'child::EntitySpatial/child::SpatialElement/child::*/*[contains(name(),"Ordinate")]'
-    pathBorders = 'child::EntitySpatial/child::Borders/child::*'
+class XmlNewParcel(XMLElemenBase):
+    """
+        node = NewParcel
+    """
+    # pathEntitySpatial1 = 'child::EntitySpatial/child::SpatialElement/child::*/*[contains(name(),"Ordinate")]'
+    pathEntitySpatial1 = 'child::EntitySpatial/child::SpatialElement'
+    pathBorders = 'child::EntitySpatial/child::Borders'
     cadastralNumber = ''
+
+    def xml_spatial_element(self,node):
+        """
+        :param node: node ==  SpatialEleement
+        :return:
+        """
+        spatial_eleemnt = node.xpath('child::*/*[contains(name(),"Ordinate")]')
+        res = []
+        for _ in spatial_eleemnt:
+            number = ''.join(_.xpath('@PointPref') + _.xpath('@NumGeopoint'))
+            res.append([number, ''.join(_.xpath('@X')), ''.join(_.xpath('@Y')), ''.join(_.xpath('@DeltaGeopoint'))])
+        return res
 
 
     def xml_entity_spatial_to_list(self):
@@ -209,18 +245,23 @@ class XmlNewParcel_EntitySpatial(XMLElemenBase):
         if _:
             self.cadastralNumber = _[0]
         print(self.cadastralNumber)
-        ords = self.node.xpath(self.pathEntitySpatial1)
+        spatial_element = self.node.xpath(self.pathEntitySpatial1)
         res = []
-        for _ in ords:
-            number = ''.join(_.xpath('@PointPref')+_.xpath('@NumGeopoint'))
-            res.append([number,''.join(_.xpath('@X')),''.join(_.xpath('@Y')),''.join(_.xpath('@DeltaGeopoint'))])
+        for _ in spatial_element:
+            res.extend(self.xml_spatial_element(_))
+            res.append(['','','','','yes'])
         return res
 
     def xml_borders_to_list(self):
         el = self.node.xpath(self.pathBorders)
+        countSpatialElement = len(self.node.xpath(self.pathEntitySpatial1))
         res= []
-        for _ in el:
-            res.append([''.join(_.xpath('@Point1')),''.join(_.xpath('@Point2')),''.join(_.xpath('Edge/Length/text()'))])
+        for _ in range(0,countSpatialElement):
+            path = self.pathBorders+'/child::*[@Spatial='+str(_+1)+']'
+            border = self.node.xpath(path)
+            for point in border:
+                res.append([''.join(point.xpath('@Point1')), ''.join(point.xpath('@Point2')), ''.join(point.xpath('Edge/Length/text()'))])
+            res.append(['','','','yes'])
         return res
 
     def node_to_text(self, node, path, name_xsd):
@@ -245,17 +286,25 @@ class XmlNewParcel_EntitySpatial(XMLElemenBase):
         return ' '.join(region)
 
     def full_utilization(self,node):
-       byDoc = self.node_to_text(node,'@ByDoc')
-       return byDoc
+        res = ''
+        if 'ByDoc' in node.attrib:
+           res =  node.attrib['ByDoc']
+        elif 'Utilization' in node.attrib:
+           res = self.node_to_text(node, '@Utilization', 'utilization')
+        elif 'LandUse' in node.attrib:
+           res = self.node_to_text(node, '@Utilization', 'landuse')
+        return res
 
     def full_area(self,node):
-        return ''
+        res = f"""{''.join(node.xpath('Area/text()'))}±{''.join(node.xpath('Inaccuracy/text()'))}"""
+        return  res
 
     def xml_address_to_dict(self):
         dict_address = dict()
         xml_addrss = self.node.xpath('child::Address')
         xml_category = self.node.xpath('child::Category')
         xml_utilization = self.node.xpath('child::Utilization')
+        xml_area = self.node.xpath('child::Area')
         if xml_addrss:
             addres=xml_addrss[0]
             type_address = addres.xpath('@AddressOrLocation')[0]
@@ -268,21 +317,38 @@ class XmlNewParcel_EntitySpatial(XMLElemenBase):
             if xml_category:
                 dict_address['category'] = self.node_to_text(xml_category[0],'@Category','categories')
             if xml_utilization:
-                dict_address['utilizaton'] =  self.full_utilization(xml_utilization[0])
-            dict_address['area'] = ''.join(addres.xpath("Other/text()"))
-            dict_address['min_area'] = ''.join(addres.xpath("Other/text()"))
-            dict_address['max_area'] = ''.join(addres.xpath("Other/text()"))
-            dict_address['note'] = ''.join(addres.xpath("Other/text()"))
+                dict_address['utilization_landuse'] =  self.full_utilization(xml_utilization[0])
+            if xml_area:
+                dict_address['area'] = self.full_area(xml_area[0])
+            dict_address['min_area'] = ''.join(self.node.xpath('MinArea/Area/text()'))
+            dict_address['max_area'] = ''.join(self.node.xpath('MaxArea/Area/text()'))
+            dict_address['note'] =  ''.join(self.node.xpath('Note/text()'))
         return dict_address
 
 
     def to_dict(self):
         _dict =self.preparation_node(cnfg.ENTITY_SPATIAL['attr'], self.xml_entity_spatial_to_list())
         res= {cnfg.ENTITY_SPATIAL['props']['cadnum']: self.cadastralNumber,
-                cnfg.ENTITY_SPATIAL['name']: _dict,
-                cnfg.BORDERS['name']: self.preparation_node(cnfg.BORDERS['attr'], self.xml_borders_to_list()),
+              cnfg.ENTITY_SPATIAL['name']: _dict,
+              cnfg.BORDERS['name']: self.preparation_node(cnfg.BORDERS['attr'], self.xml_borders_to_list()),
              }
         address = self.xml_address_to_dict()
         res.update(address)
-        print(address)
         return res
+
+class XmlFormParcels(XMLElemenBase):
+    pathNewParcels = 'child::NewParcel'
+    prefix = 'newparcel'
+
+    def __init__(self, node, path_tpl, path_res):
+        self.node = node
+        self.path_tpl = path_tpl
+        self.path_res = path_res
+
+    def xml_newprasels_to_list(self):
+        formParel = self.node.xpath(self.pathNewParcels)
+        print(formParel)
+
+    def to_dict(self):
+         self.xml_newprasels_to_list()
+         return ''

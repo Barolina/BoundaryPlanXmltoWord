@@ -31,8 +31,8 @@
 						<Date>2018-01-12</Date>
 					</DocCategory>
 				</Category>
-				<Utilization ByDoc="Под автодорогу">
-					<DocUtilization>
+				<Utilization Utilization="141001000000">
+				  	<DocUtilization>
 						<CodeDocument>558299000000</CodeDocument>
 						<Name>Постановление администрации Бежецкого района Тверской области</Name>
 						<Number>3</Number>

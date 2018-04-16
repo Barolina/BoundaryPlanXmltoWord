@@ -1,0 +1,566 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MP GUID="f1896953-06d2-4717-bc3c-ba5051cb05a3" Version="08" NameSoftware="Полигон Про" VersionSoftware="2.0.0.11">
+  <Package>
+    <FormParcels Method="3">
+      <NewParcel Definition="50:20:0010203:156:ЗУ1">
+        <CadastralBlock>50:20:0010203</CadastralBlock>
+        <PrevCadastralNumbers>
+          <CadastralNumber>50:20:0010203:156</CadastralNumber>
+        </PrevCadastralNumbers>
+        <ProvidingPassCadastralNumbers>
+          <Other>Земли общего пользования</Other>
+        </ProvidingPassCadastralNumbers>
+        <Area>
+          <Area>333</Area>
+          <Unit>055</Unit>
+          <Inaccuracy>3.97</Inaccuracy>
+        </Area>
+        <Address AddressOrLocation="0">
+          <OKATO>46241837015</OKATO>
+          <KLADR>50022000173000300</KLADR>
+          <Region>50</Region>
+          <District Name="Одинцовский" Type="р-н" />
+          <City Name="гп Одинцово" Type="тер" />
+          <Locality Name="Ромашково" Type="с" />
+          <Street Name="Каширина" Type="ул" />
+          <Level1 Value="16а" Type="д" />
+        </Address>
+        <Category Category="003002000000" />
+        <LandPermittedUses>
+          <Utilization ByDoc="Для индивидуального жилищного строительства" />
+        </LandPermittedUses>
+        <SubParcels>
+          <NewSubParcel Definition="50:20:0010203:156:ЗУ1/чзу1">
+            <Area>
+              <Area>76</Area>
+              <Unit>055</Unit>
+              <Inaccuracy>1.76</Inaccuracy>
+            </Area>
+            <Encumbrance>
+              <Name>Занята жилым домом 50:20:0010203:948</Name>
+              <Type>022001000000</Type>
+            </Encumbrance>
+            <EntitySpatial CsCode="50.2" Name="МСК-50 зона 2 Москва и Московская область">
+              <SpatialElement>
+                <SpelementUnit TypeUnit="Точка">
+                  <Ordinate X="466937.52" Y="2178309.37" NumGeopoint="20" DeltaGeopoint="0.10" />
+                </SpelementUnit>
+                <SpelementUnit TypeUnit="Точка">
+                  <Ordinate X="466929.89" Y="2178309.37" NumGeopoint="21" DeltaGeopoint="0.10" />
+                </SpelementUnit>
+                <SpelementUnit TypeUnit="Точка">
+                  <Ordinate X="466930.96" Y="2178319.47" NumGeopoint="22" DeltaGeopoint="0.10" />
+                </SpelementUnit>
+                <SpelementUnit TypeUnit="Точка">
+                  <Ordinate X="466938.29" Y="2178319.47" NumGeopoint="23" DeltaGeopoint="0.10" />
+                </SpelementUnit>
+                <SpelementUnit TypeUnit="Точка">
+                  <Ordinate X="466937.52" Y="2178309.37" NumGeopoint="20" DeltaGeopoint="0.10" />
+                </SpelementUnit>
+              </SpatialElement>
+            </EntitySpatial>
+          </NewSubParcel>
+        </SubParcels>
+        <EntitySpatial CsCode="50.2" Name="МСК-50 зона 2 Москва и Московская область">
+          <SpatialElement>
+            <SpelementUnit TypeUnit="Точка">
+              <Ordinate X="466934.98" Y="2178294.38" NumGeopoint="5" DeltaGeopoint="0.10" />
+            </SpelementUnit>
+            <SpelementUnit TypeUnit="Точка">
+              <Ordinate X="466928.69" Y="2178296.72" NumGeopoint="6" DeltaGeopoint="0.10" />
+            </SpelementUnit>
+            <SpelementUnit TypeUnit="Точка">
+              <Ordinate X="466925.44" Y="2178298.72" NumGeopoint="7" DeltaGeopoint="0.10" />
+            </SpelementUnit>
+            <SpelementUnit TypeUnit="Точка">
+              <Ordinate X="466930.30" Y="2178325.94" NumGeopoint="14" DeltaGeopoint="0.10" />
+            </SpelementUnit>
+            <SpelementUnit TypeUnit="Точка">
+              <Ordinate X="466942.92" Y="2178322.05" NumGeopoint="1" DeltaGeopoint="0.10" PointPref="н" />
+            </SpelementUnit>
+            <SpelementUnit TypeUnit="Точка">
+              <Ordinate X="466934.98" Y="2178294.38" NumGeopoint="5" DeltaGeopoint="0.10" />
+            </SpelementUnit>
+          </SpatialElement>
+          <Borders>
+            <Border Spatial="1" Point1="1" Point2="2">
+              <Edge>
+                <Length>6.71</Length>
+              </Edge>
+            </Border>
+            <Border Spatial="1" Point1="2" Point2="3">
+              <Edge>
+                <Length>3.82</Length>
+              </Edge>
+            </Border>
+            <Border Spatial="1" Point1="3" Point2="4">
+              <Edge>
+                <Length>27.65</Length>
+              </Edge>
+            </Border>
+            <Border Spatial="1" Point1="4" Point2="5">
+              <Edge>
+                <Length>13.21</Length>
+              </Edge>
+            </Border>
+            <Border Spatial="1" Point1="5" Point2="6">
+              <Edge>
+                <Length>28.79</Length>
+              </Edge>
+            </Border>
+          </Borders>
+        </EntitySpatial>
+        <RelatedParcels>
+          <ParcelNeighbours>
+            <Definition>14-н1</Definition>
+            <ParcelNeighbour>
+              <CadastralNumber>50:20:0010203:67</CadastralNumber>
+              <OwnerNeighbours>
+                <NameRight>Собственность</NameRight>
+                <OwnerNeighbour>
+                  <NameOwner>Петров И.И.</NameOwner>
+                  <ContactOwner>
+                    <ContactAddress>обл. Московская, р-н Одинцовский, с/о Мамоновский, с. Ромашково, ул. Советская, дом 17 А</ContactAddress>
+                  </ContactOwner>
+                </OwnerNeighbour>
+              </OwnerNeighbours>
+            </ParcelNeighbour>
+          </ParcelNeighbours>
+        </RelatedParcels>
+      </NewParcel>
+      <NewParcel Definition="50:20:0010203:156:ЗУ2">
+        <CadastralBlock>50:20:0010203</CadastralBlock>
+        <PrevCadastralNumbers>
+          <CadastralNumber>50:20:0010203:156</CadastralNumber>
+        </PrevCadastralNumbers>
+        <ProvidingPassCadastralNumbers>
+          <Other>Земли общего пользования</Other>
+        </ProvidingPassCadastralNumbers>
+        <Area>
+          <Area>322</Area>
+          <Unit>055</Unit>
+          <Inaccuracy>3.63</Inaccuracy>
+        </Area>
+        <Address AddressOrLocation="0">
+          <OKATO>46241837015</OKATO>
+          <KLADR>50022000173000300</KLADR>
+          <Region>50</Region>
+          <District Name="Одинцовский" Type="р-н" />
+          <City Name="гп Одинцово" Type="тер" />
+          <Locality Name="Ромашково" Type="с" />
+          <Street Name="Каширина" Type="ул" />
+          <Level1 Value="17а" Type="д" />
+        </Address>
+        <Category Category="003002000000" />
+        <LandPermittedUses>
+          <Utilization ByDoc="Для индивидуального жилищного строительства" />
+        </LandPermittedUses>
+        <SubParcels>
+          <NewSubParcel Definition="50:20:0010203:156:ЗУ2/чзу1">
+            <Area>
+              <Area>60</Area>
+              <Unit>055</Unit>
+              <Inaccuracy>1.57</Inaccuracy>
+            </Area>
+            <Encumbrance>
+              <Name>Занята жилым домом 50:20:0010203:949</Name>
+              <Type>022001000000</Type>
+            </Encumbrance>
+            <EntitySpatial CsCode="50.2" Name="МСК-50 зона 2 Москва и Московская область">
+              <SpatialElement>
+                <SpelementUnit TypeUnit="Точка">
+                  <Ordinate X="466924.92" Y="2178305.99" NumGeopoint="24" DeltaGeopoint="0.10" />
+                </SpelementUnit>
+                <SpelementUnit TypeUnit="Точка">
+                  <Ordinate X="466918.10" Y="2178307.18" NumGeopoint="25" DeltaGeopoint="0.10" />
+                </SpelementUnit>
+                <SpelementUnit TypeUnit="Точка">
+                  <Ordinate X="466920.15" Y="2178316.22" NumGeopoint="26" DeltaGeopoint="0.10" />
+                </SpelementUnit>
+                <SpelementUnit TypeUnit="Точка">
+                  <Ordinate X="466926.12" Y="2178315.20" NumGeopoint="27" DeltaGeopoint="0.10" />
+                </SpelementUnit>
+                <SpelementUnit TypeUnit="Точка">
+                  <Ordinate X="466924.92" Y="2178305.99" NumGeopoint="24" DeltaGeopoint="0.10" />
+                </SpelementUnit>
+              </SpatialElement>
+            </EntitySpatial>
+          </NewSubParcel>
+        </SubParcels>
+        <EntitySpatial CsCode="50.2" Name="МСК-50 зона 2 Москва и Московская область">
+          <SpatialElement>
+            <SpelementUnit TypeUnit="Точка">
+              <Ordinate X="466925.44" Y="2178298.72" NumGeopoint="7" DeltaGeopoint="0.10" />
+            </SpelementUnit>
+            <SpelementUnit TypeUnit="Точка">
+              <Ordinate X="466918.90" Y="2178304.33" NumGeopoint="8" DeltaGeopoint="0.10" />
+            </SpelementUnit>
+            <SpelementUnit TypeUnit="Точка">
+              <Ordinate X="466906.97" Y="2178309.03" NumGeopoint="9" DeltaGeopoint="0.10" />
+            </SpelementUnit>
+            <SpelementUnit TypeUnit="Точка">
+              <Ordinate X="466908.37" Y="2178315.71" NumGeopoint="10" DeltaGeopoint="0.10" />
+            </SpelementUnit>
+            <SpelementUnit TypeUnit="Точка">
+              <Ordinate X="466916.15" Y="2178313.15" NumGeopoint="11" DeltaGeopoint="0.10" />
+            </SpelementUnit>
+            <SpelementUnit TypeUnit="Точка">
+              <Ordinate X="466921.63" Y="2178326.72" NumGeopoint="12" DeltaGeopoint="0.10" />
+            </SpelementUnit>
+            <SpelementUnit TypeUnit="Точка">
+              <Ordinate X="466923.68" Y="2178327.51" NumGeopoint="13" DeltaGeopoint="0.10" />
+            </SpelementUnit>
+            <SpelementUnit TypeUnit="Точка">
+              <Ordinate X="466930.30" Y="2178325.94" NumGeopoint="14" DeltaGeopoint="0.10" />
+            </SpelementUnit>
+            <SpelementUnit TypeUnit="Точка">
+              <Ordinate X="466925.44" Y="2178298.72" NumGeopoint="7" DeltaGeopoint="0.10" />
+            </SpelementUnit>
+          </SpatialElement>
+          <Borders>
+            <Border Spatial="1" Point1="1" Point2="2">
+              <Edge>
+                <Length>8.62</Length>
+              </Edge>
+            </Border>
+            <Border Spatial="1" Point1="2" Point2="3">
+              <Edge>
+                <Length>12.82</Length>
+              </Edge>
+            </Border>
+            <Border Spatial="1" Point1="3" Point2="4">
+              <Edge>
+                <Length>6.83</Length>
+              </Edge>
+            </Border>
+            <Border Spatial="1" Point1="4" Point2="5">
+              <Edge>
+                <Length>8.19</Length>
+              </Edge>
+            </Border>
+            <Border Spatial="1" Point1="5" Point2="6">
+              <Edge>
+                <Length>14.63</Length>
+              </Edge>
+            </Border>
+            <Border Spatial="1" Point1="6" Point2="7">
+              <Edge>
+                <Length>2.20</Length>
+              </Edge>
+            </Border>
+            <Border Spatial="1" Point1="7" Point2="8">
+              <Edge>
+                <Length>6.80</Length>
+              </Edge>
+            </Border>
+            <Border Spatial="1" Point1="8" Point2="9">
+              <Edge>
+                <Length>27.65</Length>
+              </Edge>
+            </Border>
+          </Borders>
+        </EntitySpatial>
+        <RelatedParcels>
+          <ParcelNeighbours>
+            <Definition>10-14</Definition>
+            <ParcelNeighbour>
+              <CadastralNumber>50:20:0010203:67</CadastralNumber>
+              <OwnerNeighbours>
+                <NameRight>Собственность</NameRight>
+                <OwnerNeighbour>
+                  <NameOwner>Петров И.И.</NameOwner>
+                  <ContactOwner>
+                    <ContactAddress>обл. Московская, р-н Одинцовский, с/о Мамоновский, с. Ромашково, ул. Советская, дом 17 А</ContactAddress>
+                  </ContactOwner>
+                </OwnerNeighbour>
+              </OwnerNeighbours>
+            </ParcelNeighbour>
+          </ParcelNeighbours>
+        </RelatedParcels>
+      </NewParcel>
+      <ChangeParcel CadastralNumber="50:20:0010203:156">
+        <CadastralBlock>50:20:0010203</CadastralBlock>
+        <ProvidingPassCadastralNumbers>
+          <Other>Земли общего пользования</Other>
+        </ProvidingPassCadastralNumbers>
+        <SubParcels>
+          <InvariableSubParcel NumberRecord="1">
+            <Area>
+              <Area>76</Area>
+              <Unit>055</Unit>
+            </Area>
+          </InvariableSubParcel>
+        </SubParcels>
+      </ChangeParcel>
+      <SpecifyRelatedParcel CadastralNumber="50:20:0010203:67">
+        <ChangeBorder TypeUnit="Точка">
+          <OldOrdinate X="466930.30" Y="2178325.94" NumGeopoint="25" />
+          <NewOrdinate X="466930.30" Y="2178325.94" NumGeopoint="25" DeltaGeopoint="0.10" />
+        </ChangeBorder>
+        <ChangeBorder TypeUnit="Точка">
+          <NewOrdinate X="466942.92" Y="2178322.05" NumGeopoint="1" DeltaGeopoint="0.10" PointPref="н" />
+        </ChangeBorder>
+        <ChangeBorder TypeUnit="Точка">
+          <OldOrdinate X="466951.84" Y="2178318.99" NumGeopoint="26" />
+          <NewOrdinate X="466951.84" Y="2178318.99" NumGeopoint="26" DeltaGeopoint="0.10" />
+        </ChangeBorder>
+      </SpecifyRelatedParcel>
+    </FormParcels>
+  </Package>
+  <GeneralCadastralWorks DateCadastral="2016-06-14">
+    <Contractor>
+      <FamilyName>Сидоров</FamilyName>
+      <FirstName>Петр</FirstName>
+      <Patronymic>Иванович</Patronymic>
+      <SNILS>12345678901</SNILS>
+      <CadastralEngineerRegistryNumber>123456789</CadastralEngineerRegistryNumber>
+      <Telephone>473147</Telephone>
+      <Address>Московская обл., Одинцовский р-н, Чапаевка д., д.19</Address>
+      <Email>sidorov@mail.ru</Email>
+      <SelfRegulatoryOrganization>Объединение кадастровых инженеров</SelfRegulatoryOrganization>
+      <AgreementCadWork>
+        <NumberAgreement>б/н</NumberAgreement>
+        <DateAgreement>2016-06-01</DateAgreement>
+      </AgreementCadWork>
+    </Contractor>
+    <Reason>образованием двух земельных участков путем раздела земельного участка с кадастровым номером 50:20:0010203:156, расположенного по адресу: обл. Московская, р-н Одинцовский, гп Одинцово, с. Ромашково, ул. Каширина, дом 15а</Reason>
+    <Clients>
+      <Client>
+        <Person>
+          <FamilyName>Иванов</FamilyName>
+          <FirstName>Иван</FirstName>
+          <Patronymic>Иванович</Patronymic>
+          <SNILS>12345678901</SNILS>
+        </Person>
+      </Client>
+    </Clients>
+  </GeneralCadastralWorks>
+  <InputData>
+    <Documents>
+      <Document>
+        <CodeDocument>558217000000</CodeDocument>
+        <Name>Кадастровый план территории</Name>
+        <Number>MO-16/ЗВ-3437604</Number>
+        <Date>2016-11-24</Date>
+        <IssueOrgan>Филиал федерального государственного бюджетного учреждения "Федеральная кадастровая палата Росреестра" по Московской области</IssueOrgan>
+      </Document>
+      <Document>
+        <CodeDocument>558217000000</CodeDocument>
+        <Number>MO-15/ЗВ-762645</Number>
+        <Date>2015-05-24</Date>
+        <IssueOrgan>Филиал федерального государственного бюджетного учреждения "Федеральная кадастровая палата Росреестра" по Московской области</IssueOrgan>
+      </Document>
+    </Documents>
+    <GeodesicBases>
+      <GeodesicBase>
+        <PName>Ершово</PName>
+        <PKind>Пирамида</PKind>
+        <PKlass>2 класс</PKlass>
+        <OrdX>466930.51</OrdX>
+        <OrdY>2178342.60</OrdY>
+        <ConditionPoint AsOfDate="2016-05-01">
+          <OutdoorPoint>
+            <NetworkPoints>627001000000</NetworkPoints>
+          </OutdoorPoint>
+          <CenterPoint>
+            <NetworkPoints>627001000000</NetworkPoints>
+          </CenterPoint>
+          <Mark>
+            <NetworkPoints>627001000000</NetworkPoints>
+          </Mark>
+        </ConditionPoint>
+      </GeodesicBase>
+      <GeodesicBase>
+        <PName>Лебедево</PName>
+        <PKind>Пирамида</PKind>
+        <PKlass>2 класс</PKlass>
+        <OrdX>466922.76</OrdX>
+        <OrdY>2178280.16</OrdY>
+        <ConditionPoint AsOfDate="2016-05-01">
+          <OutdoorPoint>
+            <NetworkPoints>627001000000</NetworkPoints>
+          </OutdoorPoint>
+          <CenterPoint>
+            <NetworkPoints>627001000000</NetworkPoints>
+          </CenterPoint>
+          <Mark>
+            <NetworkPoints>627001000000</NetworkPoints>
+          </Mark>
+        </ConditionPoint>
+      </GeodesicBase>
+      <GeodesicBase>
+        <PName>Журавлево</PName>
+        <PKind>Пирамида</PKind>
+        <PKlass>2 класс</PKlass>
+        <OrdX>466985.74</OrdX>
+        <OrdY>2178318.85</OrdY>
+        <ConditionPoint AsOfDate="2016-05-01">
+          <OutdoorPoint>
+            <NetworkPoints>627001000000</NetworkPoints>
+          </OutdoorPoint>
+          <CenterPoint>
+            <NetworkPoints>627001000000</NetworkPoints>
+          </CenterPoint>
+          <Mark>
+            <NetworkPoints>627001000000</NetworkPoints>
+          </Mark>
+        </ConditionPoint>
+      </GeodesicBase>
+    </GeodesicBases>
+    <MeansSurvey>
+      <MeanSurvey>
+        <Name>Комплект спутниковой геодезической двухчастотной GPS/Глонасс-аппаратуры "Javad Navigation System Inc."</Name>
+        <Registration>
+          <Number>Свидетельство о поверке №777, выдано 01.03.2015 г., действительно до 01.03.2017 г.</Number>
+          <Duration>2 года</Duration>
+        </Registration>
+        <CertificateVerification>Свидетельство о поверке №777, выдано 01.03.2015 г., действительно до 01.03.2017 г.</CertificateVerification>
+      </MeanSurvey>
+    </MeansSurvey>
+    <ObjectsRealty>
+      <ObjectRealty>
+        <InnerCadastralNumbers>
+          <CadastralNumber>50:20:0010203:947</CadastralNumber>
+        </InnerCadastralNumbers>
+        <CadastralNumberParcel>50:20:0010203:156</CadastralNumberParcel>
+      </ObjectRealty>
+    </ObjectsRealty>
+    <SubParcels>
+      <SubParcel>
+        <CadastralNumberParcel>50:20:0010203:156</CadastralNumberParcel>
+        <NumberRecord>50:20:0010203:156/1</NumberRecord>
+      </SubParcel>
+    </SubParcels>
+  </InputData>
+  <Survey>
+    <GeopointsOpred>
+      <GeopointOpred>
+        <CadastralNumberDefinition>50:20:0010203:156:ЗУ1</CadastralNumberDefinition>
+        <Methods>
+          <GeopointOpred>692001000000</GeopointOpred>
+        </Methods>
+      </GeopointOpred>
+      <GeopointOpred>
+        <CadastralNumberDefinition>50:20:0010203:156:ЗУ1/чзу1</CadastralNumberDefinition>
+        <Methods>
+          <GeopointOpred>692001000000</GeopointOpred>
+        </Methods>
+      </GeopointOpred>
+      <GeopointOpred>
+        <CadastralNumberDefinition>50:20:0010203:156:ЗУ2</CadastralNumberDefinition>
+        <Methods>
+          <GeopointOpred>692001000000</GeopointOpred>
+        </Methods>
+      </GeopointOpred>
+      <GeopointOpred>
+        <CadastralNumberDefinition>50:20:0010203:156:ЗУ2/чзу1</CadastralNumberDefinition>
+        <Methods>
+          <GeopointOpred>692001000000</GeopointOpred>
+        </Methods>
+      </GeopointOpred>
+      <GeopointOpred>
+        <CadastralNumberDefinition>50:20:0010203:67</CadastralNumberDefinition>
+        <Methods>
+          <GeopointOpred>692001000000</GeopointOpred>
+        </Methods>
+      </GeopointOpred>
+    </GeopointsOpred>
+    <TochnGeopointsParcels>
+      <TochnGeopointsParcel>
+        <CadastralNumberDefinition>50:20:0010203:156:ЗУ1</CadastralNumberDefinition>
+        <Formula>Mt=√(0,07²+0,07²)=0,10</Formula>
+      </TochnGeopointsParcel>
+      <TochnGeopointsParcel>
+        <CadastralNumberDefinition>50:20:0010203:156:ЗУ2</CadastralNumberDefinition>
+        <Formula>Mt=√(0,07²+0,07²)=0,10</Formula>
+      </TochnGeopointsParcel>
+      <TochnGeopointsParcel>
+        <CadastralNumberDefinition>50:20:0010203:67</CadastralNumberDefinition>
+        <Formula>Mt=√(0,07²+0,07²)=0,10</Formula>
+      </TochnGeopointsParcel>
+    </TochnGeopointsParcels>
+    <TochnGeopointsSubParcels>
+      <TochnGeopointsSubParcel>
+        <CadastralNumberDefinition>50:20:0010203:156:ЗУ1</CadastralNumberDefinition>
+        <Formula>Mt=√(0,07²+0,07²)=0,10</Formula>
+        <NumberRecordDefinition>50:20:0010203:156:ЗУ1/чзу1</NumberRecordDefinition>
+      </TochnGeopointsSubParcel>
+      <TochnGeopointsSubParcel>
+        <CadastralNumberDefinition>50:20:0010203:156:ЗУ2</CadastralNumberDefinition>
+        <Formula>Mt=√(0,07²+0,07²)=0,10</Formula>
+        <NumberRecordDefinition>50:20:0010203:156:ЗУ2/чзу1</NumberRecordDefinition>
+      </TochnGeopointsSubParcel>
+    </TochnGeopointsSubParcels>
+    <TochnAreaParcels>
+      <TochnAreaParcel>
+        <CadastralNumberDefinition>50:20:0010203:156:ЗУ1</CadastralNumberDefinition>
+        <Formula>∆Р = 2 * 0.10 * √333 * √((1 + 1.81²)/(2 * 1.81)) = 3.97</Formula>
+        <Area>
+          <Area>333</Area>
+          <Unit>055</Unit>
+        </Area>
+      </TochnAreaParcel>
+      <TochnAreaParcel>
+        <CadastralNumberDefinition>50:20:0010203:156:ЗУ2</CadastralNumberDefinition>
+        <Formula>∆Р = 2 * 0.10 * √322 * √((1 + 1.23²)/(2 * 1.23)) = 3.63</Formula>
+        <Area>
+          <Area>322</Area>
+          <Unit>055</Unit>
+        </Area>
+      </TochnAreaParcel>
+    </TochnAreaParcels>
+    <TochnAreaSubParcels>
+      <TochnAreaSubParcel>
+        <CadastralNumberDefinition>50:20:0010203:156:ЗУ1</CadastralNumberDefinition>
+        <Formula>∆Р = 2 * 0.10 * √76 * √((1 + 1.20²)/(2 * 1.20)) = 1.76</Formula>
+        <NumberRecordDefinition>50:20:0010203:156:ЗУ1/чзу1</NumberRecordDefinition>
+        <Area>
+          <Area>76</Area>
+          <Unit>055</Unit>
+        </Area>
+      </TochnAreaSubParcel>
+      <TochnAreaSubParcel>
+        <CadastralNumberDefinition>50:20:0010203:156:ЗУ2</CadastralNumberDefinition>
+        <Formula>∆Р = 2 * 0.10 * √60 * √((1 + 1.28²)/(2 * 1.28)) = 1.57</Formula>
+        <NumberRecordDefinition>50:20:0010203:156:ЗУ2/чзу1</NumberRecordDefinition>
+        <Area>
+          <Area>60</Area>
+          <Unit>055</Unit>
+        </Area>
+      </TochnAreaSubParcel>
+    </TochnAreaSubParcels>
+  </Survey>
+  <Conclusion>Межевой план составлен по образуемым участкам с условными обозначениями 50:20:0010203:156:ЗУ1 и 50:20:0010203:156:ЗУ2. На исходном участке находится жилой дом с кадастровым номером 50:20:0010203:947, Свидетельство о гос. регистрации права №13 от 12.03.2007 г. В результате проведения работ по постановке участков на кадастровый учет составлена текстовая часть настоящего Межевого плана и выполнена графическая часть, а именно необходимые схемы и чертежи.
+Этот текст составлен для проверки заполнения формы Межевого плана, и не является образцом для написания такого рода заключений.
+</Conclusion>
+  <SchemeGeodesicPlotting Name="Images\Проект межевого плана_2017 Построения.pdf" Kind="01" />
+  <SchemeDisposition Name="Images\Проект межевого плана_2017 Расположение.pdf" Kind="01" />
+  <DiagramParcelsSubParcels>
+    <AppliedFile Kind="01" Name="Images\Проект межевого плана_2017 Чертеж.pdf" />
+  </DiagramParcelsSubParcels>
+  <AgreementDocument>
+    <AppliedFile Name="Images\Проект межевого плана_2017 Акт.pdf" Kind="01" />
+  </AgreementDocument>
+  <NodalPointSchemes>
+    <NodalPointScheme Definition="14">
+      <AppliedFile Name="Images\Проект межевого плана_2017 Абрисы.pdf" Kind="01" />
+    </NodalPointScheme>
+  </NodalPointSchemes>
+  <Appendix>
+    <AppliedFiles>
+      <NumberAppendix>1</NumberAppendix>
+      <NameAppendix>Извещение о проведении собрания о согласовании местоположения границ земельных участков</NameAppendix>
+      <AppliedFile Kind="01" Name="Images\Извещение о проведении собрания о согласовании местоположения границ земельных участков.pdf" />
+    </AppliedFiles>
+    <AppliedFiles>
+      <NumberAppendix>2</NumberAppendix>
+      <NameAppendix>Акт о сдаче межевых знаков на наблюдение за сохранностью</NameAppendix>
+      <AppliedFile Kind="01" Name="Images\Акт о сдаче межевых знаков на наблюдение за сохранностью.pdf" />
+    </AppliedFiles>
+    <AppliedFiles>
+      <NumberAppendix>3</NumberAppendix>
+      <NameAppendix>Схема расположения межевых знаков</NameAppendix>
+      <AppliedFile Kind="01" Name="Images\Схема расположения межевых знаков.pdf" />
+    </AppliedFiles>
+  </Appendix>
+</MP>
