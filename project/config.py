@@ -1,25 +1,13 @@
 """
     ТИТУЛЬНЫ ЛИСТ
 """
-REASON = 'REASON'
-PURPOSE = 'PURPOSE'
-CLIENT = 'CLIENT'
-FIO = 'FIO'
-NCERTIFICATE = 'NCERTIFICATE'
-TELEPHONE = 'TELEPHONE'
-ADDRESS = 'ADDRESS'
-EMAIL  ='EMAIL'
-ORGANIZATION = 'ORGANIZATION'
-MP_DATA = 'DATA'
+TITLE_KEY = ['REASON', 'PURPOSE', 'CLIENT', 'FIO', 'NCERTIFICATE', 'TELEPHONE',
+             'ADDRESS', 'EMAIL', 'ORGANIZATION', 'DATA']
 
 """
     СЛОВАРИ INPUT_DATA
 """
-TITLE_KEY = ['REASON', 'PURPOSE', 'CLIENT', 'FIO', 'NCERTIFICATE', 'TELEPHONE',
-             'ADDRESS', 'EMAIL', 'ORGANIZATION', 'DATA']
-
 SYSTEM_COORD = 'system_coord'
-
 GEODESIC_BASES = {
     'name': 'GEODESIC_BASES',
     'attr': ['id', 'name', 'klass', 'x', 'y']
@@ -59,6 +47,7 @@ TOCHN_AREA_PARCELS = {
 
 """
   Сведения об образуемых  земельных учатсках
+  :param empty - свидетельствует о наличии пустой строки
 """
 ENTITY_SPATIAL = {
     'name': 'ENTITY_SPATIAL',
@@ -73,7 +62,7 @@ BORDERS = {
     'attr': ['point1', 'point2', 'length','empty']
 }
 
-NEWPARCEL_COMMON = {
+PARCEL_COMMON = {
     'address': 'address',
     'location': 'location',
     'location_note': 'location_note',
@@ -91,5 +80,10 @@ NEWPARCEL_COMMON = {
     }
 }
 
+SUBPARCELS = {
+    'name': 'SUBPARCELS',
+    'attr': ['id', 'x', 'y', 'encumbrance']
+}
 
 PATH_XSD = 'xsd'
+PATH_RESULT = 'res'
