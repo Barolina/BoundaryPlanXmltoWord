@@ -27,6 +27,51 @@ class XMLElemenBase:
             res.append(dict(zip(key, _)))
         return res
 
+    def xml_spatial_element_to_list(self,node):
+        """
+        :param node: ==  SpatialElement
+        :return: list()
+        """
+        spatial_eleemnt = node.xpath('child::*/*[contains(name(),"Ordinate")]')
+        res = []
+        for _ in spatial_eleemnt:
+            number = ''.join(_.xpath('@PointPref') + _.xpath('@NumGeopoint'))
+            res.append([number, ''.join(_.xpath('@X')), ''.join(_.xpath('@Y')), ''.join(_.xpath('@DeltaGeopoint'))])
+        return res
+
+    def xml_entity_spatial_to_list(self, node):
+        """
+            Entity_Spatial
+        :param node: parent/Entity_Spatial
+        :return:
+        """
+        pathEntitySpatial1 = 'EntitySpatial/child::SpatialElement'
+        spatial_element = node.xpath(pathEntitySpatial1)
+        res = []
+        for _ in spatial_element:
+            res.extend(self.xml_spatial_element_to_list(_))
+            # добавление пустой строки - разделение внутрених контуров
+            res.append(['','','','','yes'])
+        return res
+
+    def xmlnode_key_to_text(self, node, path, name_xsd):
+        """
+            получение знсачения ноды по ключу из справоника
+        :param node:  узел - где ищем
+        :param path: парсер - что ищем
+        :param name_xsd: наименование сравочнка
+        :return:
+        """
+        if not name_xsd:
+            logging.error(f"""Не передан справочник {name_xsd}""")
+            return ''
+        _list = node.xpath(path)
+        res = ''
+        if _list:
+            path = os.path.join(cnfg.PATH_XSD, name_xsd)
+            res = value_from_xsd(path, _list[0])
+        return res
+
     def to_dict(self):
         """
             Обязательный метод для  наследников
@@ -224,43 +269,50 @@ class XmlInputDataDict(XMLElemenBase):
         return _res
 
 
+class XmlSubParcel(XMLElemenBase):
+        """
+            root = SubParcels
+            'name': 'SUBPARCELS',
+            'attr': {
+                'sub_parcel_definition': 'sub_parcel_definition',
+                'ENTITY_SPATIAL': {
+                    'name': 'SUB_ENTITY_SPATIAL',
+                    'attr': ['numGeopoint', 'x', 'y', 'deltaGeopoint', 'empty'],
+                },
+                'COMMON': {
+                    'name': 'COMMON',
+                    'attr': ['cadnumber', 'area', 'delta', 'encumbrace']
+                }
+            }
+        """
+        def xml_definition_to_text(self):
+            return ''.join(self.node.xpath('@Definition'))
+
+        def xml_general_to_dict(self):
+           res = []
+           res.append(self.xml_definition_to_text())
+           res.append(''.join(self.node.xpath('Area/Area/text()')))
+           res.append(''.join(self.node.xpath('Area/Inaccuracy/text()')))
+           res.append(self.xmlnode_key_to_text(self.node,'Encumbrance/Type/text()', cnfg.SUBPARCEL_GENERAL['dict']['encumbrace']))
+           return  self.preparation_node(cnfg.SUBPARCEL_GENERAL['attr'], [res])
+
+        def xml_entity_spatial_dict(self):
+            res = []
+            res.append(self.xml_definition_to_text())
+            res.append(
+                self.preparation_node(cnfg.SUB_ENTITY_SPATIAL['attr'], self.xml_entity_spatial_to_list(self.node)))
+            _dict = self.preparation_node(cnfg.SUBPARCELS['attr'], [res])
+            return _dict
+
+        def to_dict(self):
+           pass
+
 class XmlNewParcel(XMLElemenBase):
     """
         :param root = NewParcel
     """
     pathEntitySpatial1 = 'EntitySpatial/child::SpatialElement'
     pathBorders = 'EntitySpatial/child::Borders'
-    cadastralNumber = ''
-
-    def xml_spatial_element_to_list(self,node):
-        """
-        :param node: ==  SpatialElement
-        :return: list()
-        """
-        spatial_eleemnt = node.xpath('child::*/*[contains(name(),"Ordinate")]')
-        res = []
-        for _ in spatial_eleemnt:
-            number = ''.join(_.xpath('@PointPref') + _.xpath('@NumGeopoint'))
-            res.append([number, ''.join(_.xpath('@X')), ''.join(_.xpath('@Y')), ''.join(_.xpath('@DeltaGeopoint'))])
-        return res
-
-    def xml_entity_spatial_to_list(self, node):
-        """
-            Entity_Spatial
-        :param node: parent/Entity_Spatial
-        :return:
-        """
-        # _ = node.xpath('@Definition')
-        # if _:
-        #     self.cadastralNumber = _[0]
-        # print(self.cadastralNumber)
-        spatial_element = node.xpath(self.pathEntitySpatial1)
-        res = []
-        for _ in spatial_element:
-            res.extend(self.xml_spatial_element_to_list(_))
-            # добавление пустой строки - разделение внутрених контуров
-            res.append(['','','','','yes'])
-        return res
 
     def xml_borders_to_list(self):
         countSpatialElement = len(self.node.xpath(self.pathEntitySpatial1))
@@ -272,24 +324,6 @@ class XmlNewParcel(XMLElemenBase):
                 res.append([''.join(point.xpath('@Point1')), ''.join(point.xpath('@Point2')), ''.join(point.xpath('Edge/Length/text()'))])
             # добавление пустой строки - разжеление контуров
             res.append(['','','','yes'])
-        return res
-
-    def xmlnode_key_to_text(self, node, path, name_xsd):
-        """
-            получение знсачения ноды по ключу из справоника
-        :param node:  узел - где ищем
-        :param path: парсер - что ищем
-        :param name_xsd: наименование сравочнка
-        :return:
-        """
-        if not name_xsd:
-            logging.error(f"""Не передан справочник {name_xsd}""")
-            return ''
-        _list = node.xpath(path)
-        res = ''
-        if _list:
-            path = os.path.join(cnfg.PATH_XSD, name_xsd)
-            res = value_from_xsd(path, _list[0])
         return res
 
     def full_addres(self, node):
@@ -353,26 +387,65 @@ class XmlNewParcel(XMLElemenBase):
         dict_address['min_area'] = ''.join(self.node.xpath('MinArea/Area/text()'))
         dict_address['max_area'] = ''.join(self.node.xpath('MaxArea/Area/text()'))
         dict_address['note'] =  ''.join(self.node.xpath('Note/text()'))
+        dict_address['prevcadastralnumber'] = self.xml_objectRealty_inner_cadastral_number_to_text()
         return dict_address
 
-    def xml_sub_parcels(self):
-        node = self.node.xpath('SubParcels/child::*')
+    def xml_objectRealty_inner_cadastral_number_to_text(self):
+        res  =', '.join(self.node.xpath('ObjectRealty/InnerCadastralNumbers/child::*/text()'))
+        return res
+
+    def xml_owner_to_text(self, node):
+        """
+            Преобразование правооблаталей
+        :param node:  OwnerNeighbours
+        :return:
+        """
+        res = ''
         for _ in node:
-            print(_.xpath('@Definition'))
-            area = self.full_area(_.xpath('Area')[0])
-            enumerate = self.xmlnode_key_to_text(_.xpath('Encumbrance')[0],'Type/text()','')
-            _dict = self.preparation_node(cnfg.ENTITY_SPATIAL['attr'], self.xml_entity_spatial_to_list(_))
-            print(_dict)
-        pass
+            rows = ''.join(_.xpath('child::NameRight/text()'))
+            rows  += f""" {', '.join(_.xpath('child::OwnerNeighbour/NameOwner/text()'))}"""
+            rows  += f""" {', '.join(_.xpath('child::OwnerNeighbour/ContactAddress/text()'))}"""
+            res +=  f"""{ rows }; """
+        return res
+
+    def xml_related_parcel_to_list(self):
+        """
+           'attr': ['point', 'cadastralnumber', 'right']
+        :return: list
+        """
+        _node = self.node.xpath('RelatedParcels/child::*')
+        res= []
+        for _ in _node:
+            _rows = []
+            _rows.append(''.join(_.xpath('Definition/text()')))
+            _rows.append(', '.join(_.xpath('child::*/CadastralNumber/text()')))
+            _rows.append(self.xml_owner_to_text(_.xpath('child::*/OwnerNeighbours')))
+            res.append(_rows)
+        return  res
+
+    def xml_cadnum_to_text(self):
+        _ = self.node.xpath('@Definition')
+        if _:
+            return _[0]
+        return ''
+
+    def xml_sub_parcels_to_dict(self):
+        node = self.node.xpath('SubParcels/child::*')
+        entity_spatial  = []
+        general = []
+        for _ in node:
+            subParcel = XmlSubParcel(_)
+            entity_spatial.extend(subParcel.xml_entity_spatial_dict())
+            general.extend(subParcel.xml_general_to_dict())
+        return {cnfg.SUBPARCELS['name']: entity_spatial,
+                cnfg.SUBPARCEL_GENERAL['name']: general}
 
     def to_dict(self):
-        _dict =self.preparation_node(cnfg.ENTITY_SPATIAL['attr'], self.xml_entity_spatial_to_list(self.node))
-        print(_dict)
-        res= {cnfg.ENTITY_SPATIAL['props']['cadnum']: self.cadastralNumber,
-              cnfg.ENTITY_SPATIAL['name']: _dict,
+        res= {cnfg.PARCEL_COMMON['cadnum']: self.xml_cadnum_to_text(),
+              cnfg.ENTITY_SPATIAL['name']: self.preparation_node(cnfg.ENTITY_SPATIAL['attr'], self.xml_entity_spatial_to_list(self.node)),
               cnfg.BORDERS['name']: self.preparation_node(cnfg.BORDERS['attr'], self.xml_borders_to_list()),
+              cnfg.RELATEDPARCELS['name']: self.preparation_node(cnfg.RELATEDPARCELS['attr'], self.xml_related_parcel_to_list()),
              }
-        address = self.xml_comon_address_to_dict()
-        res.update(address)
-        _sub= self.xml_sub_parcels()
+        res.update(self.xml_comon_address_to_dict())
+        res.update(self.xml_sub_parcels_to_dict())
         return res

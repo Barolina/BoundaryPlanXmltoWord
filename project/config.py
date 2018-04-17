@@ -52,10 +52,6 @@ TOCHN_AREA_PARCELS = {
 ENTITY_SPATIAL = {
     'name': 'ENTITY_SPATIAL',
     'attr': ['numGeopoint', 'x', 'y', 'deltaGeopoint', 'empty'],
-    'props': {
-        'cadnum': 'cadastralnumber',
-        'zone': 'zona'
-    }
 }
 BORDERS = {
     'name': 'BORDERS',
@@ -63,6 +59,8 @@ BORDERS = {
 }
 
 PARCEL_COMMON = {
+    'cadnum': 'cadastralnumber',
+    'zone': 'zona',
     'address': 'address',
     'location': 'location',
     'location_note': 'location_note',
@@ -72,6 +70,7 @@ PARCEL_COMMON = {
     'min_area': 'min_area',
     'max_area': 'max_area',
     'note': 'note',
+    'prevcadastralnumber': 'prevcadastralnumber',
     'dict': {
         'address_code': 'adresCod.xsd',
         'categories': 'dCategories_v01.xsd',
@@ -80,10 +79,52 @@ PARCEL_COMMON = {
     }
 }
 
+RELATEDPARCELS = {
+    'name': 'RELATEDPARCELS',
+    'attr': ['point', 'cadastralnumber', 'right']
+}
+
+
+"""
+   ЧАСТИ
+"""
+
+#
+# SUBPARCELS = {
+#     'name': 'SUBPARCELS',
+#     'attr': [
+#         'sub_parcel_definition': 'sub_parcel_definition',
+#         'ENTITY_SPATIAL': {
+#             'name': 'ENTITY_SPATIAL',
+#             'attr': ['numGeopoint', 'x', 'y', 'deltaGeopoint', 'empty'],
+#         },
+#         'COMMON': {
+#             'name': 'COMMON',
+#             'attr': ['cadnumber', 'area', 'delta', 'encumbrace']
+#         }
+#     ]
+# }
+
+SUB_ENTITY_SPATIAL = {
+    'name': 'ENTITY_SPATIAL',
+    'attr': ['numGeopoint', 'x', 'y', 'deltaGeopoint', 'empty'],
+}
+
+SUBPARCEL_GENERAL= {
+            'name': 'SUBPARCEL_GENERAL',
+            'attr': ['cadnumber', 'area', 'delta', 'encumbrace'],
+            'dict': {
+                'encumbrace': 'dEncumbrances_v02.xsd',
+            }
+}
 SUBPARCELS = {
     'name': 'SUBPARCELS',
-    'attr': ['id', 'x', 'y', 'encumbrance']
+    'attr': [
+        'sub_parcel_definition',
+        'ENTITY_SPATIAL',
+    ]
 }
+
 
 PATH_XSD = 'xsd'
 PATH_RESULT = 'res'

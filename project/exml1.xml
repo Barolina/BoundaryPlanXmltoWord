@@ -11,6 +11,11 @@
 					<CadastralNumber>50:52:0030103:1489</CadastralNumber>
 					<CadastralNumber>50:52:0000000:18950</CadastralNumber>
 				</ProvidingPassCadastralNumbers>
+		   <ObjectRealty>
+          <InnerCadastralNumbers>
+            <CadastralNumber>12:32:3131231:11</CadastralNumber>
+          </InnerCadastralNumbers>
+        </ObjectRealty>
 				<Area>
 					<Area>14193</Area>
 					<Unit>055</Unit>
@@ -424,6 +429,84 @@
 						</Border>
 					</Borders>
 				</EntitySpatial>
+				<RelatedParcels>
+					<ParcelNeighbours>
+						<Definition>y111</Definition>
+						<ParcelNeighbour>
+							<CadastralNumber>12:34:2342342:34</CadastralNumber>
+							<OwnerNeighbours>
+								<NameRight>2342134</NameRight>
+								<OwnerNeighbour>
+									<NameOwner>fhfghdfghdf</NameOwner>
+									<ContactAddress>gherewrqreqwer</ContactAddress>
+									<Documents>
+										<Document>
+											<CodeDocument>558401000000</CodeDocument>
+											<Name>Выписка координат пунктов ГГС</Name>
+											<Number>123123</Number>
+											<Date>2018-04-11</Date>
+											<IssueOrgan>Администрация Бежецкого района Тверской области</IssueOrgan>
+										</Document>
+									</Documents>
+								</OwnerNeighbour>
+							</OwnerNeighbours>
+						</ParcelNeighbour>
+							<ParcelNeighbour>
+							<CadastralNumber>12:34:2342342:33</CadastralNumber>
+							<OwnerNeighbours>
+								<NameRight>2342134</NameRight>
+								<OwnerNeighbour>
+									<NameOwner>fhfghdfghdf</NameOwner>
+									<ContactAddress>gherewrqreqwer</ContactAddress>
+									<Documents>
+										<Document>
+											<CodeDocument>558401000000</CodeDocument>
+											<Name>Выписка координат пунктов ГГС</Name>
+											<Number>123123</Number>
+											<Date>2018-04-11</Date>
+											<IssueOrgan>Администрация Бежецкого района Тверской области</IssueOrgan>
+										</Document>
+									</Documents>
+								</OwnerNeighbour>
+							</OwnerNeighbours>
+						</ParcelNeighbour>
+					</ParcelNeighbours>
+					<ParcelNeighbours>
+						<Definition>3434</Definition>
+						<ParcelNeighbour>
+							<CadastralNumber>12:31:2312312:31</CadastralNumber>
+							<OwnerNeighbours>
+								<NameRight>1233</NameRight>
+								<OwnerNeighbour>
+									<NameOwner>234er34d</NameOwner>
+									<ContactAddress>adfaf</ContactAddress>
+									<Documents>
+										<Document>
+											<CodeDocument>558401000000</CodeDocument>
+											<Name>Выписка из ЕГРН</Name>
+											<Number>234234</Number>
+											<Date>2018-04-04</Date>
+											<IssueOrgan>Администрация Бежецкого района Тверской области</IssueOrgan>
+										</Document>
+									</Documents>
+								</OwnerNeighbour>
+								<OwnerNeighbour>
+									<NameOwner>erqwerqwer</NameOwner>
+									<ContactAddress>qwerqwer</ContactAddress>
+									<Documents>
+										<Document>
+											<CodeDocument>558401000000</CodeDocument>
+											<Name>Выписка из ЕГРН</Name>
+											<Number>234234</Number>
+											<Date>2018-04-04</Date>
+											<IssueOrgan>Администрация Бежецкого района Тверской области</IssueOrgan>
+										</Document>
+									</Documents>
+								</OwnerNeighbour>
+							</OwnerNeighbours>
+						</ParcelNeighbour>
+					</ParcelNeighbours>
+				</RelatedParcels>
 			</NewParcel>
 			<ChangeParcel CadastralNumber="50:52:0030103:1489">
 				<CadastralBlock>50:52:0030103</CadastralBlock>
