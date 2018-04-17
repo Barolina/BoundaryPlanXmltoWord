@@ -1,11 +1,14 @@
 """
     ТИТУЛЬНЫ ЛИСТ
+    ____________________________________________________________________________________________________________________
 """
 TITLE_KEY = ['REASON', 'PURPOSE', 'CLIENT', 'FIO', 'NCERTIFICATE', 'TELEPHONE',
              'ADDRESS', 'EMAIL', 'ORGANIZATION', 'DATA']
 
+
 """
     СЛОВАРИ INPUT_DATA
+    ____________________________________________________________________________________________________________________
 """
 SYSTEM_COORD = 'system_coord'
 GEODESIC_BASES = {
@@ -27,6 +30,7 @@ OBJECTS_REALTY= {
 
 """
     СВЕДЕНИЯ О ВЫПОЛНЕННЫХ ИЗМЕРЕНИЯХ и РАСЧЕТАХ
+    ____________________________________________________________________________________________________________________
 """
 GEOPOINTS_OPRED = {
     'name': 'GEOPOINTS_OPRED',
@@ -48,6 +52,8 @@ TOCHN_AREA_PARCELS = {
 """
   Сведения об образуемых  земельных учатсках
   :param empty - свидетельствует о наличии пустой строки
+  :param contour  - свидетельствует о наличии строки контура
+  ____________________________________________________________________________________________________________________
 """
 ENTITY_SPATIAL = {
     'name': 'ENTITY_SPATIAL',
@@ -87,25 +93,10 @@ RELATEDPARCELS = {
 
 """
    ЧАСТИ
+   ____________________________________________________________________________________________________________________
 """
 
-#
-# SUBPARCELS = {
-#     'name': 'SUBPARCELS',
-#     'attr': [
-#         'sub_parcel_definition': 'sub_parcel_definition',
-#         'ENTITY_SPATIAL': {
-#             'name': 'ENTITY_SPATIAL',
-#             'attr': ['numGeopoint', 'x', 'y', 'deltaGeopoint', 'empty'],
-#         },
-#         'COMMON': {
-#             'name': 'COMMON',
-#             'attr': ['cadnumber', 'area', 'delta', 'encumbrace']
-#         }
-#     ]
-# }
-
-SUB_ENTITY_SPATIAL = {
+SUBPARCEL_ENTITY_SPATIAL = {
     'name': 'ENTITY_SPATIAL',
     'attr': ['contour','numGeopoint', 'x', 'y', 'deltaGeopoint', 'empty'],
 }
@@ -120,11 +111,13 @@ SUBPARCEL_GENERAL= {
 SUBPARCELS = {
     'name': 'SUBPARCELS',
     'attr': [
-        'sub_parcel_definition',
-        'ENTITY_SPATIAL',
-    ]
+        'sub_parcel_definition','ENTITY_SPATIAL']
 }
 
+"""
+    FILES/DIRECTORY
+    ____________________________________________________________________________________________________________________
+"""
 
 PATH_XSD = 'xsd'
 PATH_RESULT = 'res'

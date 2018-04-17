@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<MP Version="06" NameSoftware="ТехноКад-Экспресс" VersionSoftware="2.19.30404.0" GUID="aead5c43-39b1-4474-ba34-c6529b01876f" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="file://server-2012/public/Programms/MP_v05/Data/MP_v06.xsd">
+<MP Version="06" NameSoftware="ТехноКад-Экспресс" VersionSoftware="2.19.30404.0" GUID="aead5c43-39b1-4474-ba34-c6529b01876f" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" >
 	<Package>
 		<FormParcels Method="3">
 			<NewParcel Definition=":ЗУ1">
@@ -86,54 +86,105 @@
 							<Unit>055</Unit>
 						</Area>
 						<EntitySpatial EntSys="Id695714cb-f9b0-4df8-b3cd-ca3b5f8d10b4">
-					<SpatialElement>
-						<SpelementUnit TypeUnit="Точка">
-							<Ordinate NumGeopoint="1" X="401754.15" Y="1324808.29" DeltaGeopoint="0.2"/>
-						</SpelementUnit>
-						<SpelementUnit TypeUnit="Точка">
-							<Ordinate NumGeopoint="4" X="401749.73" Y="1324809.85" DeltaGeopoint="0.2"/>
-						</SpelementUnit>
-						<SpelementUnit TypeUnit="Точка">
-							<Ordinate NumGeopoint="2" PointPref="н" X="401750.64" Y="1324812.89" DeltaGeopoint="0.2"/>
-						</SpelementUnit>
-						<SpelementUnit TypeUnit="Точка">
-							<Ordinate NumGeopoint="1" PointPref="н" X="401755.10" Y="1324811.44" DeltaGeopoint="0.2"/>
-						</SpelementUnit>
-						<SpelementUnit TypeUnit="Точка">
-							<Ordinate NumGeopoint="1" X="401754.15" Y="1324808.29" DeltaGeopoint="0.2"/>
-						</SpelementUnit>
-					</SpatialElement>
-					<Borders>
-						<Border Point1="1" Point2="2" Spatial="1">
-							<Edge>
-								<Length>4.69</Length>
-							</Edge>
-						</Border>
-						<Border Point1="2" Point2="3" Spatial="1">
-							<Edge>
-								<Length>3.17</Length>
-							</Edge>
-						</Border>
-						<Border Point1="3" Point2="4" Spatial="1">
-							<Edge>
-								<Length>4.69</Length>
-							</Edge>
-						</Border>
-						<Border Point1="4" Point2="5" Spatial="1">
-							<Edge>
-								<Length>3.29</Length>
-							</Edge>
-						</Border>
-						<Border Point1="5" Point2="1" Spatial="1">
-							<Edge>
-								<Length>4.69</Length>
-							</Edge>
-						</Border>
-					</Borders>
-				</EntitySpatial>
+							<SpatialElement>
+								<SpelementUnit TypeUnit="Точка">
+									<Ordinate NumGeopoint="1" X="401754.15" Y="1324808.29" DeltaGeopoint="0.2"/>
+								</SpelementUnit>
+								<SpelementUnit TypeUnit="Точка">
+									<Ordinate NumGeopoint="4" X="401749.73" Y="1324809.85" DeltaGeopoint="0.2"/>
+								</SpelementUnit>
+								<SpelementUnit TypeUnit="Точка">
+									<Ordinate NumGeopoint="2" PointPref="н" X="401750.64" Y="1324812.89" DeltaGeopoint="0.2"/>
+								</SpelementUnit>
+								<SpelementUnit TypeUnit="Точка">
+									<Ordinate NumGeopoint="1" PointPref="н" X="401755.10" Y="1324811.44" DeltaGeopoint="0.2"/>
+								</SpelementUnit>
+								<SpelementUnit TypeUnit="Точка">
+									<Ordinate NumGeopoint="1" X="401754.15" Y="1324808.29" DeltaGeopoint="0.2"/>
+								</SpelementUnit>
+							</SpatialElement>
+							<Borders>
+								<Border Point1="1" Point2="2" Spatial="1">
+									<Edge>
+										<Length>4.69</Length>
+									</Edge>
+								</Border>
+								<Border Point1="2" Point2="3" Spatial="1">
+									<Edge>
+										<Length>3.17</Length>
+									</Edge>
+								</Border>
+								<Border Point1="3" Point2="4" Spatial="1">
+									<Edge>
+										<Length>4.69</Length>
+									</Edge>
+								</Border>
+								<Border Point1="4" Point2="5" Spatial="1">
+									<Edge>
+										<Length>3.29</Length>
+									</Edge>
+								</Border>
+								<Border Point1="5" Point2="1" Spatial="1">
+									<Edge>
+										<Length>4.69</Length>
+									</Edge>
+								</Border>
+							</Borders>
+						</EntitySpatial>
+					</NewContour>
+					<NewContour Definition="2">
+						<Area>
+							<Area>22222</Area>
+							<Unit>055</Unit>
+						</Area>
+						<EntitySpatial EntSys="Id695714cb-f9b0-4df8-b3cd-ca3b5f8d10b4">
+							<SpatialElement>
+								<SpelementUnit TypeUnit="Точка">
+									<Ordinate NumGeopoint="1" X="401754.15" Y="1324808.29" DeltaGeopoint="0.2"/>
+								</SpelementUnit>
+								<SpelementUnit TypeUnit="Точка">
+									<Ordinate NumGeopoint="4" X="401749.73" Y="1324809.85" DeltaGeopoint="0.2"/>
+								</SpelementUnit>
+								<SpelementUnit TypeUnit="Точка">
+									<Ordinate NumGeopoint="2" PointPref="н" X="401750.64" Y="1324812.89" DeltaGeopoint="0.2"/>
+								</SpelementUnit>
+								<SpelementUnit TypeUnit="Точка">
+									<Ordinate NumGeopoint="1" PointPref="н" X="401755.10" Y="1324811.44" DeltaGeopoint="0.2"/>
+								</SpelementUnit>
+								<SpelementUnit TypeUnit="Точка">
+									<Ordinate NumGeopoint="1" X="401754.15" Y="1324808.29" DeltaGeopoint="0.2"/>
+								</SpelementUnit>
+							</SpatialElement>
+							<Borders>
+								<Border Point1="1" Point2="2" Spatial="1">
+									<Edge>
+										<Length>4.69</Length>
+									</Edge>
+								</Border>
+								<Border Point1="2" Point2="3" Spatial="1">
+									<Edge>
+										<Length>3.17</Length>
+									</Edge>
+								</Border>
+								<Border Point1="3" Point2="4" Spatial="1">
+									<Edge>
+										<Length>4.69</Length>
+									</Edge>
+								</Border>
+								<Border Point1="4" Point2="5" Spatial="1">
+									<Edge>
+										<Length>3.29</Length>
+									</Edge>
+								</Border>
+								<Border Point1="5" Point2="1" Spatial="1">
+									<Edge>
+										<Length>4.69</Length>
+									</Edge>
+								</Border>
+							</Borders>
+						</EntitySpatial>
 					</NewContour>
 				</Contours>
-			
 				<RelatedParcels>
 					<ParcelNeighbours>
 						<Definition>123</Definition>
