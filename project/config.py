@@ -51,7 +51,7 @@ TOCHN_AREA_PARCELS = {
 """
 ENTITY_SPATIAL = {
     'name': 'ENTITY_SPATIAL',
-    'attr': ['numGeopoint', 'x', 'y', 'deltaGeopoint', 'empty'],
+    'attr': ['contour','numGeopoint', 'x', 'y', 'deltaGeopoint', 'empty'],
 }
 BORDERS = {
     'name': 'BORDERS',
@@ -107,7 +107,7 @@ RELATEDPARCELS = {
 
 SUB_ENTITY_SPATIAL = {
     'name': 'ENTITY_SPATIAL',
-    'attr': ['numGeopoint', 'x', 'y', 'deltaGeopoint', 'empty'],
+    'attr': ['contour','numGeopoint', 'x', 'y', 'deltaGeopoint', 'empty'],
 }
 
 SUBPARCEL_GENERAL= {

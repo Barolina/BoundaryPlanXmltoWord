@@ -36,7 +36,7 @@ class XMLElemenBase:
         res = []
         for _ in spatial_eleemnt:
             number = ''.join(_.xpath('@PointPref') + _.xpath('@NumGeopoint'))
-            res.append([number, ''.join(_.xpath('@X')), ''.join(_.xpath('@Y')), ''.join(_.xpath('@DeltaGeopoint'))])
+            res.append(['',number, ''.join(_.xpath('@X')), ''.join(_.xpath('@Y')), ''.join(_.xpath('@DeltaGeopoint'))])
         return res
 
     def xml_entity_spatial_to_list(self, node):
@@ -51,7 +51,7 @@ class XMLElemenBase:
         for _ in spatial_element:
             res.extend(self.xml_spatial_element_to_list(_))
             # добавление пустой строки - разделение внутрених контуров
-            res.append(['','','','','yes'])
+            res.append(['','','','','','yes'])
         return res
 
     def xmlnode_key_to_text(self, node, path, name_xsd):
@@ -441,6 +441,8 @@ class XmlNewParcel(XMLElemenBase):
                 cnfg.SUBPARCEL_GENERAL['name']: general}
 
     def to_dict(self):
+        print(self.xml_entity_spatial_to_list(self.node))
+        print(self.preparation_node(cnfg.ENTITY_SPATIAL['attr'], self.xml_entity_spatial_to_list(self.node)))
         res= {cnfg.PARCEL_COMMON['cadnum']: self.xml_cadnum_to_text(),
               cnfg.ENTITY_SPATIAL['name']: self.preparation_node(cnfg.ENTITY_SPATIAL['attr'], self.xml_entity_spatial_to_list(self.node)),
               cnfg.BORDERS['name']: self.preparation_node(cnfg.BORDERS['attr'], self.xml_borders_to_list()),
