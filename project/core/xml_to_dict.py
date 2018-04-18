@@ -202,8 +202,13 @@ class XmlSubParcel(XMLElemenBase):
         def xml_definition_to_text(self):
             return ''.join(self.node.xpath('@Definition'))
 
-        def xml_general_to_dict(self):
-           res = []
+        def xml_general_to_dict(self, position):
+           """
+             словарб общих сведений  части
+           :param position: просто  задать номер
+           :return:
+           """
+           res = [str(position)]
            res.append(self.xml_definition_to_text())
            res.append(''.join(self.node.xpath('Area/Area/text()')))
            res.append(''.join(self.node.xpath('Area/Inaccuracy/text()')))
@@ -351,10 +356,10 @@ class XmlNewParcel(XMLElemenBase):
         node = self.node.xpath('SubParcels/child::*')
         entity_spatial  = []
         general = []
-        for _ in node:
+        for index, _ in enumerate(node):
             subParcel = XmlSubParcel(_)
             entity_spatial.append(subParcel.xml_sub_entity_spatial_dict())
-            general.append(subParcel.xml_general_to_dict())
+            general.append(subParcel.xml_general_to_dict(index+1))
             del subParcel
         return {cnfg.SUBPARCELS['name']: entity_spatial,
                 cnfg.SUBPARCEL_GENERAL['name']: general}
@@ -363,10 +368,55 @@ class XmlNewParcel(XMLElemenBase):
         res= {cnfg.PARCEL_COMMON['cadnum']: self.xml_cadnum_to_text(),
               cnfg.ENTITY_SPATIAL['name']: self._merge_array_list(cnfg.ENTITY_SPATIAL['attr'],
                                                                  self.xml_contur_or_entity_spatial(self.node)),
-              cnfg.BORDERS['name']: self._merge_array_list(cnfg.BORDERS['attr'], self.xml_borders_to_list(self.node)),
+              cnfg.BORDERS['name']: self._merge_array_list(cnfg.BORDERS['attr'], self.xml_contours_borders(self.node)),
               cnfg.RELATEDPARCELS['name']: self._merge_array_list(cnfg.RELATEDPARCELS['attr'],
                                                                  self.xml_related_parcel_to_list()),
              }
         res.update(self.xml_general_info_to_dict())
         res.update(self.xml_sub_parcels_to_dict())
         return res
+
+
+class XmlExistParcel(XmlNewParcel):
+    """
+        root = SpecifyRelatedParcel
+    """
+
+    def xml_cadnum_to_text(self):
+        print(''.join(self.node.xpath('@CadastralNumber')))
+        return f"""{ ''.join(self.node.xpath('@CadastralNumber'))} ({''.join(self.node.xpath('@NumberRecord'))})"""
+
+    def xml_exist_contur_or_entity_spatial(self):
+        """
+        :param node: SpecifyRelatedParcel
+        :return:
+        """
+        allborder = self.node.xpath('AllBorder')
+        res = ''
+        if allborder:
+            res = self.xml_old_new_spatial_element_to_list(allborder[0])
+        print(res)
+        return res
+
+
+    def to_dict(self):
+        res = {cnfg.PARCEL_COMMON['cadnum']: self.xml_cadnum_to_text(),
+               cnfg.ENTITY_SPATIAL_EXIST['name']: self._merge_array_list(cnfg.ENTITY_SPATIAL_EXIST['attr'],
+                                                                   self.xml_exist_contur_or_entity_spatial()),
+               # cnfg.BORDERS['name']: self._merge_array_list(cnfg.BORDERS['attr'], self.xml_contours_borders(self.node)),
+               # cnfg.RELATEDPARCELS['name']: self._merge_array_list(cnfg.RELATEDPARCELS['attr'],
+               #                                                     self.xml_related_parcel_to_list()),
+               }
+        print(res)
+        res.update(self.xml_general_info_to_dict())
+        return res
+
+class XmlConclusion(XMLElemenBase):
+       """
+            root = Conclusion
+       """
+       def to_dict(self):
+           print('start')
+           return {
+                cnfg.CONCLUSION : self.node.xpath('text()')
+           }

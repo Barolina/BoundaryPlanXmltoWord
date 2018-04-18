@@ -34,11 +34,40 @@ class XMLElemenBase:
         :param node: ==  SpatialElement
         :return: list()
         """
-        spatial_eleemnt = node.xpath('child::*/*[contains(name(),"Ordinate")]')
+        spatial_eleemnt = node.xpath('child::*/*[starts-with(name(),"Ordinate")]')
+        if spatial_eleemnt:
+            res = []
+            for _ in spatial_eleemnt:
+                number = ''.join(_.xpath('@PointPref') + _.xpath('@NumGeopoint'))
+                res.append(['',number, ''.join(_.xpath('@X')), ''.join(_.xpath('@Y')), ''.join(_.xpath('@DeltaGeopoint'))])
+        return ''
+
+    def xml_old_new_spatial_element_to_list(self, node):
+        """
+        :param node: ==  SpatialElement
+        :return: list()
+        """
+        spatial_eleemnt = node.xpath('child::*/SpatialElement/*')
         res = []
-        for _ in spatial_eleemnt:
-            number = ''.join(_.xpath('@PointPref') + _.xpath('@NumGeopoint'))
-            res.append(['',number, ''.join(_.xpath('@X')), ''.join(_.xpath('@Y')), ''.join(_.xpath('@DeltaGeopoint'))])
+        if spatial_eleemnt:
+            res = []
+            for _ in spatial_eleemnt:
+                rows = ['']
+                newOrdinate = _.xpath('NewOrdinate')
+                oldOrdinate = _.xpath('OldOrdinate')
+                if newOrdinate:
+                    rows.append(''.join(newOrdinate[0].xpath('@PointPref') + newOrdinate[0].xpath('@NumGeopoint')))
+                else:
+                    rows.extend(['-','-'])
+                if oldOrdinate:
+                    rows.extend(oldOrdinate[0].xpath('@X')+oldOrdinate[0].xpath('@Y'))
+                else:
+                    rows.extend(['-', '-'])
+                if  newOrdinate:
+                    rows.extend(newOrdinate[0].xpath('@X') + newOrdinate[0].xpath('@Y'))
+                else:
+                    rows.extend(['-', '-'])
+                res.append(rows)
         return res
 
     def xml_entity_spatial_to_list(self, node):
@@ -50,10 +79,11 @@ class XMLElemenBase:
         pathEntitySpatial1 = 'EntitySpatial/child::SpatialElement'
         spatial_element = node.xpath(pathEntitySpatial1)
         res = []
-        for _ in spatial_element:
+        for index,_ in enumerate(spatial_element):
             res.extend(self.xml_spatial_element_to_list(_))
             # добавление пустой строки - разделение внутрених контуров
-            res.append(['','','','','','yes'])
+            if  index !=  len(spatial_element)-1:
+                res.append(['','','','','','yes'])
         return res
 
     def xml_contur_or_entity_spatial(self,node):
@@ -90,6 +120,17 @@ class XMLElemenBase:
             res = value_from_xsd(path, _list[0])
         return res
 
+    def xml_contours_borders(self,node):
+        contours = node.xpath('Contours/child::*')
+        if contours:
+            res = []
+            for _ in contours:
+                res.append([''.join(_.xpath('@Definition')), '', '', '', ''])
+                res.extend(self.xml_borders_to_list(_))
+        else:
+            res = self.xml_borders_to_list(node)
+        return res
+
     #TODO: нет обработки контуров, как в шаболнах там и в реализации
     def xml_borders_to_list(self, node):
         """
@@ -103,12 +144,13 @@ class XMLElemenBase:
         res = []
         for _ in range(0, countSpatialElement):
             path = pathBorders + '/child::*[@Spatial=' + str(_ + 1) + ']'
-            border = self.node.xpath(path)
+            border = node.xpath(path)
             for point in border:
-                res.append([''.join(point.xpath('@Point1')), ''.join(point.xpath('@Point2')),
+                res.append(['', ''.join(point.xpath('@Point1')), ''.join(point.xpath('@Point2')),
                             ''.join(point.xpath('Edge/Length/text()'))])
-            # добавление пустой строки - разжеление контуров
-            res.append(['', '', '', 'yes'])
+            if _ != countSpatialElement-1:
+                # добавление пустой строки - разжеление контуров
+                res.append(['', '', '', '', 'yes'])
         return res
 
     def to_dict(self):

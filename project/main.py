@@ -47,6 +47,13 @@ class MpXMlToWORd:
         context = etree.iterparse(path, events=('start', 'end',), tag='NewParcel')
         self.fast_iter(context, self.renderTPL, args=(XmlNewParcel, 'template/common/newparcel.docx'))
 
+        context = etree.iterparse(path, events=('start', 'end',), tag='SpecifyRelatedParcel')
+        self.fast_iter(context, self.renderTPL, args=(XmlExistParcel, 'template/common/existparcel.docx'))
+
+        context = etree.iterparse(path, events=('start', 'end',), tag='Conclusion')
+        self.fast_iter(context, self.renderTPL, args=(XmlConclusion, 'template/common/conclusion.docx'))
+
+
     def renderTPL(self,node, XMLClass, path_tpl):
         """
             Рендер шаблона
@@ -96,7 +103,7 @@ class MpXMlToWORd:
 if __name__ == '__main__':
 
     generat = MpXMlToWORd()
-    generat.xmlBlock_to_docx('exml3.xml')
+    generat.xmlBlock_to_docx('exml5.xml')
     files = os.listdir(cnfg.PATH_RESULT)
     _dcx = filter(lambda x : x.endswith('.docx'), files)
     _dcx = map(lambda x: os.path.join(cnfg.PATH_RESULT, x), _dcx)

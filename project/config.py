@@ -59,9 +59,14 @@ ENTITY_SPATIAL = {
     'name': 'ENTITY_SPATIAL',
     'attr': ['contour','numGeopoint', 'x', 'y', 'deltaGeopoint', 'empty'],
 }
+ENTITY_SPATIAL_EXIST = {
+    'name': 'ENTITY_SPATIAL',
+    'attr': ['contour','numGeopoint', 'oldX', 'oldY','newX','newY', 'delta', 'empty'],
+}
+
 BORDERS = {
     'name': 'BORDERS',
-    'attr': ['point1', 'point2', 'length','empty']
+    'attr': ['contour','point1', 'point2', 'length','empty']
 }
 
 PARCEL_COMMON = {
@@ -77,6 +82,9 @@ PARCEL_COMMON = {
     'max_area': 'max_area',
     'note': 'note',
     'prevcadastralnumber': 'prevcadastralnumber',
+    # for  existParcels
+    'areaGKN': 'areaGKN',
+    'deltaArea': 'deltaArea',
     'dict': {
         'address_code': 'adresCod.xsd',
         'categories': 'dCategories_v01.xsd',
@@ -103,7 +111,7 @@ SUBPARCEL_ENTITY_SPATIAL = {
 
 SUBPARCEL_GENERAL= {
             'name': 'SUBPARCEL_GENERAL',
-            'attr': ['cadnumber', 'area', 'delta', 'encumbrace'],
+            'attr': ['id', 'cadnumber', 'area', 'delta', 'encumbrace'],
             'dict': {
                 'encumbrace': 'dEncumbrances_v02.xsd',
             }
@@ -112,6 +120,13 @@ SUBPARCELS = {
     'name': 'SUBPARCELS',
     'attr': [
         'sub_parcel_definition','ENTITY_SPATIAL']
+}
+
+"""
+    CONCLUSION
+"""
+CONCLUSION = {
+    'name': 'conclusion',
 }
 
 """
