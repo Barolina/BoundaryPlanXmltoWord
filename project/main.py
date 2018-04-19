@@ -1,5 +1,9 @@
+from distutils.command.config import config
+
 from lxml import etree
 from docxtpl import DocxTemplate
+from lxml.etree import iterparse
+
 from core.xml_to_dict import  *
 from docx import Document
 import os
@@ -15,10 +19,19 @@ class MpXMlToWORd:
     def fast_iter(self,context, func, args=[], kwargs={}):
         # http://www.ibm.com/developerworks/xml/library/x-hiperfparse/
         for event, elem in context:
+            # Also eliminate now-empty references from the root node to elem
+            for ancestor in elem.xpath('ancestor-or-self::*'):
+                print('Checking ancestor: {a}'.format(a=ancestor.tag))
+                while ancestor.getprevious() is not None:
+                    print(
+                        'Deleting {p}'.format(p=(ancestor.getparent()[0]).tag))
+                    del ancestor.getparent()[0]
+            print('Processing {e}'.format(e=etree.tostring(elem)))
             func(elem, *args, **kwargs)
+            # It safe to call clear() here because no descendants will be
+            # accessed
+            print('Clearing {e}'.format(e=etree.tostring(elem)))
             elem.clear()
-            while elem.getprevious() is not None:
-                del elem.getparent()[0]
         del context
 
     def getNextNameFile(self):
@@ -29,35 +42,23 @@ class MpXMlToWORd:
         self.name_number +=1
         return '.'.join([str(self.name_number), 'docx'])
 
+    def _xml_get_iter_block(self,path, nameNode, className, template):
+        events = ('end',)
+        context = etree.iterparse(path, events, tag=nameNode)
+        self.fast_iter(context, self.renderTPL, args=(className, template))
+
     def xmlBlock_to_docx(self, path):
         """
             Формирование списка док. файлов  по блокам xml
         :param path: путь до файла
         :return:
         """
-        events = ("start", "end")
-        # reader = codecs.EncodedFile(path, 'utf8', 'utf8')
-        # tree = etree.parse(path)
-        # elem = tree.xpath('MP')
-        # print(etree.tostring(tree.xpath('Package')[0]))
-
-        context = etree.iterparse(path, events=('end',), tag='GeneralCadastralWorks')
-        self.fast_iter(context, self.renderTPL, args=(XmlTitleDict, 'template/common/title.docx'))
-
-        context = etree.iterparse(path, events=('end',), tag='InputData')
-        self.fast_iter(context, self.renderTPL, args=(XmlInputDataDict, 'template/common/inputdata.docx'))
-
-        context = etree.iterparse(path, events=('end',), tag='Survey')
-        self.fast_iter(context, self.renderTPL, args=(XmlSurveyDict, 'template/common/survey.docx'))
-
-        context = etree.iterparse(path, events=('end',), tag='NewParcel')
-        self.fast_iter(context, self.renderTPL, args=(XmlNewParcel, 'template/common/newparcel.docx'))
-
-        context = etree.iterparse(path, events=('end',), tag='SpecifyRelatedParcel')
-        self.fast_iter(context, self.renderTPL, args=(XmlExistParcel, 'template/common/existparcel.docx'))
-
-        context = etree.iterparse(path, events=('end',), tag='Conclusion')
-        self.fast_iter(context, self.renderTPL, args=(XmlConclusion, 'template/common/conclusion.docx'))
+        self._xml_get_iter_block(path, 'GeneralCadastralWorks1', XmlTitleDict,'template/common/title.docx')
+        self._xml_get_iter_block(path, 'InputData', XmlInputDataDict, 'template/common/inputdata.docx')
+        self._xml_get_iter_block(path, 'Survey', XmlSurveyDict, 'template/common/survey.docx')
+        self._xml_get_iter_block(path, 'NewParcel', XmlNewParcel, 'template/common/newparcel.docx')
+        self._xml_get_iter_block(path, 'SpecifyRelatedParcel', XmlExistParcel, 'template/common/existparcel.docx')
+        self._xml_get_iter_block(path, 'Conclusion', XmlConclusion, 'template/common/conclusion.docx')
 
 
     def renderTPL(self,node, XMLClass, path_tpl):
@@ -109,7 +110,7 @@ class MpXMlToWORd:
 if __name__ == '__main__':
 
     generat = MpXMlToWORd()
-    generat.xmlBlock_to_docx('../TEST/1/1.xml')
+    generat.xmlBlock_to_docx('exml3.xml')
     files = os.listdir(cnfg.PATH_RESULT)
     _dcx = filter(lambda x : x.endswith('.docx'), files)
     _dcx = map(lambda x: os.path.join(cnfg.PATH_RESULT, x), _dcx)

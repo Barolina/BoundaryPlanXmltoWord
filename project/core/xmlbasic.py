@@ -36,35 +36,71 @@ class XMLElemenBase:
         :param node: ==  SpatialElement
         :return: list()
         """
-        spatial_eleemnt = node.xpath('child::*/*[starts-with(name(),"Ordinate")]')
+        ordinates = node.xpath('child::*/*[starts-with(name(),"Ordinate")]')
         res = []
-        if spatial_eleemnt:
-            for _ in spatial_eleemnt:
-                number = ''.join(_.xpath('@PointPref') + _.xpath('@NumGeopoint'))
-                res.append(['',number, ''.join(_.xpath('@X')), ''.join(_.xpath('@Y')), ''.join(_.xpath('@DeltaGeopoint'))])
+        if ordinates:
+            for _ in ordinates:
+                _attrib = dict(_.attrib)
+                number = _attrib.get('PointPref','-') + _attrib.get('NumGeopoint','-')
+                res.append(['',number, _attrib.get('X','-'), _attrib.get('Y','-'),_attrib.get('DeltaGeopoint','-')])
+        return res
+
+    def _xml_existOrdinate_to_list(self, node):
+        """
+            Список координат на уточнение
+        :param node: ==  SpatialElement
+        :return: list()
+        """
+        spatial_unit = node.xpath('child::*')
+        res = []
+        if spatial_unit:
+            for _ in spatial_unit:
+                newOrdinate = _.xpath('NewOrdinate')
+                oldOrdinate = _.xpath('OldOrdinate')
+                xNew, yNew, delata, number, xOld, yOld = ('-'*6)
+                if newOrdinate:
+                    _attrib = dict(newOrdinate[0].attrib)
+                    number = _attrib.get('PointPref', '-') + _attrib.get('NumGeopoint', '-')
+                    xNew, yNew, delata = _attrib.get('X', '-'), _attrib.get('Y', '-'), _attrib.get('DeltaGeopoint', '-')
+                if oldOrdinate:
+                    _attrib = dict(oldOrdinate[0].attrib)
+                    xOld, yOld = _attrib.get('X', '-'), _attrib.get('Y', '-')
+
+                res.append(['', number, xOld, yOld, xNew, yNew, delata])
+        else:
+            logging.error(f"""Координаты в """)
         return res
 
     def xml_existEntitySpatial_to_list(self, node):
         """
-            Список координат на уточнение
-        :param node: ==  EntitySpatial
-        :return: list()
+            Entity_Spatial
+        :param node: parent/Entity_Spatial
+        :return:
         """
-        spatial_eleemnt = node.xpath('child::*/SpatialElement/*')
-        element_empty = ['-','-']
+        pathEntitySpatial1 = 'EntitySpatial/child::*[not(name()="Borders")]'
+        spatial_element = node.xpath(pathEntitySpatial1)
         res = []
-        if spatial_eleemnt:
-            for _ in spatial_eleemnt:
-                rows = ['']
-                newOrdinate = _.xpath('NewOrdinate')
-                oldOrdinate = _.xpath('OldOrdinate')
-                rows.append(''.join(newOrdinate[0].xpath('@PointPref') + newOrdinate[0].xpath('@NumGeopoint')) if newOrdinate else '-')
-                rows.extend(oldOrdinate[0].xpath('@X') + oldOrdinate[0].xpath('@Y') if oldOrdinate else element_empty)
-                rows.extend(newOrdinate[0].xpath('@X') + newOrdinate[0].xpath('@Y') if newOrdinate else element_empty)
-                print(rows)
-                res.append(rows)
-        else:
-            logging.error(f"""Координаты в """)
+        for index,_ in enumerate(spatial_element):
+            res.extend(self._xml_existOrdinate_to_list(_))
+            # добавление пустой строки - разделение внутрених контуров
+            if index !=  len(spatial_element)-1:
+                res.append(['',]*7+['yes']) # вместо yes можно что  угодно - главное что не пусто
+        return res
+
+    def xml_EntitySpatial_to_list(self, node, ExistorNew =5):
+        """
+            Entity_Spatial
+        :param node: parent/Entity_Spatial
+        :return:
+        """
+        pathEntitySpatial1 = 'EntitySpatial/child::*[not(name()="Borders")]'
+        spatial_element = node.xpath(pathEntitySpatial1)
+        res = []
+        for index, _ in enumerate(spatial_element):
+            res.extend(self._xml_existOrdinate_to_list(_))
+            # добавление пустой строки - разделение внутрених контуров
+            if index != len(spatial_element) - 1:
+                res.append(['', ] * 7 + ['yes'])  # вместо yes можно что  угодно - главное что не пусто
         return res
 
     def xml_newEntitySpatial_to_list(self, node):
@@ -79,9 +115,10 @@ class XMLElemenBase:
         for index,_ in enumerate(spatial_element):
             res.extend(self._xml_newOrdinate_to_list(_))
             # добавление пустой строки - разделение внутрених контуров
-            if  index !=  len(spatial_element)-1:
-                res.append(['','','','','','yes']) # вместо yes можно что  угодно - главное что не пусто
+            if index !=  len(spatial_element)-1:
+                res.append(['',]*5+['yes']) # вместо yes можно что  угодно - главное что не пусто
         return res
+
 
     def xml_AllNewOrdinates_to_list(self,node):
         """
@@ -93,7 +130,7 @@ class XMLElemenBase:
         if contours:
             res = []
             for _ in contours:
-                res.append([''.join(_.xpath('@Definition')),'','','','',''])
+                res.append(_.xpath('@Definition')+['',]*5)
                 print(_.xpath('@Definition'))
                 print(res)
                 res.extend(self.xml_newEntitySpatial_to_list(_))
@@ -111,10 +148,10 @@ class XMLElemenBase:
         if contours:
             res = []
             for _ in contours:
-                res.append([''.join(_.xpath('@Definition')), '', '', '', '', '','',''])
-                res.extend(self.xml_existEntitySpatial_to_list(_))
+                res.append(_.xpath('@Definition') + ['',]*7)
+                res.extend(self._xml_existOrdinate_to_list(_))
         else:
-            res = self.xml_existEntitySpatial_to_list(node)
+            res = self._xml_existOrdinate_to_list(node)
         return res
 
     def xmlnodeKey_to_text(self, node, path, name_xsd):
