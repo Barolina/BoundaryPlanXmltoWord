@@ -6,7 +6,7 @@ import os
 import  os
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.NOTSET)
-
+import codecs
 class MpXMlToWORd:
 
     def __init__(self):
@@ -35,22 +35,28 @@ class MpXMlToWORd:
         :param path: путь до файла
         :return:
         """
-        context = etree.iterparse(path, events=('start', 'end',), tag='GeneralCadastralWorks')
+        events = ("start", "end")
+        # reader = codecs.EncodedFile(path, 'utf8', 'utf8')
+        # tree = etree.parse(path)
+        # elem = tree.xpath('MP')
+        # print(etree.tostring(tree.xpath('Package')[0]))
+
+        context = etree.iterparse(path, events=('end',), tag='GeneralCadastralWorks')
         self.fast_iter(context, self.renderTPL, args=(XmlTitleDict, 'template/common/title.docx'))
 
-        context = etree.iterparse(path, events=('start', 'end',), tag='InputData')
+        context = etree.iterparse(path, events=('end',), tag='InputData')
         self.fast_iter(context, self.renderTPL, args=(XmlInputDataDict, 'template/common/inputdata.docx'))
 
-        context = etree.iterparse(path, events=('start', 'end',), tag='Survey')
+        context = etree.iterparse(path, events=('end',), tag='Survey')
         self.fast_iter(context, self.renderTPL, args=(XmlSurveyDict, 'template/common/survey.docx'))
 
-        context = etree.iterparse(path, events=('start', 'end',), tag='NewParcel')
+        context = etree.iterparse(path, events=('end',), tag='NewParcel')
         self.fast_iter(context, self.renderTPL, args=(XmlNewParcel, 'template/common/newparcel.docx'))
 
-        context = etree.iterparse(path, events=('start', 'end',), tag='SpecifyRelatedParcel')
+        context = etree.iterparse(path, events=('end',), tag='SpecifyRelatedParcel')
         self.fast_iter(context, self.renderTPL, args=(XmlExistParcel, 'template/common/existparcel.docx'))
 
-        context = etree.iterparse(path, events=('start', 'end',), tag='Conclusion')
+        context = etree.iterparse(path, events=('end',), tag='Conclusion')
         self.fast_iter(context, self.renderTPL, args=(XmlConclusion, 'template/common/conclusion.docx'))
 
 
@@ -62,7 +68,7 @@ class MpXMlToWORd:
         :param path_tpl: путь до template
         :return: file docx
         """
-        if len(node) > 0:
+        if len(node) > 0 or node.text:
             tpl = DocxTemplate(path_tpl)
             instance = XMLClass(node)
             tpl.render(instance.to_dict())
@@ -103,8 +109,8 @@ class MpXMlToWORd:
 if __name__ == '__main__':
 
     generat = MpXMlToWORd()
-    generat.xmlBlock_to_docx('exml5.xml')
+    generat.xmlBlock_to_docx('../TEST/1/1.xml')
     files = os.listdir(cnfg.PATH_RESULT)
     _dcx = filter(lambda x : x.endswith('.docx'), files)
     _dcx = map(lambda x: os.path.join(cnfg.PATH_RESULT, x), _dcx)
-    generat.combine_word_documents(_dcx, 'result/re.docx')
+    generat.combine_word_documents(_dcx, '../TEST/1/result.docx')

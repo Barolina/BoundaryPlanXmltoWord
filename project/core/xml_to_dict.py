@@ -220,7 +220,7 @@ class XmlSubParcel(XMLElemenBase):
             res = []
             res.append(self.xml_definition_to_text())
             res.append(
-                self._merge_array_list(cnfg.SUBPARCEL_ENTITY_SPATIAL['attr'], self.xml_contur_or_entity_spatial(self.node)))
+                self._merge_array_list(cnfg.SUBPARCEL_ENTITY_SPATIAL['attr'], self.xml_AllNewOrdinates_to_list(self.node)))
             # _dict = self._merge_array_list(cnfg.SUBPARCELS['attr'], [res])
             return dict(zip(cnfg.SUBPARCELS['attr'], res))
 
@@ -367,7 +367,7 @@ class XmlNewParcel(XMLElemenBase):
     def to_dict(self):
         res= {cnfg.PARCEL_COMMON['cadnum']: self.xml_cadnum_to_text(),
               cnfg.ENTITY_SPATIAL['name']: self._merge_array_list(cnfg.ENTITY_SPATIAL['attr'],
-                                                                 self.xml_contur_or_entity_spatial(self.node)),
+                                                                 self.xml_AllNewOrdinates_to_list(self.node)),
               cnfg.BORDERS['name']: self._merge_array_list(cnfg.BORDERS['attr'], self.xml_contours_borders(self.node)),
               cnfg.RELATEDPARCELS['name']: self._merge_array_list(cnfg.RELATEDPARCELS['attr'],
                                                                  self.xml_related_parcel_to_list()),
@@ -394,8 +394,7 @@ class XmlExistParcel(XmlNewParcel):
         allborder = self.node.xpath('AllBorder')
         res = ''
         if allborder:
-            res = self.xml_old_new_spatial_element_to_list(allborder[0])
-        print(res)
+            res = self.xml_existEntitySpatial_to_list(allborder[0])
         return res
 
 
@@ -416,7 +415,6 @@ class XmlConclusion(XMLElemenBase):
             root = Conclusion
        """
        def to_dict(self):
-           print('start')
            return {
-                cnfg.CONCLUSION : self.node.xpath('text()')
+                cnfg.CONCLUSION['name'] : self.node.text
            }
