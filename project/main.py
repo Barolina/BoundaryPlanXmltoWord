@@ -11,10 +11,12 @@ import  os
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.NOTSET)
 import codecs
+
 class MpXMlToWORd:
 
     def __init__(self):
         self.name_number = 0
+        self.providing = None
 
     def fast_iter(self,context, func, args=[], kwargs={}):
         # http://www.ibm.com/developerworks/xml/library/x-hiperfparse/
@@ -32,6 +34,7 @@ class MpXMlToWORd:
             # accessed
             print('Clearing {e}'.format(e=etree.tostring(elem)))
             elem.clear()
+
         del context
 
     def getNextNameFile(self):
@@ -47,18 +50,21 @@ class MpXMlToWORd:
         context = etree.iterparse(path, events, tag=nameNode)
         self.fast_iter(context, self.renderTPL, args=(className, template))
 
+
     def xmlBlock_to_docx(self, path):
         """
             Формирование списка док. файлов  по блокам xml
         :param path: путь до файла
         :return:
         """
-        self._xml_get_iter_block(path, 'GeneralCadastralWorks1', XmlTitleDict,'template/common/title.docx')
-        self._xml_get_iter_block(path, 'InputData', XmlInputDataDict, 'template/common/inputdata.docx')
-        self._xml_get_iter_block(path, 'Survey', XmlSurveyDict, 'template/common/survey.docx')
+        # self._xml_get_iter_block(path, 'GeneralCadastralWorks', XmlTitleDict,'template/common/title.docx')
+        # self._xml_get_iter_block(path, 'InputData', XmlInputDataDict, 'template/common/inputdata.docx')
+        # self._xml_get_iter_block(path, 'Survey', XmlSurveyDict, 'template/common/survey.docx')
+        _providing = []
         self._xml_get_iter_block(path, 'NewParcel', XmlNewParcel, 'template/common/newparcel.docx')
-        self._xml_get_iter_block(path, 'SpecifyRelatedParcel', XmlExistParcel, 'template/common/existparcel.docx')
-        self._xml_get_iter_block(path, 'Conclusion', XmlConclusion, 'template/common/conclusion.docx')
+        # self._xml_get_iter_block(path, 'ProvidingPassCadastralNumbers', XmlProviding, 'template/common/providing.docx')
+        # self._xml_get_iter_block(path, 'SpecifyRelatedParcel', XmlExistParcel, 'template/common/existparcel.docx')
+        # self._xml_get_iter_block(path, 'Conclusion', XmlConclusion, 'template/common/conclusion.docx')
 
 
     def renderTPL(self,node, XMLClass, path_tpl):
@@ -110,8 +116,8 @@ class MpXMlToWORd:
 if __name__ == '__main__':
 
     generat = MpXMlToWORd()
-    generat.xmlBlock_to_docx('exml3.xml')
+    generat.xmlBlock_to_docx('../TEST/3/3.xml')
     files = os.listdir(cnfg.PATH_RESULT)
     _dcx = filter(lambda x : x.endswith('.docx'), files)
     _dcx = map(lambda x: os.path.join(cnfg.PATH_RESULT, x), _dcx)
-    generat.combine_word_documents(_dcx, '../TEST/1/result.docx')
+    generat.combine_word_documents(_dcx, '../TEST/3/result.docx')

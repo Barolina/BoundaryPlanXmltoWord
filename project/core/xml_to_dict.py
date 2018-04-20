@@ -59,18 +59,27 @@ class XmlTitleDict:
             self.setcontractor()
         return self.contractor.get('Email', '')
 
+    def address(self):
+        if not self.contractor:
+            self.setcontractor()
+        return self.contractor.get('Address', '')
+
     def xml_organization_to_text(self):
         return ' '.join(self.node.xpath('Contractor/Organization/node()/text()'))
 
     def xml_data_to_text(self):
-        return ' '.join(self.node.xpath('@DateCadastral'))
+        _dt = datetime.strptime(dict(self.node.attrib).get('DateCadastral'), "%Y-%m-%d")
+        if _dt:
+            return  f"""{_dt:%d.%m.%Y}"""
+        return ''
 
     def to_dict(self):
         value_title = [self.xml_reason_to_text(),self.xml_purpose_to_text(),
                        self.xml_client_to_text(),self.contrsactor_fio(),
-                       self.xml_ncertificate_to_text(), self.telefon(),
+                       self.xml_ncertificate_to_text(), self.telefon(), self.address(),
                        self.email(),self.xml_organization_to_text(), self.xml_data_to_text()]
         result = dict(zip(cnfg.TITLE_KEY, value_title))
+        print(result)
         logging.info(f"""Титульный лист {result}""")
         return result
 
@@ -152,7 +161,10 @@ class XmlInputDataDict(XMLElemenBase):
         for index, _ in enumerate(el):
             _dt =  datetime.strptime(''.join(_.xpath('Date/text()')),'%Y-%m-%d').strftime('%d.%m.%Y')
             _tmp = f" № {''.join(_.xpath('Number/text()'))} от { _dt } г."
-            res.append([str(index + 1),''.join(_.xpath('Name/text()')),_tmp])
+            _name = ''.join(_.xpath('Name/text()'))
+            if not _name:
+                _name =  self.xmlnodeKey_to_text(_,'CodeDocument/text()', cnfg.INPUT_DATA['dict']['alldocuments'])
+            res.append([str(index + 1),_name,_tmp])
         return res
 
     def xml_geodesic_base_to_list(self):
@@ -364,6 +376,11 @@ class XmlNewParcel(XMLElemenBase):
         return {cnfg.SUBPARCELS['name']: entity_spatial,
                 cnfg.SUBPARCEL_GENERAL['name']: general}
 
+    def get_providing(self):
+        _ = self.node.xpath('//ProvidingPassCadastralNumbers')
+        print(_)
+        return _
+
     def to_dict(self):
         res= {cnfg.PARCEL_COMMON['cadnum']: self.xml_cadnum_to_text(),
               cnfg.ENTITY_SPATIAL['name']: self._merge_array_list(cnfg.ENTITY_SPATIAL['attr'],
@@ -374,6 +391,8 @@ class XmlNewParcel(XMLElemenBase):
              }
         res.update(self.xml_general_info_to_dict())
         res.update(self.xml_sub_parcels_to_dict())
+
+        self.get_providing()
         return res
 
 
@@ -394,14 +413,14 @@ class XmlExistParcel(XmlNewParcel):
         allborder = self.node.xpath('AllBorder')
         res = ''
         if allborder:
-            res = self.xml_existEntitySpatial_to_list(allborder[0])
+            res = self.xmlAllOrdinates_to_list(allborder[0])
         return res
 
 
     def to_dict(self):
         res = {cnfg.PARCEL_COMMON['cadnum']: self.xml_cadnum_to_text(),
                cnfg.ENTITY_SPATIAL_EXIST['name']: self._merge_array_list(cnfg.ENTITY_SPATIAL_EXIST['attr'],
-                                                                   self.xml_exist_contur_or_entity_spatial()),
+                                                                         self.xml_exist_contur_or_entity_spatial()),
                # cnfg.BORDERS['name']: self._merge_array_list(cnfg.BORDERS['attr'], self.xml_contours_borders(self.node)),
                # cnfg.RELATEDPARCELS['name']: self._merge_array_list(cnfg.RELATEDPARCELS['attr'],
                #                                                     self.xml_related_parcel_to_list()),
@@ -418,3 +437,9 @@ class XmlConclusion(XMLElemenBase):
            return {
                 cnfg.CONCLUSION['name'] : self.node.text
            }
+
+class XmlProviding(XMLElemenBase):
+
+    def to_doct(self):
+        print(self.node)
+        return ''

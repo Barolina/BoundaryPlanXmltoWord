@@ -12,6 +12,9 @@ class XMLElemenBase:
         :param node - на вход узел дерева
         :return  возвращает словарь данных (to_dict)
     """
+    CNST_LEN_NEW = 5  # TODO  пока  таа
+    CNST_LEN_EXIST = 7
+
     def __init__(self,node):
         self.node = node
 
@@ -41,7 +44,7 @@ class XMLElemenBase:
         if ordinates:
             for _ in ordinates:
                 _attrib = dict(_.attrib)
-                number = _attrib.get('PointPref','-') + _attrib.get('NumGeopoint','-')
+                number = _attrib.get('PointPref','') + _attrib.get('NumGeopoint','')
                 res.append(['',number, _attrib.get('X','-'), _attrib.get('Y','-'),_attrib.get('DeltaGeopoint','-')])
         return res
 
@@ -60,7 +63,7 @@ class XMLElemenBase:
                 xNew, yNew, delata, number, xOld, yOld = ('-'*6)
                 if newOrdinate:
                     _attrib = dict(newOrdinate[0].attrib)
-                    number = _attrib.get('PointPref', '-') + _attrib.get('NumGeopoint', '-')
+                    number = _attrib.get('PointPref', '') + _attrib.get('NumGeopoint', '')
                     xNew, yNew, delata = _attrib.get('X', '-'), _attrib.get('Y', '-'), _attrib.get('DeltaGeopoint', '-')
                 if oldOrdinate:
                     _attrib = dict(oldOrdinate[0].attrib)
@@ -87,22 +90,6 @@ class XMLElemenBase:
                 res.append(['',]*7+['yes']) # вместо yes можно что  угодно - главное что не пусто
         return res
 
-    def xml_EntitySpatial_to_list(self, node, ExistorNew =5):
-        """
-            Entity_Spatial
-        :param node: parent/Entity_Spatial
-        :return:
-        """
-        pathEntitySpatial1 = 'EntitySpatial/child::*[not(name()="Borders")]'
-        spatial_element = node.xpath(pathEntitySpatial1)
-        res = []
-        for index, _ in enumerate(spatial_element):
-            res.extend(self._xml_existOrdinate_to_list(_))
-            # добавление пустой строки - разделение внутрених контуров
-            if index != len(spatial_element) - 1:
-                res.append(['', ] * 7 + ['yes'])  # вместо yes можно что  угодно - главное что не пусто
-        return res
-
     def xml_newEntitySpatial_to_list(self, node):
         """
             Entity_Spatial
@@ -117,6 +104,51 @@ class XMLElemenBase:
             # добавление пустой строки - разделение внутрених контуров
             if index !=  len(spatial_element)-1:
                 res.append(['',]*5+['yes']) # вместо yes можно что  угодно - главное что не пусто
+        return res
+
+    def isExistorNew(self, node):
+        """
+        :param node:
+        :return:
+        """
+        _typeOrdinate = node.find('.//Ordinate')
+        if _typeOrdinate:
+            return False
+        return True
+
+    def xml_EntitySpatial_to_list(self, node): # 5 or 7 | new or exist
+        """
+            Entity_Spatial
+        :param node: parent/Entity_Spatial
+        :return:
+        """
+        pathEntitySpatial1 = 'EntitySpatial/child::*[not(name()="Borders")]'
+
+        spatial_element = node.xpath(pathEntitySpatial1)
+        res = []
+        _typeOrdinate = self.isExistorNew(node)
+        countCol = self.CNST_LEN_EXIST if _typeOrdinate else self.CNST_LEN_NEW
+        for index, _ in enumerate(spatial_element):
+            lst_ord =  self._xml_existOrdinate_to_list(_) if _typeOrdinate else self._xml_newOrdinate_to_list(_)
+            res.extend(lst_ord)
+            # добавление пустой строки - разделение внутрених контуров
+            if index != len(spatial_element) - 1:
+                res.append(['', ] * countCol + ['yes'])  # вместо yes можно что  угодно - главное что не пусто
+        return res
+
+    def xmlAllOrdinates_to_list(self, node):
+        contours = node.xpath('Contours/child::*')
+        if contours:
+            res = []
+            _typeOrdinate = self.isExistorNew(node)
+            countCol = self.CNST_LEN_EXIST if _typeOrdinate else self.CNST_LEN_NEW
+            for _ in contours:
+                res.append(_.xpath('@Definition')+['',]*countCol)
+                print(_.xpath('@Definition'))
+                print(res)
+                res.extend(self.xml_EntitySpatial_to_list(_))
+        else:
+            res = self.xml_EntitySpatial_to_list(node)
         return res
 
 

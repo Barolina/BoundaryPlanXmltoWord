@@ -17,7 +17,10 @@ GEODESIC_BASES = {
 }
 INPUT_DATA = {
     'name': 'INPUT_DATAS',
-    'attr': ['id', 'name', 'note']
+    'attr': ['id', 'name', 'note'],
+    'dict': {
+        'alldocuments': 'dAllDocuments_v02.xsd',
+    }
 }
 MEANS_SURVEY = {
     'name': 'MEANS_SURVEY',
@@ -123,7 +126,17 @@ SUBPARCELS = {
 }
 
 """
+    PROVIDING_CADASTRAL_NUMBER
+    ____________________________________________________________________________________________________________________
+"""
+PROVIDING = {
+    'name': 'PROVIDINGCADASTRAL',
+    'attr': ['id', 'cadastralnumber', 'note']
+}
+
+"""
     CONCLUSION
+    ____________________________________________________________________________________________________________________
 """
 CONCLUSION = {
     'name': 'conclusion',
