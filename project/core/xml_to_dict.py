@@ -1,10 +1,10 @@
 import config as cnfg
 from utils.xsd import value_from_xsd
-import os
 import logging
 logging.basicConfig(filename='mp_to_word.log',level=logging.DEBUG)
 from datetime import datetime
-from core.xmlbasic import XMLElemenBase
+from core.xmlbasic import XMLElemenBase, XmlBaseOrdinate
+
 
 class XmlTitleDict:
     """
@@ -158,13 +158,16 @@ class XmlInputDataDict(XMLElemenBase):
     def xml_document_to_list(self):
         el = self.node.xpath(self.pathListDocuments)
         res = []
-        for index, _ in enumerate(el):
-            _dt =  datetime.strptime(''.join(_.xpath('Date/text()')),'%Y-%m-%d').strftime('%d.%m.%Y')
-            _tmp = f" № {''.join(_.xpath('Number/text()'))} от { _dt } г."
-            _name = ''.join(_.xpath('Name/text()'))
-            if not _name:
-                _name =  self.xmlnodeKey_to_text(_,'CodeDocument/text()', cnfg.INPUT_DATA['dict']['alldocuments'])
-            res.append([str(index + 1),_name,_tmp])
+        try:
+            for index, _ in enumerate(el):
+                _dt =  datetime.strptime(''.join(_.xpath('Date/text()')),'%Y-%m-%d').strftime('%d.%m.%Y')
+                _tmp = f" № {''.join(_.xpath('Number/text()'))} от { _dt } г."
+                _name = ''.join(_.xpath('Name/text()'))
+                if not _name:
+                    _name =  self.xmlnodeKey_to_text(_,'CodeDocument/text()', cnfg.INPUT_DATA['dict']['alldocuments'])
+                res.append([str(index + 1),_name,_tmp])
+        finally:
+            el.clear()
         return res
 
     def xml_geodesic_base_to_list(self):
@@ -207,12 +210,15 @@ class XmlInputDataDict(XMLElemenBase):
         return _res
 
 
-class XmlSubParcel(XMLElemenBase):
+class XmlSubParcel(XmlBaseOrdinate):
         """
             root = SubParcels
         """
         def xml_definition_to_text(self):
-            return ''.join(self.node.xpath('@Definition'))
+            _res = self.node.xpath('@Definition')
+            if not _res:
+                self.node.xpath('@NumberRecord')
+            return ''.join(_res)
 
         def xml_general_to_dict(self, position):
            """
@@ -227,20 +233,19 @@ class XmlSubParcel(XMLElemenBase):
            res.append(self.xmlnodeKey_to_text(self.node,'Encumbrance/Type/text()', cnfg.SUBPARCEL_GENERAL['dict']['encumbrace']))
            return dict(zip(cnfg.SUBPARCEL_GENERAL['attr'],res))
 
-        # TODO: не забыть добавить в  шаблон  - там нет контуров
         def xml_sub_entity_spatial_dict(self):
             res = []
+            result =''
             res.append(self.xml_definition_to_text())
-            res.append(
-                self._merge_array_list(cnfg.SUBPARCEL_ENTITY_SPATIAL['attr'], self.xml_AllNewOrdinates_to_list(self.node)))
-            # _dict = self._merge_array_list(cnfg.SUBPARCELS['attr'], [res])
-            return dict(zip(cnfg.SUBPARCELS['attr'], res))
+            res.append(self._merge_array_list(cnfg.SUBPARCEL_ENTITY_SPATIAL['attr'], self.xmlAllOrdinates_to_list(self.node)))
+            result= dict(zip(cnfg.SUBPARCELS['attr'], res))
+            return result
 
         def to_dict(self):
            pass
 
 
-class XmlNewParcel(XMLElemenBase):
+class XmlNewParcel(XmlBaseOrdinate):
     """
         :param root = NewParcel
     """
@@ -251,16 +256,20 @@ class XmlNewParcel(XMLElemenBase):
         :param node: Address
         :return: text
         """
-        region = [self.xmlnodeKey_to_text(node,'Region/text()',cnfg.PARCEL_COMMON['dict']['address_code'])]
-        region.extend(node.xpath('District/@*')[::-1])
-        region.extend(node.xpath('City/@*')[::-1])
-        region.extend(node.xpath('UrbanDistrict/@*')[::-1])
-        region.extend(node.xpath('SovietVillage/@*')[::-1])
-        region.extend(node.xpath('Locality/@*')[::-1])
-        region.extend(node.xpath('Street/@*')[::-1])
-        region.extend(node.xpath('Level1/@*')[::-1])
-        region.extend(node.xpath('Level2/@*')[::-1])
-        region.extend(node.xpath('Apartment/@*')[::-1])
+        region = []
+        try:
+            region = [self.xmlnodeKey_to_text(node,'Region/text()',cnfg.PARCEL_COMMON['dict']['address_code'])]
+            region.extend(node.xpath('District/@*')[::-1])
+            region.extend(node.xpath('City/@*')[::-1])
+            region.extend(node.xpath('UrbanDistrict/@*')[::-1])
+            region.extend(node.xpath('SovietVillage/@*')[::-1])
+            region.extend(node.xpath('Locality/@*')[::-1])
+            region.extend(node.xpath('Street/@*')[::-1])
+            region.extend(node.xpath('Level1/@*')[::-1])
+            region.extend(node.xpath('Level2/@*')[::-1])
+            region.extend(node.xpath('Apartment/@*')[::-1])
+        finally:
+           node.clear()
         return ' '.join(region)
 
     def full_utilization(self,node):
@@ -269,13 +278,16 @@ class XmlNewParcel(XMLElemenBase):
         :param node: Utilization
         :return:
         """
-        res = ''
-        if 'ByDoc' in node.attrib:
-           res =  node.attrib['ByDoc']
-        elif 'Utilization' in node.attrib:
-           res = self.xmlnodeKey_to_text(node, '@Utilization', cnfg.PARCEL_COMMON['dict']['utilization'])
-        elif 'LandUse' in node.attrib:
-           res = self.xmlnodeKey_to_text(node, '@Utilization',cnfg.PARCEL_COMMON['dict']['landuse'])
+        try:
+            res = ''
+            if 'ByDoc' in node.attrib:
+               res =  node.attrib['ByDoc']
+            elif 'Utilization' in node.attrib:
+               res = self.xmlnodeKey_to_text(node, '@Utilization', cnfg.PARCEL_COMMON['dict']['utilization'])
+            elif 'LandUse' in node.attrib:
+               res = self.xmlnodeKey_to_text(node, '@Utilization',cnfg.PARCEL_COMMON['dict']['landuse'])
+        finally:
+            node.clear()
         return res
 
     def full_area(self,node):
@@ -284,7 +296,9 @@ class XmlNewParcel(XMLElemenBase):
         :param node: Area
         :return:
         """
-        return f"""{''.join(node.xpath('Area/text()'))}±{''.join(node.xpath('Inaccuracy/text()'))}"""
+        result = f"""{''.join(node.xpath('Area/text()'))}±{''.join(node.xpath('Inaccuracy/text()'))}"""
+        node.clear()
+        return result
 
     def full_ares_contours(self,node_list):
         """
@@ -293,8 +307,12 @@ class XmlNewParcel(XMLElemenBase):
         :return:
         """
         area_contours = ''
-        for id, _ in enumerate(node_list):
-            area_contours += f"""({ str(id+1)}) {''.join(_.xpath('Area/text()'))}±{''.join(_.xpath('Inaccuracy/text()'))} \n\r"""
+        try:
+            area_contours = ''
+            for id, _ in enumerate(node_list):
+                area_contours += f"""({ str(id+1)}) {''.join(_.xpath('Area/text()'))}±{''.join(_.xpath('Inaccuracy/text()'))} \n\r"""
+        finally:
+            node_list.clear()
         return area_contours
 
     def xml_general_info_to_dict(self):
@@ -313,11 +331,14 @@ class XmlNewParcel(XMLElemenBase):
             else:
                 dict_address['location'] = text_address
             dict_address['location_note'] = ''.join(addres.xpath("Other/text()"))
+            del xml_addrss
         if xml_category:
             dict_address['category'] = self.xmlnodeKey_to_text(xml_category[0],'@Category',
                                                                cnfg.PARCEL_COMMON['dict']['categories'])
+            xml_category.clear()
         if xml_utilization:
             dict_address['utilization_landuse'] =  self.full_utilization(xml_utilization[0])
+            xml_utilization.clear()
         if xml_area:
             dict_address['area'] = self.full_area(xml_area[0]) + '\n\r' + self.full_ares_contours(xml_area_contour)
         dict_address['min_area'] = ''.join(self.node.xpath('MinArea/Area/text()'))
@@ -336,11 +357,14 @@ class XmlNewParcel(XMLElemenBase):
         :return:
         """
         res = ''
-        for _ in node:
-            rows = ''.join(_.xpath('child::NameRight/text()'))
-            rows  += f""" {', '.join(_.xpath('child::OwnerNeighbour/NameOwner/text()'))}"""
-            rows  += f""" {', '.join(_.xpath('child::OwnerNeighbour/ContactAddress/text()'))}"""
-            res +=  f"""{ rows }; """
+        try:
+            for _ in node:
+                rows = ''.join(_.xpath('child::NameRight/text()'))
+                rows  += f""" {', '.join(_.xpath('child::OwnerNeighbour/NameOwner/text()'))}"""
+                rows  += f""" {', '.join(_.xpath('child::OwnerNeighbour/ContactAddress/text()'))}"""
+                res +=  f"""{ rows }; """
+        finally:
+            node.clear()
         return res
 
     def xml_related_parcel_to_list(self):
@@ -350,49 +374,84 @@ class XmlNewParcel(XMLElemenBase):
         """
         _node = self.node.xpath('RelatedParcels/child::*')
         res= []
-        for _ in _node:
-            _rows = []
-            _rows.append(''.join(_.xpath('Definition/text()')))
-            _rows.append(', '.join(_.xpath('child::*/CadastralNumber/text()')))
-            _rows.append(self.xml_owner_to_text(_.xpath('child::*/OwnerNeighbours')))
-            res.append(_rows)
+        try:
+            for _ in _node:
+                _rows = []
+                _rows.append(''.join(_.xpath('Definition/text()')))
+                _rows.append(', '.join(_.xpath('child::*/CadastralNumber/text()')))
+                _rows.append(self.xml_owner_to_text(_.xpath('child::*/OwnerNeighbours')))
+                res.append(_rows)
+        finally:
+            _node.clear()
         return  res
 
     def xml_cadnum_to_text(self):
         _ = self.node.xpath('@Definition')
         if _:
             return _[0]
+        else:
+            _ = self.node.xpath('@CadastralNumber')
+            return _[0]
         return ''
 
     def xml_sub_parcels_to_dict(self):
         node = self.node.xpath('SubParcels/child::*')
-        entity_spatial  = []
+        entity_spatial = []
         general = []
-        for index, _ in enumerate(node):
-            subParcel = XmlSubParcel(_)
-            entity_spatial.append(subParcel.xml_sub_entity_spatial_dict())
-            general.append(subParcel.xml_general_to_dict(index+1))
-            del subParcel
+        try:
+            for index, _ in enumerate(node):
+                subParcel = XmlSubParcel(_)
+                entity_spatial.append(subParcel.xml_sub_entity_spatial_dict())
+                general.append(subParcel.xml_general_to_dict(index + 1))
+                del subParcel
+        finally:
+            node.clear()
         return {cnfg.SUBPARCELS['name']: entity_spatial,
                 cnfg.SUBPARCEL_GENERAL['name']: general}
 
-    def get_providing(self):
-        _ = self.node.xpath('//ProvidingPassCadastralNumbers')
-        print(_)
-        return _
-
     def to_dict(self):
-        res= {cnfg.PARCEL_COMMON['cadnum']: self.xml_cadnum_to_text(),
+        res = {cnfg.PARCEL_COMMON['cadnum']: self.xml_cadnum_to_text(),
               cnfg.ENTITY_SPATIAL['name']: self._merge_array_list(cnfg.ENTITY_SPATIAL['attr'],
-                                                                 self.xml_AllNewOrdinates_to_list(self.node)),
+                                                                 self.xmlAllOrdinates_to_list(self.node)),
               cnfg.BORDERS['name']: self._merge_array_list(cnfg.BORDERS['attr'], self.xml_contours_borders(self.node)),
               cnfg.RELATEDPARCELS['name']: self._merge_array_list(cnfg.RELATEDPARCELS['attr'],
                                                                  self.xml_related_parcel_to_list()),
              }
         res.update(self.xml_general_info_to_dict())
         res.update(self.xml_sub_parcels_to_dict())
+        return res
 
-        self.get_providing()
+
+class XmlNewParcelProviding(XmlNewParcel):
+    def _getcontext(self,node):
+        """
+        :param node: ProvidingCadastralNumber
+        :return:
+        """
+        re = node.xpath('child::*/text()')
+        re.extend(node.xpath('child::*/child::*/text()'))
+        return ', '.join(re)
+
+    def xml_providin_to_list(self):
+        _ = self.node.xpath('//ProvidingPassCadastralNumbers')
+        res = []
+        try:
+            for i, el in enumerate(_,1):
+                _def = el.getparent().xpath('@Definition')
+                if not _def:
+                    _def = el.getparent().xpath('@NumberRecord')
+                    if not _def:
+                        _def = el.getparent().xpath('@CadastralNumber')
+                _definition = ''.join(_def)
+                res.append([str(i), _definition, self._getcontext(el)])
+        finally:
+            _.clear()
+        return res
+
+    def to_dict(self):
+        res = {cnfg.PROVIDING['name']: self._merge_array_list(cnfg.PROVIDING['attr'],
+                                                              self.xml_providin_to_list())
+               }
         return res
 
 
@@ -401,33 +460,100 @@ class XmlExistParcel(XmlNewParcel):
         root = SpecifyRelatedParcel
     """
 
+    def __init__(self, node):
+        self.borders = None
+        self.ordinates= None
+        super(XmlExistParcel,self).__init__(node)
+
+    def __del__(self):
+        del self.borders
+        del self.ordinates
+
     def xml_cadnum_to_text(self):
         print(''.join(self.node.xpath('@CadastralNumber')))
         return f"""{ ''.join(self.node.xpath('@CadastralNumber'))} ({''.join(self.node.xpath('@NumberRecord'))})"""
 
-    def xml_exist_contur_or_entity_spatial(self):
+    def _set_ordinate_border(self):
         """
         :param node: SpecifyRelatedParcel
         :return:
         """
         allborder = self.node.xpath('AllBorder')
-        res = ''
         if allborder:
-            res = self.xmlAllOrdinates_to_list(allborder[0])
-        return res
+            try:
+                self.ordinates = self.xmlAllOrdinates_to_list(allborder[0])
+                self.borders = self.xml_contours_borders(allborder[0])
+            finally:
+                allborder.clear()
 
+        changeborder = self.node.xpath('ChangeBorder')
+        if changeborder:
+            try:
+                self.ordinates = self._xml_existOrdinate_to_list(self.node)
+                self.borders =[]
+            finally:
+                changeborder.clear()
+
+        conrours = self.node.xpath('Contours')
+        if conrours:
+            try:
+                self.ordinates = self.xmlAllOrdinates_to_list(self.node)
+                self.borders = self.xml_contours_borders(self.node)
+            finally:
+                conrours.clear()
+
+        deleteAllBorder = self.node.xpath('DeleteAllBorder')  # TODO определить шаблон не понятен
+        if deleteAllBorder:
+            try:
+                self.ordinates = self._xml_existOrdinate_to_list(self.node) #TODO переписать получени коорлинат
+                self.borders = []
+            finally:
+                deleteAllBorder.clear()
+
+
+    def xml_ordinate_borders_to_dict(self):
+        if not self.ordinates and not self.borders:
+            self._set_ordinate_border()
+        res = {
+            cnfg.ENTITY_SPATIAL_EXIST['name']: self._merge_array_list(cnfg.ENTITY_SPATIAL_EXIST['attr'],
+                                                                  self.ordinates),
+            cnfg.BORDERS['name']: self._merge_array_list(cnfg.BORDERS['attr'], self.borders)
+        }
+        return res
 
     def to_dict(self):
-        res = {cnfg.PARCEL_COMMON['cadnum']: self.xml_cadnum_to_text(),
-               cnfg.ENTITY_SPATIAL_EXIST['name']: self._merge_array_list(cnfg.ENTITY_SPATIAL_EXIST['attr'],
-                                                                         self.xml_exist_contur_or_entity_spatial()),
-               # cnfg.BORDERS['name']: self._merge_array_list(cnfg.BORDERS['attr'], self.xml_contours_borders(self.node)),
-               # cnfg.RELATEDPARCELS['name']: self._merge_array_list(cnfg.RELATEDPARCELS['attr'],
-               #                                                     self.xml_related_parcel_to_list()),
-               }
-        print(res)
+        res = {cnfg.PARCEL_COMMON['cadnum']: self.xml_cadnum_to_text()}
+        res.update(self.xml_ordinate_borders_to_dict())
         res.update(self.xml_general_info_to_dict())
         return res
+
+
+class XmlChangeParcel(XmlNewParcel):
+
+    def xml_deleteEntryParcels(self):
+        res = ''
+        _ = self.node.xpath('DeleteEntryParcels/child::*/@*')
+        if _:
+            res = ', '.join(_)
+        return res
+
+    def xml_transformEntryParcels(self):
+        res = ''
+        _ = self.node.xpath('TransformationEntryParcels/child::*/@*')
+        if _:
+            res = ', '.join(_)
+        return res
+
+    def to_dict(self):
+        res = {cnfg.CHANGEPARCELS['cadnum']: self.xml_cadnum_to_text(),
+               cnfg.CHANGEPARCELS['deleteEntyParcel']: self.xml_deleteEntryParcels(),
+               cnfg.CHANGEPARCELS['transformEntryParcel']: self.xml_transformEntryParcels(),
+               cnfg.CHANGEPARCELS['innerCadNum']: self.xml_objectRealty_inner_cadastral_number_to_text(),
+               cnfg.CHANGEPARCELS['note']: ''.join(self.node.xpath('Note/text()')),
+              }
+        res.update(self.xml_sub_parcels_to_dict())
+        return res
+
 
 class XmlConclusion(XMLElemenBase):
        """
@@ -437,9 +563,3 @@ class XmlConclusion(XMLElemenBase):
            return {
                 cnfg.CONCLUSION['name'] : self.node.text
            }
-
-class XmlProviding(XMLElemenBase):
-
-    def to_doct(self):
-        print(self.node)
-        return ''

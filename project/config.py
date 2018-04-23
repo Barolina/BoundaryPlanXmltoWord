@@ -5,6 +5,10 @@
 TITLE_KEY = ['REASON', 'PURPOSE', 'CLIENT', 'FIO', 'NCERTIFICATE', 'TELEPHONE',
              'ADDRESS', 'EMAIL', 'ORGANIZATION', 'DATA']
 
+TITUL = {
+    'res': '1.'
+}
+
 
 """
     СЛОВАРИ INPUT_DATA
@@ -20,7 +24,8 @@ INPUT_DATA = {
     'attr': ['id', 'name', 'note'],
     'dict': {
         'alldocuments': 'dAllDocuments_v02.xsd',
-    }
+    },
+    'res': '2.'
 }
 MEANS_SURVEY = {
     'name': 'MEANS_SURVEY',
@@ -51,7 +56,9 @@ TOCHN_AREA_PARCELS = {
     'name': 'TOCHN_AREA_PARCELS',
     'attr': ['id', 'cadastralnumber', 'area', 'formula']
 }
-
+SURVEY = {
+    'res': '3.'
+}
 """
   Сведения об образуемых  земельных учатсках
   :param empty - свидетельствует о наличии пустой строки
@@ -93,12 +100,13 @@ PARCEL_COMMON = {
         'categories': 'dCategories_v01.xsd',
         'utilization': 'dUtilizations_v01.xsd',
         'landuse': 'dAllowedUse_v01.xsd'
-    }
+    },
+    'res': '3.'
 }
 
 RELATEDPARCELS = {
     'name': 'RELATEDPARCELS',
-    'attr': ['point', 'cadastralnumber', 'right']
+    'attr': ['point', 'cadastralnumber', 'right'],
 }
 
 
@@ -131,7 +139,25 @@ SUBPARCELS = {
 """
 PROVIDING = {
     'name': 'PROVIDINGCADASTRAL',
-    'attr': ['id', 'cadastralnumber', 'note']
+    'attr': ['id', 'cadastralnumber', 'note'],
+    'res': '5.'
+}
+"""
+    CHANGE_PARCELs
+"""
+CHANGEPARCELS = {
+    'cadnum': 'cadastralnumber',
+    'deleteEntyParcel': 'delete_entry_parcels',
+    'transformEntryParcel': 'transformation_entry_parcels',
+    'innerCadNum': 'inner_cadastral_number',
+    'note': 'note',
+    'dict': {
+        'address_code': 'adresCod.xsd',
+        'categories': 'dCategories_v01.xsd',
+        'utilization': 'dUtilizations_v01.xsd',
+        'landuse': 'dAllowedUse_v01.xsd'
+    },
+    'res': '3.'
 }
 
 """
@@ -146,6 +172,13 @@ CONCLUSION = {
     FILES/DIRECTORY
     ____________________________________________________________________________________________________________________
 """
+"""
+Зададим структуру пустой строки и строки с контуром, если мп на обраование или на уточнение 
+"""
+TPL_ROWS_MP = {
+    'new_tpl_rows':  ['', ] * 5,
+    'exist_tpl_rows': ['', ] * 7
+}
 
 PATH_XSD = 'xsd'
 PATH_RESULT = 'res'

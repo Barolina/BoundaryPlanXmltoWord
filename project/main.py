@@ -1,3 +1,4 @@
+from builtins import enumerate
 from distutils.command.config import config
 
 from lxml import etree
@@ -11,6 +12,44 @@ import  os
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.NOTSET)
 import codecs
+
+
+class XMLIterParser:
+
+    def __init__(self, pathxml):
+        self.pathxml = pathxml
+        self.context = None
+
+    context = property()
+
+    @context.getter
+    def context(self):
+        self.context = iter(etree.iterparse(self.pathxml, events=('start', 'end',)))
+        for event, element in self.context:
+            yield event, element
+
+    def __del__(self):
+        if self.context:
+            for event, element in self._context:
+                if event == 'end':
+                    element.clear()
+                    while element.getprevious() is not None:
+                        if type(element.getprevious()) == etree._Element:
+                            if element.getparent() is not None:
+                                del element.getparent()[0]
+                        else:
+                            break
+        del self.context
+
+    def getcontext(self):
+        if not self._context:
+            self._context = iter(etree.iterparse(self.xml, events=('start', 'end',)))
+        for event, element in self._context:
+            self._current = element
+            yield event, element
+
+    def delcontext(self):
+        del self._context
 
 class MpXMlToWORd:
 
@@ -37,6 +76,54 @@ class MpXMlToWORd:
 
         del context
 
+    def fast_iter_element(self,elem, func, args=[], kwargs={}):
+        """
+
+        :rtype: XMLElemet
+        """
+        func(elem, *args, **kwargs)
+        elem.clear()
+        while elem.getprevious() is not None:
+            if type(elem.getprevious()) == etree._Element:
+                if elem.getparent() is not None:
+                    del elem.getparent()[0]
+            else:
+                break
+
+    def pardes(self, context):
+        i = 0
+        for event, elem in context:
+            i += 1
+
+            if elem.tag == 'GeneralCadastralWorks' and event == 'end':
+                self.fast_iter_element(elem, self.renderTPL,
+                                       args=(XmlTitleDict, 'template/common/title.docx','1.' + str(i)))
+            if elem.tag == 'InputData' and event == 'end':
+                self.fast_iter_element(elem, self.renderTPL,
+                                       args=(XmlInputDataDict, 'template/common/inputdata.docx', '2.' + str(i)))
+            if elem.tag == 'Survey' and event == 'end':
+                self.fast_iter_element(elem, self.renderTPL,
+                                       args=(XmlSurveyDict, 'template/common/survey.docx','3.' + str(i)))
+            if elem.tag == 'NewParcel' and event == 'end':
+                self.fast_iter_element(elem, self.renderTPL,
+                                       args=(XmlNewParcel, 'template/common/newparcel.docx', '4.' + str(i)))
+
+            if elem.tag == 'ChangeParcel' and event == 'end':
+                self.fast_iter_element(elem, self.renderTPL,
+                                       args=(XmlChangeParcel, 'template/common/changeparcel.docx', '5.' + str(i)))
+
+            if elem.tag == 'SpecifyRelatedParcel' and event == 'end':
+                self.fast_iter_element(elem, self.renderTPL,
+                                       args=(XmlExistParcel, 'template/common/existparcel.docx','6.' + str(i)))
+            if elem.tag == 'FormParcels' and event == 'start':
+                self.renderTPL(elem,XmlNewParcelProviding, 'template/common/providing.docx','7.' + str(i))
+
+            if elem.tag == 'Conclusion' and event == 'end':
+                self.fast_iter_element(elem, self.renderTPL,
+                                       args=(XmlConclusion, 'template/common/conclusion.docx','8.' + str(i)))
+
+        del context
+
     def getNextNameFile(self):
         """
             Нумерация имени файла
@@ -57,17 +144,22 @@ class MpXMlToWORd:
         :param path: путь до файла
         :return:
         """
+        # get an iterable
+        context = iterparse(path, events=("start", "end"))
+        context = iter(context)
+        # event, root = context.next()
+        self.pardes(context)
         # self._xml_get_iter_block(path, 'GeneralCadastralWorks', XmlTitleDict,'template/common/title.docx')
         # self._xml_get_iter_block(path, 'InputData', XmlInputDataDict, 'template/common/inputdata.docx')
         # self._xml_get_iter_block(path, 'Survey', XmlSurveyDict, 'template/common/survey.docx')
         _providing = []
-        self._xml_get_iter_block(path, 'NewParcel', XmlNewParcel, 'template/common/newparcel.docx')
+        # self._xml_get_iter_block(path, 'NewParcel', XmlNewParcel, 'template/common/newparcel.docx')
         # self._xml_get_iter_block(path, 'ProvidingPassCadastralNumbers', XmlProviding, 'template/common/providing.docx')
         # self._xml_get_iter_block(path, 'SpecifyRelatedParcel', XmlExistParcel, 'template/common/existparcel.docx')
         # self._xml_get_iter_block(path, 'Conclusion', XmlConclusion, 'template/common/conclusion.docx')
 
 
-    def renderTPL(self,node, XMLClass, path_tpl):
+    def renderTPL(self,node, XMLClass, path_tpl, name_result):
         """
             Рендер шаблона
         :param node:  узел- noda
@@ -79,7 +171,7 @@ class MpXMlToWORd:
             tpl = DocxTemplate(path_tpl)
             instance = XMLClass(node)
             tpl.render(instance.to_dict())
-            file_res = self.getNextNameFile()
+            file_res = '.'.join([name_result, 'docx'])
             tpl.save(os.path.join(cnfg.PATH_RESULT,file_res))
 
     def get_element_body(self, path):
@@ -111,6 +203,8 @@ class MpXMlToWORd:
                     merged_document.element.body.append(el)
         merged_document.save(pathFile)
         return merged_document
+
+
 
 
 if __name__ == '__main__':
