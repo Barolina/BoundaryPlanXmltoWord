@@ -1,0 +1,741 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<MP NameSoftware="OfficeCI" VersionSoftware="0.1" Version="06" GUID="F459DEF4-A4A0-4820-BC13-3A912E2F7B88" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<Package>
+<FormParcels Method="5">
+<NewParcel Definition=":ЗУ1">
+<CadastralBlock>69:02:0170801</CadastralBlock>
+<ProvidingPassCadastralNumbers>
+<Other>земли (земельные участки) общего пользования</Other>
+</ProvidingPassCadastralNumbers>
+<Area>
+<Area>13502</Area>
+<Unit>055</Unit>
+<Inaccuracy>41</Inaccuracy>
+</Area>
+<Address AddressOrLocation="1">
+<OKATO>28204861022</OKATO>
+<KLADR>6900300014900</KLADR>
+<PostalCode>171940</PostalCode>
+<Region>69</Region>
+<District Name="Бежецкий" Type="р-н"></District>
+<Locality Name="Константиново" Type="с"></Locality>
+<Other>Российская Федерация, Тверская область, Бежецкий район, Шишковское сельское поселение, с. Константиново, автодорога Шишково-Дуброво - Константиново</Other>
+</Address>
+<Category Category="003002000000">
+<DocCategory>
+<CodeDocument>558299000000</CodeDocument>
+<Name>постановление администрации Бежецкого района Тверской области</Name>
+<Number>2</Number>
+<Date>2018-01-11</Date>
+<IssueOrgan>администрация Бежецкого района Тверской области</IssueOrgan>
+</DocCategory>
+</Category>
+<Utilization ByDoc="Земельные участки (территории) общего пользования">
+<DocUtilization>
+<CodeDocument>558299000000</CodeDocument>
+<Name>постановление администрации Бежецкого района Тверской области</Name>
+<Number>2</Number>
+<Date>2018-01-11</Date>
+<IssueOrgan>администрация Бежецкого района Тверской области</IssueOrgan>
+</DocUtilization>
+</Utilization>
+<EntitySpatial EntSys="lB71EB396-40DB-471C-AEFC-15F123D600C2l">
+<SpatialElement>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="394003.53" Y="2308234.02" NumGeopoint="1" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="393970.39" Y="2308240.65" NumGeopoint="69" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="393955.81" Y="2308243.49" NumGeopoint="68" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="393937.66" Y="2308245.75" NumGeopoint="67" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="393923.42" Y="2308246.21" NumGeopoint="66" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="393916.59" Y="2308246.52" NumGeopoint="65" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="393909.08" Y="2308246.39" NumGeopoint="64" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="393902.29" Y="2308245.99" NumGeopoint="63" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="393894.99" Y="2308246.33" NumGeopoint="62" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="393887.11" Y="2308251.05" NumGeopoint="61" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="393877.71" Y="2308268.53" NumGeopoint="60" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="393870.1" Y="2308283.15" NumGeopoint="59" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="393834.91" Y="2308362.9" NumGeopoint="58" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="393822.04" Y="2308387.86" NumGeopoint="57" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="393814.86" Y="2308400.16" NumGeopoint="56" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="393791.28" Y="2308434.61" NumGeopoint="55" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="393774.6" Y="2308457.01" NumGeopoint="54" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="393755.66" Y="2308479.98" NumGeopoint="53" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="393736.63" Y="2308500.67" NumGeopoint="52" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="393713.24" Y="2308526.53" NumGeopoint="51" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="393692.4" Y="2308547.24" NumGeopoint="50" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="393679.05" Y="2308561.94" NumGeopoint="49" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="393666.37" Y="2308577.1" NumGeopoint="48" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="393640.29" Y="2308604.92" NumGeopoint="47" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="393629.02" Y="2308618.47" NumGeopoint="46" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="393619.87" Y="2308630.57" NumGeopoint="45" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="393609.53" Y="2308642.98" NumGeopoint="44" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="393602.35" Y="2308650.12" NumGeopoint="43" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="393590.27" Y="2308661.64" NumGeopoint="42" DeltaGeopoint="0.1"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="393575.83" Y="2308676.45" NumGeopoint="41" DeltaGeopoint="0.1"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="393568.02" Y="2308679.54" NumGeopoint="40" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="393560.17" Y="2308683.84" NumGeopoint="39" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="393549.81" Y="2308687.45" NumGeopoint="38" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="393529.12" Y="2308691.03" NumGeopoint="37" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="393532.52" Y="2308710.73" NumGeopoint="36" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="393554.81" Y="2308706.82" NumGeopoint="35" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="393568.33" Y="2308702.13" NumGeopoint="34" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="393578.52" Y="2308696.6" NumGeopoint="33" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="393587.58" Y="2308690.37" NumGeopoint="32" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="393592.69" Y="2308685.81" NumGeopoint="31" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="393602.07" Y="2308677.52" NumGeopoint="30" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="393609.05" Y="2308669.76" NumGeopoint="29" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="393620.11" Y="2308657.03" NumGeopoint="28" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="393624.48" Y="2308651.97" NumGeopoint="27" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="393634.41" Y="2308639.11" NumGeopoint="26" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="393645.2" Y="2308626.03" NumGeopoint="25" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="393655.05" Y="2308615.12" NumGeopoint="24" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="393671.01" Y="2308597.52" NumGeopoint="23" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="393706.56" Y="2308561.26" NumGeopoint="22" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="393727.59" Y="2308540.33" NumGeopoint="21" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="393751.38" Y="2308514.11" NumGeopoint="20" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="393770.72" Y="2308493.1" NumGeopoint="19" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="393790.38" Y="2308469.3" NumGeopoint="18" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="393807.58" Y="2308446.21" NumGeopoint="17" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="393831.8" Y="2308410.82" NumGeopoint="16" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="393839.56" Y="2308397.53" NumGeopoint="15" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="393852.99" Y="2308371.46" NumGeopoint="14" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="393882.16" Y="2308305" NumGeopoint="13" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="393888.14" Y="2308291.81" NumGeopoint="12" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="393900.03" Y="2308269.1" NumGeopoint="11" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="393901.71" Y="2308266.04" NumGeopoint="10" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="393908.54" Y="2308266.39" NumGeopoint="9" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="393916.85" Y="2308266.52" NumGeopoint="8" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="393939.26" Y="2308265.7" NumGeopoint="7" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="393959.07" Y="2308263.24" NumGeopoint="6" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="393970.57" Y="2308261.19" NumGeopoint="5" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="393996.14" Y="2308251.46" NumGeopoint="4" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="394002.54" Y="2308249.4" NumGeopoint="3" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="394004.89" Y="2308240.98" NumGeopoint="2" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="394003.53" Y="2308234.02" NumGeopoint="1" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+</SpatialElement>
+<Borders>
+<Border Spatial="1" Point1="1" Point2="2">
+<Edge>
+<Length>33.8</Length>
+</Edge>
+</Border>
+<Border Spatial="1" Point1="2" Point2="3">
+<Edge>
+<Length>14.85</Length>
+</Edge>
+</Border>
+<Border Spatial="1" Point1="3" Point2="4">
+<Edge>
+<Length>18.29</Length>
+</Edge>
+</Border>
+<Border Spatial="1" Point1="4" Point2="5">
+<Edge>
+<Length>14.25</Length>
+</Edge>
+</Border>
+<Border Spatial="1" Point1="5" Point2="6">
+<Edge>
+<Length>6.84</Length>
+</Edge>
+</Border>
+<Border Spatial="1" Point1="6" Point2="7">
+<Edge>
+<Length>7.51</Length>
+</Edge>
+</Border>
+<Border Spatial="1" Point1="7" Point2="8">
+<Edge>
+<Length>6.8</Length>
+</Edge>
+</Border>
+<Border Spatial="1" Point1="8" Point2="9">
+<Edge>
+<Length>7.31</Length>
+</Edge>
+</Border>
+<Border Spatial="1" Point1="9" Point2="10">
+<Edge>
+<Length>9.19</Length>
+</Edge>
+</Border>
+<Border Spatial="1" Point1="10" Point2="11">
+<Edge>
+<Length>19.85</Length>
+</Edge>
+</Border>
+<Border Spatial="1" Point1="11" Point2="12">
+<Edge>
+<Length>16.48</Length>
+</Edge>
+</Border>
+<Border Spatial="1" Point1="12" Point2="13">
+<Edge>
+<Length>87.17</Length>
+</Edge>
+</Border>
+<Border Spatial="1" Point1="13" Point2="14">
+<Edge>
+<Length>28.08</Length>
+</Edge>
+</Border>
+<Border Spatial="1" Point1="14" Point2="15">
+<Edge>
+<Length>14.24</Length>
+</Edge>
+</Border>
+<Border Spatial="1" Point1="15" Point2="16">
+<Edge>
+<Length>41.75</Length>
+</Edge>
+</Border>
+<Border Spatial="1" Point1="16" Point2="17">
+<Edge>
+<Length>27.93</Length>
+</Edge>
+</Border>
+<Border Spatial="1" Point1="17" Point2="18">
+<Edge>
+<Length>29.77</Length>
+</Edge>
+</Border>
+<Border Spatial="1" Point1="18" Point2="19">
+<Edge>
+<Length>28.11</Length>
+</Edge>
+</Border>
+<Border Spatial="1" Point1="19" Point2="20">
+<Edge>
+<Length>34.87</Length>
+</Edge>
+</Border>
+<Border Spatial="1" Point1="20" Point2="21">
+<Edge>
+<Length>29.38</Length>
+</Edge>
+</Border>
+<Border Spatial="1" Point1="21" Point2="22">
+<Edge>
+<Length>19.86</Length>
+</Edge>
+</Border>
+<Border Spatial="1" Point1="22" Point2="23">
+<Edge>
+<Length>19.76</Length>
+</Edge>
+</Border>
+<Border Spatial="1" Point1="23" Point2="24">
+<Edge>
+<Length>38.13</Length>
+</Edge>
+</Border>
+<Border Spatial="1" Point1="24" Point2="25">
+<Edge>
+<Length>17.62</Length>
+</Edge>
+</Border>
+<Border Spatial="1" Point1="25" Point2="26">
+<Edge>
+<Length>15.17</Length>
+</Edge>
+</Border>
+<Border Spatial="1" Point1="26" Point2="27">
+<Edge>
+<Length>16.15</Length>
+</Edge>
+</Border>
+<Border Spatial="1" Point1="27" Point2="28">
+<Edge>
+<Length>10.13</Length>
+</Edge>
+</Border>
+<Border Spatial="1" Point1="28" Point2="29">
+<Edge>
+<Length>16.69</Length>
+</Edge>
+</Border>
+<Border Spatial="1" Point1="29" Point2="30">
+<Edge>
+<Length>20.68</Length>
+</Edge>
+</Border>
+<Border Spatial="1" Point1="30" Point2="31">
+<Edge>
+<Length>8.4</Length>
+</Edge>
+</Border>
+<Border Spatial="1" Point1="31" Point2="32">
+<Edge>
+<Length>8.95</Length>
+</Edge>
+</Border>
+<Border Spatial="1" Point1="32" Point2="33">
+<Edge>
+<Length>10.97</Length>
+</Edge>
+</Border>
+<Border Spatial="1" Point1="33" Point2="34">
+<Edge>
+<Length>21</Length>
+</Edge>
+</Border>
+<Border Spatial="1" Point1="34" Point2="35">
+<Edge>
+<Length>19.99</Length>
+</Edge>
+</Border>
+<Border Spatial="1" Point1="35" Point2="36">
+<Edge>
+<Length>22.63</Length>
+</Edge>
+</Border>
+<Border Spatial="1" Point1="36" Point2="37">
+<Edge>
+<Length>14.31</Length>
+</Edge>
+</Border>
+<Border Spatial="1" Point1="37" Point2="38">
+<Edge>
+<Length>11.59</Length>
+</Edge>
+</Border>
+<Border Spatial="1" Point1="38" Point2="39">
+<Edge>
+<Length>11</Length>
+</Edge>
+</Border>
+<Border Spatial="1" Point1="39" Point2="40">
+<Edge>
+<Length>6.85</Length>
+</Edge>
+</Border>
+<Border Spatial="1" Point1="40" Point2="41">
+<Edge>
+<Length>12.52</Length>
+</Edge>
+</Border>
+<Border Spatial="1" Point1="41" Point2="42">
+<Edge>
+<Length>10.44</Length>
+</Edge>
+</Border>
+<Border Spatial="1" Point1="42" Point2="43">
+<Edge>
+<Length>16.86</Length>
+</Edge>
+</Border>
+<Border Spatial="1" Point1="43" Point2="44">
+<Edge>
+<Length>6.69</Length>
+</Edge>
+</Border>
+<Border Spatial="1" Point1="44" Point2="45">
+<Edge>
+<Length>16.25</Length>
+</Edge>
+</Border>
+<Border Spatial="1" Point1="45" Point2="46">
+<Edge>
+<Length>16.96</Length>
+</Edge>
+</Border>
+<Border Spatial="1" Point1="46" Point2="47">
+<Edge>
+<Length>14.7</Length>
+</Edge>
+</Border>
+<Border Spatial="1" Point1="47" Point2="48">
+<Edge>
+<Length>23.76</Length>
+</Edge>
+</Border>
+<Border Spatial="1" Point1="48" Point2="49">
+<Edge>
+<Length>50.78</Length>
+</Edge>
+</Border>
+<Border Spatial="1" Point1="49" Point2="50">
+<Edge>
+<Length>29.67</Length>
+</Edge>
+</Border>
+<Border Spatial="1" Point1="50" Point2="51">
+<Edge>
+<Length>35.4</Length>
+</Edge>
+</Border>
+<Border Spatial="1" Point1="51" Point2="52">
+<Edge>
+<Length>28.56</Length>
+</Edge>
+</Border>
+<Border Spatial="1" Point1="52" Point2="53">
+<Edge>
+<Length>30.87</Length>
+</Edge>
+</Border>
+<Border Spatial="1" Point1="53" Point2="54">
+<Edge>
+<Length>28.79</Length>
+</Edge>
+</Border>
+<Border Spatial="1" Point1="54" Point2="55">
+<Edge>
+<Length>42.88</Length>
+</Edge>
+</Border>
+<Border Spatial="1" Point1="55" Point2="56">
+<Edge>
+<Length>15.39</Length>
+</Edge>
+</Border>
+<Border Spatial="1" Point1="56" Point2="57">
+<Edge>
+<Length>29.33</Length>
+</Edge>
+</Border>
+<Border Spatial="1" Point1="57" Point2="58">
+<Edge>
+<Length>72.58</Length>
+</Edge>
+</Border>
+<Border Spatial="1" Point1="58" Point2="59">
+<Edge>
+<Length>14.48</Length>
+</Edge>
+</Border>
+<Border Spatial="1" Point1="59" Point2="60">
+<Edge>
+<Length>25.63</Length>
+</Edge>
+</Border>
+<Border Spatial="1" Point1="60" Point2="61">
+<Edge>
+<Length>3.49</Length>
+</Edge>
+</Border>
+<Border Spatial="1" Point1="61" Point2="62">
+<Edge>
+<Length>6.84</Length>
+</Edge>
+</Border>
+<Border Spatial="1" Point1="62" Point2="63">
+<Edge>
+<Length>8.31</Length>
+</Edge>
+</Border>
+<Border Spatial="1" Point1="63" Point2="64">
+<Edge>
+<Length>22.42</Length>
+</Edge>
+</Border>
+<Border Spatial="1" Point1="64" Point2="65">
+<Edge>
+<Length>19.96</Length>
+</Edge>
+</Border>
+<Border Spatial="1" Point1="65" Point2="66">
+<Edge>
+<Length>11.68</Length>
+</Edge>
+</Border>
+<Border Spatial="1" Point1="66" Point2="67">
+<Edge>
+<Length>27.36</Length>
+</Edge>
+</Border>
+<Border Spatial="1" Point1="67" Point2="68">
+<Edge>
+<Length>6.72</Length>
+</Edge>
+</Border>
+<Border Spatial="1" Point1="68" Point2="69">
+<Edge>
+<Length>8.74</Length>
+</Edge>
+</Border>
+<Border Spatial="1" Point1="69" Point2="70">
+<Edge>
+<Length>7.09</Length>
+</Edge>
+</Border>
+<Border Spatial="1" Point1="70" Point2="1">
+<Edge>
+<Length>33.8</Length>
+</Edge>
+</Border>
+</Borders>
+</EntitySpatial>
+</NewParcel>
+</FormParcels>
+</Package>
+<GeneralCadastralWorks DateCadastral="2018-01-29">
+<Contractor>
+<FamilyName>Иванникова</FamilyName>
+<FirstName>Олеся</FirstName>
+<Patronymic>Геннадьевна</Patronymic>
+<NCertificate>36-13-514</NCertificate>
+<Telephone>8-952-559-56-18</Telephone>
+<Address>394005, г. Воронеж, ул. Владимира Невского, д.85б, кв.16</Address>
+<Email>lesy1484@mail.ru</Email>
+<Organization>
+<Name>ООО НПП "Компьютерные технологии"</Name>
+<AddressOrganization>г. Воронеж, ул. Ф. Энгельса, д.5</AddressOrganization>
+</Organization>
+</Contractor>
+<Reason>образованием земельного участка из земель, находящихся в государственной или муниципальной собственности расположенного по адресу: Российская Федерация, Тверская область, Бежецкий район, Шишковское сельское поселение, с. Константиново, автодорога Шишково-Дуброво - Константиново</Reason>
+<Clients>
+<Client>
+<Organization>
+<Name>Государственное казенное учреждение Тверской области "Дирекция территориального дорожного фонда Тверской области"</Name>
+<INN>6905009018</INN>
+<OGRN>1026900546925</OGRN>
+</Organization>
+</Client>
+</Clients>
+</GeneralCadastralWorks>
+<CoordSystems>
+<CoordSystem Name="МСК-69, зона 2" CsId="lB71EB396-40DB-471C-AEFC-15F123D600C2l"></CoordSystem>
+</CoordSystems>
+<InputData>
+<Documents>
+<Document>
+<CodeDocument>558217000000</CodeDocument>
+<Number>02-69/17-1-703863</Number>
+<Date>2017-11-15</Date>
+</Document>
+<Document>
+<CodeDocument>558299000000</CodeDocument>
+<Name>Постановление администрации Бежецкого района Тверской области</Name>
+<Number>2</Number>
+<Date>2018-01-11</Date>
+<IssueOrgan>администрация Бежецкого района Тверской области</IssueOrgan>
+<AppliedFile Kind="01" Name="App\постановление № 2 от 11.01.2018.pdf"></AppliedFile>
+</Document>
+<Document>
+<CodeDocument>558256000000</CodeDocument>
+<Name>Выписка координат пунктов ГГС</Name>
+<Number>б\н</Number>
+<Date>2017-11-01</Date>
+</Document>
+</Documents>
+<GeodesicBases>
+<GeodesicBase>
+<PName>Крутец</PName>
+<PKind>наружный знак утрачен</PKind>
+<PKlass>2 класс</PKlass>
+<OrdX>392758.57</OrdX>
+<OrdY>2319346.5</OrdY>
+</GeodesicBase>
+<GeodesicBase>
+<PName>Сокольниково</PName>
+<PKind>пир. 6.2.</PKind>
+<PKlass>1 класс</PKlass>
+<OrdX>402600.64</OrdX>
+<OrdY>2326524.69</OrdY>
+</GeodesicBase>
+<GeodesicBase>
+<PName>Алабузино</PName>
+<PKind>пир. 6.2.</PKind>
+<PKlass>2 класс</PKlass>
+<OrdX>401851.71</OrdX>
+<OrdY>2316356.82</OrdY>
+</GeodesicBase>
+</GeodesicBases>
+<MeansSurvey>
+<MeanSurvey>
+<Name>GNSS - приемник спутниковый геодезический двухчастотный Trimble R8 GNSS</Name>
+<Registration>
+<Number>33967-07</Number>
+<Duration>17 января 2018 г.</Duration>
+</Registration>
+<CertificateVerification>№ 012343</CertificateVerification>
+</MeanSurvey>
+<MeanSurvey>
+<Name>Аппаратура геодезическая потребителей спутниковых навигационных систем ГЛОНАСС и GPS Trimble R7GNS</Name>
+<Registration>
+<Number>37145-08</Number>
+<Duration>17 января 2018 г.</Duration>
+</Registration>
+<CertificateVerification>№ 012342</CertificateVerification>
+</MeanSurvey>
+</MeansSurvey>
+</InputData>
+<Survey>
+<GeopointsOpred>
+<GeopointOpred>
+<CadastralNumberDefinition>:ЗУ1</CadastralNumberDefinition>
+<Methods>
+<GeopointOpred>692005000000</GeopointOpred>
+</Methods>
+</GeopointOpred>
+</GeopointsOpred>
+<TochnGeopointsParcels>
+<TochnGeopointsParcel>
+<CadastralNumberDefinition>:ЗУ1</CadastralNumberDefinition>
+<Formula>Mt = 0,1 </Formula>
+</TochnGeopointsParcel>
+</TochnGeopointsParcels>
+<TochnAreaParcels>
+<TochnAreaParcel>
+<CadastralNumberDefinition>:ЗУ1</CadastralNumberDefinition>
+<Formula>∆Р=3.5mt√p=3.5*0.1*√13502=41</Formula>
+<Area>
+<Area>13502</Area>
+<Unit>055</Unit>
+</Area>
+</TochnAreaParcel>
+</TochnAreaParcels>
+</Survey>
+<Conclusion>Межевой план подготовил кадастровый инженер Иванникова Олеся Геннадьевна, являющийся членом СРО КИ "ОПКД" (уникальный реестровый номер кадастрового инженера в реестре членов СРО КИ N 401). Сведения о СРО "ОПКД» содержатся в государственном реестре СРО КИ (уникальный номер реестровой записи от "08" июля 2016 г. N 003).
+Земельный участок полосы отвода автодороги Шишково-Дуброво - Константиново на территории   c. Константиново, на момент проведения кадастровых работ в единый государственный реестр недвижимости внесен не был. Граница образуемого земельного участка утверждена постановлением от 11.01.2018 г. №2, утвержденным надлежащим образом и приведенным в Приложении к настоящему межевому плану.
+Представленный межевой план подготовлен в связи с образованием земельного участка из земель государственной собственности, права на которые не разграничены и при образовании земельного участка, права и интересы правообладателей смежных земельных участков затронуты не были. Следовательно, согласно действующему законодательству, согласование границ образуемого земельного участка не требуется, и поэтому в межевом плане отсутствует раздел «Акт согласования границ земельных участков»
+В соответствии с абзацем 2 п. 38 Приказа № 921 от 08.12.2015 г. «Об утверждении формы и состава сведений межевого плана, требований к его подготовке» в случаях применения при осуществлении кадастровых работ для определения координат характерных точек границ земельных участков (частей земельных участков) метода спутниковых геодезических измерений с использованием программного обеспечения в формуле, примененной для расчета средней квадратической погрешности положения характерных точек границ земельных участков (частей земельных участков (Mt), может быть указано только значение средней квадратической погрешности. В данном межевом плане применен метод спутниковых геодезических измерений. 
+Геодезические работы проводились в ноябре 2017 года в рамках Государственного контракта №1-ГК-2017 от 16.10.2017 г.
+Сведения о геодезической основе кадастра, использованной при подготовке межевого плана (МСК-69, состояние на 01 ноября 2017г). 
+1. 1570 Крутец (наружный знак утрачен. 2 кл.) Х 392 758.57; Y 2 319 346.50, наружный знак - уничтожен, центр знака – сохранился, марка – сохранилась.
+2. 1588 Алабузино (пир. 6.2., 2 кл.) Х 401 851.71; Y 2 316 356.82, наружный знак - сохранился, центр знака – сохранился, марка – сохранилась.
+3. 1603 Сокольниково (пир. 6.2., 1 кл.) Х 514118.80; Y 2256699.51, наружный знак - сохранился, центр знака – сохранился, марка – сохранилась.</Conclusion>
+<SchemeGeodesicPlotting Kind="01" Name="App\СГП.pdf"></SchemeGeodesicPlotting>
+<SchemeDisposition Kind="01" Name="App\СР.pdf"></SchemeDisposition>
+<DiagramParcelsSubParcels Kind="01" Name="App\Чертеж.pdf"></DiagramParcelsSubParcels>
+</MP>

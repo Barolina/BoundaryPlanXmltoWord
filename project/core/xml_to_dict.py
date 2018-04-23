@@ -244,7 +244,6 @@ class XmlSubParcel(XmlBaseOrdinate):
         def to_dict(self):
            pass
 
-
 class XmlNewParcel(XmlBaseOrdinate):
     """
         :param root = NewParcel
@@ -517,14 +516,39 @@ class XmlExistParcel(XmlNewParcel):
         res = {
             cnfg.ENTITY_SPATIAL_EXIST['name']: self._merge_array_list(cnfg.ENTITY_SPATIAL_EXIST['attr'],
                                                                   self.ordinates),
-            cnfg.BORDERS['name']: self._merge_array_list(cnfg.BORDERS['attr'], self.borders)
+            cnfg.BORDERS['name']: self._merge_array_list(cnfg.BORDERS['attr'], self.borders),
+            cnfg.RELATEDPARCELS['name']: self._merge_array_list(cnfg.RELATEDPARCELS['attr'],
+                                                                self.xml_related_parcel_to_list())
         }
         return res
+
+    def xml_exist_general_info(self):
+        res_dict = dict()
+        area = self.node.xpath('Area')
+        if len(area) > 0:
+            res_dict[cnfg.PARCEL_COMMON['are']] =  self.full_area(area[0])
+        area_gkn = self.node.xpath('AreaInGKN/text()')
+        if  area_gkn:
+            res_dict[cnfg.PARCEL_COMMON['areaGKN']]=  area_gkn[0]
+        delta = self.node.xpath('DeltaArea/text()')
+        if delta:
+            res_dict[cnfg.PARCEL_COMMON['deltaArea']]= delta[0]
+        min_area = self.node.xpath('MinArea')
+        if min_area:
+            res_dict[cnfg.PARCEL_COMMON['min_area']]= self.full_area(min_area[0])
+        max_area = self.node.xpath('MaxArea')
+        if max_area:
+            res_dict[cnfg.PARCEL_COMMON['max_area']]= self.full_area(max_area[0])
+        res_dict[cnfg.PARCEL_COMMON['prevcadastralnumber']] = self.xml_objectRealty_inner_cadastral_number_to_text()
+        note= self.node.xpath('Note/text()')
+        if note:
+            res_dict[cnfg.PARCEL_COMMON['note']]= note[0]
+        return  res_dict
 
     def to_dict(self):
         res = {cnfg.PARCEL_COMMON['cadnum']: self.xml_cadnum_to_text()}
         res.update(self.xml_ordinate_borders_to_dict())
-        res.update(self.xml_general_info_to_dict())
+        res.update(self.xml_exist_general_info())
         return res
 
 
@@ -553,7 +577,6 @@ class XmlChangeParcel(XmlNewParcel):
               }
         res.update(self.xml_sub_parcels_to_dict())
         return res
-
 
 class XmlConclusion(XMLElemenBase):
        """

@@ -1,0 +1,834 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MP NameSoftware="OfficeCI" VersionSoftware="0.1" Version="06" GUID="5B0FAB23-B915-46C3-8AFF-5E096A84219E" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<Package>
+		<SpecifyParcel>
+			<ExistParcel CadastralNumber="50:20:0070738:182">
+				<CadastralBlock>50:20:0070738</CadastralBlock>
+				<ObjectRealty/>
+				<Area>
+					<Area>418</Area>
+					<Unit>055</Unit>
+					<Inaccuracy>7</Inaccuracy>
+				</Area>
+				<Contours>
+					<ExistContour NumberRecord="1">
+						<Area>
+							<Area>91.98</Area>
+							<Unit>055</Unit>
+							<Inaccuracy>3.35</Inaccuracy>
+						</Area>
+						<EntitySpatial EntSys="l96560653-8740-4C3D-892A-48279A36E407l">
+							<SpatialElement>
+								<SpelementUnit TypeUnit="Точка">
+									<NewOrdinate X="449648.21" Y="2137404.51" NumGeopoint="1" DeltaGeopoint="0.1"/>
+								</SpelementUnit>
+								<SpelementUnit TypeUnit="Точка">
+									<NewOrdinate X="449647.82" Y="2137404.63" NumGeopoint="14" DeltaGeopoint="0.1"/>
+								</SpelementUnit>
+								<SpelementUnit TypeUnit="Точка">
+									<NewOrdinate X="449646.62" Y="2137403.89" NumGeopoint="13" DeltaGeopoint="0.1"/>
+								</SpelementUnit>
+								<SpelementUnit TypeUnit="Точка">
+									<NewOrdinate X="449638.32" Y="2137401.47" NumGeopoint="12" DeltaGeopoint="0.1"/>
+								</SpelementUnit>
+								<SpelementUnit TypeUnit="Точка">
+									<NewOrdinate X="449636.86" Y="2137401.82" NumGeopoint="11" DeltaGeopoint="0.1"/>
+								</SpelementUnit>
+								<SpelementUnit TypeUnit="Точка">
+									<NewOrdinate X="449639.4" Y="2137411.24" NumGeopoint="10" DeltaGeopoint="0.1"/>
+								</SpelementUnit>
+								<SpelementUnit TypeUnit="Точка">
+									<NewOrdinate X="449639.48" Y="2137411.53" NumGeopoint="9" DeltaGeopoint="0.1"/>
+								</SpelementUnit>
+								<SpelementUnit TypeUnit="Точка">
+									<NewOrdinate X="449639.63" Y="2137411.5" NumGeopoint="8" DeltaGeopoint="0.1"/>
+								</SpelementUnit>
+								<SpelementUnit TypeUnit="Точка">
+									<NewOrdinate X="449639.94" Y="2137412.93" NumGeopoint="7" DeltaGeopoint="0.1"/>
+								</SpelementUnit>
+								<SpelementUnit TypeUnit="Точка">
+									<NewOrdinate X="449642.61" Y="2137412.25" NumGeopoint="6" DeltaGeopoint="0.1"/>
+								</SpelementUnit>
+								<SpelementUnit TypeUnit="Точка">
+									<NewOrdinate X="449642.31" Y="2137410.91" NumGeopoint="5" DeltaGeopoint="0.1"/>
+								</SpelementUnit>
+								<SpelementUnit TypeUnit="Точка">
+									<NewOrdinate X="449643.94" Y="2137410.54" NumGeopoint="4" DeltaGeopoint="0.1"/>
+								</SpelementUnit>
+								<SpelementUnit TypeUnit="Точка">
+									<NewOrdinate X="449644.68" Y="2137409.84" NumGeopoint="3" DeltaGeopoint="0.1"/>
+								</SpelementUnit>
+								<SpelementUnit TypeUnit="Точка">
+									<NewOrdinate X="449649.38" Y="2137408.42" NumGeopoint="2" DeltaGeopoint="0.1"/>
+								</SpelementUnit>
+								<SpelementUnit TypeUnit="Точка">
+									<NewOrdinate X="449648.21" Y="2137404.51" NumGeopoint="1" DeltaGeopoint="0.1"/>
+								</SpelementUnit>
+							</SpatialElement>
+							<Borders>
+								<Border Spatial="1" Point1="1" Point2="2">
+									<Edge>
+										<Length>0.41</Length>
+									</Edge>
+								</Border>
+								<Border Spatial="1" Point1="2" Point2="3">
+									<Edge>
+										<Length>1.41</Length>
+									</Edge>
+								</Border>
+								<Border Spatial="1" Point1="3" Point2="4">
+									<Edge>
+										<Length>8.65</Length>
+									</Edge>
+								</Border>
+								<Border Spatial="1" Point1="4" Point2="5">
+									<Edge>
+										<Length>1.5</Length>
+									</Edge>
+								</Border>
+								<Border Spatial="1" Point1="5" Point2="6">
+									<Edge>
+										<Length>9.76</Length>
+									</Edge>
+								</Border>
+								<Border Spatial="1" Point1="6" Point2="7">
+									<Edge>
+										<Length>0.3</Length>
+									</Edge>
+								</Border>
+								<Border Spatial="1" Point1="7" Point2="8">
+									<Edge>
+										<Length>0.15</Length>
+									</Edge>
+								</Border>
+								<Border Spatial="1" Point1="8" Point2="9">
+									<Edge>
+										<Length>1.46</Length>
+									</Edge>
+								</Border>
+								<Border Spatial="1" Point1="9" Point2="10">
+									<Edge>
+										<Length>2.76</Length>
+									</Edge>
+								</Border>
+								<Border Spatial="1" Point1="10" Point2="11">
+									<Edge>
+										<Length>1.37</Length>
+									</Edge>
+								</Border>
+								<Border Spatial="1" Point1="11" Point2="12">
+									<Edge>
+										<Length>1.67</Length>
+									</Edge>
+								</Border>
+								<Border Spatial="1" Point1="12" Point2="13">
+									<Edge>
+										<Length>1.02</Length>
+									</Edge>
+								</Border>
+								<Border Spatial="1" Point1="13" Point2="14">
+									<Edge>
+										<Length>4.91</Length>
+									</Edge>
+								</Border>
+								<Border Spatial="1" Point1="14" Point2="15">
+									<Edge>
+										<Length>4.08</Length>
+									</Edge>
+								</Border>
+								<Border Spatial="1" Point1="15" Point2="1">
+									<Edge>
+										<Length>0.41</Length>
+									</Edge>
+								</Border>
+							</Borders>
+						</EntitySpatial>
+					</ExistContour>
+					<ExistContour NumberRecord="2">
+						<Area>
+							<Area>336.16</Area>
+							<Unit>055</Unit>
+							<Inaccuracy>6.41</Inaccuracy>
+						</Area>
+						<EntitySpatial EntSys="l96560653-8740-4C3D-892A-48279A36E407l">
+							<SpatialElement>
+								<SpelementUnit TypeUnit="Точка">
+									<NewOrdinate X="449626.6" Y="2137402.56" NumGeopoint="15" DeltaGeopoint="0.1"/>
+								</SpelementUnit>
+								<SpelementUnit TypeUnit="Точка">
+									<NewOrdinate X="449621.3" Y="2137403.8" NumGeopoint="24" DeltaGeopoint="0.1"/>
+								</SpelementUnit>
+								<SpelementUnit TypeUnit="Точка">
+									<NewOrdinate X="449622.9" Y="2137410.66" NumGeopoint="23" DeltaGeopoint="0.1"/>
+								</SpelementUnit>
+								<SpelementUnit TypeUnit="Точка">
+									<NewOrdinate X="449612.25" Y="2137413.14" NumGeopoint="22" DeltaGeopoint="0.1"/>
+								</SpelementUnit>
+								<SpelementUnit TypeUnit="Точка">
+									<NewOrdinate X="449606.92" Y="2137403.59" NumGeopoint="21" DeltaGeopoint="0.1"/>
+								</SpelementUnit>
+								<SpelementUnit TypeUnit="Точка">
+									<NewOrdinate X="449586.86" Y="2137408.22" NumGeopoint="20" DeltaGeopoint="0.1"/>
+								</SpelementUnit>
+								<SpelementUnit TypeUnit="Точка">
+									<NewOrdinate X="449588.21" Y="2137421.33" NumGeopoint="19" DeltaGeopoint="0.1"/>
+								</SpelementUnit>
+								<SpelementUnit TypeUnit="Точка">
+									<NewOrdinate X="449624.41" Y="2137412.23" NumGeopoint="18" DeltaGeopoint="0.1"/>
+								</SpelementUnit>
+								<SpelementUnit TypeUnit="Точка">
+									<NewOrdinate X="449622.75" Y="2137405.11" NumGeopoint="17" DeltaGeopoint="0.1"/>
+								</SpelementUnit>
+								<SpelementUnit TypeUnit="Точка">
+									<NewOrdinate X="449626.96" Y="2137404.12" NumGeopoint="16" DeltaGeopoint="0.1"/>
+								</SpelementUnit>
+								<SpelementUnit TypeUnit="Точка">
+									<NewOrdinate X="449626.6" Y="2137402.56" NumGeopoint="15" DeltaGeopoint="0.1"/>
+								</SpelementUnit>
+							</SpatialElement>
+							<Borders>
+								<Border Spatial="1" Point1="1" Point2="2">
+									<Edge>
+										<Length>5.44</Length>
+									</Edge>
+								</Border>
+								<Border Spatial="1" Point1="2" Point2="3">
+									<Edge>
+										<Length>7.04</Length>
+									</Edge>
+								</Border>
+								<Border Spatial="1" Point1="3" Point2="4">
+									<Edge>
+										<Length>10.93</Length>
+									</Edge>
+								</Border>
+								<Border Spatial="1" Point1="4" Point2="5">
+									<Edge>
+										<Length>10.94</Length>
+									</Edge>
+								</Border>
+								<Border Spatial="1" Point1="5" Point2="6">
+									<Edge>
+										<Length>20.59</Length>
+									</Edge>
+								</Border>
+								<Border Spatial="1" Point1="6" Point2="7">
+									<Edge>
+										<Length>13.18</Length>
+									</Edge>
+								</Border>
+								<Border Spatial="1" Point1="7" Point2="8">
+									<Edge>
+										<Length>37.33</Length>
+									</Edge>
+								</Border>
+								<Border Spatial="1" Point1="8" Point2="9">
+									<Edge>
+										<Length>7.31</Length>
+									</Edge>
+								</Border>
+								<Border Spatial="1" Point1="9" Point2="10">
+									<Edge>
+										<Length>4.32</Length>
+									</Edge>
+								</Border>
+								<Border Spatial="1" Point1="10" Point2="11">
+									<Edge>
+										<Length>1.6</Length>
+									</Edge>
+								</Border>
+								<Border Spatial="1" Point1="11" Point2="1">
+									<Edge>
+										<Length>5.44</Length>
+									</Edge>
+								</Border>
+							</Borders>
+						</EntitySpatial>
+					</ExistContour>
+				</Contours>
+				<AreaInGKN>420</AreaInGKN>
+				<DeltaArea>2</DeltaArea>
+				<RelatedParcels>
+					<ParcelNeighbours>
+						<Definition>1-2,12-1.</Definition>
+						<ParcelNeighbour>
+							<CadastralNumber>50:20:0100204:200</CadastralNumber>
+							<OwnerNeighbours>
+								<NameRight>собственность</NameRight>
+								<OwnerNeighbour>
+									<NameOwner>Российская Федерация</NameOwner>
+									<ContactAddress>-</ContactAddress>
+								</OwnerNeighbour>
+							</OwnerNeighbours>
+						</ParcelNeighbour>
+					</ParcelNeighbours>
+					<ParcelNeighbours>
+						<Definition>2-5,20-21</Definition>
+						<ParcelNeighbour>
+							<CadastralNumber>50:20:0100105:2087</CadastralNumber>
+							<OwnerNeighbours>
+								<NameRight>Собственность</NameRight>
+								<OwnerNeighbour>
+									<NameOwner>Российская Федерация</NameOwner>
+									<ContactAddress>-</ContactAddress>
+								</OwnerNeighbour>
+							</OwnerNeighbours>
+						</ParcelNeighbour>
+					</ParcelNeighbours>
+					<ParcelNeighbours>
+						<Definition>6-10</Definition>
+						<ParcelNeighbour>
+							<CadastralNumber>50:20:0100204:339</CadastralNumber>
+							<OwnerNeighbours>
+								<NameRight>Данные отсутствуют</NameRight>
+								<OwnerNeighbour>
+									<NameOwner>-</NameOwner>
+									<ContactAddress>-</ContactAddress>
+								</OwnerNeighbour>
+							</OwnerNeighbours>
+						</ParcelNeighbour>
+					</ParcelNeighbours>
+					<ParcelNeighbours>
+						<Definition>10-11,18-20</Definition>
+						<ParcelNeighbour>
+							<CadastralNumber>50:20:0100204:266</CadastralNumber>
+							<OwnerNeighbours>
+								<NameRight>Собственность</NameRight>
+								<OwnerNeighbour>
+									<NameOwner>Российская Федерация</NameOwner>
+									<ContactAddress>-</ContactAddress>
+								</OwnerNeighbour>
+							</OwnerNeighbours>
+						</ParcelNeighbour>
+						<ParcelNeighbour>
+							<CadastralNumber>50:20:0100204:266</CadastralNumber>
+							<OwnerNeighbours>
+								<NameRight>Аренда</NameRight>
+								<OwnerNeighbour>
+									<NameOwner>-</NameOwner>
+									<ContactAddress>-</ContactAddress>
+								</OwnerNeighbour>
+							</OwnerNeighbours>
+						</ParcelNeighbour>
+					</ParcelNeighbours>
+					<ParcelNeighbours>
+						<Definition>12,15-16.</Definition>
+						<ParcelNeighbour>
+							<CadastralNumber>50:20:0100204:203</CadastralNumber>
+							<OwnerNeighbours>
+								<NameRight>Данные отсутствуют</NameRight>
+								<OwnerNeighbour>
+									<NameOwner>-</NameOwner>
+									<ContactAddress>-</ContactAddress>
+								</OwnerNeighbour>
+							</OwnerNeighbours>
+						</ParcelNeighbour>
+					</ParcelNeighbours>
+					<ParcelNeighbours>
+						<Definition>16-18</Definition>
+						<ParcelNeighbour>
+							<CadastralNumber>50:20:0100204:202</CadastralNumber>
+							<OwnerNeighbours>
+								<NameRight>Собственность</NameRight>
+								<OwnerNeighbour>
+									<NameOwner>Российская Федерация</NameOwner>
+									<ContactAddress>-</ContactAddress>
+								</OwnerNeighbour>
+							</OwnerNeighbours>
+						</ParcelNeighbour>
+					</ParcelNeighbours>
+					<ParcelNeighbours>
+						<Definition>21-15</Definition>
+						<ParcelNeighbour>
+							<CadastralNumber>50:20:0100204:201</CadastralNumber>
+							<OwnerNeighbours>
+								<NameRight>Собственность</NameRight>
+								<OwnerNeighbour>
+									<NameOwner>Российская Федерация</NameOwner>
+									<ContactAddress>-</ContactAddress>
+								</OwnerNeighbour>
+							</OwnerNeighbours>
+						</ParcelNeighbour>
+					</ParcelNeighbours>
+				</RelatedParcels>
+			</ExistParcel>
+			<ExistParcel CadastralNumber="50:20:0070738:182">
+				<CadastralBlock>50:20:0070738</CadastralBlock>
+				<ObjectRealty/>
+				<Area>
+					<Area>418</Area>
+					<Unit>055</Unit>
+					<Inaccuracy>7</Inaccuracy>
+				</Area>
+				<SubParcels>
+				   <NewSubParcels>
+						<Area>
+						   <Area>
+								   45445
+						   </Area>
+						</Area>
+				   </NewSubParcels>
+				</SubParcels>
+				<Contours>
+					<ExistContour NumberRecord="1">
+						<Area>
+							<Area>91.98</Area>
+							<Unit>055</Unit>
+							<Inaccuracy>3.35</Inaccuracy>
+						</Area>
+						<EntitySpatial EntSys="l96560653-8740-4C3D-892A-48279A36E407l">
+							<SpatialElement>
+								<SpelementUnit TypeUnit="Точка">
+									<NewOrdinate X="449648.21" Y="2137404.51" NumGeopoint="1" DeltaGeopoint="0.1"/>
+								</SpelementUnit>
+								<SpelementUnit TypeUnit="Точка">
+									<NewOrdinate X="449647.82" Y="2137404.63" NumGeopoint="14" DeltaGeopoint="0.1"/>
+								</SpelementUnit>
+								<SpelementUnit TypeUnit="Точка">
+									<NewOrdinate X="449646.62" Y="2137403.89" NumGeopoint="13" DeltaGeopoint="0.1"/>
+								</SpelementUnit>
+								<SpelementUnit TypeUnit="Точка">
+									<NewOrdinate X="449638.32" Y="2137401.47" NumGeopoint="12" DeltaGeopoint="0.1"/>
+								</SpelementUnit>
+								<SpelementUnit TypeUnit="Точка">
+									<NewOrdinate X="449636.86" Y="2137401.82" NumGeopoint="11" DeltaGeopoint="0.1"/>
+								</SpelementUnit>
+								<SpelementUnit TypeUnit="Точка">
+									<NewOrdinate X="449639.4" Y="2137411.24" NumGeopoint="10" DeltaGeopoint="0.1"/>
+								</SpelementUnit>
+								<SpelementUnit TypeUnit="Точка">
+									<NewOrdinate X="449639.48" Y="2137411.53" NumGeopoint="9" DeltaGeopoint="0.1"/>
+								</SpelementUnit>
+								<SpelementUnit TypeUnit="Точка">
+									<NewOrdinate X="449639.63" Y="2137411.5" NumGeopoint="8" DeltaGeopoint="0.1"/>
+								</SpelementUnit>
+								<SpelementUnit TypeUnit="Точка">
+									<NewOrdinate X="449639.94" Y="2137412.93" NumGeopoint="7" DeltaGeopoint="0.1"/>
+								</SpelementUnit>
+								<SpelementUnit TypeUnit="Точка">
+									<NewOrdinate X="449642.61" Y="2137412.25" NumGeopoint="6" DeltaGeopoint="0.1"/>
+								</SpelementUnit>
+								<SpelementUnit TypeUnit="Точка">
+									<NewOrdinate X="449642.31" Y="2137410.91" NumGeopoint="5" DeltaGeopoint="0.1"/>
+								</SpelementUnit>
+								<SpelementUnit TypeUnit="Точка">
+									<NewOrdinate X="449643.94" Y="2137410.54" NumGeopoint="4" DeltaGeopoint="0.1"/>
+								</SpelementUnit>
+								<SpelementUnit TypeUnit="Точка">
+									<NewOrdinate X="449644.68" Y="2137409.84" NumGeopoint="3" DeltaGeopoint="0.1"/>
+								</SpelementUnit>
+								<SpelementUnit TypeUnit="Точка">
+									<NewOrdinate X="449649.38" Y="2137408.42" NumGeopoint="2" DeltaGeopoint="0.1"/>
+								</SpelementUnit>
+								<SpelementUnit TypeUnit="Точка">
+									<NewOrdinate X="449648.21" Y="2137404.51" NumGeopoint="1" DeltaGeopoint="0.1"/>
+								</SpelementUnit>
+							</SpatialElement>
+							<Borders>
+								<Border Spatial="1" Point1="1" Point2="2">
+									<Edge>
+										<Length>0.41</Length>
+									</Edge>
+								</Border>
+								<Border Spatial="1" Point1="2" Point2="3">
+									<Edge>
+										<Length>1.41</Length>
+									</Edge>
+								</Border>
+								<Border Spatial="1" Point1="3" Point2="4">
+									<Edge>
+										<Length>8.65</Length>
+									</Edge>
+								</Border>
+								<Border Spatial="1" Point1="4" Point2="5">
+									<Edge>
+										<Length>1.5</Length>
+									</Edge>
+								</Border>
+								<Border Spatial="1" Point1="5" Point2="6">
+									<Edge>
+										<Length>9.76</Length>
+									</Edge>
+								</Border>
+								<Border Spatial="1" Point1="6" Point2="7">
+									<Edge>
+										<Length>0.3</Length>
+									</Edge>
+								</Border>
+								<Border Spatial="1" Point1="7" Point2="8">
+									<Edge>
+										<Length>0.15</Length>
+									</Edge>
+								</Border>
+								<Border Spatial="1" Point1="8" Point2="9">
+									<Edge>
+										<Length>1.46</Length>
+									</Edge>
+								</Border>
+								<Border Spatial="1" Point1="9" Point2="10">
+									<Edge>
+										<Length>2.76</Length>
+									</Edge>
+								</Border>
+								<Border Spatial="1" Point1="10" Point2="11">
+									<Edge>
+										<Length>1.37</Length>
+									</Edge>
+								</Border>
+								<Border Spatial="1" Point1="11" Point2="12">
+									<Edge>
+										<Length>1.67</Length>
+									</Edge>
+								</Border>
+								<Border Spatial="1" Point1="12" Point2="13">
+									<Edge>
+										<Length>1.02</Length>
+									</Edge>
+								</Border>
+								<Border Spatial="1" Point1="13" Point2="14">
+									<Edge>
+										<Length>4.91</Length>
+									</Edge>
+								</Border>
+								<Border Spatial="1" Point1="14" Point2="15">
+									<Edge>
+										<Length>4.08</Length>
+									</Edge>
+								</Border>
+								<Border Spatial="1" Point1="15" Point2="1">
+									<Edge>
+										<Length>0.41</Length>
+									</Edge>
+								</Border>
+							</Borders>
+						</EntitySpatial>
+					</ExistContour>
+					<ExistContour NumberRecord="2">
+						<Area>
+							<Area>336.16</Area>
+							<Unit>055</Unit>
+							<Inaccuracy>6.41</Inaccuracy>
+						</Area>
+						<EntitySpatial EntSys="l96560653-8740-4C3D-892A-48279A36E407l">
+							<SpatialElement>
+								<SpelementUnit TypeUnit="Точка">
+									<NewOrdinate X="449626.6" Y="2137402.56" NumGeopoint="15" DeltaGeopoint="0.1"/>
+								</SpelementUnit>
+								<SpelementUnit TypeUnit="Точка">
+									<NewOrdinate X="449621.3" Y="2137403.8" NumGeopoint="24" DeltaGeopoint="0.1"/>
+								</SpelementUnit>
+								<SpelementUnit TypeUnit="Точка">
+									<NewOrdinate X="449622.9" Y="2137410.66" NumGeopoint="23" DeltaGeopoint="0.1"/>
+								</SpelementUnit>
+								<SpelementUnit TypeUnit="Точка">
+									<NewOrdinate X="449612.25" Y="2137413.14" NumGeopoint="22" DeltaGeopoint="0.1"/>
+								</SpelementUnit>
+								<SpelementUnit TypeUnit="Точка">
+									<NewOrdinate X="449606.92" Y="2137403.59" NumGeopoint="21" DeltaGeopoint="0.1"/>
+								</SpelementUnit>
+								<SpelementUnit TypeUnit="Точка">
+									<NewOrdinate X="449586.86" Y="2137408.22" NumGeopoint="20" DeltaGeopoint="0.1"/>
+								</SpelementUnit>
+								<SpelementUnit TypeUnit="Точка">
+									<NewOrdinate X="449588.21" Y="2137421.33" NumGeopoint="19" DeltaGeopoint="0.1"/>
+								</SpelementUnit>
+								<SpelementUnit TypeUnit="Точка">
+									<NewOrdinate X="449624.41" Y="2137412.23" NumGeopoint="18" DeltaGeopoint="0.1"/>
+								</SpelementUnit>
+								<SpelementUnit TypeUnit="Точка">
+									<NewOrdinate X="449622.75" Y="2137405.11" NumGeopoint="17" DeltaGeopoint="0.1"/>
+								</SpelementUnit>
+								<SpelementUnit TypeUnit="Точка">
+									<NewOrdinate X="449626.96" Y="2137404.12" NumGeopoint="16" DeltaGeopoint="0.1"/>
+								</SpelementUnit>
+								<SpelementUnit TypeUnit="Точка">
+									<NewOrdinate X="449626.6" Y="2137402.56" NumGeopoint="15" DeltaGeopoint="0.1"/>
+								</SpelementUnit>
+							</SpatialElement>
+							<Borders>
+								<Border Spatial="1" Point1="1" Point2="2">
+									<Edge>
+										<Length>5.44</Length>
+									</Edge>
+								</Border>
+								<Border Spatial="1" Point1="2" Point2="3">
+									<Edge>
+										<Length>7.04</Length>
+									</Edge>
+								</Border>
+								<Border Spatial="1" Point1="3" Point2="4">
+									<Edge>
+										<Length>10.93</Length>
+									</Edge>
+								</Border>
+								<Border Spatial="1" Point1="4" Point2="5">
+									<Edge>
+										<Length>10.94</Length>
+									</Edge>
+								</Border>
+								<Border Spatial="1" Point1="5" Point2="6">
+									<Edge>
+										<Length>20.59</Length>
+									</Edge>
+								</Border>
+								<Border Spatial="1" Point1="6" Point2="7">
+									<Edge>
+										<Length>13.18</Length>
+									</Edge>
+								</Border>
+								<Border Spatial="1" Point1="7" Point2="8">
+									<Edge>
+										<Length>37.33</Length>
+									</Edge>
+								</Border>
+								<Border Spatial="1" Point1="8" Point2="9">
+									<Edge>
+										<Length>7.31</Length>
+									</Edge>
+								</Border>
+								<Border Spatial="1" Point1="9" Point2="10">
+									<Edge>
+										<Length>4.32</Length>
+									</Edge>
+								</Border>
+								<Border Spatial="1" Point1="10" Point2="11">
+									<Edge>
+										<Length>1.6</Length>
+									</Edge>
+								</Border>
+								<Border Spatial="1" Point1="11" Point2="1">
+									<Edge>
+										<Length>5.44</Length>
+									</Edge>
+								</Border>
+							</Borders>
+						</EntitySpatial>
+					</ExistContour>
+				</Contours>
+				<AreaInGKN>420</AreaInGKN>
+				<DeltaArea>2</DeltaArea>
+				<RelatedParcels>
+					<ParcelNeighbours>
+						<Definition>1-2,12-1.</Definition>
+						<ParcelNeighbour>
+							<CadastralNumber>50:20:0100204:200</CadastralNumber>
+							<OwnerNeighbours>
+								<NameRight>собственность</NameRight>
+								<OwnerNeighbour>
+									<NameOwner>Российская Федерация</NameOwner>
+									<ContactAddress>-</ContactAddress>
+								</OwnerNeighbour>
+							</OwnerNeighbours>
+						</ParcelNeighbour>
+					</ParcelNeighbours>
+					<ParcelNeighbours>
+						<Definition>2-5,20-21</Definition>
+						<ParcelNeighbour>
+							<CadastralNumber>50:20:0100105:2087</CadastralNumber>
+							<OwnerNeighbours>
+								<NameRight>Собственность</NameRight>
+								<OwnerNeighbour>
+									<NameOwner>Российская Федерация</NameOwner>
+									<ContactAddress>-</ContactAddress>
+								</OwnerNeighbour>
+							</OwnerNeighbours>
+						</ParcelNeighbour>
+					</ParcelNeighbours>
+					<ParcelNeighbours>
+						<Definition>6-10</Definition>
+						<ParcelNeighbour>
+							<CadastralNumber>50:20:0100204:339</CadastralNumber>
+							<OwnerNeighbours>
+								<NameRight>Данные отсутствуют</NameRight>
+								<OwnerNeighbour>
+									<NameOwner>-</NameOwner>
+									<ContactAddress>-</ContactAddress>
+								</OwnerNeighbour>
+							</OwnerNeighbours>
+						</ParcelNeighbour>
+					</ParcelNeighbours>
+					<ParcelNeighbours>
+						<Definition>10-11,18-20</Definition>
+						<ParcelNeighbour>
+							<CadastralNumber>50:20:0100204:266</CadastralNumber>
+							<OwnerNeighbours>
+								<NameRight>Собственность</NameRight>
+								<OwnerNeighbour>
+									<NameOwner>Российская Федерация</NameOwner>
+									<ContactAddress>-</ContactAddress>
+								</OwnerNeighbour>
+							</OwnerNeighbours>
+						</ParcelNeighbour>
+						<ParcelNeighbour>
+							<CadastralNumber>50:20:0100204:266</CadastralNumber>
+							<OwnerNeighbours>
+								<NameRight>Аренда</NameRight>
+								<OwnerNeighbour>
+									<NameOwner>-</NameOwner>
+									<ContactAddress>-</ContactAddress>
+								</OwnerNeighbour>
+							</OwnerNeighbours>
+						</ParcelNeighbour>
+					</ParcelNeighbours>
+					<ParcelNeighbours>
+						<Definition>12,15-16.</Definition>
+						<ParcelNeighbour>
+							<CadastralNumber>50:20:0100204:203</CadastralNumber>
+							<OwnerNeighbours>
+								<NameRight>Данные отсутствуют</NameRight>
+								<OwnerNeighbour>
+									<NameOwner>-</NameOwner>
+									<ContactAddress>-</ContactAddress>
+								</OwnerNeighbour>
+							</OwnerNeighbours>
+						</ParcelNeighbour>
+					</ParcelNeighbours>
+					<ParcelNeighbours>
+						<Definition>16-18</Definition>
+						<ParcelNeighbour>
+							<CadastralNumber>50:20:0100204:202</CadastralNumber>
+							<OwnerNeighbours>
+								<NameRight>Собственность</NameRight>
+								<OwnerNeighbour>
+									<NameOwner>Российская Федерация</NameOwner>
+									<ContactAddress>-</ContactAddress>
+								</OwnerNeighbour>
+							</OwnerNeighbours>
+						</ParcelNeighbour>
+					</ParcelNeighbours>
+					<ParcelNeighbours>
+						<Definition>21-15</Definition>
+						<ParcelNeighbour>
+							<CadastralNumber>50:20:0100204:201</CadastralNumber>
+							<OwnerNeighbours>
+								<NameRight>Собственность</NameRight>
+								<OwnerNeighbour>
+									<NameOwner>Российская Федерация</NameOwner>
+									<ContactAddress>-</ContactAddress>
+								</OwnerNeighbour>
+							</OwnerNeighbours>
+						</ParcelNeighbour>
+					</ParcelNeighbours>
+				</RelatedParcels>
+			</ExistParcel>
+		</SpecifyParcel>
+	</Package>
+	<GeneralCadastralWorks DateCadastral="2018-04-23">
+		<Contractor>
+			<FamilyName>Иванова</FamilyName>
+			<FirstName>Яна</FirstName>
+			<Patronymic>Валерьевна</Patronymic>
+			<NCertificate>36-16-742</NCertificate>
+			<Telephone>+7(908)1403725</Telephone>
+			<Address>Россия, 394006, г. Воронеж, ул.Гродненская д66.</Address>
+			<Email>Yanok-888@mail.ru</Email>
+			<Organization>
+				<Name>ООО НПП «Компьютерные технологии»</Name>
+				<AddressOrganization>Россия, 394000, г. Воронеж, ул. Ф. Энгельса, 5</AddressOrganization>
+			</Organization>
+		</Contractor>
+		<Reason>уточнением местоположения границ и площади земельного участка с кадастровым номером 50:20:0070738:182, расположенного: Московская обл., Одинцовский р-н, г. Кубинка, ш. Можайское, домовладение №185</Reason>
+		<Clients>
+			<Client>
+				<Organization>
+					<Name>Государственная компания «Российские автомобильные дороги»</Name>
+					<INN>7717151380</INN>
+					<OGRN>1097799013652</OGRN>
+				</Organization>
+			</Client>
+		</Clients>
+	</GeneralCadastralWorks>
+	<CoordSystems>
+		<CoordSystem Name="СК кадастрового округа" CsId="l96560653-8740-4C3D-892A-48279A36E407l"/>
+	</CoordSystems>
+	<InputData>
+		<Documents>
+			<Document>
+				<CodeDocument>558299000000</CodeDocument>
+				<Name>Выписка из Единого государственного реестра недвижимости об объекте недвижимости</Name>
+				<Number>99/2018/93846183 </Number>
+				<Date>2018-04-18</Date>
+				<IssueOrgan>ФГИС ЕГРН</IssueOrgan>
+			</Document>
+			<Document>
+				<CodeDocument>558217000000</CodeDocument>
+				<Number>99/2018/55167329</Number>
+				<Date>2018-01-09</Date>
+			</Document>
+			<Document>
+				<CodeDocument>558299000000</CodeDocument>
+				<Name>Выписка из Единого государственного реестра недвижимости об объекте недвижимости</Name>
+				<Number> 99/2018/93846124 </Number>
+				<Date>2018-04-18</Date>
+				<IssueOrgan>ФГИС ЕГРН</IssueOrgan>
+			</Document>
+			<Document>
+				<CodeDocument>558217000000</CodeDocument>
+				<Number>MO-17/ЗВ-5537975</Number>
+				<Date>2017-12-18</Date>
+			</Document>
+		</Documents>
+	</InputData>
+	<Survey>
+		<GeopointsOpred>
+			<GeopointOpred>
+				<CadastralNumberDefinition> 50:20:0070738:182 </CadastralNumberDefinition>
+				<Methods>
+					<GeopointOpred>692006000000</GeopointOpred>
+				</Methods>
+			</GeopointOpred>
+		</GeopointsOpred>
+		<TochnGeopointsParcels>
+			<TochnGeopointsParcel>
+				<CadastralNumberDefinition> 50:20:0070738:182 </CadastralNumberDefinition>
+				<Formula>Mt = √(m₀² + m₁²)=0.1</Formula>
+			</TochnGeopointsParcel>
+		</TochnGeopointsParcels>
+		<TochnAreaParcels>
+			<TochnAreaParcel>
+				<CadastralNumberDefinition> 50:20:0070738:182 </CadastralNumberDefinition>
+				<Formula>∆Р=3.5mt√p = 3.5*0.1*√418 =7</Formula>
+				<Area>
+					<Area>418</Area>
+					<Unit>055</Unit>
+				</Area>
+			</TochnAreaParcel>
+			<TochnAreaParcel>
+				<CadastralNumberDefinition> 50:20:0070738:182(1)</CadastralNumberDefinition>
+				<Formula>∆Р=3.5mt√p = 3.5*0.1*√91.98 =3.35</Formula>
+				<Area>
+					<Area>92</Area>
+					<Unit>055</Unit>
+				</Area>
+			</TochnAreaParcel>
+			<TochnAreaParcel>
+				<CadastralNumberDefinition> 50:20:0070738:182(2)</CadastralNumberDefinition>
+				<Formula>∆Р=3.5mt√p = 3.5*0.1*√336.16 =6.41</Formula>
+				<Area>
+					<Area>336</Area>
+					<Unit>055</Unit>
+				</Area>
+			</TochnAreaParcel>
+		</TochnAreaParcels>
+	</Survey>
+	<Conclusion>1. Данный межевой план подготовлен в связи с уточнением местоположения границ и площади земельного участка с кадастровым номером  50:20:0070738:182 , так как граница данного земельного участка не установлена в соответствии с требованиями земельного законодательства, т.е. характерные точки границы земельного участка будут представлены в координатах.
+2. Земельный участок  с кадастровым номером  50:20:0070738:182 фактически находится в квартале 50:20:0100204.
+3.Межевой план подготовлен Кадастровым инженером Ивановой Яной Валерьевной, являющейся членом Ассоциации Саморегулируемой организации «Объединение профессионалов кадастровой деятельности» (сокращенное наименование – Ассоциация СРО "ОПКД") номер в государственном реестре саморегулируемых организаций №003 от 08.07.2016г., номер в реестре Ассоциации СРО «ОПКД» 2249, включен в реестр 15.09.2016 г.
+ Номер регистрации в государственном реестре лиц, осуществляющих кадастровую деятельность: 38520,
+контактный телефон: +7(908)1403725
+Почтовый адрес и адрес электронной почты: Yanok-888@mail.ru; Россия, 394006, г. Воронеж, ул. Гродненская д.66.
+Страховой номер индивидуального лицевого счета в системе обязательного пенсионного страхования Российской Федерации (СНИЛС) 147-983-091 13.
+Сокращенное наименование юридического лица: ООО НПП «Компьютерные технологии», адрес местоположения: Россия, 394000, г. Воронеж, ул. Ф. Энгельса, 5
+Заказчиком работ является Государственная компания «Российские автомобильные дороги»". 
+Договор  № ЦУП-2018-108 от 19 февраля 2018 г.</Conclusion>
+	<SchemeGeodesicPlotting Kind="01" Name="App\Схема геодезических построений.pdf"/>
+	<SchemeDisposition Kind="01" Name="App\Схема расположения земельных участков.pdf"/>
+	<DiagramParcelsSubParcels Kind="01" Name="App\Чертёж земельных участков и их частей.pdf"/>
+	<Appendix>
+		<AppliedFiles>
+			<NumberAppendix>1</NumberAppendix>
+			<NameAppendix>Постановление_11-05-2001_№87</NameAppendix>
+			<AppliedFile Kind="01" Name="App\Постановление_11-05-2001_№87.pdf"/>
+		</AppliedFiles>
+	</Appendix>
+</MP>

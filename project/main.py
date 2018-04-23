@@ -107,6 +107,9 @@ class MpXMlToWORd:
             if elem.tag == 'NewParcel' and event == 'end':
                 self.fast_iter_element(elem, self.renderTPL,
                                        args=(XmlNewParcel, 'template/common/newparcel.docx', '4.' + str(i)))
+            if elem.tag == 'ExistParcel' and event == 'end':
+                self.fast_iter_element(elem, self.renderTPL,
+                                       args=(XmlExistParcel, 'template/common/existparcel.docx', '4.' + str(i)))
 
             if elem.tag == 'ChangeParcel' and event == 'end':
                 self.fast_iter_element(elem, self.renderTPL,
@@ -210,8 +213,8 @@ class MpXMlToWORd:
 if __name__ == '__main__':
 
     generat = MpXMlToWORd()
-    generat.xmlBlock_to_docx('../TEST/3/3.xml')
+    generat.xmlBlock_to_docx('../TEST/10/10.xml')
     files = os.listdir(cnfg.PATH_RESULT)
     _dcx = filter(lambda x : x.endswith('.docx'), files)
     _dcx = map(lambda x: os.path.join(cnfg.PATH_RESULT, x), _dcx)
-    generat.combine_word_documents(_dcx, '../TEST/3/result.docx')
+    generat.combine_word_documents(_dcx, '../TEST/10/result.docx')

@@ -66,7 +66,7 @@ class XmlBaseOrdinate(XMLElemenBase):
 
     def typeOrdinate(self, node):
         isExist = False
-        if node:
+        if node is not None:
             isOrdinate = node.find('.//Ordinate')
             isExistSubParcel = node.xpath('ancestor::*[name() = "SpecifyRelatedParcel" or name() = "ExistSubParcel"]')
             isExist = (isOrdinate == None) or (len(isExistSubParcel)>0)
@@ -184,6 +184,8 @@ class XmlBaseOrdinate(XMLElemenBase):
                 _defintion = _.xpath('@Definition')
                 if not _defintion:
                     _defintion = _.xpath('@Number')
+                    if not _defintion:
+                        _defintion = _.xpath('@NumberRecord')
                 countCol = self.CNST_COL_EXISTMP if _typeOrdinate else self.CNST_COL_NEWMP
                 res.append(_defintion + ['', ] * countCol)
                 res.extend(self.xml_EntitySpatial_to_list(_))
@@ -203,7 +205,12 @@ class XmlBaseOrdinate(XMLElemenBase):
             res = []
             try:
                 for _ in contours:
-                    res.append([''.join(_.xpath('@Definition')), '', '', '', ''])
+                    _defintion = _.xpath('@Definition')
+                    if not _defintion:
+                        _defintion = _.xpath('@Number')
+                        if not _defintion:
+                            _defintion = _.xpath('@NumberRecord')
+                    res.append([''.join(_defintion), '', '', '', ''])
                     res.extend(self.xml_borders_to_list(_))
             finally:
                 contours.clear()
