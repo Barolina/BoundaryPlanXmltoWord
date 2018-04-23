@@ -524,7 +524,7 @@ class XmlExistParcel(XmlNewParcel):
 
     def xml_exist_general_info(self):
         res_dict = dict()
-        area = self.node.xpath('Area')
+        area = self.node.xpath('Area') #self.node.xpath('following-sibling::*//Contours//Area//* | Area//*')
         if len(area) > 0:
             res_dict[cnfg.PARCEL_COMMON['are']] =  self.full_area(area[0])
         area_gkn = self.node.xpath('AreaInGKN/text()')
