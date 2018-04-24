@@ -1,6 +1,5 @@
 from builtins import enumerate
 from distutils.command.config import config
-
 from lxml import etree
 from docxtpl import DocxTemplate
 from lxml.etree import iterparse
@@ -9,9 +8,12 @@ from core.xml_to_dict import  *
 from docx import Document
 import os
 import  os
-logger = logging.getLogger(__name__)
-logger.setLevel(logging.NOTSET)
 import codecs
+
+import logging
+from logging.config import fileConfig
+fileConfig('loggers/logging_config.ini')
+logger = logging.getLogger()
 
 
 class XMLIterParser:
@@ -211,10 +213,15 @@ class MpXMlToWORd:
 
 
 if __name__ == '__main__':
-
+    logger.info('START PARSING')
     generat = MpXMlToWORd()
+
     generat.xmlBlock_to_docx('../TEST/10/10.xml')
+
+    logger.info('START COMBINE WORDS')
     files = os.listdir(cnfg.PATH_RESULT)
     _dcx = filter(lambda x : x.endswith('.docx'), files)
     _dcx = map(lambda x: os.path.join(cnfg.PATH_RESULT, x), _dcx)
+
     generat.combine_word_documents(_dcx, '../TEST/10/result.docx')
+    logger.info('END')

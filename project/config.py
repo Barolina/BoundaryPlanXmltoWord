@@ -87,7 +87,7 @@ PARCEL_COMMON = {
     'location_note': 'location_note',
     'category': 'category',
     'utilization_landuse': 'utilization_landuse',
-    'are': 'area',
+    'area': 'area',
     'min_area': 'min_area',
     'max_area': 'max_area',
     'note': 'note',
