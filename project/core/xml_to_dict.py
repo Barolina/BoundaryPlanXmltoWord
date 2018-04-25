@@ -319,20 +319,17 @@ class XmlNewParcel(XmlBaseOrdinate):
         node.clear()
         return result
 
-    def full_ares_contours(self,node_list):
+    def full_contours_area(self, node):
         """
-            Список площадей
-        :param node_list: list(node = Area)
+
+        :param node: node = Contours
         :return:
         """
-        area_contours = ''
-        try:
-            area_contours = ''
-            for id, _ in enumerate(node_list):
-                area_contours += f"""({ str(id+1)}) {''.join(_.xpath('Area/text()'))}±{''.join(_.xpath('Inaccuracy/text()'))} \n\r"""
-        finally:
-            node_list.clear()
-        return area_contours
+        _area = ' '
+        _xml_area = node.xpath("child::*/Area")
+        for index, _ in enumerate(_xml_area,1):
+            _area += f"""({index}) {self.full_area(_)} """
+        return _area
 
     def xml_general_info_to_dict(self):
         dict_address = dict()
@@ -359,7 +356,7 @@ class XmlNewParcel(XmlBaseOrdinate):
             dict_address['utilization_landuse'] =  self.full_utilization(xml_utilization[0])
             xml_utilization.clear()
         if xml_area:
-            dict_address['area'] = self.full_area(xml_area[0]) + '\n\r' + self.full_ares_contours(xml_area_contour)
+            dict_address['area'] = self.full_area(xml_area[0]) + '\n' + self.full_ares_contours(xml_area_contour)
         dict_address['min_area'] = ''.join(self.node.xpath('MinArea/Area/text()'))
         dict_address['max_area'] = ''.join(self.node.xpath('MaxArea/Area/text()'))
         dict_address['note'] = ''.join(self.node.xpath('Note/text()'))
@@ -539,12 +536,14 @@ class XmlExistParcel(XmlNewParcel):
 
     def xml_exist_general_info(self):
         res_dict = dict()
-        xml_area_contour = self.node.xpath('Contours/child::*/child::Area')
+        xml_area_contour = self.node.xpath('Contours')
         xml_area = self.node.xpath('Area') #self.node.xpath('following-sibling::*//Contours//Area//* | Area//*')
         if len(xml_area) > 0:
             # dict_address['area'] = self.full_area(xml_area[0]) + '\n\r' + self.full_ares_contours(xml_area_contour)
             # _area_cont = self.node('following-sibling::*//Contours//Area//* | Area//*')
-            res_dict[cnfg.PARCEL_COMMON['area']] =  self.full_area(xml_area[0]) + '\n\r' + self.full_ares_contours(xml_area_contour)
+            res_dict[cnfg.PARCEL_COMMON['area']] =  self.full_area(xml_area[0])
+        if xml_area_contour:
+            res_dict[cnfg.PARCEL_COMMON['area']] += '\n\r' + self.full_contours_area(xml_area_contour[0])
         area_gkn = self.node.xpath('AreaInGKN/text()')
         if  area_gkn:
             res_dict[cnfg.PARCEL_COMMON['areaGKN']]=  area_gkn[0]
@@ -565,8 +564,8 @@ class XmlExistParcel(XmlNewParcel):
 
     def to_dict(self):
         res = {cnfg.PARCEL_COMMON['cadnum']: self.xml_cadnum_to_text()}
-        res.update(self.xml_ordinate_borders_to_dict())
         res.update(self.xml_exist_general_info())
+        res.update(self.xml_ordinate_borders_to_dict())
         return res
 
 class XmlChangeParcel(XmlNewParcel):

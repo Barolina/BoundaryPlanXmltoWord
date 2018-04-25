@@ -61,6 +61,139 @@ class XMLElemenBase:
         pass
 
 
+class Ordinatre(list):
+    CNST_NEWPARCEL = 'newparcel'
+    CNST_EXISTPARCEL = 'existparcel'
+
+    META_TPL_ORDINATE = {  # шаблон для пребразвоания в вордовском tpl
+        CNST_NEWPARCEL: {
+            'tpl': ['', ] * 5,
+            'method': '_xml_new_ordinate_to_list'
+        },
+        CNST_EXISTPARCEL: {
+            'tpl': ['', ] * 7,
+            'method': '_xml_exist_ordinate_to_list'
+        }
+    }
+
+    def __init__(self, node):
+        self.node = node
+
+    def isExistOrdinate(self, node):
+        """
+            Определени типа  коорлинат - на  образование или на уточнение
+        :param node:
+        :return:
+        """
+        isExist = False
+        if node is not None:
+            isOrdinate = node.find('.//Ordinate')
+            isExistSubParcel = node.xpath(
+                'ancestor::*[name() = "SpecifyRelatedParcel" or name() = "ExistSubParcel"]')
+            isExist = (isOrdinate == None) or (len(isExistSubParcel) > 0)
+        return isExist
+
+    def _valueisExistOrdinate(self, node):
+        return 'existparcel' if self.isExistOrdinate(node) else 'newparcel'
+
+    def _xml_new_ordinate_to_list(self, node):
+        """
+            Список координат внутренного контура на образование
+        :param node: ==  SpatialElement
+        :return: list()
+        """
+        spatial_unit = node.xpath('child::*/*[starts-with(name(),"Ordinate")]')
+        res = []
+        if spatial_unit:
+            try:
+                for _ in spatial_unit:
+                    _attrib = dict(_.attrib)
+                    number = _attrib.get('PointPref', '') + _attrib.get('NumGeopoint', '')
+                    res.append(
+                        ['', number, _attrib.get('X', '-'), _attrib.get('Y', '-'),
+                         _attrib.get('DeltaGeopoint', '-')])
+            finally:
+                node.clear()  # ordinate clear
+        return res
+
+    def _xml_exist_ordinate_to_list(self, node):
+        """
+            Список координат внутреннего конутра на уточнение
+        :param node: ==  SpatialElement
+        :return: list()
+        """
+        spatial_unit = node.xpath('child::*')
+        res = []
+        if spatial_unit:
+            try:
+                for _ in spatial_unit:
+                    # Вариант ExistSubParcels - координаты  должны быть в формате на уточнение, хотя описание в xml
+                    # файле как на образование
+                    Ordinate = _.xpath('Ordinate')
+                    newOrdinate = _.xpath('NewOrdinate') if not Ordinate else Ordinate
+                    oldOrdinate = _.xpath('OldOrdinate')
+                    xNew, yNew, delata, number, xOld, yOld = ('-' * 6)
+                    if newOrdinate:
+                        _attrib = dict(newOrdinate[0].attrib)
+                        number = _attrib.get('PointPref', '') + _attrib.get('NumGeopoint', '')
+                        xNew, yNew, delata = _attrib.get('X', '-'), _attrib.get('Y', '-'), _attrib.get(
+                            'DeltaGeopoint',
+                            '-')
+                    if oldOrdinate:
+                        _attrib = dict(oldOrdinate[0].attrib)
+                        xOld, yOld = _attrib.get('X', '-'), _attrib.get('Y', '-')
+
+                    res.append(['', number, xOld, yOld, xNew, yNew, delata])
+            finally:
+                node.clear()  # ordinate clear
+        else:
+            logging.error(f"""Попытка получить  координаты, но они отсутсвуют по данному узлу {node}""")
+        return res
+
+
+    def _get_method_entity_spatial(self, name):
+        """
+
+        :param name: newparcel or existparcel
+        :return:
+        """
+        if hasattr(self, self.META_TPL_ORDINATE[name]['method']):
+            return getattr(self, self.META_TPL_ORDINATE[name]['method'])
+        return None
+
+    def xml_to_list(self):
+        name_type_ord = self._valueisExistOrdinate(self.node)
+        return self._get_method_entity_spatial(name_type_ord)(self.node)
+
+
+class EntitySpatial(list):
+
+    def __init__(self, node):
+        self.node = node
+
+
+    def xml_to_list(self):
+        """
+                Entity_Spatial границ участка
+            :param node: parent/Entity_Spatial
+            :param  name_tpl =  тип запрашиваемых координат
+            :return:
+            """
+        pathEntitySpatial1 = 'EntitySpatial/child::*[not(name()="Borders")]'
+        spatial_element = self.node.xpath(pathEntitySpatial1)
+        res = []
+        for index, _ in enumerate(spatial_element):
+            ord = Ordinatre(_)
+            str = ord.xml_to_list()
+            # lst_ord = self._get_method_entity_spatial(name_tpl)(_)
+            res.extend(str)
+            # добавление пустой строки - разделение внутрених контуров
+            if index != len(spatial_element) - 1:
+                res.append(self.META_TPL_ORDINATE[name_tpl]['tpl'] + [
+                    'yes'])  # вместо yes можно что  угодно - главное что не пусто
+        # ToDo очищать пока не будет  надо еще считать Borders
+        return res
+
 class XmlBaseOrdinate(XMLElemenBase):
     """
         Переработка коорлинат межевого плана
@@ -168,8 +301,10 @@ class XmlBaseOrdinate(XMLElemenBase):
         spatial_element = node.xpath(pathEntitySpatial1)
         res = []
         for index, _ in enumerate(spatial_element):
-            lst_ord = self._get_method_entity_spatial(name_tpl)(_)
-            res.extend(lst_ord)
+            ord = Ordinatre(_)
+            str = ord.xml_to_list()
+            # lst_ord = self._get_method_entity_spatial(name_tpl)(_)
+            res.extend(str)
             # добавление пустой строки - разделение внутрених контуров
             if index != len(spatial_element) - 1:
                 res.append(self.META_TPL_ORDINATE[name_tpl]['tpl'] + ['yes'])  # вместо yes можно что  угодно - главное что не пусто
@@ -190,8 +325,7 @@ class XmlBaseOrdinate(XMLElemenBase):
             name_type_ord = self._valueisExistOrdinate(node)
             if entity_spatial:
                 res = self.xml_EntitySpatial_to_list(node,name_type_ord)
-            # else: # любые иные с  вложенными Spelement_Until
-            #     res = self._get_method_entity_spatial(node)
+
         #ToDo очищать пок не будем на получить Borders
         return res
 

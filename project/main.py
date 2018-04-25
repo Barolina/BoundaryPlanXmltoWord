@@ -152,12 +152,9 @@ class MpXMlToWORd:
         # get an iterable
         context = iterparse(path, events=("start", "end"))
         context = iter(context)
-        # event, root = context.next()
         self.pardes(context)
-        # self._xml_get_iter_block(path, 'GeneralCadastralWorks', XmlTitleDict,'template/common/title.docx')
-        # self._xml_get_iter_block(path, 'InputData', XmlInputDataDict, 'template/common/inputdata.docx')
-        # self._xml_get_iter_block(path, 'Survey', XmlSurveyDict, 'template/common/survey.docx')
         _providing = []
+        del context
         # self._xml_get_iter_block(path, 'NewParcel', XmlNewParcel, 'template/common/newparcel.docx')
         # self._xml_get_iter_block(path, 'ProvidingPassCadastralNumbers', XmlProviding, 'template/common/providing.docx')
         # self._xml_get_iter_block(path, 'SpecifyRelatedParcel', XmlExistParcel, 'template/common/existparcel.docx')
@@ -216,12 +213,12 @@ if __name__ == '__main__':
     logger.info('START PARSING')
     generat = MpXMlToWORd()
 
-    generat.xmlBlock_to_docx('../TEST/10/10.xml')
+    generat.xmlBlock_to_docx('../TEST/11/11.xml')
 
     logger.info('START COMBINE WORDS')
     files = os.listdir(cnfg.PATH_RESULT)
     _dcx = filter(lambda x : x.endswith('.docx'), files)
     _dcx = map(lambda x: os.path.join(cnfg.PATH_RESULT, x), _dcx)
 
-    generat.combine_word_documents(_dcx, '../TEST/10/result.docx')
+    generat.combine_word_documents(_dcx, '../TEST/11/result.docx')
     logger.info('END')
