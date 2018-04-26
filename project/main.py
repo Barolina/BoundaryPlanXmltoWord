@@ -213,12 +213,12 @@ if __name__ == '__main__':
     logger.info('START PARSING')
     generat = MpXMlToWORd()
 
-    generat.xmlBlock_to_docx('../TEST/11/11.xml')
+    generat.xmlBlock_to_docx('../TEST/13/13.xml')
 
     logger.info('START COMBINE WORDS')
     files = os.listdir(cnfg.PATH_RESULT)
     _dcx = filter(lambda x : x.endswith('.docx'), files)
     _dcx = map(lambda x: os.path.join(cnfg.PATH_RESULT, x), _dcx)
 
-    generat.combine_word_documents(_dcx, '../TEST/11/result.docx')
+    generat.combine_word_documents(_dcx, '../TEST/13/result.docx')
     logger.info('END')

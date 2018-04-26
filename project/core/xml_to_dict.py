@@ -327,8 +327,9 @@ class XmlNewParcel(XmlBaseOrdinate):
         """
         _area = ' '
         _xml_area = node.xpath("child::*/Area")
-        for index, _ in enumerate(_xml_area,1):
-            _area += f"""({index}) {self.full_area(_)} """
+        if _xml_area:
+            for index, _ in enumerate(_xml_area,1):
+                _area += f"""({index}) {self.full_area(_)} """
         return _area
 
     def xml_general_info_to_dict(self):
@@ -356,7 +357,7 @@ class XmlNewParcel(XmlBaseOrdinate):
             dict_address['utilization_landuse'] =  self.full_utilization(xml_utilization[0])
             xml_utilization.clear()
         if xml_area:
-            dict_address['area'] = self.full_area(xml_area[0]) + '\n' + self.full_ares_contours(xml_area_contour)
+            dict_address['area'] = self.full_area(xml_area[0]) + '\n' + self.full_contours_area(xml_area_contour)
         dict_address['min_area'] = ''.join(self.node.xpath('MinArea/Area/text()'))
         dict_address['max_area'] = ''.join(self.node.xpath('MaxArea/Area/text()'))
         dict_address['note'] = ''.join(self.node.xpath('Note/text()'))
@@ -423,6 +424,7 @@ class XmlNewParcel(XmlBaseOrdinate):
                 cnfg.SUBPARCEL_GENERAL['name']: general}
 
     def to_dict(self):
+
         res = {cnfg.PARCEL_COMMON['cadnum']: self.xml_cadnum_to_text(),
               cnfg.ENTITY_SPATIAL['name']: self._merge_array_list(cnfg.ENTITY_SPATIAL['attr'],
                                                                  self.xmlFullOrdinates_to_list(self.node)),

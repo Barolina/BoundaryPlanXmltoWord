@@ -60,12 +60,10 @@ class XMLElemenBase:
         """
         pass
 
+CNST_NEWPARCEL = 'newparcel'
+CNST_EXISTPARCEL = 'existparcel'
 
-class Ordinatre(list):
-    CNST_NEWPARCEL = 'newparcel'
-    CNST_EXISTPARCEL = 'existparcel'
-
-    META_TPL_ORDINATE = {  # шаблон для пребразвоания в вордовском tpl
+META_TPL_ORDINATE = {  # шаблон для пребразвоания в вордовском tpl
         CNST_NEWPARCEL: {
             'tpl': ['', ] * 5,
             'method': '_xml_new_ordinate_to_list'
@@ -76,10 +74,10 @@ class Ordinatre(list):
         }
     }
 
-    def __init__(self, node):
-        self.node = node
+class StaticMethod:
 
-    def isExistOrdinate(self, node):
+    @staticmethod
+    def isExistOrdinate(node):
         """
             Определени типа  коорлинат - на  образование или на уточнение
         :param node:
@@ -93,8 +91,40 @@ class Ordinatre(list):
             isExist = (isOrdinate == None) or (len(isExistSubParcel) > 0)
         return isExist
 
-    def _valueisExistOrdinate(self, node):
-        return 'existparcel' if self.isExistOrdinate(node) else 'newparcel'
+    @staticmethod
+    def _valueisExistOrdinate(node):
+        return 'existparcel' if StaticMethod.isExistOrdinate(node) else 'newparcel'
+
+    @staticmethod
+    def get_empty_tpl(node):
+        if node:
+            name_type_ord = StaticMethod._valueisExistOrdinate(node)
+            return META_TPL_ORDINATE[name_type_ord]['tpl']
+        return None
+
+class Ordinatre(list):
+    CNST_NEWPARCEL = 'newparcel'
+    CNST_EXISTPARCEL = 'existparcel'
+
+    propertyNode = StaticMethod
+
+    META_TPL_ORDINATE = {  # шаблон для пребразвоания в вордовском tpl
+        CNST_NEWPARCEL: {
+            'tpl': ['', ] * 5,
+            'method': '_xml_new_ordinate_to_list'
+        },
+        CNST_EXISTPARCEL: {
+            'tpl': ['', ] * 7,
+            'method': '_xml_exist_ordinate_to_list'
+        }
+    }
+
+    def __init__(self, node):
+        """
+        Получить список коорлинат
+        :param node:  SpelementElement
+        """
+        self.node = node
 
     def _xml_new_ordinate_to_list(self, node):
         """
@@ -105,15 +135,12 @@ class Ordinatre(list):
         spatial_unit = node.xpath('child::*/*[starts-with(name(),"Ordinate")]')
         res = []
         if spatial_unit:
-            try:
-                for _ in spatial_unit:
-                    _attrib = dict(_.attrib)
-                    number = _attrib.get('PointPref', '') + _attrib.get('NumGeopoint', '')
-                    res.append(
-                        ['', number, _attrib.get('X', '-'), _attrib.get('Y', '-'),
-                         _attrib.get('DeltaGeopoint', '-')])
-            finally:
-                node.clear()  # ordinate clear
+            for _ in spatial_unit:
+                _attrib = dict(_.attrib)
+                number = _attrib.get('PointPref', '') + _attrib.get('NumGeopoint', '')
+                res.append(
+                    ['', number, _attrib.get('X', '-'), _attrib.get('Y', '-'),
+                     _attrib.get('DeltaGeopoint', '-')])
         return res
 
     def _xml_exist_ordinate_to_list(self, node):
@@ -125,31 +152,27 @@ class Ordinatre(list):
         spatial_unit = node.xpath('child::*')
         res = []
         if spatial_unit:
-            try:
-                for _ in spatial_unit:
-                    # Вариант ExistSubParcels - координаты  должны быть в формате на уточнение, хотя описание в xml
-                    # файле как на образование
-                    Ordinate = _.xpath('Ordinate')
-                    newOrdinate = _.xpath('NewOrdinate') if not Ordinate else Ordinate
-                    oldOrdinate = _.xpath('OldOrdinate')
-                    xNew, yNew, delata, number, xOld, yOld = ('-' * 6)
-                    if newOrdinate:
-                        _attrib = dict(newOrdinate[0].attrib)
-                        number = _attrib.get('PointPref', '') + _attrib.get('NumGeopoint', '')
-                        xNew, yNew, delata = _attrib.get('X', '-'), _attrib.get('Y', '-'), _attrib.get(
-                            'DeltaGeopoint',
-                            '-')
-                    if oldOrdinate:
-                        _attrib = dict(oldOrdinate[0].attrib)
-                        xOld, yOld = _attrib.get('X', '-'), _attrib.get('Y', '-')
+            for _ in spatial_unit:
+                # Вариант ExistSubParcels - координаты  должны быть в формате на уточнение, хотя описание в xml
+                # файле как на образование
+                Ordinate = _.xpath('Ordinate')
+                newOrdinate = _.xpath('NewOrdinate') if not Ordinate else Ordinate
+                oldOrdinate = _.xpath('OldOrdinate')
+                xNew, yNew, delata, number, xOld, yOld = ('-' * 6)
+                if newOrdinate:
+                    _attrib = dict(newOrdinate[0].attrib)
+                    number = _attrib.get('PointPref', '') + _attrib.get('NumGeopoint', '')
+                    xNew, yNew, delata = _attrib.get('X', '-'), _attrib.get('Y', '-'), _attrib.get(
+                        'DeltaGeopoint',
+                        '-')
+                if oldOrdinate:
+                    _attrib = dict(oldOrdinate[0].attrib)
+                    xOld, yOld = _attrib.get('X', '-'), _attrib.get('Y', '-')
 
-                    res.append(['', number, xOld, yOld, xNew, yNew, delata])
-            finally:
-                node.clear()  # ordinate clear
+                res.append(['', number, xOld, yOld, xNew, yNew, delata])
         else:
             logging.error(f"""Попытка получить  координаты, но они отсутсвуют по данному узлу {node}""")
         return res
-
 
     def _get_method_entity_spatial(self, name):
         """
@@ -162,15 +185,18 @@ class Ordinatre(list):
         return None
 
     def xml_to_list(self):
-        name_type_ord = self._valueisExistOrdinate(self.node)
+        name_type_ord = StaticMethod._valueisExistOrdinate(self.node)
         return self._get_method_entity_spatial(name_type_ord)(self.node)
 
 
 class EntitySpatial(list):
 
     def __init__(self, node):
-        self.node = node
+        """
 
+        :param node: EntitySpatial
+        """
+        self.node = node
 
     def xml_to_list(self):
         """
@@ -179,18 +205,18 @@ class EntitySpatial(list):
             :param  name_tpl =  тип запрашиваемых координат
             :return:
             """
-        pathEntitySpatial1 = 'EntitySpatial/child::*[not(name()="Borders")]'
+        pathEntitySpatial1 = 'child::*[not(name()="Borders")]'
         spatial_element = self.node.xpath(pathEntitySpatial1)
         res = []
         for index, _ in enumerate(spatial_element):
             ord = Ordinatre(_)
             str = ord.xml_to_list()
-            # lst_ord = self._get_method_entity_spatial(name_tpl)(_)
             res.extend(str)
             # добавление пустой строки - разделение внутрених контуров
             if index != len(spatial_element) - 1:
-                res.append(self.META_TPL_ORDINATE[name_tpl]['tpl'] + [
-                    'yes'])  # вместо yes можно что  угодно - главное что не пусто
+                _empty =StaticMethod.get_empty_tpl(_)
+                if _empty:
+                    res.append(_empty+['yes'])
         # ToDo очищать пока не будет  надо еще считать Borders
         return res
 
@@ -237,14 +263,14 @@ class XmlBaseOrdinate(XMLElemenBase):
         spatial_unit = node.xpath('child::*/*[starts-with(name(),"Ordinate")]')
         res = []
         if spatial_unit:
-            try:
-                for _ in spatial_unit:
-                    _attrib = dict(_.attrib)
-                    number = _attrib.get('PointPref', '') + _attrib.get('NumGeopoint', '')
-                    res.append(
-                        ['', number, _attrib.get('X', '-'), _attrib.get('Y', '-'), _attrib.get('DeltaGeopoint', '-')])
-            finally:
-                node.clear()# ordinate clear
+            # try:
+            for _ in spatial_unit:
+                _attrib = dict(_.attrib)
+                number = _attrib.get('PointPref', '') + _attrib.get('NumGeopoint', '')
+                res.append(
+                    ['', number, _attrib.get('X', '-'), _attrib.get('Y', '-'), _attrib.get('DeltaGeopoint', '-')])
+            # finally:
+            #     node.clear()# ordinate clear
         return res
 
     def _xml_exist_ordinate_to_list(self, node):
@@ -256,26 +282,26 @@ class XmlBaseOrdinate(XMLElemenBase):
         spatial_unit = node.xpath('child::*')
         res = []
         if spatial_unit:
-            try:
-                for _ in spatial_unit:
-                    # Вариант ExistSubParcels - координаты  должны быть в формате на уточнение, хотя описание в xml
-                    # файле как на образование
-                    Ordinate = _.xpath('Ordinate')
-                    newOrdinate = _.xpath('NewOrdinate') if not Ordinate else Ordinate
-                    oldOrdinate = _.xpath('OldOrdinate')
-                    xNew, yNew, delata, number, xOld, yOld = ('-' * 6)
-                    if newOrdinate:
-                        _attrib = dict(newOrdinate[0].attrib)
-                        number = _attrib.get('PointPref', '') + _attrib.get('NumGeopoint', '')
-                        xNew, yNew, delata = _attrib.get('X', '-'), _attrib.get('Y', '-'), _attrib.get('DeltaGeopoint',
-                                                                                                       '-')
-                    if oldOrdinate:
-                        _attrib = dict(oldOrdinate[0].attrib)
-                        xOld, yOld = _attrib.get('X', '-'), _attrib.get('Y', '-')
+            # try:
+            for _ in spatial_unit:
+                # Вариант ExistSubParcels - координаты  должны быть в формате на уточнение, хотя описание в xml
+                # файле как на образование
+                Ordinate = _.xpath('Ordinate')
+                newOrdinate = _.xpath('NewOrdinate') if not Ordinate else Ordinate
+                oldOrdinate = _.xpath('OldOrdinate')
+                xNew, yNew, delata, number, xOld, yOld = ('-' * 6)
+                if newOrdinate:
+                    _attrib = dict(newOrdinate[0].attrib)
+                    number = _attrib.get('PointPref', '') + _attrib.get('NumGeopoint', '')
+                    xNew, yNew, delata = _attrib.get('X', '-'), _attrib.get('Y', '-'), _attrib.get('DeltaGeopoint',
+                                                                                                   '-')
+                if oldOrdinate:
+                    _attrib = dict(oldOrdinate[0].attrib)
+                    xOld, yOld = _attrib.get('X', '-'), _attrib.get('Y', '-')
 
-                    res.append(['', number, xOld, yOld, xNew, yNew, delata])
-            finally:
-                node.clear() #ordinate clear
+                res.append(['', number, xOld, yOld, xNew, yNew, delata])
+            # finally:
+            #     node.clear() #ordinate clear
         else:
             logging.error(f"""Попытка получить  координаты, но они отсутсвуют по данному узлу {node}""")
         return res
@@ -301,10 +327,10 @@ class XmlBaseOrdinate(XMLElemenBase):
         spatial_element = node.xpath(pathEntitySpatial1)
         res = []
         for index, _ in enumerate(spatial_element):
-            ord = Ordinatre(_)
-            str = ord.xml_to_list()
-            # lst_ord = self._get_method_entity_spatial(name_tpl)(_)
-            res.extend(str)
+            # ord = Ordinatre(_)
+            # str = ord.xml_to_list()
+            lst_ord = self._get_method_entity_spatial(name_tpl)(_)
+            res.extend(lst_ord)
             # добавление пустой строки - разделение внутрених контуров
             if index != len(spatial_element) - 1:
                 res.append(self.META_TPL_ORDINATE[name_tpl]['tpl'] + ['yes'])  # вместо yes можно что  угодно - главное что не пусто
@@ -316,16 +342,17 @@ class XmlBaseOrdinate(XMLElemenBase):
         if contours: #  получаем список коорлинат контуров
             res = []
             for _ in contours:
-                name_type_ord = self._valueisExistOrdinate(_)
-                _defintion = _.xpath('@Definition | @Number | @NumberRecord')
-                res.append(_defintion + self.META_TPL_ORDINATE[name_type_ord]['tpl'])
-                res.extend(self.xml_EntitySpatial_to_list(_,name_type_ord))
+                _entityspatial = _.xpath('EntitySpatial')
+                if _entityspatial:
+                    _defintion = _.xpath('@Definition | @Number | @NumberRecord')
+                    res.append(_defintion + StaticMethod.get_empty_tpl(_entityspatial[0]))
+                    entity = EntitySpatial( _entityspatial[0])
+                    res.extend(entity.xml_to_list())
         else: # список коорлинат EntitySpatial
             entity_spatial = node.xpath('EntitySpatial')
-            name_type_ord = self._valueisExistOrdinate(node)
             if entity_spatial:
-                res = self.xml_EntitySpatial_to_list(node,name_type_ord)
-
+                entity = EntitySpatial(entity_spatial[0])
+                res = entity.xml_to_list()
         #ToDo очищать пок не будем на получить Borders
         return res
 
@@ -354,16 +381,26 @@ class XmlBaseOrdinate(XMLElemenBase):
         pathEntitySpatial1 = 'EntitySpatial/child::SpatialElement'
         countSpatialElement = len(node.xpath(pathEntitySpatial1))
         res = []
-        try:
-            for _ in range(0, countSpatialElement):
-                path = pathBorders + '/child::*[@Spatial=' + str(_ + 1) + ']'
-                border = node.xpath(path)
-                for point in border:
-                    res.append(['', ''.join(point.xpath('@Point1')), ''.join(point.xpath('@Point2')),
-                                ''.join(point.xpath('Edge/Length/text()'))])
-                if _ != countSpatialElement - 1:
-                    # добавление пустой строки - разжеление контуров
-                    res.append(['', '', '', '', 'yes'])
-        finally:
-            node.clear()
+        # try:
+        for _ in range(0, countSpatialElement):
+            path = pathBorders + '/child::*[@Spatial=' + str(_ + 1) + ']'
+            # _el = 'EntitySpatial/SpatialElement[position()=0]/SpelementUnit')
+            border = node.xpath(path)
+            for point in border:
+                _sp = ''.join(point.xpath('@Spatial'))
+                _p1 = ''.join(point.xpath('@Point1'))
+                _p2 = ''.join(point.xpath('@Point2'))
+                _pf1=''.join(node.xpath('EntitySpatial/SpatialElement[position()='+_sp+']/SpelementUnit[position()='+_p1+']/child::*[name()="NewOrdinate" or name()="Ordinate"]/@*[name()="PointPref"]'))
+                _nm1=''.join(node.xpath('EntitySpatial/SpatialElement[position()='+_sp+']/SpelementUnit[position()='+_p1+']/child::*[name()="NewOrdinate" or name()="Ordinate"]/@*[name()="NumGeopoint"]'))
+
+                _pf2 = ''.join(node.xpath('EntitySpatial/SpatialElement[position()=' + _sp + ']/SpelementUnit[position()=' + _p2 + ']/child::*[name()="NewOrdinate" or name()="Ordinate"]/@*[name()="PointPref"]'))
+                _nm2 = ''.join(node.xpath('EntitySpatial/SpatialElement[position()=' + _sp + ']/SpelementUnit[position()=' + _p2 + ']/child::*[name()="NewOrdinate" or name()="Ordinate"]/@*[name()="NumGeopoint"]'))
+
+                res.append(['', _pf1+_nm1, _pf2+_nm2,''.join(point.xpath('Edge/Length/text()'))])
+            if _ != countSpatialElement - 1:
+                # добавление пустой строки - разжеление контуров
+                res.append(['', '', '', '', 'yes'])
+            border.clear()
+        # finally:
+        #     node.clear()
         return res
