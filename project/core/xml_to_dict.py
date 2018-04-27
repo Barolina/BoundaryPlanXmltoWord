@@ -136,11 +136,11 @@ class XmlSurveyDict(XMLElemenBase):
         _res = None
         try:
             _res = {
-                cnfg.GEOPOINTS_OPRED['name']: self._merge_array_list(cnfg.GEOPOINTS_OPRED['attr'],
+                cnfg.GEOPOINTS_OPRED['name']: XMLElemenBase.merge_array_list(cnfg.GEOPOINTS_OPRED['attr'],
                                                                     self.xml_geopoints_opred_to_list()),
-                cnfg.TOCHN_GEOPOINTS_PARCELS['name']: self._merge_array_list(cnfg.TOCHN_GEOPOINTS_PARCELS['attr'],
+                cnfg.TOCHN_GEOPOINTS_PARCELS['name']: XMLElemenBase.merge_array_list(cnfg.TOCHN_GEOPOINTS_PARCELS['attr'],
                                                                             self.xml_toch_geopoints_parcel_to_list()),
-                cnfg.TOCHN_AREA_PARCELS['name']: self._merge_array_list(cnfg.TOCHN_AREA_PARCELS['attr'],
+                cnfg.TOCHN_AREA_PARCELS['name']: XMLElemenBase.merge_array_list(cnfg.TOCHN_AREA_PARCELS['attr'],
                                                                        self.xml_toch_area_parcel_to_list())
             }
         except Exception as e:
@@ -177,7 +177,7 @@ class XmlInputDataDict(XMLElemenBase):
                 _tmp = f" № {''.join(_.xpath('Number/text()'))} от { _dt } г."
                 _name = ''.join(_.xpath('Name/text()'))
                 if not _name:
-                    _name =  self.xmlnodeKey_to_text(_,'CodeDocument/text()', cnfg.INPUT_DATA['dict']['alldocuments'])
+                    _name =  XMLElemenBase.xmlnode_key_to_text(_,'CodeDocument/text()', cnfg.INPUT_DATA['dict']['alldocuments'])
                 res.append([str(index + 1),_name,_tmp])
         finally:
             el.clear()
@@ -212,16 +212,16 @@ class XmlInputDataDict(XMLElemenBase):
 
     def preparation_means_surveys(self):
         key = cnfg.MEANS_SURVEY['attr']
-        return self._merge_array_list(key, self.xml_means_surveys_to_list())
+        return XMLElemenBase.merge_array_list(key, self.xml_means_surveys_to_list())
 
     def to_dict(self):
         _res = None
         try:
-            _res = {cnfg.INPUT_DATA['name']: self._merge_array_list(cnfg.INPUT_DATA['attr'], self.xml_document_to_list()),
+            _res = {cnfg.INPUT_DATA['name']: XMLElemenBase.merge_array_list(cnfg.INPUT_DATA['attr'], self.xml_document_to_list()),
                     cnfg.SYSTEM_COORD: self.preparation_sys_coord(),
-                    cnfg.GEODESIC_BASES['name']: self._merge_array_list(cnfg.GEODESIC_BASES['attr'], self.xml_geodesic_base_to_list()),
+                    cnfg.GEODESIC_BASES['name']: XMLElemenBase.merge_array_list(cnfg.GEODESIC_BASES['attr'], self.xml_geodesic_base_to_list()),
                     cnfg.MEANS_SURVEY['name']: self.preparation_means_surveys(),
-                    cnfg.OBJECTS_REALTY['name']: self._merge_array_list(cnfg.OBJECTS_REALTY['attr'], self.xml_objects_realty_to_list())}
+                    cnfg.OBJECTS_REALTY['name']: XMLElemenBase.merge_array_list(cnfg.OBJECTS_REALTY['attr'], self.xml_objects_realty_to_list())}
         except Exception as e:
             logger.error(f"""Ошибка при формировании словаря Исходных данных {e}""")
         else:
@@ -247,14 +247,14 @@ class XmlSubParcel(XmlBaseOrdinate):
            res.append(self.xml_definition_to_text())
            res.append(''.join(self.node.xpath('Area/Area/text()')))
            res.append(''.join(self.node.xpath('Area/Inaccuracy/text()')))
-           res.append(self.xmlnodeKey_to_text(self.node,'Encumbrance/Type/text()', cnfg.SUBPARCEL_GENERAL['dict']['encumbrace']))
+           res.append(XMLElemenBase.xmlnode_key_to_text(self.node,'Encumbrance/Type/text()', cnfg.SUBPARCEL_GENERAL['dict']['encumbrace']))
            return dict(zip(cnfg.SUBPARCEL_GENERAL['attr'],res))
 
         def xml_sub_entity_spatial_dict(self):
             res = []
             result =''
             res.append(self.xml_definition_to_text())
-            res.append(self._merge_array_list(cnfg.SUBPARCEL_ENTITY_SPATIAL['attr'], self.xmlFullOrdinates_to_list(self.node)))
+            res.append(XMLElemenBase.merge_array_list(cnfg.SUBPARCEL_ENTITY_SPATIAL['attr'], self.xmlFullOrdinates_to_list(self.node)))
             result= dict(zip(cnfg.SUBPARCELS['attr'], res))
             return result
 
@@ -277,7 +277,7 @@ class XmlNewParcel(XmlBaseOrdinate):
         """
         region = []
         try:
-            region = [self.xmlnodeKey_to_text(node,'Region/text()',cnfg.PARCEL_COMMON['dict']['address_code'])]
+            region = [XMLElemenBase.xmlnode_key_to_text(node,'Region/text()',cnfg.PARCEL_COMMON['dict']['address_code'])]
             region.extend(node.xpath('District/@*')[::-1])
             region.extend(node.xpath('City/@*')[::-1])
             region.extend(node.xpath('UrbanDistrict/@*')[::-1])
@@ -302,9 +302,9 @@ class XmlNewParcel(XmlBaseOrdinate):
             if 'ByDoc' in node.attrib:
                res =  node.attrib['ByDoc']
             elif 'Utilization' in node.attrib:
-               res = self.xmlnodeKey_to_text(node, '@Utilization', cnfg.PARCEL_COMMON['dict']['utilization'])
+               res = XMLElemenBase.xmlnode_key_to_text(node, '@Utilization', cnfg.PARCEL_COMMON['dict']['utilization'])
             elif 'LandUse' in node.attrib:
-               res = self.xmlnodeKey_to_text(node, '@Utilization',cnfg.PARCEL_COMMON['dict']['landuse'])
+               res = XMLElemenBase.xmlnode_key_to_text(node, '@Utilization',cnfg.PARCEL_COMMON['dict']['landuse'])
         finally:
             node.clear()
         return res
@@ -350,7 +350,7 @@ class XmlNewParcel(XmlBaseOrdinate):
             dict_address['location_note'] = ''.join(addres.xpath("Other/text()"))
             del xml_addrss
         if xml_category:
-            dict_address['category'] = self.xmlnodeKey_to_text(xml_category[0],'@Category',
+            dict_address['category'] = XMLElemenBase.xmlnode_key_to_text(xml_category[0],'@Category',
                                                                cnfg.PARCEL_COMMON['dict']['categories'])
             xml_category.clear()
         if xml_utilization:
@@ -426,10 +426,10 @@ class XmlNewParcel(XmlBaseOrdinate):
     def to_dict(self):
 
         res = {cnfg.PARCEL_COMMON['cadnum']: self.xml_cadnum_to_text(),
-              cnfg.ENTITY_SPATIAL['name']: self._merge_array_list(cnfg.ENTITY_SPATIAL['attr'],
+              cnfg.ENTITY_SPATIAL['name']: XMLElemenBase.merge_array_list(cnfg.ENTITY_SPATIAL['attr'],
                                                                  self.xmlFullOrdinates_to_list(self.node)),
-              cnfg.BORDERS['name']: self._merge_array_list(cnfg.BORDERS['attr'], self.xml_contours_borders(self.node)),
-              cnfg.RELATEDPARCELS['name']: self._merge_array_list(cnfg.RELATEDPARCELS['attr'],
+              cnfg.BORDERS['name']: XMLElemenBase.merge_array_list(cnfg.BORDERS['attr'], self.xml_contours_borders(self.node)),
+              cnfg.RELATEDPARCELS['name']: XMLElemenBase.merge_array_list(cnfg.RELATEDPARCELS['attr'],
                                                                  self.xml_related_parcel_to_list()),
              }
         res.update(self.xml_general_info_to_dict())
@@ -463,7 +463,7 @@ class XmlNewParcelProviding(XmlNewParcel):
         return res
 
     def to_dict(self):
-        res = {cnfg.PROVIDING['name']: self._merge_array_list(cnfg.PROVIDING['attr'],
+        res = {cnfg.PROVIDING['name']: XMLElemenBase.merge_array_list(cnfg.PROVIDING['attr'],
                                                               self.xml_providin_to_list())
                }
         return res
@@ -502,7 +502,7 @@ class XmlExistParcel(XmlNewParcel):
         changeborder = self.node.xpath('ChangeBorder')
         if changeborder:
             try:
-                self.ordinates = self._xml_exist_ordinate_to_list(self.node)
+                self.ordinates = self.xml_exist_ordinate_to_list(self.node)
                 self.borders =[]
             finally:
                 changeborder.clear()
@@ -518,7 +518,7 @@ class XmlExistParcel(XmlNewParcel):
         deleteAllBorder = self.node.xpath('DeleteAllBorder')  # TODO определить шаблон не понятен
         if deleteAllBorder:
             try:
-                self.ordinates = self._xml_exist_ordinate_to_list(self.node) #TODO переписать получени коорлинат
+                self.ordinates = self.xml_exist_ordinate_to_list(self.node) #TODO переписать получени коорлинат
                 self.borders = []
             finally:
                 deleteAllBorder.clear()
@@ -528,10 +528,10 @@ class XmlExistParcel(XmlNewParcel):
         if not self.ordinates and not self.borders:
             self._set_ordinate_border()
         res = {
-            cnfg.ENTITY_SPATIAL_EXIST['name']: self._merge_array_list(cnfg.ENTITY_SPATIAL_EXIST['attr'],
+            cnfg.ENTITY_SPATIAL_EXIST['name']: XMLElemenBase.merge_array_list(cnfg.ENTITY_SPATIAL_EXIST['attr'],
                                                                   self.ordinates),
-            cnfg.BORDERS['name']: self._merge_array_list(cnfg.BORDERS['attr'], self.borders),
-            cnfg.RELATEDPARCELS['name']: self._merge_array_list(cnfg.RELATEDPARCELS['attr'],
+            cnfg.BORDERS['name']: XMLElemenBase.merge_array_list(cnfg.BORDERS['attr'], self.borders),
+            cnfg.RELATEDPARCELS['name']: XMLElemenBase.merge_array_list(cnfg.RELATEDPARCELS['attr'],
                                                                 self.xml_related_parcel_to_list())
         }
         return res
