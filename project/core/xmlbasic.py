@@ -287,6 +287,7 @@ class Border(list):
         return res
 
     def xml_t_list(self):
+        # TODO :  remake
         contours = node.xpath('Contours/child::*')
         if contours:
             res = []
