@@ -1,7 +1,14 @@
+"""
+.. module:: xmlbasic
+    :platform: Windows, Linux
+    :synopsis: base work with  node and ordinate
+
+.. moduleauthor:: Larisa <solow_larisa@mail.ru>
+"""
 import config as cnfg
 from utils.xsd import value_from_xsd
 import os
-
+from lxml.etree import _Element
 import logging
 from logging.config import fileConfig
 fileConfig('loggers/logging_config.ini')
@@ -9,6 +16,17 @@ logger = logging.getLogger()
 
 
 class XMLElemenBase:
+    """Class illustrating how to document python source code
+
+    This class provides some basic methods for incrementing, decrementing,
+    and clearing a number.
+
+    .. note::
+
+        This class does not provide any significant functionality that the
+        python does not already include. It is just for illustrative purposes.
+    """
+
     """
          Наслденики  данного базовый класс преобразователя
         :param node - на вход узел дерева
@@ -63,27 +81,35 @@ class XMLElemenBase:
 
 CNST_NEWPARCEL = 'newparcel'
 CNST_EXISTPARCEL = 'existparcel'
+CNST_UNDEFINE = 'undefine'
 
 META_TPL_ORDINATE = {  # шаблон для пребразвоания в вордовском tpl
     CNST_EXISTPARCEL: ['', ] * 7,
     CNST_NEWPARCEL: ['', ] * 5,
+    CNST_UNDEFINE: '',
 }
 
 class StaticMethod:
 
     @staticmethod
-    def is_exist_ordinate(node):
+    def type_ordinate(node):
         """
             Определени типа  коорлинат - на  образование или на уточнение
         :param node:
         :return:
         """
-        isExist = CNST_NEWPARCEL
+        isExist = CNST_UNDEFINE
+        initial_node = None
         if node is not None:
-            isOrdinate = node.find('.//Ordinate')
-            isExistSubParcel = node.xpath(
-                'ancestor::*[name() = "SpecifyRelatedParcel" or name() = "ExistSubParcel"]')
-            isExist = CNST_EXISTPARCEL if  ((isOrdinate is None) or (len(isExistSubParcel) > 0)) else CNST_NEWPARCEL
+            if isinstance(node, _Element): # may come  Element
+                initial_node = node
+            elif isinstance(node, list) and node[0] is not None: # may come a List
+                initial_node = node[0]
+            # get a type  of ordinates
+            if initial_node is not None:
+                isOrdinate = initial_node.find('.//Ordinate')
+                isExistSubParcel = initial_node.xpath('ancestor::*[name() = "SpecifyRelatedParcel" or name() = "ExistSubParcel"]')
+                isExist = CNST_EXISTPARCEL if  ((isOrdinate is None) or (len(isExistSubParcel) > 0)) else CNST_NEWPARCEL
         return isExist
 
     @staticmethod
@@ -94,7 +120,7 @@ class StaticMethod:
         :return:
         """
         if node is not None:
-            name_type_ord = StaticMethod.is_exist_ordinate(node)
+            name_type_ord = StaticMethod.type_ordinate(node)
             return META_TPL_ORDINATE[name_type_ord]
         return None
 
@@ -102,6 +128,7 @@ class Ordinatre(list):
 
     def __init__(self, node, is_exist_ord):
         """
+        Get a list of coorinates the  inner contour(SpatialElement)
         Получить список коорлинат внутреннего контура
         :param node: SpatialElement
         :param is_exist_ord: тип коорлинат уточнение или образовние
@@ -164,11 +191,11 @@ class Ordinatre(list):
         return self.xml_new_ordinate_to_list()
 
 
-
 class EntitySpatial(list):
 
     def __init__(self, node):
         """
+        Get  a list of ordinates the EntitySpatial
         Получить список координат EntitySpatial
         :param node this EntitySpatial
         :return list ordinats EntitySpatial
@@ -180,13 +207,13 @@ class EntitySpatial(list):
         """
             :return: возвращает список  координат EntitySpatial
         """
-        if self.node:
+        if self.node is not None:
             pathEntitySpatial1 = 'child::*[not(name()="Borders")]'
             spatial_elements = self.node.xpath(pathEntitySpatial1)
             result = list()
-            is_exist = StaticMethod.is_exist_ordinate(spatial_elements)
+            is_exist = StaticMethod.type_ordinate(spatial_elements)
             for index, _ in enumerate(spatial_elements):
-               if _:
+               if _ is not None:
                     ord = Ordinatre(_, is_exist)
                     result.extend(ord.xml_to_list())
                     # добавление пустой строки - разделение внутрених контуров
@@ -198,6 +225,83 @@ class EntitySpatial(list):
             # ToDo очищать пока не будет  надо еще считать Borders
             return result
         return None
+
+class Border(list):
+    """
+        .. Get a list of  border the EntitySpatial
+    """
+
+    def __init__(self, node):
+        """
+        :param node: the EntitySpatial
+        :return:
+        """
+        super(Border, self).__init__()
+        self.node = node
+
+    def border_spelement(self, xml_spatial_element, point):
+        pathPoint = 'child::*[name()="NewOrdinate" or name()="Ordinate"]/@*[name()="PointPref"]'
+        pathNumb = 'child::*[name()="NewOrdinate" or name()="Ordinate"]/@*[name()="NumGeopoint"]'
+        pathOldNumb = 'child::*[name()="OldOrdinate"]/@*[name()="NumGeopoint"]'
+        xml_SpatialUnit = xml_spatial_element.xpath('SpelementUnit[position()=' + point + ']')
+        if xml_SpatialUnit and len(xml_SpatialUnit) > 0:
+            numb_geopoint = xml_SpatialUnit[0].xpath(pathNumb)
+            if not numb_geopoint:
+                numb_geopoint = xml_SpatialUnit[0].xpath(pathOldNumb)
+            return ''.join(xml_SpatialUnit[0].xpath(pathPoint) + numb_geopoint)
+        return ''
+
+    def get_border_spatila(self, spatial_index):
+        pathBorders = 'child::Borders'
+        path = pathBorders + '/child::*[@Spatial=' + str(spatial_index+1) + ']'
+        # get a list  of border one SpatialElement
+        border = self.node.xpath(path)
+        res = list()
+        for point in border:
+            _attr_border = dict(point.attrib)
+            spatial = _attr_border.get('Spatial', '')
+            point1 = _attr_border.get('Point1', '')
+            point2 = _attr_border.get('Point2', '')
+            xml_SpatialElement = self.node.xpath('SpatialElement[position()=' + spatial + ']')
+            endpoint = ['']  # for tpl - name the contour
+            if xml_SpatialElement and len(xml_SpatialElement) > 0:
+                endpoint.append(self.border_spelement(xml_SpatialElement[0], point1))
+                endpoint.append(self.border_spelement(xml_SpatialElement[0], point2))
+            endpoint.append(''.join(point.xpath('Edge/Length/text()')))
+            res.append(endpoint)
+        border.clear()
+        return res
+
+    def get_border(self):
+        pathEntitySpatial1 = 'child::SpatialElement'
+        countSpatialElement = len(self.node.xpath(pathEntitySpatial1))
+        res = []
+        #went on to  the SpatialElement
+        for _ in range(0, countSpatialElement):
+            res.extend(self.get_border_spatila(_))
+            if _ != countSpatialElement - 1:
+                # добавление пустой строки - разжеление контуров
+                res.append(['', '', '', '', 'yes'])
+        # finally:
+        #     node.clear()
+        return res
+
+    def xml_t_list(self):
+        contours = node.xpath('Contours/child::*')
+        if contours:
+            res = []
+            try:
+                for _ in contours:
+                    _defintion = _.xpath('@Definition | @Number | @NumberRecord')
+                    res.append([''.join(_defintion), '', '', '', ''])
+                    _border = Border(_.xpath('EntitySpatial')[0])
+                    res.extend(_border.get_border())
+                    # res.extend(self.xml_borders_to_list(_))
+            finally:
+                contours.clear()
+        else:
+            res = self.xml_borders_to_list(node)
+        return res
 
 
 class XmlBaseOrdinate(XMLElemenBase):
@@ -233,43 +337,11 @@ class XmlBaseOrdinate(XMLElemenBase):
                 for _ in contours:
                     _defintion = _.xpath('@Definition | @Number | @NumberRecord')
                     res.append([''.join(_defintion), '', '', '', ''])
-                    res.extend(self.xml_borders_to_list(_))
+                    _border = Border(_.xpath('EntitySpatial')[0])
+                    res.extend(_border.get_border())
+                    del _border
             finally:
                 contours.clear()
         else:
             res = self.xml_borders_to_list(node)
-        return res
-
-    def xml_borders_to_list(self, node):
-        """
-            Получение списка границ
-        :param node: parent(EntitySpatial)
-        :return:
-        """
-        pathBorders = 'EntitySpatial/child::Borders'
-        pathEntitySpatial1 = 'EntitySpatial/child::SpatialElement'
-        countSpatialElement = len(node.xpath(pathEntitySpatial1))
-        res = []
-        # try:
-        for _ in range(0, countSpatialElement):
-            path = pathBorders + '/child::*[@Spatial=' + str(_ + 1) + ']'
-            # _el = 'EntitySpatial/SpatialElement[position()=0]/SpelementUnit')
-            border = node.xpath(path)
-            for point in border:
-                _sp = ''.join(point.xpath('@Spatial'))
-                _p1 = ''.join(point.xpath('@Point1'))
-                _p2 = ''.join(point.xpath('@Point2'))
-                _pf1 =''.join(node.xpath('EntitySpatial/SpatialElement[position()='+_sp+']/SpelementUnit[position()='+_p1+']/child::*[name()="NewOrdinate" or name()="Ordinate"]/@*[name()="PointPref"]'))
-                _nm1=''.join(node.xpath('EntitySpatial/SpatialElement[position()='+_sp+']/SpelementUnit[position()='+_p1+']/child::*[name()="NewOrdinate" or name()="Ordinate"]/@*[name()="NumGeopoint"]'))
-
-                _pf2 = ''.join(node.xpath('EntitySpatial/SpatialElement[position()=' + _sp + ']/SpelementUnit[position()=' + _p2 + ']/child::*[name()="NewOrdinate" or name()="Ordinate"]/@*[name()="PointPref"]'))
-                _nm2 = ''.join(node.xpath('EntitySpatial/SpatialElement[position()=' + _sp + ']/SpelementUnit[position()=' + _p2 + ']/child::*[name()="NewOrdinate" or name()="Ordinate"]/@*[name()="NumGeopoint"]'))
-
-                res.append(['', _pf1+_nm1, _pf2+_nm2 ,''.join(point.xpath('Edge/Length/text()'))])
-            if _ != countSpatialElement - 1:
-                # добавление пустой строки - разжеление контуров
-                res.append(['', '', '', '', 'yes'])
-            border.clear()
-        # finally:
-        #     node.clear()
         return res
