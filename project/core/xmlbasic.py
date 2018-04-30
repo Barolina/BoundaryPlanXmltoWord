@@ -182,7 +182,7 @@ class Ordinatre(list):
 
                 res.append(['', number, xOld, yOld, xNew, yNew, delata])
         else:
-            logging.error(f"""Попытка получить  координаты, но они отсутсвуют по данному узлу {node}""")
+            logging.error(f"""Попытка получить  координаты, но они отсутсвуют по данному узлу {self.node}""")
         return res
 
     def xml_to_list(self):
@@ -286,24 +286,18 @@ class Border(list):
         #     node.clear()
         return res
 
-    def xml_t_list(self):
-        # TODO :  remake
-        contours = node.xpath('Contours/child::*')
-        if contours:
-            res = []
-            try:
-                for _ in contours:
-                    _defintion = _.xpath('@Definition | @Number | @NumberRecord')
-                    res.append([''.join(_defintion), '', '', '', ''])
-                    _border = Border(_.xpath('EntitySpatial')[0])
-                    res.extend(_border.get_border())
-                    # res.extend(self.xml_borders_to_list(_))
-            finally:
-                contours.clear()
-        else:
-            res = self.xml_borders_to_list(node)
-        return res
+class XmlFullOrdinate(list):
 
+    def __init__(self, node):
+        """
+            Get full ordinate and full borders
+        :param node: Contours or EntitySpatial
+        """
+        super(XmlFullOrdinate,self).__init__()
+        self.node = node
+
+    def __del__(self):
+        del self.node
 
 class XmlBaseOrdinate(XMLElemenBase):
     """
@@ -330,7 +324,8 @@ class XmlBaseOrdinate(XMLElemenBase):
         #ToDo очищать пок не будем на получить Borders
         return res
 
-    def xml_contours_borders(self, node):
+    def xml_contours_borders1(self, node):
+
         contours = node.xpath('Contours/child::*')
         if contours:
             res = []
@@ -346,3 +341,31 @@ class XmlBaseOrdinate(XMLElemenBase):
         else:
             res = self.xml_borders_to_list(node)
         return res
+
+    def xml_contours_borders(self, node):
+        """
+            get list all of borders
+        :param node: Contours
+        :return:
+        """
+        CNST_NAME_CONTOURS = 'Contours'
+        CNST_NAME_ENTITY_SPATIAL = 'EntitySpatial'
+        # check Contours or EntitySpatial
+        if node is not None and (len(node) > 0):
+            if node.tag == CNST_NAME_CONTOURS:
+                contours = node.xpath('child::*')
+                if contours:
+                    res = list()
+                    try:
+                        for _ in contours:
+                            _defintion = _.xpath('@Definition | @Number | @NumberRecord')
+                            res.append([''.join(_defintion), '', '', '', ''])
+                            _border = Border(_.xpath('EntitySpatial')[0])
+                            res.extend(_border.get_border())
+                            # res.extend(self.xml_borders_to_list(_))
+                    finally:
+                        contours.clear()
+                    return res
+            else:
+                return Border(node)
+        return None

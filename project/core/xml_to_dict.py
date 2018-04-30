@@ -1,7 +1,7 @@
 import config as cnfg
 from utils.xsd import value_from_xsd
 from datetime import datetime
-from core.xmlbasic import XMLElemenBase, XmlBaseOrdinate
+from core.xmlbasic import *
 
 import logging
 from logging.config import fileConfig
@@ -502,8 +502,10 @@ class XmlExistParcel(XmlNewParcel):
         changeborder = self.node.xpath('ChangeBorder')
         if changeborder:
             try:
-                self.ordinates = self.xml_exist_ordinate_to_list(self.node)
+                ordinate = Ordinatre(self.node)
+                self.ordinates = ordinate.xml_exist_ordinate_to_list()
                 self.borders =[]
+                del ordinate
             finally:
                 changeborder.clear()
 
