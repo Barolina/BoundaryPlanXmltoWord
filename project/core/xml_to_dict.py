@@ -486,6 +486,13 @@ class XmlExistParcel(XmlNewParcel):
         print(''.join(self.node.xpath('@CadastralNumber')))
         return f"""{ ''.join(self.node.xpath('@CadastralNumber'))} ({''.join(self.node.xpath('@NumberRecord'))})"""
 
+    def get_ordinate(self, node):
+        if node is not None and len(node) > 0:
+            xmlfull = XmlFullOrdinate(node.xpath('Contours | EntitySpatial')[0])
+            return xmlfull
+        else:
+            return None
+
     def _set_ordinate_border(self):
         """
         :param node: SpecifyRelatedParcel
@@ -494,8 +501,10 @@ class XmlExistParcel(XmlNewParcel):
         allborder = self.node.xpath('AllBorder')
         if allborder:
             try:
-                self.ordinates = self.xmlFullOrdinates_to_list(allborder[0])
-                self.borders = self.xml_contours_borders(allborder[0])
+                _ord = self.get_ordinate(allborder[0])
+                self.ordinates = _ord.full_ordinate()
+                self.borders = _ord.full_borders()
+                del _ord
             finally:
                 allborder.clear()
 
@@ -512,15 +521,18 @@ class XmlExistParcel(XmlNewParcel):
         conrours = self.node.xpath('Contours')
         if conrours:
             try:
-                self.ordinates = self.xmlFullOrdinates_to_list(self.node)
-                self.borders = self.xml_contours_borders(self.node)
+                _ord = self.get_ordinate(self.node)
+                self.ordinates = _ord.full_ordinate()
+                self.borders = _ord.full_borders()
+                del _ord
             finally:
                 conrours.clear()
 
         deleteAllBorder = self.node.xpath('DeleteAllBorder')  # TODO определить шаблон не понятен
         if deleteAllBorder:
             try:
-                self.ordinates = self.xml_exist_ordinate_to_list(self.node) #TODO переписать получени коорлинат
+                _ord = Ordinatre(self.node)
+                self.ordinates = _ord.xml_exist_ordinate_to_list()
                 self.borders = []
             finally:
                 deleteAllBorder.clear()

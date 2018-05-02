@@ -14,6 +14,8 @@ from logging.config import fileConfig
 fileConfig('loggers/logging_config.ini')
 logger = logging.getLogger()
 
+# TODO везде возвращать если нет   ничего  - пустой список
+
 
 class XMLElemenBase:
     """Class illustrating how to document python source code
@@ -286,7 +288,10 @@ class Border(list):
         #     node.clear()
         return res
 
+
 class XmlFullOrdinate(list):
+    CNST_NAME_CONTOURS = 'Contours'
+    CNST_NAME_ENTITY_SPATIAL = 'EntitySpatial'
 
     def __init__(self, node):
         """
@@ -299,61 +304,41 @@ class XmlFullOrdinate(list):
     def __del__(self):
         del self.node
 
-class XmlBaseOrdinate(XMLElemenBase):
-    """
-        Переработка коорлинат межевого плана
-    """
-    def xmlFullOrdinates_to_list(self, node):
-        contours = node.xpath('Contours/child::*')
+    def full_ordinate(self):
         res = list()
-        if contours:#  получаем список коорлинат контуров
-            for _ in contours:
-                _entityspatial = _.xpath('EntitySpatial')
-                if _entityspatial:
-                    _defintion = _.xpath('@Definition | @Number | @NumberRecord')
-                    res.append(_defintion + StaticMethod.get_empty_tpl(_entityspatial[0]))
-                    entity = EntitySpatial(_entityspatial[0])
-                    res.extend(entity.xml_to_list())
-                    del entity
-        else:# список коорлинат EntitySpatial
-            entity_spatial = node.xpath('EntitySpatial')
+        if self.node.tag == self.CNST_NAME_CONTOURS:
+            contours = self.node.xpath('child::*')
+            if contours:  # получаем список коорлинат контуров
+                for _ in contours:
+                    _entityspatial = _.xpath('EntitySpatial')
+                    if _entityspatial:
+                        _defintion = _.xpath('@Definition | @Number | @NumberRecord')
+                        res.append(_defintion + StaticMethod.get_empty_tpl(_entityspatial[0]))
+                        entity = EntitySpatial(_entityspatial[0])
+                        res.extend(entity.xml_to_list())
+                        del entity
+            return res
+        else:  # список коорлинат EntitySpatial
+            entity_spatial = self.node
             if entity_spatial:
                 entity = EntitySpatial(entity_spatial[0])
                 res = entity.xml_to_list()
                 del entity
-        #ToDo очищать пок не будем на получить Borders
-        return res
+        # ToDo очищать пок не будем на получить Borders
+                return res
+            else:
+                return None
 
-    def xml_contours_borders1(self, node):
-
-        contours = node.xpath('Contours/child::*')
-        if contours:
-            res = []
-            try:
-                for _ in contours:
-                    _defintion = _.xpath('@Definition | @Number | @NumberRecord')
-                    res.append([''.join(_defintion), '', '', '', ''])
-                    _border = Border(_.xpath('EntitySpatial')[0])
-                    res.extend(_border.get_border())
-                    del _border
-            finally:
-                contours.clear()
-        else:
-            res = self.xml_borders_to_list(node)
-        return res
-
-    def xml_contours_borders(self, node):
+    def full_borders(self):
         """
-            get list all of borders
-        :param node: Contours
-        :return:
-        """
-        CNST_NAME_CONTOURS = 'Contours'
-        CNST_NAME_ENTITY_SPATIAL = 'EntitySpatial'
+                  get list all of borders
+              :param node: Contours
+              :return:
+              """
         # check Contours or EntitySpatial
-        if node is not None and (len(node) > 0):
-            if node.tag == CNST_NAME_CONTOURS:
-                contours = node.xpath('child::*')
+        if self.node is not None and (len(self.node) > 0):
+            if self.node.tag == self.CNST_NAME_CONTOURS:
+                contours = self.node.xpath('child::*')
                 if contours:
                     res = list()
                     try:
@@ -362,10 +347,9 @@ class XmlBaseOrdinate(XMLElemenBase):
                             res.append([''.join(_defintion), '', '', '', ''])
                             _border = Border(_.xpath('EntitySpatial')[0])
                             res.extend(_border.get_border())
-                            # res.extend(self.xml_borders_to_list(_))
                     finally:
                         contours.clear()
                     return res
             else:
-                return Border(node)
+                return Border(self.node)
         return None
