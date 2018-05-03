@@ -78,7 +78,7 @@ class MpXMlToWORd:
 
         del context
 
-    def fast_iter_element(self,elem, func, args=[], kwargs={}):
+    def fast_iter_element(self, elem: object, func: object, args: object = [], kwargs: object = {}) -> object:
         """
 
         :rtype: XMLElemet
@@ -112,6 +112,10 @@ class MpXMlToWORd:
             if elem.tag == 'ExistParcel' and event == 'end':
                 self.fast_iter_element(elem, self.renderTPL,
                                        args=(XmlExistParcel, 'template/common/existparcel.docx', '4.' + str(i)))
+
+            if elem.tag == 'SubParcels' and event == 'end':
+                self.fast_iter_element(elem, self.renderTPL,
+                                       args=(XmlSubParcels, 'template/common/subparcels.docx', '4.' + str(i)))
 
             if elem.tag == 'ChangeParcel' and event == 'end':
                 self.fast_iter_element(elem, self.renderTPL,
@@ -213,12 +217,12 @@ if __name__ == '__main__':
     logger.info('START PARSING')
     generat = MpXMlToWORd()
 
-    generat.xmlBlock_to_docx('../TEST/13/13.xml')
+    generat.xmlBlock_to_docx('../TEST/14/14.xml')
 
     logger.info('START COMBINE WORDS')
     files = os.listdir(cnfg.PATH_RESULT)
     _dcx = filter(lambda x : x.endswith('.docx'), files)
     _dcx = map(lambda x: os.path.join(cnfg.PATH_RESULT, x), _dcx)
 
-    generat.combine_word_documents(_dcx, '../TEST/13/result.docx')
+    generat.combine_word_documents(_dcx, '../TEST/14/result.docx')
     logger.info('END')

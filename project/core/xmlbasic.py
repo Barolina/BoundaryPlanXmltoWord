@@ -14,21 +14,18 @@ from logging.config import fileConfig
 fileConfig('loggers/logging_config.ini')
 logger = logging.getLogger()
 
-# TODO везде возвращать если нет   ничего  - пустой список
+CNST_NEWPARCEL = 'newparcel'
+CNST_EXISTPARCEL = 'existparcel'
+CNST_UNDEFINE = 'undefine'
+
+META_TPL_ORDINATE = {  # шаблон для пребразвоания в вордовском tpl
+    CNST_EXISTPARCEL: ['', ] * 7,
+    CNST_NEWPARCEL: ['', ] * 5,
+    CNST_UNDEFINE: '',
+}
 
 
 class XMLElemenBase:
-    """Class illustrating how to document python source code
-
-    This class provides some basic methods for incrementing, decrementing,
-    and clearing a number.
-
-    .. note::
-
-        This class does not provide any significant functionality that the
-        python does not already include. It is just for illustrative purposes.
-    """
-
     """
          Наслденики  данного базовый класс преобразователя
         :param node - на вход узел дерева
@@ -36,6 +33,51 @@ class XMLElemenBase:
     """
     def __init__(self, node):
         self.node = node
+
+    def to_dict(self):
+        """
+            Обязательный метод для  наследников
+            (( не обходим для  рендеринга tpl word)
+        :return:
+        """
+        pass
+
+
+class StaticMethod:
+
+    @staticmethod
+    def type_ordinate(node):
+        """
+            Определени типа  коорлинат - на  образование или на уточнение
+        :param node:
+        :return:
+        """
+        isExist = CNST_UNDEFINE
+        initial_node = None
+        if node is not None:
+            # may come  Element
+            if isinstance(node, _Element):
+                initial_node = node
+                # may come a List
+            elif isinstance(node, list) and node[0] is not None:
+                initial_node = node[0]
+            # get a type  of ordinates
+            if initial_node is not None:
+                isOrdinate = initial_node.find('.//Ordinate')
+                isExistSubParcel = initial_node.xpath('ancestor::*[name() = "SpecifyRelatedParcel" or name() = "ExistSubParcel"]')
+                isExist = CNST_EXISTPARCEL if ((isOrdinate is None) or (len(isExistSubParcel) > 0)) else CNST_NEWPARCEL
+        return isExist
+
+    @staticmethod
+    def get_empty_tpl(node):
+        """
+        :param node:
+        :return: Return empty tpl rows  for word, depends on Type Ordinate
+        """
+        if node is not None:
+            name_type_ord = StaticMethod.type_ordinate(node)
+            return META_TPL_ORDINATE[name_type_ord]
+        return None
 
     @staticmethod
     def merge_array_list(key, array_value):
@@ -48,9 +90,10 @@ class XMLElemenBase:
                     { 'id': 1, 'name': 'ЗУ1'},
                   ]
         """
-        res = []
-        for _ in array_value:
-            res.append(dict(zip(key, _)))
+        res = list()
+        if key and array_value:
+            for _ in array_value:
+                res.append(dict(zip(key, _)))
         return res
 
     @staticmethod
@@ -73,58 +116,6 @@ class XMLElemenBase:
             node.clear()
         return res
 
-    def to_dict(self):
-        """
-            Обязательный метод для  наследников
-            (( не обходим для  рендеринга tpl word)
-        :return:
-        """
-        pass
-
-CNST_NEWPARCEL = 'newparcel'
-CNST_EXISTPARCEL = 'existparcel'
-CNST_UNDEFINE = 'undefine'
-
-META_TPL_ORDINATE = {  # шаблон для пребразвоания в вордовском tpl
-    CNST_EXISTPARCEL: ['', ] * 7,
-    CNST_NEWPARCEL: ['', ] * 5,
-    CNST_UNDEFINE: '',
-}
-
-class StaticMethod:
-
-    @staticmethod
-    def type_ordinate(node):
-        """
-            Определени типа  коорлинат - на  образование или на уточнение
-        :param node:
-        :return:
-        """
-        isExist = CNST_UNDEFINE
-        initial_node = None
-        if node is not None:
-            if isinstance(node, _Element): # may come  Element
-                initial_node = node
-            elif isinstance(node, list) and node[0] is not None: # may come a List
-                initial_node = node[0]
-            # get a type  of ordinates
-            if initial_node is not None:
-                isOrdinate = initial_node.find('.//Ordinate')
-                isExistSubParcel = initial_node.xpath('ancestor::*[name() = "SpecifyRelatedParcel" or name() = "ExistSubParcel"]')
-                isExist = CNST_EXISTPARCEL if  ((isOrdinate is None) or (len(isExistSubParcel) > 0)) else CNST_NEWPARCEL
-        return isExist
-
-    @staticmethod
-    def get_empty_tpl(node):
-        """
-
-        :param node:
-        :return:
-        """
-        if node is not None:
-            name_type_ord = StaticMethod.type_ordinate(node)
-            return META_TPL_ORDINATE[name_type_ord]
-        return None
 
 class Ordinatre(list):
 
@@ -189,7 +180,7 @@ class Ordinatre(list):
 
     def xml_to_list(self):
         if self.is_exist_ord == CNST_EXISTPARCEL:
-            return  self.xml_exist_ordinate_to_list()
+            return self.xml_exist_ordinate_to_list()
         return self.xml_new_ordinate_to_list()
 
 
@@ -209,10 +200,10 @@ class EntitySpatial(list):
         """
             :return: возвращает список  координат EntitySpatial
         """
+        result = list()
         if self.node is not None:
             pathEntitySpatial1 = 'child::*[not(name()="Borders")]'
             spatial_elements = self.node.xpath(pathEntitySpatial1)
-            result = list()
             is_exist = StaticMethod.type_ordinate(spatial_elements)
             for index, _ in enumerate(spatial_elements):
                if _ is not None:
@@ -225,8 +216,8 @@ class EntitySpatial(list):
                             result.append(_empty+['yes'])
                     del ord
             # ToDo очищать пока не будет  надо еще считать Borders
-            return result
-        return None
+        return result
+
 
 class Border(list):
     """
@@ -317,17 +308,14 @@ class XmlFullOrdinate(list):
                         entity = EntitySpatial(_entityspatial[0])
                         res.extend(entity.xml_to_list())
                         del entity
-            return res
         else:  # список коорлинат EntitySpatial
             entity_spatial = self.node
             if entity_spatial:
                 entity = EntitySpatial(entity_spatial[0])
                 res = entity.xml_to_list()
                 del entity
-        # ToDo очищать пок не будем на получить Borders
-                return res
-            else:
-                return None
+                  # ToDo очищать пок не будем на получить Borders
+        return res
 
     def full_borders(self):
         """
@@ -336,11 +324,11 @@ class XmlFullOrdinate(list):
               :return:
               """
         # check Contours or EntitySpatial
+        res = list()
         if self.node is not None and (len(self.node) > 0):
             if self.node.tag == self.CNST_NAME_CONTOURS:
                 contours = self.node.xpath('child::*')
                 if contours:
-                    res = list()
                     try:
                         for _ in contours:
                             _defintion = _.xpath('@Definition | @Number | @NumberRecord')
@@ -349,7 +337,6 @@ class XmlFullOrdinate(list):
                             res.extend(_border.get_border())
                     finally:
                         contours.clear()
-                    return res
             else:
-                return Border(self.node)
-        return None
+                res = Border(self.node)
+        return res

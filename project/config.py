@@ -120,6 +120,11 @@ SUBPARCEL_ENTITY_SPATIAL = {
     'attr': ['contour','numGeopoint', 'x', 'y', 'deltaGeopoint', 'empty'],
 }
 
+SUBPARCEL_ENTITY_SPATIAL_EXIST = {
+    'name': 'ENTITY_SPATIAL_EXIST',
+    'attr': ['contour','numGeopoint', 'oldX', 'oldY','newX','newY', 'delta', 'empty'],
+}
+
 SUBPARCEL_GENERAL= {
             'name': 'SUBPARCEL_GENERAL',
             'attr': ['id', 'cadnumber', 'area', 'delta', 'encumbrace'],
@@ -129,8 +134,7 @@ SUBPARCEL_GENERAL= {
 }
 SUBPARCELS = {
     'name': 'SUBPARCELS',
-    'attr': [
-        'sub_parcel_definition','ENTITY_SPATIAL']
+    'attr': ['sub_parcel_definition','ENTITY_SPATIAL', 'ENTITY_SPATIAL_EXIST']
 }
 
 """
@@ -158,6 +162,10 @@ CHANGEPARCELS = {
         'landuse': 'dAllowedUse_v01.xsd'
     },
     'res': '3.'
+}
+
+SUBPARCEL_ROWS = {
+    'cadnum': 'cadastralnumber',
 }
 
 """
