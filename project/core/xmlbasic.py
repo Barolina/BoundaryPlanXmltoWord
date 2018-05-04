@@ -310,8 +310,8 @@ class XmlFullOrdinate(list):
                         del entity
         else:  # список коорлинат EntitySpatial
             entity_spatial = self.node
-            if entity_spatial:
-                entity = EntitySpatial(entity_spatial[0])
+            if len(entity_spatial) > 0:
+                entity = EntitySpatial(entity_spatial)
                 res = entity.xml_to_list()
                 del entity
                   # ToDo очищать пок не будем на получить Borders

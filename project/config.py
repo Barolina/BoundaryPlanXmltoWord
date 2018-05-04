@@ -125,6 +125,20 @@ SUBPARCEL_ENTITY_SPATIAL_EXIST = {
     'attr': ['contour','numGeopoint', 'oldX', 'oldY','newX','newY', 'delta', 'empty'],
 }
 
+
+SUB_FULL_ORDINATE  = {
+    'name': 'SUBPARCELS',
+    'attr': ['definition', 'ENTITY_SPATIAL']
+}
+
+SUB_EX_FULL_ORDINATE = {
+    'name': 'EX_SUBPARCELS',
+    'attr': ['definition', 'ENTITY_SPATIAL']
+}
+
+CL_SUB_NEW = type('CL_SUB_NEW', (), {'name': 'SUBPARCELS', 'isType': None,'attr': ['definition', 'ENTITY_SPATIAL']})
+
+
 SUBPARCEL_GENERAL= {
             'name': 'SUBPARCEL_GENERAL',
             'attr': ['id', 'cadnumber', 'area', 'delta', 'encumbrace'],
@@ -135,6 +149,10 @@ SUBPARCEL_GENERAL= {
 SUBPARCELS = {
     'name': 'SUBPARCELS',
     'attr': ['sub_parcel_definition','ENTITY_SPATIAL', 'ENTITY_SPATIAL_EXIST']
+}
+
+SUBPARCEL_ROWS = {
+    'cadnum': 'cadastralnumber',
 }
 
 """
@@ -164,9 +182,6 @@ CHANGEPARCELS = {
     'res': '3.'
 }
 
-SUBPARCEL_ROWS = {
-    'cadnum': 'cadastralnumber',
-}
 
 """
     CONCLUSION

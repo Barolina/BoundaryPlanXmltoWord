@@ -3,6 +3,7 @@ from core.xmlbasic import *
 from utils.xsd import value_from_xsd
 from datetime import datetime
 
+
 import logging
 from logging.config import fileConfig
 fileConfig('loggers/logging_config.ini')
@@ -234,6 +235,8 @@ class XmlSubParcel(XMLElemenBase):
         """
             root = SubParcels
         """
+        is_type_existy = None
+
         def xml_definition_to_text(self):
             _res = self.node.xpath('@Definition | @NumberRecord')
             return ''.join(_res)
@@ -254,18 +257,38 @@ class XmlSubParcel(XMLElemenBase):
         def xml_sub_entity_spatial_dict(self):
             res = []
             result = ''
+            self.is_type_existy = None
             res.append(self.xml_definition_to_text())
             _xml_ord = self.node.xpath('Contours | EntitySpatial')
             if _xml_ord is not None and len(_xml_ord) > 0:
                 ordinate = XmlFullOrdinate(_xml_ord[0])
-                if StaticMethod.type_ordinate(ordinate) == CNST_NEWPARCEL:
+                if StaticMethod.type_ordinate(_xml_ord[0]) == CNST_NEWPARCEL:
+                    self.is_type_existy = CNST_NEWPARCEL
+                    res.append(StaticMethod.merge_array_list(cnfg.SUBPARCEL_ENTITY_SPATIAL['attr'], ordinate.full_ordinate()))
+                    result = dict(zip(cnfg.SUB_FULL_ORDINATE['attr'], res))
+                else:
+                    self.is_type_existy = CNST_EXISTPARCEL
+                    res.append(StaticMethod.merge_array_list(cnfg.SUBPARCEL_ENTITY_SPATIAL_EXIST['attr'], ordinate.full_ordinate()))
+                    result = dict(zip(cnfg.SUB_EX_FULL_ORDINATE['attr'], res))
+            del _xml_ord
+            return result
+
+        def xml_entity_or_contours_to_dict(self) -> object:
+            res = []
+            result = ''
+            self.is_type_existy = None
+            res.append(self.xml_definition_to_text())
+            _xml_ord = self.node.xpath('Contours | EntitySpatial')
+            if _xml_ord is not None and len(_xml_ord) > 0:
+                ordinate = XmlFullOrdinate(_xml_ord[0])
+                cnfg.CL_SUB_NEW.is_type = StaticMethod.type_ordinate(_xml_ord[0])
+                if cnfg.CL_SUB_NEW.is_type == CNST_NEWPARCEL:
                     res.append(StaticMethod.merge_array_list(cnfg.SUBPARCEL_ENTITY_SPATIAL['attr'], ordinate.full_ordinate()))
                 else:
-                    res.append(
-                        StaticMethod.merge_array_list(cnfg.SUBPARCEL_ENTITY_SPATIAL_EXIST['attr'], ordinate.full_ordinate()))
+                    res.append(StaticMethod.merge_array_list(cnfg.SUBPARCEL_ENTITY_SPATIAL_EXIST['attr'], ordinate.full_ordinate()))
+                result = dict(zip(cnfg.CL_SUB_NEW.attr, res))
             del _xml_ord
-            result= dict(zip(cnfg.SUBPARCELS['attr'], res))
-            return result
+            return type('Coordinate', (), {'is_type': cnfg.CL_SUB_NEW.is_type,'result': result})
 
         def to_dict(self):
            pass
@@ -610,20 +633,26 @@ class XmlSubParcels(XmlNewParcel):
     def xml_sub_parcels_dict(self):
         node = self.node.xpath('child::*[name()="NewSubParcel" or name()="ExistSubParcel"]')
         entity_spatial = []
+        entity_spatial_ex = []
         general = []
         try:
             for index, _ in enumerate(node):
                 subParcel = XmlSubParcel(_)
-                entity_spatial.append(subParcel.xml_sub_entity_spatial_dict())
+                coor = subParcel.xml_entity_or_contours_to_dict()
+                if coor.is_type == CNST_NEWPARCEL:
+                    entity_spatial.append(coor.result)
+                else:
+                    entity_spatial_ex.append(coor.result)
                 general.append(subParcel.xml_general_to_dict(index + 1))
                 del subParcel
         finally:
             node.clear()
-        return {cnfg.SUBPARCELS['name']: entity_spatial,
+        return {cnfg.SUB_FULL_ORDINATE['name']: entity_spatial,
+                cnfg.SUB_EX_FULL_ORDINATE['name']: entity_spatial_ex,
                 cnfg.SUBPARCEL_GENERAL['name']: general}
 
     def to_dict(self):
-        res = {cnfg.SUBPARCEL_ROWS['cadnum']: self.xml_cadnum_to_text(),
+        res = {cnfg.SUBPARCEL_ROWS['cadnum']: ''.join(self.node.xpath('CadastralNumberParcel/text()')),
               }
         res.update(self.xml_sub_parcels_dict())
         return res
