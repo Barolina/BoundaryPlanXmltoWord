@@ -637,13 +637,12 @@ class XmlSubParcels(XmlNewParcel):
         general = []
         try:
             for index, _ in enumerate(node):
-                subParcel = XmlSubParcel(_)
-                coor = subParcel.xml_entity_or_contours_to_dict()
-                if coor.is_type == CNST_NEWPARCEL:
-                    entity_spatial.append(coor.result)
+                subParcel = ElementSubParcel(_)
+                if subParcel.type_ordinate() == CNST_NEWPARCEL:
+                    entity_spatial.append(subParcel.xml_new_dict())
                 else:
-                    entity_spatial_ex.append(coor.result)
-                general.append(subParcel.xml_general_to_dict(index + 1))
+                    entity_spatial_ex.append(subParcel.xml_new_dict())
+
                 del subParcel
         finally:
             node.clear()

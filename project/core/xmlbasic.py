@@ -119,17 +119,17 @@ class StaticMethod:
 
 class Ordinatre(list):
 
-    def __init__(self, node, is_exist_ord):
+    def __init__(self, node, type_ordinate_ord):
         """
         Get a list of coorinates the  inner contour(SpatialElement)
         Получить список коорлинат внутреннего контура
         :param node: SpatialElement
-        :param is_exist_ord: тип коорлинат уточнение или образовние
+        :param type_ordinate_ord: тип коорлинат уточнение или образовние
         (лучше передать, так как не имеет смылса высчитавать тип в каждом внутреннем контуре)
         """
         super(Ordinatre, self).__init__()
         self.node = node
-        self.is_exist_ord = is_exist_ord
+        self.type_ordinate_ord = type_ordinate_ord
 
     def xml_new_ordinate_to_list(self):
         """
@@ -179,7 +179,7 @@ class Ordinatre(list):
         return res
 
     def xml_to_list(self):
-        if self.is_exist_ord == CNST_EXISTPARCEL:
+        if self.type_ordinate_ord == CNST_EXISTPARCEL:
             return self.xml_exist_ordinate_to_list()
         return self.xml_new_ordinate_to_list()
 
@@ -204,10 +204,10 @@ class EntitySpatial(list):
         if self.node is not None:
             pathEntitySpatial1 = 'child::*[not(name()="Borders")]'
             spatial_elements = self.node.xpath(pathEntitySpatial1)
-            is_exist = StaticMethod.type_ordinate(spatial_elements)
+            type_ordinate = StaticMethod.type_ordinate(spatial_elements)
             for index, _ in enumerate(spatial_elements):
                if _ is not None:
-                    ord = Ordinatre(_, is_exist)
+                    ord = Ordinatre(_, type_ordinate)
                     result.extend(ord.xml_to_list())
                     # добавление пустой строки - разделение внутрених контуров
                     if index != len(spatial_elements) - 1:
@@ -340,3 +340,71 @@ class XmlFullOrdinate(list):
             else:
                 res = Border(self.node)
         return res
+
+
+class ElementSubParcel:
+    """
+       get inforamtion the dict - one SubParcel
+       {
+        'defiition': 'чзу1',
+        'entity_spatial' : list(),
+        'type_ordinate' : newparcel | existparcel
+       }
+    """
+    def __init__(self, node):
+        super(ElementSubParcel, self).__init__()
+        self.node = node
+        self.type_ord = None
+
+    def __del__(self):
+        del self.node
+
+    def defintion(self):
+        return self.node.xpath('@Definition | @NumberRecord')
+
+    def entity_spatial(self):
+        _ = self.node.xpath('Contours | EntitySpatial ')
+        if _ is not None and len(_) > 0:
+            xml_full_ordinate = XmlFullOrdinate(_)
+            return xml_full_ordinate.full_ordinate()
+        return None
+
+    @property
+    def type_ordinate(self):
+        if self.type_ord is None:
+            return StaticMethod.type_ordinate(self.node)
+        return self.type_ord
+
+    def general_info(self, position):
+        """
+          словарб общих сведений  части
+        :param position: просто  задать номер
+        :return:
+        """
+        res = [str(position)]
+        res.append(self.defintion())
+        res.append(''.join(self.node.xpath('Area/Area/text()')))
+        res.append(''.join(self.node.xpath('Area/Inaccuracy/text()')))
+        res.append(StaticMethod.xmlnode_key_to_text(self.node, 'Encumbrance/Type/text()',
+                                                    cnfg.SUBPARCEL_GENERAL['dict']['encumbrace']))
+        return res
+
+    def xml_new_dict(self):
+        try:
+            if StaticMethod.type_ordinate() == CNST_NEWPARCEL:
+                return dict(zip(cnfg.SUB_FULL_ORDINATE['attr'],[self.defintion()+ self.entity_spatial()]))
+        except:
+            return []
+
+    def xml_ext_dict(self):
+        try:
+            if StaticMethod.type_ordinate() == CNST_EXISTPARCEL:
+                return dict(zip(cnfg.SUB_EX_FULL_ORDINATE['attr'],[self.defintion(),self.entity_spatial()]))
+        except:
+            return []
+
+
+    def xml_general_dict(self):
+        return dict(zip(cnfg.SUBPARCEL_GENERAL['attr'], self.general_info()))
+
+
