@@ -629,7 +629,17 @@ class XmlExistParcel(XmlNewParcel):
         return res
 
 
-class XmlSubParcels(XmlNewParcel):
+class XmlSubParcels:
+    """
+        node: SubParcels
+    """
+    def __init__(self, node):
+        super(XmlSubParcels, self).__init__()
+        self.node = node
+
+    def __del__(self):
+        self.node.clear()
+
     def xml_sub_parcels_dict(self):
         node = self.node.xpath('child::*[name()="NewSubParcel" or name()="ExistSubParcel"]')
         entity_spatial = []
@@ -638,14 +648,14 @@ class XmlSubParcels(XmlNewParcel):
         try:
             for index, _ in enumerate(node):
                 subParcel = ElementSubParcel(_)
-                if subParcel.type_ordinate() == CNST_NEWPARCEL:
-                    entity_spatial.append(subParcel.xml_new_dict())
+                if subParcel.type_ordinate == CNST_NEWPARCEL:
+                     entity_spatial.append(subParcel.xml_new_dict())
                 else:
-                    entity_spatial_ex.append(subParcel.xml_new_dict())
-
+                    entity_spatial_ex.append(subParcel.xml_ext_dict())
+                general.append(subParcel.xml_general_dict(index+1))
                 del subParcel
         finally:
-            node.clear()
+            self.node.clear()
         return {cnfg.SUB_FULL_ORDINATE['name']: entity_spatial,
                 cnfg.SUB_EX_FULL_ORDINATE['name']: entity_spatial_ex,
                 cnfg.SUBPARCEL_GENERAL['name']: general}

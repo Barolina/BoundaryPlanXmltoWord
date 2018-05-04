@@ -64,8 +64,10 @@ class StaticMethod:
             # get a type  of ordinates
             if initial_node is not None:
                 isOrdinate = initial_node.find('.//Ordinate')
-                isExistSubParcel = initial_node.xpath('ancestor::*[name() = "SpecifyRelatedParcel" or name() = "ExistSubParcel"]')
-                isExist = CNST_EXISTPARCEL if ((isOrdinate is None) or (len(isExistSubParcel) > 0)) else CNST_NEWPARCEL
+                isExistSubParcel = True if len(initial_node.xpath('ancestor::*[name() = "SpecifyRelatedParcel" or '
+                                                                  'name() = "ExistSubParcel"]')) > 0\
+                                           or initial_node.tag == 'ExistSubParcel' else False
+                isExist = CNST_EXISTPARCEL if ((isOrdinate is None) or isExistSubParcel) else CNST_NEWPARCEL
         return isExist
 
     @staticmethod
@@ -357,7 +359,7 @@ class ElementSubParcel:
         self.type_ord = None
 
     def __del__(self):
-        del self.node
+       self.node.clear()
 
     def defintion(self):
         return self.node.xpath('@Definition | @NumberRecord')
@@ -365,7 +367,7 @@ class ElementSubParcel:
     def entity_spatial(self):
         _ = self.node.xpath('Contours | EntitySpatial ')
         if _ is not None and len(_) > 0:
-            xml_full_ordinate = XmlFullOrdinate(_)
+            xml_full_ordinate = XmlFullOrdinate(_[0])
             return xml_full_ordinate.full_ordinate()
         return None
 
@@ -391,20 +393,19 @@ class ElementSubParcel:
 
     def xml_new_dict(self):
         try:
-            if StaticMethod.type_ordinate() == CNST_NEWPARCEL:
-                return dict(zip(cnfg.SUB_FULL_ORDINATE['attr'],[self.defintion()+ self.entity_spatial()]))
+           _ent = StaticMethod.merge_array_list(cnfg.SUBPARCEL_ENTITY_SPATIAL['attr'], self.entity_spatial())
+           return dict(zip(cnfg.SUB_FULL_ORDINATE['attr'],[self.defintion()+_ent]))
         except:
             return []
 
     def xml_ext_dict(self):
         try:
-            if StaticMethod.type_ordinate() == CNST_EXISTPARCEL:
-                return dict(zip(cnfg.SUB_EX_FULL_ORDINATE['attr'],[self.defintion(),self.entity_spatial()]))
+            _ent = StaticMethod.merge_array_list(cnfg.SUBPARCEL_ENTITY_SPATIAL_EXIST['attr'], self.entity_spatial())
+            return dict(zip(cnfg.SUB_EX_FULL_ORDINATE['attr'],[self.defintion()+_ent]))
         except:
             return []
 
-
-    def xml_general_dict(self):
-        return dict(zip(cnfg.SUBPARCEL_GENERAL['attr'], self.general_info()))
+    def xml_general_dict(self, position):
+        return dict(zip(cnfg.SUBPARCEL_GENERAL['attr'], self.general_info(position)))
 
 
