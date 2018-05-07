@@ -80,7 +80,7 @@ BORDERS = {
 }
 
 PARCEL_COMMON = {
-    'cadnum': 'cadastralnumber',
+    'cadnum': 'cadastralnumber_parcel',
     'zone': 'zona',
     'address': 'address',
     'location': 'location',
@@ -168,7 +168,7 @@ PROVIDING = {
     CHANGE_PARCELs
 """
 CHANGEPARCELS = {
-    'cadnum': 'cadastralnumber',
+    'cadnum': 'cadastralnumber_parcel',
     'deleteEntyParcel': 'delete_entry_parcels',
     'transformEntryParcel': 'transformation_entry_parcels',
     'innerCadNum': 'inner_cadastral_number',

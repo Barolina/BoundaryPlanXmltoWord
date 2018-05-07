@@ -98,38 +98,53 @@ class MpXMlToWORd:
             i += 1
 
             if elem.tag == 'GeneralCadastralWorks' and event == 'end':
+                logging.info(elem.tag)
                 self.fast_iter_element(elem, self.renderTPL,
                                        args=(XmlTitleDict, 'template/common/title.docx','1.' + str(i)))
             if elem.tag == 'InputData' and event == 'end':
+                logging.info(elem.tag)
                 self.fast_iter_element(elem, self.renderTPL,
                                        args=(XmlInputDataDict, 'template/common/inputdata.docx', '2.' + str(i)))
             if elem.tag == 'Survey' and event == 'end':
+                logging.info(elem.tag)
                 self.fast_iter_element(elem, self.renderTPL,
                                        args=(XmlSurveyDict, 'template/common/survey.docx','3.' + str(i)))
             if elem.tag == 'NewParcel' and event == 'end':
+                logging.info(elem.tag)
                 self.fast_iter_element(elem, self.renderTPL,
                                        args=(XmlNewParcel, 'template/common/newparcel.docx', '4.' + str(i)))
             if elem.tag == 'ExistParcel' and event == 'end':
+                logging.info(elem.tag)
                 self.fast_iter_element(elem, self.renderTPL,
                                        args=(XmlExistParcel, 'template/common/existparcel.docx', '4.' + str(i)))
 
-            if elem.tag == 'SubParcels' and event == 'end':
+            if elem.tag == 'SubParcels' and event == 'end' and elem.getparent().tag != 'InputData':
+                logging.info(elem.tag)
                 self.fast_iter_element(elem, self.renderTPL,
-                                       args=(XmlSubParcels, 'template/common/subparcels.docx', '4.' + str(i)))
+                                       args=(XmlSubParcels, 'template/common/subparcels.docx', '6.' + str(i)))
 
             if elem.tag == 'ChangeParcel' and event == 'end':
+                logging.info(elem.tag)
                 self.fast_iter_element(elem, self.renderTPL,
                                        args=(XmlChangeParcel, 'template/common/changeparcel.docx', '5.' + str(i)))
 
             if elem.tag == 'SpecifyRelatedParcel' and event == 'end':
+                logging.info(elem.tag)
                 self.fast_iter_element(elem, self.renderTPL,
                                        args=(XmlExistParcel, 'template/common/existparcel.docx','6.' + str(i)))
             if elem.tag == 'FormParcels' and event == 'start':
+                logging.info(elem.tag)
                 self.renderTPL(elem,XmlNewParcelProviding, 'template/common/providing.docx','7.' + str(i))
 
             if elem.tag == 'Conclusion' and event == 'end':
+                logging.info(elem.tag)
                 self.fast_iter_element(elem, self.renderTPL,
                                        args=(XmlConclusion, 'template/common/conclusion.docx','8.' + str(i)))
+            _elin =elem.xpath('InputData/Documents')
+            if _elin:
+                logging.info(f"Documents est")
+            else:
+                logging.info(" nett")
 
         del context
 
@@ -211,18 +226,16 @@ class MpXMlToWORd:
         return merged_document
 
 
-
-
 if __name__ == '__main__':
     logger.info('START PARSING')
     generat = MpXMlToWORd()
 
-    generat.xmlBlock_to_docx('../TEST/14/14.xml')
+    generat.xmlBlock_to_docx('../TEST/9/9.xml')
 
     logger.info('START COMBINE WORDS')
     files = os.listdir(cnfg.PATH_RESULT)
     _dcx = filter(lambda x : x.endswith('.docx'), files)
     _dcx = map(lambda x: os.path.join(cnfg.PATH_RESULT, x), _dcx)
 
-    generat.combine_word_documents(_dcx, '../TEST/14/result.docx')
+    generat.combine_word_documents(_dcx, '../TEST/9/9.docx')
     logger.info('END')

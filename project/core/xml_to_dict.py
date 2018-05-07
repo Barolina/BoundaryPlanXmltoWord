@@ -231,69 +231,6 @@ class XmlInputDataDict(XMLElemenBase):
         return _res
 
 
-class XmlSubParcel(XMLElemenBase):
-        """
-            root = SubParcels
-        """
-        is_type_existy = None
-
-        def xml_definition_to_text(self):
-            _res = self.node.xpath('@Definition | @NumberRecord')
-            return ''.join(_res)
-
-        def xml_general_to_dict(self, position):
-           """
-             словарб общих сведений  части
-           :param position: просто  задать номер
-           :return:
-           """
-           res = [str(position)]
-           res.append(self.xml_definition_to_text())
-           res.append(''.join(self.node.xpath('Area/Area/text()')))
-           res.append(''.join(self.node.xpath('Area/Inaccuracy/text()')))
-           res.append(StaticMethod.xmlnode_key_to_text(self.node,'Encumbrance/Type/text()', cnfg.SUBPARCEL_GENERAL['dict']['encumbrace']))
-           return dict(zip(cnfg.SUBPARCEL_GENERAL['attr'],res))
-
-        def xml_sub_entity_spatial_dict(self):
-            res = []
-            result = ''
-            self.is_type_existy = None
-            res.append(self.xml_definition_to_text())
-            _xml_ord = self.node.xpath('Contours | EntitySpatial')
-            if _xml_ord is not None and len(_xml_ord) > 0:
-                ordinate = XmlFullOrdinate(_xml_ord[0])
-                if StaticMethod.type_ordinate(_xml_ord[0]) == CNST_NEWPARCEL:
-                    self.is_type_existy = CNST_NEWPARCEL
-                    res.append(StaticMethod.merge_array_list(cnfg.SUBPARCEL_ENTITY_SPATIAL['attr'], ordinate.full_ordinate()))
-                    result = dict(zip(cnfg.SUB_FULL_ORDINATE['attr'], res))
-                else:
-                    self.is_type_existy = CNST_EXISTPARCEL
-                    res.append(StaticMethod.merge_array_list(cnfg.SUBPARCEL_ENTITY_SPATIAL_EXIST['attr'], ordinate.full_ordinate()))
-                    result = dict(zip(cnfg.SUB_EX_FULL_ORDINATE['attr'], res))
-            del _xml_ord
-            return result
-
-        def xml_entity_or_contours_to_dict(self) -> object:
-            res = []
-            result = ''
-            self.is_type_existy = None
-            res.append(self.xml_definition_to_text())
-            _xml_ord = self.node.xpath('Contours | EntitySpatial')
-            if _xml_ord is not None and len(_xml_ord) > 0:
-                ordinate = XmlFullOrdinate(_xml_ord[0])
-                cnfg.CL_SUB_NEW.is_type = StaticMethod.type_ordinate(_xml_ord[0])
-                if cnfg.CL_SUB_NEW.is_type == CNST_NEWPARCEL:
-                    res.append(StaticMethod.merge_array_list(cnfg.SUBPARCEL_ENTITY_SPATIAL['attr'], ordinate.full_ordinate()))
-                else:
-                    res.append(StaticMethod.merge_array_list(cnfg.SUBPARCEL_ENTITY_SPATIAL_EXIST['attr'], ordinate.full_ordinate()))
-                result = dict(zip(cnfg.CL_SUB_NEW.attr, res))
-            del _xml_ord
-            return type('Coordinate', (), {'is_type': cnfg.CL_SUB_NEW.is_type,'result': result})
-
-        def to_dict(self):
-           pass
-
-
 class XmlParcel(XMLElemenBase):
     pass
 
@@ -442,21 +379,6 @@ class XmlNewParcel(XMLElemenBase):
             return _[0]
         return ''
 
-    def xml_sub_parcels_to_dict(self):
-        node = self.node.xpath('SubParcels/child::*')
-        entity_spatial = []
-        general = []
-        try:
-            for index, _ in enumerate(node):
-                subParcel = XmlSubParcel(_)
-                entity_spatial.append(subParcel.xml_sub_entity_spatial_dict())
-                general.append(subParcel.xml_general_to_dict(index + 1))
-                del subParcel
-        finally:
-            node.clear()
-        return {cnfg.SUBPARCELS['name']: entity_spatial,
-                cnfg.SUBPARCEL_GENERAL['name']: general}
-
     def to_dict(self):
         xml_ordinate = self.xpath('Contours | EntitySpatial')
         if xml_ordinate is not None and len(xml_ordinate) > 0:
@@ -470,7 +392,11 @@ class XmlNewParcel(XMLElemenBase):
                  }
             del  full_ord
         res.update(self.xml_general_info_to_dict())
-        res.update(self.xml_sub_parcels_to_dict())
+        xml_node_subparcels = self.node.xpath('SubParcels')
+        if xml_node_subparcels is not None and len(xml_node_subparcels) > 0:
+            subparcels = XmlSubParcels(xml_node_subparcels[0])
+            res.update(subparcels.to_dict())
+            del subparcels
         return res
 
 
@@ -554,14 +480,14 @@ class XmlExistParcel(XmlNewParcel):
         changeborder = self.node.xpath('ChangeBorder')
         if changeborder:
             try:
-                ordinate = Ordinatre(self.node)
+                ordinate = Ordinatre(self.node,CNST_EXISTPARCEL)
                 self.ordinates = ordinate.xml_exist_ordinate_to_list()
                 self.borders =[]
                 del ordinate
             finally:
                 changeborder.clear()
 
-        conrours = self.node.xpath('Contours')
+        conrours = self.node.xpath('Contours | EntitySpatial')
         if conrours:
             try:
                 _ord = self.instance_full_ordinate(self.node)
@@ -574,7 +500,7 @@ class XmlExistParcel(XmlNewParcel):
         deleteAllBorder = self.node.xpath('DeleteAllBorder')  # TODO определить шаблон не понятен
         if deleteAllBorder:
             try:
-                _ord = Ordinatre(self.node)
+                _ord = Ordinatre(self.node,CNST_EXISTPARCEL)
                 self.ordinates = _ord.xml_exist_ordinate_to_list()
                 self.borders = []
             finally:
@@ -625,7 +551,11 @@ class XmlExistParcel(XmlNewParcel):
         res = {cnfg.PARCEL_COMMON['cadnum']: self.xml_cadnum_to_text()}
         res.update(self.xml_exist_general_info())
         res.update(self.xml_ordinate_borders_to_dict())
-        res.update(self.xml_sub_parcels_to_dict())
+        xml_node_subparcels = self.node.xpath('SubParcels')
+        if xml_node_subparcels is not None and len(xml_node_subparcels) > 0:
+            subparcels = XmlSubParcels(xml_node_subparcels[0])
+            res.update(subparcels.to_dict())
+            del subparcels
         return res
 
 
@@ -656,7 +586,7 @@ class XmlSubParcels:
                 del subParcel
         finally:
             self.node.clear()
-        return {cnfg.SUB_FULL_ORDINATE['name']: entity_spatial,
+        return {cnfg.SUB_FULL_ORDINATE['name']:  entity_spatial,
                 cnfg.SUB_EX_FULL_ORDINATE['name']: entity_spatial_ex,
                 cnfg.SUBPARCEL_GENERAL['name']: general}
 
@@ -690,7 +620,11 @@ class XmlChangeParcel(XmlNewParcel):
                cnfg.CHANGEPARCELS['innerCadNum']: self.xml_objectRealty_inner_cadastral_number_to_text(),
                cnfg.CHANGEPARCELS['note']: ''.join(self.node.xpath('Note/text()')),
               }
-        res.update(self.xml_sub_parcels_to_dict())
+        xml_node_subparcels = self.node.xpath('SubParcels')
+        if xml_node_subparcels is not None and len(xml_node_subparcels) > 0:
+            subparcels = XmlSubParcels(xml_node_subparcels[0])
+            res.update(subparcels.to_dict())
+            del subparcels
         return res
 
 

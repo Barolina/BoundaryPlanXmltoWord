@@ -147,6 +147,8 @@ class Ordinatre(list):
                 res.append(
                     ['', number, _attrib.get('X', '-'), _attrib.get('Y', '-'),
                      _attrib.get('DeltaGeopoint', '-')])
+                logging.info(f""" del {_attrib}""")
+
                 del _attrib
         return res
 
@@ -216,6 +218,7 @@ class EntitySpatial(list):
                         _empty = StaticMethod.get_empty_tpl(_)
                         if _empty:
                             result.append(_empty+['yes'])
+                    logging.info(f""" del {ord}""")
                     del ord
             # ToDo очищать пока не будет  надо еще считать Borders
         return result
@@ -295,6 +298,7 @@ class XmlFullOrdinate(list):
         self.node = node
 
     def __del__(self):
+        logging.info(f""" del {self.node}""")
         del self.node
 
     def full_ordinate(self):
@@ -309,12 +313,14 @@ class XmlFullOrdinate(list):
                         res.append(_defintion + StaticMethod.get_empty_tpl(_entityspatial[0]))
                         entity = EntitySpatial(_entityspatial[0])
                         res.extend(entity.xml_to_list())
+                        logging.info(f""" del {entity}""")
                         del entity
         else:  # список коорлинат EntitySpatial
             entity_spatial = self.node
             if len(entity_spatial) > 0:
                 entity = EntitySpatial(entity_spatial)
                 res = entity.xml_to_list()
+                logging.info(f""" del {entity}""")
                 del entity
                   # ToDo очищать пок не будем на получить Borders
         return res
@@ -340,7 +346,7 @@ class XmlFullOrdinate(list):
                     finally:
                         contours.clear()
             else:
-                res = Border(self.node)
+                res = Border(self.node).get_border()
         return res
 
 
@@ -359,6 +365,7 @@ class ElementSubParcel:
         self.type_ord = None
 
     def __del__(self):
+       logging.info(f""" del {self.node}""")
        self.node.clear()
 
     def defintion(self):
@@ -384,7 +391,7 @@ class ElementSubParcel:
         :return:
         """
         res = [str(position)]
-        res.append(self.defintion())
+        res.append(''.join(self.defintion()))
         res.append(''.join(self.node.xpath('Area/Area/text()')))
         res.append(''.join(self.node.xpath('Area/Inaccuracy/text()')))
         res.append(StaticMethod.xmlnode_key_to_text(self.node, 'Encumbrance/Type/text()',
@@ -394,14 +401,22 @@ class ElementSubParcel:
     def xml_new_dict(self):
         try:
            _ent = StaticMethod.merge_array_list(cnfg.SUBPARCEL_ENTITY_SPATIAL['attr'], self.entity_spatial())
-           return dict(zip(cnfg.SUB_FULL_ORDINATE['attr'],[self.defintion()+_ent]))
+           res = list()
+           res = self.defintion()
+           res.append(_ent)
+           result = dict(zip(cnfg.SUB_FULL_ORDINATE['attr'],res))
+           print(result)
+           return result
         except:
             return []
 
     def xml_ext_dict(self):
         try:
             _ent = StaticMethod.merge_array_list(cnfg.SUBPARCEL_ENTITY_SPATIAL_EXIST['attr'], self.entity_spatial())
-            return dict(zip(cnfg.SUB_EX_FULL_ORDINATE['attr'],[self.defintion()+_ent]))
+            res = list()
+            res = self.defintion()
+            res.append(_ent)
+            return dict(zip(cnfg.SUB_EX_FULL_ORDINATE['attr'],res))
         except:
             return []
 
