@@ -333,7 +333,7 @@ class XmlNewParcel(XmlParcel):
             elif 'Utilization' in node.attrib:
                res = StaticMethod.xmlnode_key_to_text(node, '@Utilization', cnfg.PARCEL_COMMON['dict']['utilization'])
             elif 'LandUse' in node.attrib:
-               res = StaticMethod.xmlnode_key_to_text(node, '@Utilization',cnfg.PARCEL_COMMON['dict']['landuse'])
+               res = StaticMethod.xmlnode_key_to_text(node, '@LandUse',cnfg.PARCEL_COMMON['dict']['landuse'])
         finally:
             node.clear()
         return res
@@ -366,7 +366,7 @@ class XmlNewParcel(XmlParcel):
         dict_address = dict()
         xml_addrss = self.node.xpath('Address')
         xml_category = self.node.xpath('Category')
-        xml_utilization = self.node.xpath('Utilization')
+        xml_utilization = self.node.xpath('Utilization | LandUse')
         xml_area = self.node.xpath('Area')
         xml_area_contour = self.node.xpath('Contours/child::*/child::Area')
         if xml_addrss:
@@ -415,7 +415,7 @@ class XmlNewParcel(XmlParcel):
 
 
 class XmlNewParcelProviding(XmlNewParcel):
-    def _getcontext(self,node):
+    def _getcontext(self, node):
         """
         :param node: ProvidingCadastralNumber
         :return:
@@ -457,9 +457,6 @@ class XmlExistParcel(XmlNewParcel):
         self.ordinates= None
         super(XmlExistParcel,self).__init__(node)
 
-    def __del__(self):
-        del self.borders
-        del self.ordinates
 
     def xml_cadnum_to_text(self):
         number_record = ''.join(self.node.xpath('@NumberRecord'))
@@ -468,67 +465,82 @@ class XmlExistParcel(XmlNewParcel):
             str_number_record = f"""({number_record}"""
         return f"""{ ''.join(self.node.xpath('@CadastralNumber'))} {str_number_record}"""
 
-    def instance_full_ordinate(self, node):
-        if node is not None and len(node) > 0:
-            xmlfull = XmlFullOrdinate(node.xpath('Contours | EntitySpatial')[0])
-            return xmlfull
-        else:
-            return None
-
-    def __set_ordinate_border(self):
-        """
-        :param node: SpecifyRelatedParcel
-        :return:
-        """
-        allborder = self.node.xpath('AllBorder')
-        if allborder:
+    def __xml_delete_all_border_to_dict(self):
+        deleteAllBorder = self.node.xpath('DeleteAllBorder')  # TODO определить шаблон не понятен
+        res = dict()
+        if deleteAllBorder:
             try:
-                _ord = self.instance_full_ordinate(allborder[0])
-                self.ordinates = _ord.full_ordinate()
-                self.borders = _ord.full_borders()
-                del _ord
+                _ord = Ordinatre(self.node, CNST_EXISTPARCEL)
+                res = {
+                    cnfg.ENTITY_SPATIAL_EXIST['name']: StaticMethod.merge_array_list(cnfg.ENTITY_SPATIAL_EXIST['attr'],
+                                                                                     _ord.xml_exist_ordinate_to_list()),
+                    cnfg.BORDERS['name']: None
+                }
+            finally:
+                deleteAllBorder.clear()
+        return res
+
+    def __xml_all_border_to_dict(self):
+        allborder = self.node.xpath('AllBorder')
+        res = dict()
+        if allborder and len(allborder) > 0 :
+            try:
+                xmlfull = XmlFullOrdinate(allborder[0].xpath('Contours | EntitySpatial')[0])
+                res = {cnfg.ENTITY_SPATIAL_EXIST['name']: StaticMethod.merge_array_list(cnfg.ENTITY_SPATIAL_EXIST['attr'],
+                                                                                  xmlfull.full_ordinate()),
+                       cnfg.BORDERS['name']: StaticMethod.merge_array_list(cnfg.BORDERS['attr'],
+                                                                           xmlfull.full_borders()),
+                       }
+                del xmlfull
             finally:
                 allborder.clear()
+        return res
 
+    def __xml_change_border_to_dict(self):
         changeborder = self.node.xpath('ChangeBorder')
+        res = dict()
         if changeborder:
             try:
-                ordinate = Ordinatre(self.node,CNST_EXISTPARCEL)
-                self.ordinates = ordinate.xml_exist_ordinate_to_list()
-                self.borders =[]
+                ordinate = Ordinatre(self.node, CNST_EXISTPARCEL)
+                res = {
+                    cnfg.ENTITY_SPATIAL_EXIST['name']: StaticMethod.merge_array_list(cnfg.ENTITY_SPATIAL_EXIST['attr'],
+                                                                                     ordinate.xml_exist_ordinate_to_list()),
+                    cnfg.BORDERS['name']: None
+                }
                 del ordinate
             finally:
                 changeborder.clear()
+        return res
 
-        conrours = self.node.xpath('Contours | EntitySpatial')
-        if conrours:
-            try:
-                _ord = self.instance_full_ordinate(self.node)
-                self.ordinates = _ord.full_ordinate()
-                self.borders = _ord.full_borders()
-                del _ord
-            finally:
-                conrours.clear()
+    def __xml_contours_entity__to_dict(self):
+        res = dict()
+        xml_ordinate = self.node.xpath('Contours | EntitySpatial')
+        if xml_ordinate is not None and len(xml_ordinate) > 0:
+            full_ord = XmlFullOrdinate(xml_ordinate[0])
 
-        deleteAllBorder = self.node.xpath('DeleteAllBorder')  # TODO определить шаблон не понятен
-        if deleteAllBorder:
-            try:
-                _ord = Ordinatre(self.node,CNST_EXISTPARCEL)
-                self.ordinates = _ord.xml_exist_ordinate_to_list()
-                self.borders = []
-            finally:
-                deleteAllBorder.clear()
+            res = {cnfg.ENTITY_SPATIAL_EXIST['name']: StaticMethod.merge_array_list(cnfg.ENTITY_SPATIAL_EXIST['attr'],
+                                                                              full_ord.full_ordinate()),
+                   cnfg.BORDERS['name']: StaticMethod.merge_array_list(cnfg.BORDERS['attr'], full_ord.full_borders()),
+                   }
+            del full_ord
+        return res
+
+    def full_ordinate_to_dict(self):
+        if self.node.xpath('AllBorder'):
+            return self.__xml_all_border_to_dict()
+        elif self.node.xpath('ChangeBorder'):
+            return self.__xml_change_border_to_dict()
+        elif self.node.xpath('DeleteAllBorder'):
+            return self.__xml_change_border_to_dict()
+        else:
+            return self.__xml_contours_entity__to_dict()
 
     def xml_ordinate_borders_to_dict(self):
-        if not self.ordinates and not self.borders:
-            self.__set_ordinate_border()
         res = {
-            cnfg.ENTITY_SPATIAL_EXIST['name']: StaticMethod.merge_array_list(cnfg.ENTITY_SPATIAL_EXIST['attr'],
-                                                                  self.ordinates),
-            cnfg.BORDERS['name']: StaticMethod.merge_array_list(cnfg.BORDERS['attr'], self.borders),
             cnfg.RELATEDPARCELS['name']: StaticMethod.merge_array_list(cnfg.RELATEDPARCELS['attr'],
                                                                 self.xml_related_parcel_to_list())
         }
+        res.update(self.full_ordinate_to_dict())
         return res
 
     def xml_exist_general_info(self):

@@ -200,6 +200,9 @@ class EntitySpatial(list):
         super(EntitySpatial, self).__init__()
         self.node = node
 
+    # def __del__(self):
+    #     self.node.clear()
+
     def xml_to_list(self):
         """
             :return: возвращает список  координат EntitySpatial
@@ -236,6 +239,9 @@ class Border(list):
         """
         super(Border, self).__init__()
         self.node = node
+
+    def __del__(self):
+        self.node.clear()
 
     def border_spelement(self, xml_spatial_element, point):
         pathPoint = 'child::*[name()="NewOrdinate" or name()="Ordinate"]/@*[name()="PointPref"]'
@@ -299,7 +305,9 @@ class XmlFullOrdinate(list):
 
     def __del__(self):
         logging.info(f""" del {self.node}""")
-        del self.node
+        """ Контуры содержать ProvidingPassCadastralNumbers которые необходимы потом для разбора """
+        if self.node and self.node.tag != self.CNST_NAME_CONTOURS :
+            self.node.clear()
 
     def full_ordinate(self):
         res = list()
@@ -333,7 +341,7 @@ class XmlFullOrdinate(list):
               """
         # check Contours or EntitySpatial
         res = list()
-        if self.node is not None and (len(self.node) > 0):
+        if self.node is not None:
             if self.node.tag == self.CNST_NAME_CONTOURS:
                 contours = self.node.xpath('child::*')
                 if contours:

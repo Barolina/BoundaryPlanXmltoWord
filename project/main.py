@@ -116,30 +116,34 @@ class MpXMlToWORd:
                                        args=(XmlSurveyDict, 'template/common/survey.docx','3.' + str(i)))
             if elem.tag == 'NewParcel' and event == 'end':
                 logging.info(elem.tag)
-                self.__fast_iter_element(elem, self.render_tpl,
-                                       args=(XmlNewParcel, 'template/common/newparcel.docx', '4.' + str(i)))
+                # self.__fast_iter_element(elem, self.render_tpl,
+                                       # args=(XmlNewParcel, 'template/common/newparcel.docx', '4.' + str(i)))
+                self.render_tpl(elem, XmlNewParcel, 'template/common/newparcel.docx', '4.' + str(i))
             if elem.tag == 'ExistParcel' and event == 'end':
                 logging.info(elem.tag)
-                self.__fast_iter_element(elem, self.render_tpl,
-                                       args=(XmlExistParcel, 'template/common/existparcel.docx', '4.' + str(i)))
+                # self.__fast_iter_element(elem, self.render_tpl,
+                                       # args=(XmlExistParcel, 'template/common/existparcel.docx', '4.' + str(i)))
+                self.render_tpl(elem, XmlExistParcel, 'template/common/existparcel.docx', '4.' + str(i))
 
             if elem.tag == 'SubParcels' and event == 'end' and elem.getparent().tag != 'InputData':
                 logging.info(elem.tag)
-                self.__fast_iter_element(elem, self.render_tpl,
-                                       args=(XmlSubParcels, 'template/common/subparcels.docx', '6.' + str(i)))
+                # self.__fast_iter_element(elem, self.render_tpl,
+                                       # args=(XmlSubParcels, 'template/common/subparcels.docx', '6.' + str(i)))
+                self.render_tpl(elem, XmlSubParcels, 'template/common/subparcels.docx', '6.' + str(i))
 
             if elem.tag == 'ChangeParcel' and event == 'end':
                 logging.info(elem.tag)
-                self.__fast_iter_element(elem, self.render_tpl,
-                                       args=(XmlChangeParcel, 'template/common/changeparcel.docx', '5.' + str(i)))
-
+                # self.__fast_iter_element(elem, self.render_tpl,
+                #                        args=(XmlChangeParcel, 'template/common/changeparcel.docx', '5.' + str(i)))
+                self.render_tpl(elem, XmlChangeParcel, 'template/common/changeparcel.docx', '5.' + str(i))
             if elem.tag == 'SpecifyRelatedParcel' and event == 'end':
                 logging.info(elem.tag)
-                self.__fast_iter_element(elem, self.render_tpl,
-                                       args=(XmlExistParcel, 'template/common/existparcel.docx','6.' + str(i)))
-            if elem.tag == 'FormParcels' and event == 'start':
-                logging.info(elem.tag)
-                self.render_tpl(elem,XmlNewParcelProviding, 'template/common/providing.docx','7.' + str(i))
+                # self.__fast_iter_element(elem, self.render_tpl,
+                                       # args=(XmlExistParcel, 'template/common/existparcel.docx','6.' + str(i)))
+                self.render_tpl(elem, XmlExistParcel, 'template/common/existparcel.docx', '6.' + str(i))
+            if elem.tag == 'FormParcels' and event == 'end':
+                logging.info(elem.tag) # TODO здеcm  можно fast_iter
+                self.render_tpl(elem, XmlNewParcelProviding, 'template/common/providing.docx','7.' + str(i))
 
             if elem.tag == 'Conclusion' and event == 'end':
                 logging.info(elem.tag)
@@ -232,7 +236,7 @@ if __name__ == '__main__':
     logger.info('START PARSING')
     try:
         with closing(MpXMlToWORd()) as generat:
-            generat.run('../TEST/3/3.xml', '../TEST/3/3.docx')
+            generat.run('../TEST/4/4.xml', '../TEST/4/4.docx')
     except Exception as e:
         logger.error(f"""Error parsing file {e}""")
     else:
