@@ -20,16 +20,20 @@ class XmlTitleDict:
         self.node = node
         self.contractor = None
 
-    def _children_dict(self, node, *args):
+    def __children_dict(self, node, *args):
+        """
+        :param node: Contractor/child
+        :param args:
+        :return: dict (node.tag : node.text)
+        """
         res = dict()
         for el in node:
             res[el.tag] = el.text
         return res
 
-    def setcontractor(self):
-        self.contractor= self._children_dict(self.node.xpath('Contractor/child::*'))
-
-    def getcontractor(self):
+    def __contractor(self):
+        if not self.contractor:
+            return self.__children_dict(self.node.xpath('Contractor/child::*'))
         return self.contractor
 
     def xml_reason_to_text(self):
@@ -41,32 +45,37 @@ class XmlTitleDict:
     def xml_client_to_text(self):
         return ' '.join(self.node.xpath('Clients/*[1]/child::*/node()/text()'))
 
-    def contrsactor_fio(self):
-        if not self.contractor:
-            self.setcontractor()
-        return f"{self.contractor.get('FamilyName', '')} " \
-               f"{self.contractor.get('FirstName', '')} " \
-               f"{self.contractor.get('Patronymic', '')}"
+    def xml_contrsactor_fio_to_text(self):
+        _ = self.__contractor()
+        if _:
+            return f"{_.get('FamilyName', '')} " \
+                   f"{_.get('FirstName', '')} " \
+                   f"{_.get('Patronymic', '')}"
+        return ''
 
     def xml_ncertificate_to_text(self):
-        if not self.contractor:
-            self.setcontractor()
-        return self.contractor.get('NCertificate', '')
+        _ = self.__contractor()
+        if _:
+            return _.get('NCertificate', '')
+        return ''
 
-    def telefon(self):
-        if not self.contractor:
-            self.setcontractor()
-        return self.contractor.get('Telephone', '')
+    def xml_telefon_to_text(self):
+        _ = self.__contractor()
+        if _:
+            return _.get('Telephone', '')
+        return ''
 
-    def email(self):
-        if not self.contractor:
-            self.setcontractor()
-        return self.contractor.get('Email', '')
+    def xml_email_to_text(self):
+        _ = self.__contractor()
+        if _:
+            return _.get('Email', '')
+        return ''
 
-    def address(self):
-        if not self.contractor:
-            self.setcontractor()
-        return self.contractor.get('Address', '')
+    def xml_address_to_text(self):
+        _ = self.__contractor()
+        if _:
+            return _.get('Address', '')
+        return ''
 
     def xml_organization_to_text(self):
         return ' '.join(self.node.xpath('Contractor/Organization/node()/text()'))
@@ -81,9 +90,9 @@ class XmlTitleDict:
         result = None
         try:
             value_title = [self.xml_reason_to_text(),self.xml_purpose_to_text(),
-                           self.xml_client_to_text(),self.contrsactor_fio(),
-                           self.xml_ncertificate_to_text(), self.telefon(), self.address(),
-                           self.email(),self.xml_organization_to_text(), self.xml_data_to_text()]
+                           self.xml_client_to_text(),self.xml_contrsactor_fio_to_text(),
+                           self.xml_ncertificate_to_text(), self.xml_telefon_to_text(), self.xml_address_to_text(),
+                           self.xml_email_to_text(),self.xml_organization_to_text(), self.xml_data_to_text()]
             result = dict(zip(cnfg.TITLE_KEY, value_title))
         except Exception as e:
             logger.error(f""" Ошибки при формировании титульника {e} """)
@@ -166,11 +175,10 @@ class XmlInputDataDict(XMLElemenBase):
     pathObjectsRealty = 'ObjectsRealty/child::*'
     pathListSystemCood= '../CoordSystems/child::*/@Name'
 
-    def preparation_sys_coord(self):
-
+    def xml_sys_coord_to_text(self):
         return ''.join(self.node.xpath(self.pathListSystemCood))
 
-    def xml_document_to_list(self):
+    def xml_documents_to_list(self):
         el = self.node.xpath(self.pathListDocuments)
         res = []
         try:
@@ -185,7 +193,7 @@ class XmlInputDataDict(XMLElemenBase):
             el.clear()
         return res
 
-    def xml_geodesic_base_to_list(self):
+    def xml_geodesic_bases_to_list(self):
         el = self.node.xpath(self.pathGeodesicBses)
         res = []
         for index, _ in enumerate(el):
@@ -204,7 +212,7 @@ class XmlInputDataDict(XMLElemenBase):
                         ''.join(_.xpath('CertificateVerification/text()'))])
         return res
 
-    def xml_objects_realty_to_list(self):
+    def xml_objects_realtys_to_list(self):
         el= self.node.xpath(self.pathObjectsRealty)
         res= list()
         for index, _ in enumerate(el):
@@ -212,18 +220,14 @@ class XmlInputDataDict(XMLElemenBase):
         logging.info(f"""Сведения о наличии объектов недвижимости { res }""")
         return res
 
-    def preparation_means_surveys(self):
-        key = cnfg.MEANS_SURVEY['attr']
-        return StaticMethod.merge_array_list(key, self.xml_means_surveys_to_list())
-
     def to_dict(self):
         _res = None
         try:
-            _res = {cnfg.INPUT_DATA['name']: StaticMethod.merge_array_list(cnfg.INPUT_DATA['attr'], self.xml_document_to_list()),
-                    cnfg.SYSTEM_COORD: self.preparation_sys_coord(),
-                    cnfg.GEODESIC_BASES['name']: StaticMethod.merge_array_list(cnfg.GEODESIC_BASES['attr'], self.xml_geodesic_base_to_list()),
-                    cnfg.MEANS_SURVEY['name']: self.preparation_means_surveys(),
-                    cnfg.OBJECTS_REALTY['name']: StaticMethod.merge_array_list(cnfg.OBJECTS_REALTY['attr'], self.xml_objects_realty_to_list())}
+            _res = {cnfg.INPUT_DATA['name']: StaticMethod.merge_array_list(cnfg.INPUT_DATA['attr'], self.xml_documents_to_list()),
+                    cnfg.SYSTEM_COORD: self.xml_sys_coord_to_text(),
+                    cnfg.GEODESIC_BASES['name']: StaticMethod.merge_array_list(cnfg.GEODESIC_BASES['attr'], self.xml_geodesic_bases_to_list()),
+                    cnfg.MEANS_SURVEY['name']: StaticMethod.merge_array_list(cnfg.MEANS_SURVEY['attr'], self.xml_means_surveys_to_list()),
+                    cnfg.OBJECTS_REALTY['name']: StaticMethod.merge_array_list(cnfg.OBJECTS_REALTY['attr'], self.xml_objects_realtys_to_list())}
         except Exception as e:
             logger.error(f"""Ошибка при формировании словаря Исходных данных {e}""")
         else:
@@ -232,10 +236,65 @@ class XmlInputDataDict(XMLElemenBase):
 
 
 class XmlParcel(XMLElemenBase):
-    pass
+    def xml_subparcels_to_dict(self):
+        res = dict()
+        xml_node_subparcels = self.node.xpath('SubParcels')
+        if xml_node_subparcels is not None and len(xml_node_subparcels) > 0:
+            subparcels = XmlSubParcels(xml_node_subparcels[0])
+            res = subparcels.to_dict()
+            del subparcels
+        return res
+
+    def xml_ordinates_to_dict(self):
+        res = dict()
+        xml_ordinate = self.node.xpath('Contours | EntitySpatial')
+        if xml_ordinate is not None and len(xml_ordinate) > 0:
+            full_ord = XmlFullOrdinate(xml_ordinate[0])
+
+            res = {cnfg.ENTITY_SPATIAL['name']: StaticMethod.merge_array_list(cnfg.ENTITY_SPATIAL['attr'],
+                                                                              full_ord.full_ordinate()),
+                   cnfg.BORDERS['name']: StaticMethod.merge_array_list(cnfg.BORDERS['attr'], full_ord.full_borders()),
+                  }
+            del full_ord
+        return res
+
+    def __xml_owner_to_text(self, node):
+        """
+            Преобразование правооблаталей
+        :param node:  OwnerNeighbours
+        :return:
+        """
+        res = ''
+        try:
+            for _ in node:
+                rows = ''.join(_.xpath('child::NameRight/text()'))
+                rows += f""" {', '.join(_.xpath('child::OwnerNeighbour/NameOwner/text()'))}"""
+                rows += f""" {', '.join(_.xpath('child::OwnerNeighbour/ContactAddress/text()'))}"""
+                res += f"""{ rows }; """
+        finally:
+            node.clear()
+        return res
+
+    def xml_related_parcel_to_list(self):
+        """
+           'attr': ['point', 'cadastralnumber', 'right']
+        :return: list
+        """
+        _node = self.node.xpath('RelatedParcels/child::*')
+        res = []
+        try:
+            for _ in _node:
+                _rows = []
+                _rows.append(''.join(_.xpath('Definition/text()')))
+                _rows.append(', '.join(_.xpath('child::*/CadastralNumber/text()')))
+                _rows.append(self.__xml_owner_to_text(_.xpath('child::*/OwnerNeighbours')))
+                res.append(_rows)
+        finally:
+            _node.clear()
+        return res
 
 
-class XmlNewParcel(XMLElemenBase):
+class XmlNewParcel(XmlParcel):
     """
         :param root = NewParcel
     """
@@ -246,7 +305,7 @@ class XmlNewParcel(XMLElemenBase):
         :param node: Address
         :return: text
         """
-        region = []
+        region = list()
         try:
             region = [StaticMethod.xmlnode_key_to_text(node,'Region/text()',cnfg.PARCEL_COMMON['dict']['address_code'])]
             region.extend(node.xpath('District/@*')[::-1])
@@ -297,9 +356,10 @@ class XmlNewParcel(XMLElemenBase):
         :return:
         """
         _area = ' '
-        _xml_area = node.xpath("child::*/Area")
-        if _xml_area:
-            for index, _ in enumerate(_xml_area,1):
+        # if node and len(node) > 0:
+        #     _xml_area = node[0].xpath("child::*/Area")
+        if node:
+            for index, _ in enumerate(node,1):
                 _area += f"""({index}) {self.full_area(_)} """
         return _area
 
@@ -338,41 +398,6 @@ class XmlNewParcel(XMLElemenBase):
     def xml_objectRealty_inner_cadastral_number_to_text(self):
         return ', '.join(self.node.xpath('ObjectRealty/InnerCadastralNumbers/child::*/text()'))
 
-    def xml_owner_to_text(self, node):
-        """
-            Преобразование правооблаталей
-        :param node:  OwnerNeighbours
-        :return:
-        """
-        res = ''
-        try:
-            for _ in node:
-                rows = ''.join(_.xpath('child::NameRight/text()'))
-                rows  += f""" {', '.join(_.xpath('child::OwnerNeighbour/NameOwner/text()'))}"""
-                rows  += f""" {', '.join(_.xpath('child::OwnerNeighbour/ContactAddress/text()'))}"""
-                res +=  f"""{ rows }; """
-        finally:
-            node.clear()
-        return res
-
-    def xml_related_parcel_to_list(self):
-        """
-           'attr': ['point', 'cadastralnumber', 'right']
-        :return: list
-        """
-        _node = self.node.xpath('RelatedParcels/child::*')
-        res= []
-        try:
-            for _ in _node:
-                _rows = []
-                _rows.append(''.join(_.xpath('Definition/text()')))
-                _rows.append(', '.join(_.xpath('child::*/CadastralNumber/text()')))
-                _rows.append(self.xml_owner_to_text(_.xpath('child::*/OwnerNeighbours')))
-                res.append(_rows)
-        finally:
-            _node.clear()
-        return  res
-
     def xml_cadnum_to_text(self):
         _ = self.node.xpath('@Definition | @CadastralNumber | @NumberRecord')
         if _:
@@ -380,23 +405,13 @@ class XmlNewParcel(XMLElemenBase):
         return ''
 
     def to_dict(self):
-        xml_ordinate = self.xpath('Contours | EntitySpatial')
-        if xml_ordinate is not None and len(xml_ordinate) > 0:
-            full_ord = XmlFullOrdinate(xml_ordinate[0])
-
-            res = {cnfg.PARCEL_COMMON['cadnum']: self.xml_cadnum_to_text(),
-                  cnfg.ENTITY_SPATIAL['name']: StaticMethod.merge_array_list(cnfg.ENTITY_SPATIAL['attr'], full_ord.full_ordinate()),
-                  cnfg.BORDERS['name']: StaticMethod.merge_array_list(cnfg.BORDERS['attr'], full_ord.full_borders()),
-                  cnfg.RELATEDPARCELS['name']: StaticMethod.merge_array_list(cnfg.RELATEDPARCELS['attr'],
-                                                                     self.xml_related_parcel_to_list()),
-                 }
-            del  full_ord
+        res = {cnfg.PARCEL_COMMON['cadnum']: self.xml_cadnum_to_text(),
+               cnfg.RELATEDPARCELS['name']: StaticMethod.merge_array_list(cnfg.RELATEDPARCELS['attr'],
+                                                                 self.xml_related_parcel_to_list()),
+              }
         res.update(self.xml_general_info_to_dict())
-        xml_node_subparcels = self.node.xpath('SubParcels')
-        if xml_node_subparcels is not None and len(xml_node_subparcels) > 0:
-            subparcels = XmlSubParcels(xml_node_subparcels[0])
-            res.update(subparcels.to_dict())
-            del subparcels
+        res.update(self.xml_subparcels_to_dict())
+        res.update(self.xml_ordinates_to_dict())
         return res
 
 
@@ -435,7 +450,7 @@ class XmlNewParcelProviding(XmlNewParcel):
 
 class XmlExistParcel(XmlNewParcel):
     """
-        root = SpecifyRelatedParcel
+        root = SpecifyRelatedParcel | ExistParcels
     """
 
     def __init__(self, node):
@@ -448,7 +463,6 @@ class XmlExistParcel(XmlNewParcel):
         del self.ordinates
 
     def xml_cadnum_to_text(self):
-        print(''.join(self.node.xpath('@CadastralNumber')))
         number_record = ''.join(self.node.xpath('@NumberRecord'))
         str_number_record = ''
         if number_record:
@@ -462,7 +476,7 @@ class XmlExistParcel(XmlNewParcel):
         else:
             return None
 
-    def _set_ordinate_border(self):
+    def __set_ordinate_border(self):
         """
         :param node: SpecifyRelatedParcel
         :return:
@@ -506,10 +520,9 @@ class XmlExistParcel(XmlNewParcel):
             finally:
                 deleteAllBorder.clear()
 
-
     def xml_ordinate_borders_to_dict(self):
         if not self.ordinates and not self.borders:
-            self._set_ordinate_border()
+            self.__set_ordinate_border()
         res = {
             cnfg.ENTITY_SPATIAL_EXIST['name']: StaticMethod.merge_array_list(cnfg.ENTITY_SPATIAL_EXIST['attr'],
                                                                   self.ordinates),
@@ -551,11 +564,7 @@ class XmlExistParcel(XmlNewParcel):
         res = {cnfg.PARCEL_COMMON['cadnum']: self.xml_cadnum_to_text()}
         res.update(self.xml_exist_general_info())
         res.update(self.xml_ordinate_borders_to_dict())
-        xml_node_subparcels = self.node.xpath('SubParcels')
-        if xml_node_subparcels is not None and len(xml_node_subparcels) > 0:
-            subparcels = XmlSubParcels(xml_node_subparcels[0])
-            res.update(subparcels.to_dict())
-            del subparcels
+        res.update(self.xml_subparcels_to_dict())
         return res
 
 
@@ -620,11 +629,7 @@ class XmlChangeParcel(XmlNewParcel):
                cnfg.CHANGEPARCELS['innerCadNum']: self.xml_objectRealty_inner_cadastral_number_to_text(),
                cnfg.CHANGEPARCELS['note']: ''.join(self.node.xpath('Note/text()')),
               }
-        xml_node_subparcels = self.node.xpath('SubParcels')
-        if xml_node_subparcels is not None and len(xml_node_subparcels) > 0:
-            subparcels = XmlSubParcels(xml_node_subparcels[0])
-            res.update(subparcels.to_dict())
-            del subparcels
+        res.update(self.xml_subparcels_to_dict())
         return res
 
 
