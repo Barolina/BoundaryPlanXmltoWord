@@ -198,19 +198,28 @@ class MpXMlToWORd:
         _dcx = filter(lambda x: x.endswith('.docx'), files)
         _dcx = map(lambda x: os.path.join(self.tempfolder, x), _dcx)
 
+        merged_document = Document()
         for filnr, file in enumerate(_dcx):
-            if 'offerte_template' in file:
-                file = os.path.join(file)
+            # if 'offerte_template' in file:
+            #     file = os.path.join(file)
             _ = os.path.join(file)
-            merged_document = Document(_)
             if filnr == 0:
-                merged_document.add_page_break()
+                merged_document = Document(_)
             else:
-                for el in self.__get_element_body_docx(_):
-                    merged_document.element.body.append(el)
-            merged_document.save(result_path_file)
-            return merged_document
-        return None
+                for element in self.__get_element_body_docx(_):
+                    merged_document.element.body.append(element)
+                # if filnr < len(files) - 1:
+                #     merged_document.element.body.text.page_break_before()
+
+            # if filnr == 0:
+            #     merged_document = Document(_)
+            #     merged_document.add_page_break()
+            # else:
+            #     for el in self.__get_element_body_docx(_):
+            #         merged_document.element.body.append(el)
+            #     merged_document.add_page_break()
+
+        merged_document.save(result_path_file)
 
     def run(self, path_file, result_file):
         generat.__xml_block_to_docx(path_file)
@@ -223,7 +232,7 @@ if __name__ == '__main__':
     logger.info('START PARSING')
     try:
         with closing(MpXMlToWORd()) as generat:
-            generat.run('../TEST/1/1.xml','../TEST/1/1.docx')
+            generat.run('../TEST/3/3.xml', '../TEST/3/3.docx')
     except Exception as e:
         logger.error(f"""Error parsing file {e}""")
     else:

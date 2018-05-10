@@ -1,3 +1,5 @@
+import copy
+
 import config as cnfg
 from core.xmlbasic import *
 from utils.xsd import value_from_xsd
@@ -117,7 +119,7 @@ class XmlSurveyDict(XMLElemenBase):
         el = self.node.xpath(self.pathListGeopointsOpred)
         res = []
         for index, _ in enumerate(el):
-            _method = ''.join(_.xpath('Methods/child::*/text()'))
+            _method = ''.join(_.xpath('Methods/child::*[name()="GeopointOpred"]/text()'))
             method_val = value_from_xsd('/'.join([cnfg.PATH_XSD,cnfg.GEOPOINTS_OPRED['dict']['geopointopred']]),_method)
             res.append([str(index + 1),''.join(_.xpath('CadastralNumberDefinition/text()')), method_val])
         return res
@@ -306,19 +308,16 @@ class XmlNewParcel(XmlParcel):
         :return: text
         """
         region = list()
-        try:
-            region = [StaticMethod.xmlnode_key_to_text(node,'Region/text()',cnfg.PARCEL_COMMON['dict']['address_code'])]
-            region.extend(node.xpath('District/@*')[::-1])
-            region.extend(node.xpath('City/@*')[::-1])
-            region.extend(node.xpath('UrbanDistrict/@*')[::-1])
-            region.extend(node.xpath('SovietVillage/@*')[::-1])
-            region.extend(node.xpath('Locality/@*')[::-1])
-            region.extend(node.xpath('Street/@*')[::-1])
-            region.extend(node.xpath('Level1/@*')[::-1])
-            region.extend(node.xpath('Level2/@*')[::-1])
-            region.extend(node.xpath('Apartment/@*')[::-1])
-        finally:
-           node.clear()
+        region = [StaticMethod.xmlnode_key_to_text(node,'Region/text()', cnfg.PARCEL_COMMON['dict']['address_code'])]
+        region.extend(node.xpath('District/@*')[::-1])
+        region.extend(node.xpath('City/@*')[::-1])
+        region.extend(node.xpath('UrbanDistrict/@*')[::-1])
+        region.extend(node.xpath('SovietVillage/@*')[::-1])
+        region.extend(node.xpath('Locality/@*')[::-1])
+        region.extend(node.xpath('Street/@*')[::-1])
+        region.extend(node.xpath('Level1/@*')[::-1])
+        region.extend(node.xpath('Level2/@*')[::-1])
+        region.extend(node.xpath('Apartment/@*')[::-1])
         return ' '.join(region)
 
     def full_utilization(self,node):
@@ -372,14 +371,14 @@ class XmlNewParcel(XmlParcel):
         xml_area_contour = self.node.xpath('Contours/child::*/child::Area')
         if xml_addrss:
             addres=xml_addrss[0]
+            dict_address['location_note'] = ''.join(addres.xpath("Other/text()"))
             type_address = addres.xpath('@AddressOrLocation')[0]
             text_address = self.full_addres(addres)
             if type_address == '1':
                 dict_address[cnfg.PARCEL_COMMON['address']] = text_address
             else:
                 dict_address['location'] = text_address
-            dict_address['location_note'] = ''.join(addres.xpath("Other/text()"))
-            del xml_addrss
+            xml_addrss.clear()
         if xml_category:
             dict_address['category'] = StaticMethod.xmlnode_key_to_text(xml_category[0],'@Category',
                                                                cnfg.PARCEL_COMMON['dict']['categories'])

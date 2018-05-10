@@ -1,0 +1,2 @@
+FormaParcle -> Contours -> NewContours -> 1 -> +
+FormParcels -> many NewParcels -> 2 

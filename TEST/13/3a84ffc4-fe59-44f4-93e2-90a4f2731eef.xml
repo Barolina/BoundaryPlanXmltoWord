@@ -1,0 +1,504 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<?xml-stylesheet type="text/xsl" href="https://portal.rosreestr.ru/xsl/EGRP/Reestr_Extract_Big/ZU/07/Common.xsl"?>
+
+<KVZU xmlns="urn://x-artefacts-rosreestr-ru/outgoing/kvzu/7.0.1"
+xmlns:smev="urn://x-artefacts-smev-gov-ru/supplementary/commons/1.0.1"
+xmlns:num="urn://x-artefacts-rosreestr-ru/commons/complex-types/numbers/1.0"
+xmlns:adrs="urn://x-artefacts-rosreestr-ru/commons/complex-types/address-output/4.0.1"
+xmlns:spa="urn://x-artefacts-rosreestr-ru/commons/complex-types/entity-spatial/5.0.1"
+xmlns:cer="urn://x-artefacts-rosreestr-ru/commons/complex-types/certification-doc/1.0"
+xmlns:doc="urn://x-artefacts-rosreestr-ru/commons/complex-types/document-output/4.0.1"
+xmlns:nobj="urn://x-artefacts-rosreestr-ru/commons/complex-types/natural-objects-output/1.0.1">
+<Parcels>
+<Parcel CadastralNumber="69:33:0000020:498" State="06"
+DateCreated="2014-12-29"
+>
+<CadastralBlock>69:33:0000020</CadastralBlock>
+<Name>01</Name>
+<PrevCadastralNumbers>
+<CadastralNumber>69:33:0000020:192</CadastralNumber>
+</PrevCadastralNumbers>
+<Area>
+<Area>40510</Area>
+<Unit>055</Unit>
+<Inaccuracy>1493</Inaccuracy>
+</Area>
+<Location>
+<inBounds>2</inBounds>
+<Address> <adrs:OKATO>28254000000</adrs:OKATO>
+<adrs:KLADR>6903300000000</adrs:KLADR>
+<adrs:Region>69</adrs:Region>
+<adrs:District Name="Торжокский" Type="р-н" />
+<adrs:Note>Тверская область, Торжокский район, Клоковское сельское поселение, из земель колхоза им. Калинина, примерно в 610 м на юго-запад от д. Кресино</adrs:Note>
+</Address>
+</Location>
+<Category>003001000000</Category>
+<Utilization Utilization="141001000000" />
+<Rights>
+<Right>
+<Name>Общая долевая собственность</Name>
+<Type>001002000000</Type>
+<Owners>
+<Owner>
+<Person>
+<FamilyName>Салкова</FamilyName>
+<FirstName>Галина</FirstName>
+<Patronymic>Николаевна</Patronymic>
+</Person>
+</Owner>
+</Owners>
+<ShareText>1/2</ShareText>
+<Registration>
+<RegNumber>69-69/018-69/133/001/2015-474/2</RegNumber>
+<RegDate>2015-03-03</RegDate>
+</Registration>
+</Right>
+<Right>
+<Name>Общая долевая собственность</Name>
+<Type>001002000000</Type>
+<Owners>
+<Owner>
+<Person>
+<FamilyName>Арламова</FamilyName>
+<FirstName>Светлана</FirstName>
+<Patronymic>Николаевна</Patronymic>
+</Person>
+</Owner>
+</Owners>
+<ShareText>1/2</ShareText>
+<Registration>
+<RegNumber>69-69/018-69/133/001/2015-474/1</RegNumber>
+<RegDate>2015-03-03</RegDate>
+</Registration>
+</Right>
+</Rights>
+<SubParcels>
+<SubParcel NumberRecord="2" Full="0" State="06" >
+<Area>
+<Area>3114</Area>
+<Unit>055</Unit>
+</Area>
+<Encumbrance>
+<Type>022004000000</Type>
+<Duration>
+<Started>2017-04-04</Started>
+</Duration>
+<Document>
+<doc:CodeDocument>558221000000</doc:CodeDocument>
+<doc:Name>Информация о передаче карта плана объекта землеустройства в ГФД; заключение кадастрового инженера; план границ объекта землеустройства</doc:Name>
+<doc:Number>б/н</doc:Number>
+<doc:Date>2013-12-30</doc:Date>
+<doc:IssueOrgan>-</doc:IssueOrgan>
+</Document>
+</Encumbrance>
+<EntitySpatial EntSys="ID1" >
+<spa:SpatialElement >
+<spa:SpelementUnit TypeUnit="Точка" SuNmb="9" >
+<spa:Ordinate X="313397.01" Y="2232429.49" OrdNmb="1" />
+</spa:SpelementUnit>
+<spa:SpelementUnit TypeUnit="Точка" SuNmb="10" >
+<spa:Ordinate X="313461.71" Y="2232563.67" OrdNmb="1" />
+</spa:SpelementUnit>
+<spa:SpelementUnit TypeUnit="Точка" SuNmb="4" >
+<spa:Ordinate X="313430.44" Y="2232554.79" OrdNmb="1" />
+</spa:SpelementUnit>
+<spa:SpelementUnit TypeUnit="Точка" SuNmb="5" >
+<spa:Ordinate X="313383.33" Y="2232456.2" OrdNmb="1" />
+</spa:SpelementUnit>
+<spa:SpelementUnit TypeUnit="Точка" SuNmb="9" >
+<spa:Ordinate X="313397.01" Y="2232429.49" OrdNmb="1" />
+</spa:SpelementUnit>
+</spa:SpatialElement>
+</EntitySpatial>
+</SubParcel>
+<SubParcel NumberRecord="2" Full="0" State="06" >
+<Area>
+<Area>3114</Area>
+<Unit>055</Unit>
+</Area>
+<Encumbrance>
+<Type>022004000000</Type>
+<AccountNumber>69.00.2.92</AccountNumber>
+<Registration>
+<RegDate>2017-04-04</RegDate>
+</Registration>
+<Document>
+<doc:CodeDocument>558221000000</doc:CodeDocument>
+<doc:Name>Информация о передаче карта плана объекта землеустройства в ГФД; заключение кадастрового инженера; план границ объекта землеустройства</doc:Name>
+<doc:Number>б/н</doc:Number>
+<doc:Date>2013-12-30</doc:Date>
+<doc:IssueOrgan>-</doc:IssueOrgan>
+</Document>
+</Encumbrance>
+<EntitySpatial EntSys="ID0" >
+<spa:SpatialElement >
+<spa:SpelementUnit TypeUnit="Точка" SuNmb="11" >
+<spa:Ordinate X="313397.01" Y="2232429.49" OrdNmb="1" />
+</spa:SpelementUnit>
+<spa:SpelementUnit TypeUnit="Точка" SuNmb="12" >
+<spa:Ordinate X="313383.33" Y="2232456.2" OrdNmb="1" DeltaGeopoint="2.12" />
+</spa:SpelementUnit>
+<spa:SpelementUnit TypeUnit="Точка" SuNmb="13" >
+<spa:Ordinate X="313430.44" Y="2232554.79" OrdNmb="1" DeltaGeopoint="2.12" />
+</spa:SpelementUnit>
+<spa:SpelementUnit TypeUnit="Точка" SuNmb="14" >
+<spa:Ordinate X="313461.71" Y="2232563.67" OrdNmb="1" />
+</spa:SpelementUnit>
+<spa:SpelementUnit TypeUnit="Точка" SuNmb="11" >
+<spa:Ordinate X="313397.01" Y="2232429.49" OrdNmb="1" />
+</spa:SpelementUnit>
+</spa:SpatialElement>
+</EntitySpatial>
+</SubParcel>
+<SubParcel NumberRecord="2" Full="0" State="06" >
+<Area>
+<Area>3114</Area>
+<Unit>055</Unit>
+</Area>
+<Encumbrance>
+<Type>022004000000</Type>
+<Duration>
+<Started>2017-04-04</Started>
+</Duration>
+<Document>
+<doc:CodeDocument>558221000000</doc:CodeDocument>
+<doc:Name>Информация о передаче карта плана объекта землеустройства в ГФД; заключение кадастрового инженера; план границ объекта землеустройства</doc:Name>
+<doc:Number>б/н</doc:Number>
+<doc:Date>2013-12-30</doc:Date>
+<doc:IssueOrgan>-</doc:IssueOrgan>
+</Document>
+</Encumbrance>
+<EntitySpatial EntSys="ID1" >
+<spa:SpatialElement >
+<spa:SpelementUnit TypeUnit="Точка" SuNmb="9" >
+<spa:Ordinate X="313397.01" Y="2232429.49" OrdNmb="1" />
+</spa:SpelementUnit>
+<spa:SpelementUnit TypeUnit="Точка" SuNmb="10" >
+<spa:Ordinate X="313461.71" Y="2232563.67" OrdNmb="1" />
+</spa:SpelementUnit>
+<spa:SpelementUnit TypeUnit="Точка" SuNmb="4" >
+<spa:Ordinate X="313430.44" Y="2232554.79" OrdNmb="1" />
+</spa:SpelementUnit>
+<spa:SpelementUnit TypeUnit="Точка" SuNmb="5" >
+<spa:Ordinate X="313383.33" Y="2232456.2" OrdNmb="1" />
+</spa:SpelementUnit>
+<spa:SpelementUnit TypeUnit="Точка" SuNmb="9" >
+<spa:Ordinate X="313397.01" Y="2232429.49" OrdNmb="1" />
+</spa:SpelementUnit>
+</spa:SpatialElement>
+</EntitySpatial>
+</SubParcel>
+<SubParcel NumberRecord="2" Full="0" State="06" >
+<Area>
+<Area>3114</Area>
+<Unit>055</Unit>
+</Area>
+<Encumbrance>
+<Type>022004000000</Type>
+<Duration>
+<Started>2017-04-04</Started>
+</Duration>
+<Document>
+<doc:CodeDocument>558221000000</doc:CodeDocument>
+<doc:Name>Информация о передаче карта плана объекта землеустройства в ГФД; заключение кадастрового инженера; план границ объекта землеустройства</doc:Name>
+<doc:Number>б/н</doc:Number>
+<doc:Date>2013-12-30</doc:Date>
+<doc:IssueOrgan>-</doc:IssueOrgan>
+</Document>
+</Encumbrance>
+<EntitySpatial EntSys="ID1" >
+<spa:SpatialElement >
+<spa:SpelementUnit TypeUnit="Точка" SuNmb="9" >
+<spa:Ordinate X="313397.01" Y="2232429.49" OrdNmb="1" />
+</spa:SpelementUnit>
+<spa:SpelementUnit TypeUnit="Точка" SuNmb="10" >
+<spa:Ordinate X="313461.71" Y="2232563.67" OrdNmb="1" />
+</spa:SpelementUnit>
+<spa:SpelementUnit TypeUnit="Точка" SuNmb="4" >
+<spa:Ordinate X="313430.44" Y="2232554.79" OrdNmb="1" />
+</spa:SpelementUnit>
+<spa:SpelementUnit TypeUnit="Точка" SuNmb="5" >
+<spa:Ordinate X="313383.33" Y="2232456.2" OrdNmb="1" />
+</spa:SpelementUnit>
+<spa:SpelementUnit TypeUnit="Точка" SuNmb="9" >
+<spa:Ordinate X="313397.01" Y="2232429.49" OrdNmb="1" />
+</spa:SpelementUnit>
+</spa:SpatialElement>
+</EntitySpatial>
+</SubParcel>
+<SubParcel NumberRecord="3" Full="0" State="06" >
+<Area>
+<Area>3114.15</Area>
+<Unit>055</Unit>
+</Area>
+<Encumbrance>
+<Type>022004000000</Type>
+<Duration>
+<Started>2018-03-31</Started>
+</Duration>
+<Document>
+<doc:CodeDocument>008002099000</doc:CodeDocument>
+<doc:Name>Иной документ</doc:Name>
+<doc:Date>2017-10-03</doc:Date>
+</Document>
+</Encumbrance>
+<EntitySpatial EntSys="ID1" >
+<spa:SpatialElement >
+<spa:SpelementUnit TypeUnit="Точка" SuNmb="10" >
+<spa:Ordinate X="313461.71" Y="2232563.67" OrdNmb="1" />
+</spa:SpelementUnit>
+<spa:SpelementUnit TypeUnit="Точка" SuNmb="4" >
+<spa:Ordinate X="313430.44" Y="2232554.79" OrdNmb="1" />
+</spa:SpelementUnit>
+<spa:SpelementUnit TypeUnit="Точка" SuNmb="5" >
+<spa:Ordinate X="313383.33" Y="2232456.2" OrdNmb="1" />
+</spa:SpelementUnit>
+<spa:SpelementUnit TypeUnit="Точка" SuNmb="9" >
+<spa:Ordinate X="313397.01" Y="2232429.49" OrdNmb="1" />
+</spa:SpelementUnit>
+<spa:SpelementUnit TypeUnit="Точка" SuNmb="10" >
+<spa:Ordinate X="313461.71" Y="2232563.67" OrdNmb="1" />
+</spa:SpelementUnit>
+</spa:SpatialElement>
+</EntitySpatial>
+</SubParcel>
+<SubParcel NumberRecord="3" Full="0" State="06" >
+<Area>
+<Area>3114.15</Area>
+<Unit>055</Unit>
+</Area>
+<Encumbrance>
+<Type>022004000000</Type>
+<Duration>
+<Started>2018-03-31</Started>
+</Duration>
+<Document>
+<doc:CodeDocument>008002099000</doc:CodeDocument>
+<doc:Name>Иной документ</doc:Name>
+<doc:Date>2017-10-03</doc:Date>
+</Document>
+</Encumbrance>
+<EntitySpatial EntSys="ID1" >
+<spa:SpatialElement >
+<spa:SpelementUnit TypeUnit="Точка" SuNmb="10" >
+<spa:Ordinate X="313461.71" Y="2232563.67" OrdNmb="1" />
+</spa:SpelementUnit>
+<spa:SpelementUnit TypeUnit="Точка" SuNmb="4" >
+<spa:Ordinate X="313430.44" Y="2232554.79" OrdNmb="1" />
+</spa:SpelementUnit>
+<spa:SpelementUnit TypeUnit="Точка" SuNmb="5" >
+<spa:Ordinate X="313383.33" Y="2232456.2" OrdNmb="1" />
+</spa:SpelementUnit>
+<spa:SpelementUnit TypeUnit="Точка" SuNmb="9" >
+<spa:Ordinate X="313397.01" Y="2232429.49" OrdNmb="1" />
+</spa:SpelementUnit>
+<spa:SpelementUnit TypeUnit="Точка" SuNmb="10" >
+<spa:Ordinate X="313461.71" Y="2232563.67" OrdNmb="1" />
+</spa:SpelementUnit>
+</spa:SpatialElement>
+</EntitySpatial>
+</SubParcel>
+<SubParcel NumberRecord="3" Full="0" State="06" >
+<Area>
+<Area>3114.15</Area>
+<Unit>055</Unit>
+</Area>
+<Encumbrance>
+<Type>022004000000</Type>
+<Duration>
+<Started>2018-04-03</Started>
+</Duration>
+<Document>
+<doc:CodeDocument>008002099000</doc:CodeDocument>
+<doc:Name>Иной документ</doc:Name>
+<doc:Date>2017-10-03</doc:Date>
+</Document>
+</Encumbrance>
+<EntitySpatial EntSys="ID1" >
+<spa:SpatialElement >
+<spa:SpelementUnit TypeUnit="Точка" SuNmb="10" >
+<spa:Ordinate X="313461.71" Y="2232563.67" OrdNmb="1" />
+</spa:SpelementUnit>
+<spa:SpelementUnit TypeUnit="Точка" SuNmb="4" >
+<spa:Ordinate X="313430.44" Y="2232554.79" OrdNmb="1" />
+</spa:SpelementUnit>
+<spa:SpelementUnit TypeUnit="Точка" SuNmb="5" >
+<spa:Ordinate X="313383.33" Y="2232456.2" OrdNmb="1" />
+</spa:SpelementUnit>
+<spa:SpelementUnit TypeUnit="Точка" SuNmb="9" >
+<spa:Ordinate X="313397.01" Y="2232429.49" OrdNmb="1" />
+</spa:SpelementUnit>
+<spa:SpelementUnit TypeUnit="Точка" SuNmb="10" >
+<spa:Ordinate X="313461.71" Y="2232563.67" OrdNmb="1" />
+</spa:SpelementUnit>
+</spa:SpatialElement>
+</EntitySpatial>
+</SubParcel>
+</SubParcels>
+<EntitySpatial EntSys="ID1" >
+<spa:SpatialElement >
+<spa:SpelementUnit TypeUnit="Точка" SuNmb="1" >
+<spa:Ordinate X="313577.03" Y="2232399.84" OrdNmb="1" />
+</spa:SpelementUnit>
+<spa:SpelementUnit TypeUnit="Точка" SuNmb="2" >
+<spa:Ordinate X="313531.38" Y="2232536.3" OrdNmb="1" />
+</spa:SpelementUnit>
+<spa:SpelementUnit TypeUnit="Точка" SuNmb="3" >
+<spa:Ordinate X="313514.28" Y="2232578.61" OrdNmb="1" />
+</spa:SpelementUnit>
+<spa:SpelementUnit TypeUnit="Точка" SuNmb="4" >
+<spa:Ordinate X="313430.44" Y="2232554.79" OrdNmb="1" />
+</spa:SpelementUnit>
+<spa:SpelementUnit TypeUnit="Точка" SuNmb="5" >
+<spa:Ordinate X="313383.33" Y="2232456.2" OrdNmb="1" />
+</spa:SpelementUnit>
+<spa:SpelementUnit TypeUnit="Точка" SuNmb="6" >
+<spa:Ordinate X="313479.94" Y="2232267.58" OrdNmb="1" />
+</spa:SpelementUnit>
+<spa:SpelementUnit TypeUnit="Точка" SuNmb="7" >
+<spa:Ordinate X="313504" Y="2232278.22" OrdNmb="1" />
+</spa:SpelementUnit>
+<spa:SpelementUnit TypeUnit="Точка" SuNmb="8" >
+<spa:Ordinate X="313609.44" Y="2232328.61" OrdNmb="1" />
+</spa:SpelementUnit>
+<spa:SpelementUnit TypeUnit="Точка" SuNmb="1" >
+<spa:Ordinate X="313577.03" Y="2232399.84" OrdNmb="1" />
+</spa:SpelementUnit>
+</spa:SpatialElement>
+</EntitySpatial>
+<Encumbrances>
+<Encumbrance>
+<Type>022004000000</Type>
+<Duration>
+<Started>2016-08-31</Started>
+</Duration>
+<Document>
+<doc:CodeDocument>558221000000</doc:CodeDocument>
+<doc:Name>Информация о передаче карта плана объекта землеустройства в ГФД; заключение кадастрового инженера; план границ объекта землеустройства</doc:Name>
+<doc:Number>№б/н</doc:Number>
+<doc:Date>2014-03-05</doc:Date>
+<doc:IssueOrgan>-</doc:IssueOrgan>
+</Document>
+</Encumbrance>
+</Encumbrances>
+<CadastralCost Value="169623.47" Unit="383" />
+<SpecialNote> Сведения о видах разрешенного использовании имеют статус «Актуальные незасвидетельствованные». Право (ограничение права, обременение объекта недвижимости) зарегистрировано на данный объект недвижимости с видами разрешенного использования отсутствует.</SpecialNote>
+</Parcel>
+</Parcels>
+<CertificationDoc>
+<cer:Organization>ФГИС ЕГРН</cer:Organization>
+<cer:Date>2018-04-24</cer:Date>
+<cer:Number>99/2018/94753311</cer:Number>
+</CertificationDoc>
+<Contractors>
+<Contractor >
+<FamilyName>Варламенкова</FamilyName>
+<FirstName>Дарья</FirstName>
+<Patronymic>Валентиновна</Patronymic>
+<NCertificate>69-13-580</NCertificate>
+</Contractor>
+</Contractors>
+<CoordSystems>
+<spa:CoordSystem Name="СК кадастрового округа, зона 2" CsId="ID0" />
+<spa:CoordSystem Name="МСК-69, зона 2" CsId="ID1" />
+</CoordSystems>
+<eDocument CodeType="112" Version="07" Scope="GKN">
+<Sender Kod="00.0.4.195"
+Name="ФГИС ЕГРН"
+Region="99"
+Date_Upload="2018-04-24"
+Appointment="Государственный регистратор"
+/>
+<Recipient Kod="00.0.4.111" Name="Мирзоева Людмила Александровна" />
+</eDocument>
+<ReestrExtract>
+<DeclarAttribute ID_KUVI="0"
+ExtractTypeCode="012000"
+ExtractTypeText="Выписка из Единого государственного реестра недвижимости об объекте недвижимости"
+ExtractNumber="99/2018/94753311"
+ExtractDate="24.04.2018"
+RequeryNumber="80-36627540"
+RequeryDate="23.04.2018"
+ExtractCount="1"
+NoticeCount="0"
+RefuseCount="0"
+Registrator="ФГИС ЕГРН">
+<ReceivName>Мирзоева Людмила Александровна</ReceivName>
+<ReceivAdress>не указан</ReceivAdress>
+</DeclarAttribute>
+<ExtractObjectRight>
+<HeadContent>
+<ID_REC_KUVI>0</ID_REC_KUVI>
+<Title>ФЕДЕРАЛЬНАЯ СЛУЖБА ГОСУДАРСТВЕННОЙ РЕГИСТРАЦИИ, КАДАСТРА И КАРТОГРАФИИ</Title>
+<DeptName>ФГИС ЕГРН</DeptName>
+<ExtractTitle>Выписка из Единого государственного реестра недвижимости об объекте недвижимости</ExtractTitle>
+<Content>На основании запроса от 23.04.2018 г., поступившего на рассмотрение 24.04.2018 г., сообщаем, что согласно записям Единого государственного реестра недвижимости:</Content>
+</HeadContent>
+<ExtractObject>
+<ObjectRight>
+<Right RightNumber="1">
+<Owner >
+<ID_Subject>364773671269</ID_Subject>
+<Person>
+<Code_SP>007003000000</Code_SP>
+<Content>Арламова Светлана Николаевна</Content>
+<FIO>
+<Surname>Арламова</Surname>
+<First>Светлана</First>
+<Patronymic>Николаевна</Patronymic>
+</FIO>
+</Person>
+</Owner>
+<Registration >
+<ID_Record>364773670969</ID_Record>
+<RegNumber>69-69/018-69/133/001/2015-474/1</RegNumber>
+<Type>001002000000</Type>
+<Name>Долевая собственность, № 69-69/018-69/133/001/2015-474/1 от 03.03.2015, 1/2</Name>
+<RegDate>03.03.2015</RegDate>
+<ShareText>1/2</ShareText>
+</Registration>
+<NoEncumbrance>не зарегистрировано</NoEncumbrance>
+</Right>
+<Right RightNumber="2">
+<Owner >
+<ID_Subject>364773670569</ID_Subject>
+<Person>
+<Code_SP>007003000000</Code_SP>
+<Content>Салкова Галина Николаевна</Content>
+<FIO>
+<Surname>Салкова</Surname>
+<First>Галина</First>
+<Patronymic>Николаевна</Patronymic>
+</FIO>
+</Person>
+</Owner>
+<Registration >
+<ID_Record>364773670269</ID_Record>
+<RegNumber>69-69/018-69/133/001/2015-474/2</RegNumber>
+<Type>001002000000</Type>
+<Name>Долевая собственность, № 69-69/018-69/133/001/2015-474/2 от 03.03.2015, 1/2</Name>
+<RegDate>03.03.2015</RegDate>
+<ShareText>1/2</ShareText>
+</Registration>
+<NoEncumbrance>не зарегистрировано</NoEncumbrance>
+</Right>
+<NoShareHolding>не зарегистрировано</NoShareHolding>
+</ObjectRight>
+<RightAssert>данные отсутствуют</RightAssert>
+<RightClaim>данные отсутствуют</RightClaim>
+<RightAgainst>данные отсутствуют</RightAgainst>
+<RightSteal>данные отсутствуют</RightSteal>
+<WithoutThirdParty>данные отсутствуют</WithoutThirdParty>
+<InabilityRegWithoutOwner></InabilityRegWithoutOwner>
+<InabilityRegZU></InabilityRegZU>
+</ExtractObject>
+<InfoENK/>
+<InfoPIK/>
+<FootContent>
+<Recipient>Мирзоева Людмила Александровна</Recipient>
+<ExtractDate>24.04.2018</ExtractDate>
+<Content></Content>
+</FootContent>
+</ExtractObjectRight>
+</ReestrExtract>
+</KVZU>
