@@ -1,9 +1,6 @@
 """
-.. module:: xmlbasic
-    :platform: Windows, Linux
-    :synopsis: base work with  node and ordinate
-
-.. moduleauthor:: Larisa <solow_larisa@mail.ru>
+module:: xmlbasic
+Larisa <solow_larisa@mail.ru>
 """
 import config as cnfg
 from utils.xsd import value_from_xsd
@@ -11,7 +8,7 @@ import os
 from lxml.etree import _Element
 import logging
 from logging.config import fileConfig
-fileConfig('loggers/logging_config.ini')
+# fileConfig('loggers/logging_config.ini')
 logger = logging.getLogger()
 
 CNST_NEWPARCEL = 'newparcel'

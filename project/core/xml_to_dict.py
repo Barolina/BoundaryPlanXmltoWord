@@ -8,7 +8,7 @@ from datetime import datetime
 
 import logging
 from logging.config import fileConfig
-fileConfig('loggers/logging_config.ini')
+# fileConfig('loggers/logging_config.ini')
 logger = logging.getLogger()
 
 

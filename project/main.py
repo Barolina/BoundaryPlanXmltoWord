@@ -1,3 +1,6 @@
+"""
+    Parsing xml to WORD
+"""
 import shutil
 import tempfile
 from builtins import enumerate
@@ -6,17 +9,18 @@ from lxml import etree
 from docxtpl import DocxTemplate
 from lxml.etree import iterparse
 
-from core.xml_to_dict import  *
+from core.xml_to_dict import *
 from docx import Document
 import os
 
 import logging
 from logging.config import fileConfig
-fileConfig('loggers/logging_config.ini')
+# fileConfig('loggers/logging_config.ini')
 logger = logging.getLogger()
 
 
 class XMLIter__context_parser:
+
 
     def __init__(self, pathxml):
         self.pathxml = pathxml
@@ -55,16 +59,31 @@ class XMLIter__context_parser:
 
 
 class MpXMlToWORd:
+    """
+        Преобразователь xml межевого  в ворд
+    """
 
     def __init__(self):
         self.name_number = 0
         self.tempfolder = tempfile.mkdtemp()
 
     def close(self):
+        """
+            удаление темповой директории
+        :return:
+        """
         if os.path.exists(self.tempfolder):
             shutil.rmtree(self.tempfolder)
 
     def fast_iter(self,context, func, args=[], kwargs={}):
+        """
+            ЧИстим корни в lxml
+        :param context:
+        :param func:
+        :param args:
+        :param kwargs:
+        :return:
+        """
         # http://www.ibm.com/developerworks/xml/library/x-hiperfparse/
         for event, elem in context:
             # Also eliminate now-empty references from the root node to elem
@@ -98,6 +117,11 @@ class MpXMlToWORd:
                 break
 
     def __context_parser(self, context):
+        """
+            Парсим куск
+        :param context:
+        :return:
+        """
         i = 0
         for event, elem in context:
             i += 1
@@ -221,6 +245,9 @@ class MpXMlToWORd:
 
 
 if __name__ == '__main__':
+    """
+        поехали 
+    """
     logger.info('START PARSING')
     try:
         with closing(MpXMlToWORd()) as generat:
