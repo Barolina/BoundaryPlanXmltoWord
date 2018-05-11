@@ -359,7 +359,9 @@ class XmlNewParcel(XmlParcel):
         #     _xml_area = node[0].xpath("child::*/Area")
         if node:
             for index, _ in enumerate(node,1):
-                _area += f"""({index}) {self.full_area(_)} """
+                _xml_area = _.xpath('Area')
+                if _xml_area:
+                    _area += f"""({index}) {self.full_area(_xml_area[0])} """
         return _area
 
     def xml_general_info_to_dict(self):
@@ -474,7 +476,7 @@ class XmlExistParcel(XmlNewParcel):
                 res = {
                     cnfg.ENTITY_SPATIAL_EXIST['name']: StaticMethod.merge_array_list(cnfg.ENTITY_SPATIAL_EXIST['attr'],
                                                                                      _ord.xml_exist_ordinate_to_list()),
-                    cnfg.BORDERS['name']: None
+                    cnfg.BORDERS['name']: []
                 }
             finally:
                 deleteAllBorder.clear()
@@ -505,7 +507,7 @@ class XmlExistParcel(XmlNewParcel):
                 res = {
                     cnfg.ENTITY_SPATIAL_EXIST['name']: StaticMethod.merge_array_list(cnfg.ENTITY_SPATIAL_EXIST['attr'],
                                                                                      ordinate.xml_exist_ordinate_to_list()),
-                    cnfg.BORDERS['name']: None
+                    cnfg.BORDERS['name']: []
                 }
                 del ordinate
             finally:

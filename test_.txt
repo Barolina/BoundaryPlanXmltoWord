@@ -1,2 +1,11 @@
 FormaParcle -> Contours -> NewContours -> 1 -> +
-FormParcels -> many NewParcels -> 2 
+FormParcels -> many NewParcels -> 2 -> +
+FormParcels -> many New Contours SpecifyRelated -> ChangeParcels  - > 3 -> +
+FormParcels -> SpacifyRelated -> AllBorder ->4 -> +
+FormParcels -> SpacifyRelated -> AllBorder ->5 -> +
+SpecifyParcel -> ExistParcel-> SpacifyRelated->AllBorder ->7-> ?
+SpecifyParcel -> ExistParcel -> SubParcels -> SpecifyRelated->ChangeBorder -> 9 -> +
+SPecifyRelated->many ExistParcel ->Contours -> ExistContours-> RelatedParcels - 10-> +
+SpecifyRelated-> a lot of ExistContours- > RelatedParcels -> 11 -> +
+FormParcels -> a lot of SpatialElement -> 12 -> +
+SubParcels -> NewSubParcels and ExistSubParcels -> 14 ->+

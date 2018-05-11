@@ -103,58 +103,42 @@ class MpXMlToWORd:
             i += 1
 
             if elem.tag == 'GeneralCadastralWorks' and event == 'end':
-                logging.info(elem.tag)
                 self.__fast_iter_element(elem, self.render_tpl,
                                        args=(XmlTitleDict, 'template/common/title.docx','1.' + str(i)))
             if elem.tag == 'InputData' and event == 'end':
-                logging.info(elem.tag)
                 self.__fast_iter_element(elem, self.render_tpl,
                                        args=(XmlInputDataDict, 'template/common/inputdata.docx', '2.' + str(i)))
             if elem.tag == 'Survey' and event == 'end':
-                logging.info(elem.tag)
                 self.__fast_iter_element(elem, self.render_tpl,
                                        args=(XmlSurveyDict, 'template/common/survey.docx','3.' + str(i)))
             if elem.tag == 'NewParcel' and event == 'end':
-                logging.info(elem.tag)
                 # self.__fast_iter_element(elem, self.render_tpl,
                                        # args=(XmlNewParcel, 'template/common/newparcel.docx', '4.' + str(i)))
                 self.render_tpl(elem, XmlNewParcel, 'template/common/newparcel.docx', '4.' + str(i))
             if elem.tag == 'ExistParcel' and event == 'end':
-                logging.info(elem.tag)
                 # self.__fast_iter_element(elem, self.render_tpl,
                                        # args=(XmlExistParcel, 'template/common/existparcel.docx', '4.' + str(i)))
                 self.render_tpl(elem, XmlExistParcel, 'template/common/existparcel.docx', '4.' + str(i))
 
-            if elem.tag == 'SubParcels' and event == 'end' and elem.getparent().tag != 'InputData':
-                logging.info(elem.tag)
+            if elem.tag == 'SubParcels' and event == 'end' and elem.getparent().tag == 'Package':
                 # self.__fast_iter_element(elem, self.render_tpl,
                                        # args=(XmlSubParcels, 'template/common/subparcels.docx', '6.' + str(i)))
                 self.render_tpl(elem, XmlSubParcels, 'template/common/subparcels.docx', '6.' + str(i))
 
             if elem.tag == 'ChangeParcel' and event == 'end':
-                logging.info(elem.tag)
                 # self.__fast_iter_element(elem, self.render_tpl,
                 #                        args=(XmlChangeParcel, 'template/common/changeparcel.docx', '5.' + str(i)))
                 self.render_tpl(elem, XmlChangeParcel, 'template/common/changeparcel.docx', '5.' + str(i))
             if elem.tag == 'SpecifyRelatedParcel' and event == 'end':
-                logging.info(elem.tag)
                 # self.__fast_iter_element(elem, self.render_tpl,
                                        # args=(XmlExistParcel, 'template/common/existparcel.docx','6.' + str(i)))
                 self.render_tpl(elem, XmlExistParcel, 'template/common/existparcel.docx', '6.' + str(i))
             if elem.tag == 'FormParcels' and event == 'end':
-                logging.info(elem.tag) # TODO здеcm  можно fast_iter
                 self.render_tpl(elem, XmlNewParcelProviding, 'template/common/providing.docx','7.' + str(i))
 
             if elem.tag == 'Conclusion' and event == 'end':
-                logging.info(elem.tag)
                 self.__fast_iter_element(elem, self.render_tpl,
                                        args=(XmlConclusion, 'template/common/conclusion.docx','8.' + str(i)))
-            _elin =elem.xpath('InputData/Documents')
-            if _elin:
-                logging.info(f"Documents est")
-            else:
-                logging.info(" nett")
-
         del context
 
     def __xml_block_to_docx(self, path):
@@ -177,12 +161,16 @@ class MpXMlToWORd:
         :param path_tpl: путь до template
         :return: file docx
         """
-        if len(node) > 0 or node.text:
-            tpl = DocxTemplate(path_tpl)
-            instance = XMLClass(node)
-            tpl.render(instance.to_dict())
-            file_res = '.'.join([name_result, 'docx'])
-            tpl.save(os.path.join(self.tempfolder, file_res))
+        try:
+            if len(node) > 0 or node.text:
+                tpl = DocxTemplate(path_tpl)
+                instance = XMLClass(node)
+                tpl.render(instance.to_dict())
+                file_res = '.'.join([name_result, 'docx'])
+                tpl.save(os.path.join(self.tempfolder, file_res))
+                logger.info(f"""Parsing {node}  done -> result {name_result}""")
+        except Exception as e:
+            logger.error(f"""Error parsing {node} : {e}""")
 
     def __get_element_body_docx(self, path):
         """
@@ -236,7 +224,7 @@ if __name__ == '__main__':
     logger.info('START PARSING')
     try:
         with closing(MpXMlToWORd()) as generat:
-            generat.run('../TEST/4/4.xml', '../TEST/4/4.docx')
+            generat.run('../TEST/16/16.xml', '../TEST/16/16.docx')
     except Exception as e:
         logger.error(f"""Error parsing file {e}""")
     else:
