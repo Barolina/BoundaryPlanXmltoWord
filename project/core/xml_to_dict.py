@@ -95,7 +95,7 @@ class XmlTitleDict:
                            self.xml_client_to_text(),self.xml_contrsactor_fio_to_text(),
                            self.xml_ncertificate_to_text(), self.xml_telefon_to_text(), self.xml_address_to_text(),
                            self.xml_email_to_text(),self.xml_organization_to_text(), self.xml_data_to_text()]
-            result = dict(zip(cnfg.TITLE_KEY, value_title))
+            result = dict(zip(cnfg.TITLE_KEY.attr, value_title))
         except Exception as e:
             logger.error(f""" Ошибки при формировании титульника {e} """)
         else:

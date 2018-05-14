@@ -1,15 +1,15 @@
 """
-    ТИТУЛЬНЫ ЛИСТ
-    ____________________________________________________________________________________________________________________
+    Набор основных  словарей для формирвания  word - документа
 """
-TITLE_KEY = ['REASON', 'PURPOSE', 'CLIENT', 'FIO', 'NCERTIFICATE', 'TELEPHONE',
-             'ADDRESS', 'EMAIL', 'ORGANIZATION', 'DATA']
 
-TITUL = {
-    'res': '1.'
-}
-
-
+"""
+  :keyword ТИТУЛЬНЫ ЛИСТ TITLE_KEY - описание ключей заполнения титульного листа      
+"""
+TITLE_KEY = type('TITLE_KEY', (), {'name': 'TITLE_KEY',
+                                   'isType': None,
+                                   'attr': ['REASON', 'PURPOSE', 'CLIENT', 'FIO', 'NCERTIFICATE', 'TELEPHONE', 'ADDRESS', 'EMAIL', 'ORGANIZATION', 'DATA']
+                                   }
+                 )
 """
     СЛОВАРИ INPUT_DATA
     ____________________________________________________________________________________________________________________

@@ -210,7 +210,7 @@ class MpXMlToWORd:
         :param input_files: iterable список файлов
         :return: Docx
         """
-        files = os.listdir(self.tempfolder)
+        files = sorted(os.listdir(self.tempfolder))
         _dcx = filter(lambda x: x.endswith('.docx'), files)
         _dcx = map(lambda x: os.path.join(self.tempfolder, x), _dcx)
 
@@ -251,7 +251,7 @@ if __name__ == '__main__':
     logger.info('START PARSING')
     try:
         with closing(MpXMlToWORd()) as generat:
-            generat.run('../TEST/16/16.xml', '../TEST/16/16.docx')
+            generat.run('../TEST/14/14.xml', '../TEST/14/14.docx')
     except Exception as e:
         logger.error(f"""Error parsing file {e}""")
     else:
