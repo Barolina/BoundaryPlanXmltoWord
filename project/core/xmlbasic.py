@@ -400,16 +400,16 @@ class ElementSubParcel:
         res.append(''.join(self.node.xpath('Area/Area/text()')))
         res.append(''.join(self.node.xpath('Area/Inaccuracy/text()')))
         res.append(StaticMethod.xmlnode_key_to_text(self.node, 'Encumbrance/Type/text()',
-                                                    cnfg.SUBPARCEL_GENERAL['dict']['encumbrace']))
+                                                    cnfg.SUBPARCEL_GENERAL.dict['encumbrace']))
         return res
 
     def xml_new_dict(self):
         try:
-           _ent = StaticMethod.merge_array_list(cnfg.SUBPARCEL_ENTITY_SPATIAL['attr'], self.entity_spatial())
+           _ent = StaticMethod.merge_array_list(cnfg.SUBPARCEL_ENTITY_SPATIAL.attr, self.entity_spatial())
            res = list()
            res = self.defintion()
            res.append(_ent)
-           result = dict(zip(cnfg.SUB_FULL_ORDINATE['attr'],res))
+           result = dict(zip(cnfg.SUB_FULL_ORDINATE.attr,res))
            print(result)
            return result
         except:
@@ -417,15 +417,15 @@ class ElementSubParcel:
 
     def xml_ext_dict(self):
         try:
-            _ent = StaticMethod.merge_array_list(cnfg.SUBPARCEL_ENTITY_SPATIAL_EXIST['attr'], self.entity_spatial())
+            _ent = StaticMethod.merge_array_list(cnfg.SUBPARCEL_ENTITY_SPATIAL_EXIST.attr, self.entity_spatial())
             res = list()
             res = self.defintion()
             res.append(_ent)
-            return dict(zip(cnfg.SUB_EX_FULL_ORDINATE['attr'],res))
+            return dict(zip(cnfg.SUB_EX_FULL_ORDINATE.attr, res))
         except:
             return []
 
     def xml_general_dict(self, position):
-        return dict(zip(cnfg.SUBPARCEL_GENERAL['attr'], self.general_info(position)))
+        return dict(zip(cnfg.SUBPARCEL_GENERAL.attr, self.general_info(position)))
 
 

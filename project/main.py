@@ -251,7 +251,7 @@ if __name__ == '__main__':
     logger.info('START PARSING')
     try:
         with closing(MpXMlToWORd()) as generat:
-            generat.run('../TEST/14/14.xml', '../TEST/14/14.docx')
+            generat.run('../TEST/1/1.xml', '../TEST/1/1.docx')
     except Exception as e:
         logger.error(f"""Error parsing file {e}""")
     else:
