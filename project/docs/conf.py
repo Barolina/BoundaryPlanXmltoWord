@@ -16,7 +16,7 @@ import os
 import sys
 sys.path.insert(0, os.path.abspath('..'))
 # sys.path.insert(0, os.path.abspath('../'))
-sys.path.insert(0, os.path.abspath('../core'))
+# sys.path.insert(0, os.path.abspath('../xml_mp'))
 
 
 # -- Project information -----------------------------------------------------
@@ -52,8 +52,8 @@ templates_path = ['_templates']
 # The suffix(es) of source filenames.
 # You can specify multiple suffix as a list of string:
 #
-# source_suffix = ['.rst', '.md']
-source_suffix = '.rst'
+source_suffix = ['.rst', '.md']
+# source_suffix = '.rst'
 
 # The master toctree document.
 master_doc = 'index'

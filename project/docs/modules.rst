@@ -1,5 +1,5 @@
-new_project
-===========
+project
+=======
 
 .. toctree::
    :maxdepth: 4

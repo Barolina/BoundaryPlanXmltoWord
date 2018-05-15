@@ -9,7 +9,7 @@ from lxml import etree
 from docxtpl import DocxTemplate
 from lxml.etree import iterparse
 
-from core.xml_to_dict import *
+from xml_mp.element_to_dict import *
 from docx import Document
 import os
 

@@ -30,7 +30,7 @@
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="core package" href="core.html" />
-    <link rel="prev" title="new_project" href="modules.html" /> 
+    <link rel="prev" title="project" href="modules.html" /> 
 
   
   <script src="_static/js/modernizr.min.js"></script>
@@ -81,7 +81,7 @@
             
               <p class="caption"><span class="caption-text">Contents:</span></p>
 <ul class="current">
-<li class="toctree-l1 current"><a class="reference internal" href="modules.html">new_project</a><ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">project</a><ul class="current">
 <li class="toctree-l2 current"><a class="current reference internal" href="#">config module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="core.html">core package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="main.html">main module</a></li>
@@ -132,7 +132,7 @@
     
       <li><a href="index.html">Docs</a> &raquo;</li>
         
-          <li><a href="modules.html">new_project</a> &raquo;</li>
+          <li><a href="modules.html">project</a> &raquo;</li>
         
       <li>config module</li>
     
@@ -155,14 +155,31 @@
             
   <div class="section" id="module-config">
 <span id="config-module"></span><h1>config module<a class="headerlink" href="#module-config" title="Permalink to this headline">¶</a></h1>
-<p>Набор основных  словарей для render words - документа
-Струкура, при описании  всех  объектов, следующая</p>
-<p>name_object = type(‘name_object’, (), {  #name_object - наименование объекта для рендеринга</p>
+<p>Данный модуль содержит надор основных словарей, используемых при генерации и рендеринге word- шаблоны</p>
 <blockquote>
-<div><p>‘name’: наименование объекта в word-шаблоне (Н - необязательно)</p>
-<p>‘attr’: список  атрибутов  используемых в word-шаблоне по name  ( к пр. список наименований колонок )</p>
+<div><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">param attr:</th><td class="field-body">список  атрибутов используемых для генерации таблицы;</td>
+</tr>
+<tr class="field-even field"><th class="field-name">param name:</th><td class="field-body">наименование элемента в шаблоне (н - необязательный);</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">param dict:</th><td class="field-body">список справочников, данного элемента, используемых для преобразования значений (key; value);</td>
+</tr>
+</tbody>
+</table>
+<p># :param res_name: наименование результирующегог файла, так формирвание печатного   вида  мп имеет некий попрядок элемнтов,
+#         а при рендеринге xml  порядок элементов иной, необходимо задать порядковое значение результирующего файла;</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">param fields:</th><td class="field-body">список остальных элементов используемых в шаблоне</td>
+</tr>
+</tbody>
+</table>
 </div></blockquote>
-<p>}</p>
 <dl class="class">
 <dt id="config.BORDERS">
 <em class="property">class </em><code class="descclassname">config.</code><code class="descname">BORDERS</code><a class="headerlink" href="#config.BORDERS" title="Permalink to this definition">¶</a></dt>
@@ -208,11 +225,6 @@
 <dl class="attribute">
 <dt id="config.CHANGEPARCELS.note">
 <code class="descname">note</code><em class="property"> = 'note'</em><a class="headerlink" href="#config.CHANGEPARCELS.note" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="config.CHANGEPARCELS.res">
-<code class="descname">res</code><em class="property"> = '3.'</em><a class="headerlink" href="#config.CHANGEPARCELS.res" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
@@ -270,8 +282,8 @@
 <dt id="config.GEODESIC_BASES">
 <em class="property">class </em><code class="descclassname">config.</code><code class="descname">GEODESIC_BASES</code><a class="headerlink" href="#config.GEODESIC_BASES" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<p>INPUT_DATA:
-Сведения о геодезической основе</p>
+<p>TEMPLATE: inputdata.docx</p>
+<p>Сведения о геодезической основе</p>
 <dl class="attribute">
 <dt id="config.GEODESIC_BASES.attr">
 <code class="descname">attr</code><em class="property"> = ['id', 'name', 'klass', 'x', 'y']</em><a class="headerlink" href="#config.GEODESIC_BASES.attr" title="Permalink to this definition">¶</a></dt>
@@ -288,8 +300,8 @@
 <dt id="config.GEOPOINTS_OPRED">
 <em class="property">class </em><code class="descclassname">config.</code><code class="descname">GEOPOINTS_OPRED</code><a class="headerlink" href="#config.GEOPOINTS_OPRED" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<p>Survey:
-Метод определения координат характерных точек границ земельных участков и их частей</p>
+<p>TEMPLATE: survey.docx</p>
+<p>Метод определения координат характерных точек границ земельных участков и их частей</p>
 <dl class="attribute">
 <dt id="config.GEOPOINTS_OPRED.attr">
 <code class="descname">attr</code><em class="property"> = ['id', 'cadastralnumber', 'method']</em><a class="headerlink" href="#config.GEOPOINTS_OPRED.attr" title="Permalink to this definition">¶</a></dt>
@@ -310,8 +322,8 @@
 <dl class="attribute">
 <dt id="config.INPUT_DATA">
 <code class="descclassname">config.</code><code class="descname">INPUT_DATA</code><a class="headerlink" href="#config.INPUT_DATA" title="Permalink to this definition">¶</a></dt>
-<dd><p>INPUT_DATA:
-Реквизиты (копии) использованных документов и документов, на основании</p>
+<dd><p>TEMPLATE: inputdata.docx</p>
+<p>Реквизиты (копии) использованных документов и документов, на основании</p>
 <p>alias of <code class="xref py py-class docutils literal notranslate"><span class="pre">config.INPUT_DATAS</span></code></p>
 </dd></dl>
 
@@ -319,8 +331,8 @@
 <dt id="config.MEANS_SURVEY">
 <em class="property">class </em><code class="descclassname">config.</code><code class="descname">MEANS_SURVEY</code><a class="headerlink" href="#config.MEANS_SURVEY" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<p>INPUT_DATA:
-Сведения о средствах измерений</p>
+<p>TEMPLATE: inputdata.docx</p>
+<p>Сведения о средствах измерений</p>
 <dl class="attribute">
 <dt id="config.MEANS_SURVEY.attr">
 <code class="descname">attr</code><em class="property"> = ['id', 'name', 'registration', 'certificateverification']</em><a class="headerlink" href="#config.MEANS_SURVEY.attr" title="Permalink to this definition">¶</a></dt>
@@ -337,8 +349,8 @@
 <dt id="config.OBJECTS_REALTY">
 <em class="property">class </em><code class="descclassname">config.</code><code class="descname">OBJECTS_REALTY</code><a class="headerlink" href="#config.OBJECTS_REALTY" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<p>INPUT_DATA:
-Сведения о наличии зданий, сооружений, объектов незавершенного строительства на исходных земельных участках</p>
+<p>TEMPLATE: inputdata.docx</p>
+<p>Сведения о наличии зданий, сооружений, объектов незавершенного строительства на исходных земельных участках</p>
 <dl class="attribute">
 <dt id="config.OBJECTS_REALTY.attr">
 <code class="descname">attr</code><em class="property"> = ['id', 'cadastralnumber_parcel', 'cadastralnumbers']</em><a class="headerlink" href="#config.OBJECTS_REALTY.attr" title="Permalink to this definition">¶</a></dt>
@@ -422,11 +434,6 @@
 <dd></dd></dl>
 
 <dl class="attribute">
-<dt id="config.PARCEL_COMMON.res">
-<code class="descname">res</code><em class="property"> = '3.'</em><a class="headerlink" href="#config.PARCEL_COMMON.res" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
 <dt id="config.PARCEL_COMMON.utilization_landuse">
 <code class="descname">utilization_landuse</code><em class="property"> = 'utilization_landuse'</em><a class="headerlink" href="#config.PARCEL_COMMON.utilization_landuse" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
@@ -453,11 +460,6 @@
 <dl class="attribute">
 <dt id="config.PROVIDING.name">
 <code class="descname">name</code><em class="property"> = 'PROVIDINGCADASTRAL'</em><a class="headerlink" href="#config.PROVIDING.name" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="config.PROVIDING.res">
-<code class="descname">res</code><em class="property"> = '5.'</em><a class="headerlink" href="#config.PROVIDING.res" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -591,6 +593,7 @@
 <dt id="config.TITLE">
 <em class="property">class </em><code class="descclassname">config.</code><code class="descname">TITLE</code><a class="headerlink" href="#config.TITLE" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>TEMPLATE: title.docx</p>
 <p>Описание ключей заполнения титульного листа   &lt;br&gt;</p>
 <dl class="attribute">
 <dt id="config.TITLE.attr">
@@ -603,8 +606,8 @@
 <dt id="config.TOCHN_AREA_PARCELS">
 <em class="property">class </em><code class="descclassname">config.</code><code class="descname">TOCHN_AREA_PARCELS</code><a class="headerlink" href="#config.TOCHN_AREA_PARCELS" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<p>Survey
-Точность определения площади земельных участков</p>
+<p>TEMPLATE: survey.docx</p>
+<p>Точность определения площади земельных участков</p>
 <dl class="attribute">
 <dt id="config.TOCHN_AREA_PARCELS.attr">
 <code class="descname">attr</code><em class="property"> = ['id', 'cadastralnumber', 'area', 'formula']</em><a class="headerlink" href="#config.TOCHN_AREA_PARCELS.attr" title="Permalink to this definition">¶</a></dt>
@@ -621,8 +624,8 @@
 <dt id="config.TOCHN_GEOPOINTS_PARCELS">
 <em class="property">class </em><code class="descclassname">config.</code><code class="descname">TOCHN_GEOPOINTS_PARCELS</code><a class="headerlink" href="#config.TOCHN_GEOPOINTS_PARCELS" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<p>Survey:
-Точность положения характерных точек границ земельных участков</p>
+<p>TEMPLATE: survey.docx</p>
+<p>Точность положения характерных точек границ земельных участков</p>
 <dl class="attribute">
 <dt id="config.TOCHN_GEOPOINTS_PARCELS.attr">
 <code class="descname">attr</code><em class="property"> = ['id', 'cadastralnumber', 'formula']</em><a class="headerlink" href="#config.TOCHN_GEOPOINTS_PARCELS.attr" title="Permalink to this definition">¶</a></dt>
@@ -648,7 +651,7 @@
         <a href="core.html" class="btn btn-neutral float-right" title="core package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="modules.html" class="btn btn-neutral" title="new_project" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="modules.html" class="btn btn-neutral" title="project" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

@@ -1,19 +1,21 @@
 """
-    Набор основных  словарей для render words - документа
-    Струкура, при описании  всех  объектов, следующая
+Данный модуль содержит надор основных словарей, используемых при генерации и рендеринге word- шаблоны
 
-    name_object = type('name_object', (), {  #name_object - наименование объекта для рендеринга \n\r
-        'name': наименование объекта в word-шаблоне (Н - необязательно)\n\r
-        'attr': список  атрибутов  используемых в word-шаблоне по name  ( к пр. список наименований колонок ) \r\n
-    }
+    :param attr: список  атрибутов используемых для генерации таблицы; \n\r
+    :param name: наименование элемента в шаблоне (н - необязательный);\n\r\
+    :param dict: список справочников, данного элемента, используемых для преобразования значений (key; value);\n\r
+    # :param res_name: наименование результирующегог файла, так формирвание печатного   вида  мп имеет некий попрядок элемнтов,
+    #         а при рендеринге xml  порядок элементов иной, необходимо задать порядковое значение результирующего файла;\n\r
+    :param fields:  список остальных элементов используемых в шаблоне
 """
 
-# ======================================================================================================================
+# =====================template title.docx==============================================================================
 
 TITLE = type('TITLE', (), {
-    'attr': ['REASON', 'PURPOSE', 'CLIENT', 'FIO', 'NCERTIFICATE', 'TELEPHONE', 'ADDRESS', 'EMAIL', 'ORGANIZATION', 'DATA']
+    'attr': ['REASON', 'PURPOSE', 'CLIENT', 'FIO', 'NCERTIFICATE', 'TELEPHONE', 'ADDRESS', 'EMAIL', 'ORGANIZATION', 'DATA'],
 })
 """      
+TEMPLATE: title.docx \n\r
 Описание ключей заполнения титульного листа   <br>
 """
 
@@ -29,7 +31,7 @@ GEODESIC_BASES = type('GEODESIC_BASES', (), {
     'attr': ['id', 'name', 'klass', 'x', 'y']
 })
 """
-INPUT_DATA:
+TEMPLATE: inputdata.docx \n\r
 Сведения о геодезической основе
 """
 
@@ -42,7 +44,7 @@ INPUT_DATA = type('INPUT_DATAS', (), {
     'res': '2.'
 })
 """
-INPUT_DATA:
+TEMPLATE: inputdata.docx\n\r
 Реквизиты (копии) использованных документов и документов, на основании
 """
 
@@ -51,7 +53,7 @@ MEANS_SURVEY = type('MEANS_SURVEY', (), {
     'attr': ['id', 'name', 'registration', 'certificateverification']
 })
 """
-INPUT_DATA:
+TEMPLATE: inputdata.docx\n\r
 Сведения о средствах измерений
 """
 
@@ -60,7 +62,7 @@ OBJECTS_REALTY = type('OBJECTS_REALTY', (), {
     'attr': ['id', 'cadastralnumber_parcel', 'cadastralnumbers']
 })
 """
-INPUT_DATA:
+TEMPLATE: inputdata.docx\n\r
 Сведения о наличии зданий, сооружений, объектов незавершенного строительства на исходных земельных участках
 """
 
@@ -74,7 +76,7 @@ GEOPOINTS_OPRED = type('GEOPOINTS_OPRED', (), {
     }
 })
 """
-Survey:
+TEMPLATE: survey.docx\n\r
 Метод определения координат характерных точек границ земельных участков и их частей
 """
 
@@ -83,7 +85,7 @@ TOCHN_GEOPOINTS_PARCELS = type('TOCHN_GEOPOINTS_PARCELS', (), {
     'attr': ['id', 'cadastralnumber', 'formula'],
 })
 """
-Survey:
+TEMPLATE: survey.docx\n\r
 Точность положения характерных точек границ земельных участков
 """
 
@@ -92,7 +94,7 @@ TOCHN_AREA_PARCELS = type('TOCHN_AREA_PARCELS', (), {
     'attr': ['id', 'cadastralnumber', 'area', 'formula']
 })
 """
-Survey
+TEMPLATE: survey.docx\n\r
 Точность определения площади земельных участков
 """
 
@@ -149,8 +151,7 @@ PARCEL_COMMON = type('PARCEL_COMMON', (), {
         'categories': 'dCategories_v01.xsd',
         'utilization': 'dUtilizations_v01.xsd',
         'landuse': 'dAllowedUse_v01.xsd'
-    },
-    'res': '3.'
+    }
 })
 """
 Описание общих характеристик участка
@@ -223,7 +224,6 @@ SUBPARCEL_ROWS = type('SUBPARCEL_ROWS', (), {
 PROVIDING = type('PROVIDING', (), {
     'name': 'PROVIDINGCADASTRAL', # наименование  атрибута в шаблоне
     'attr': ['id', 'cadastralnumber', 'note'], # описание  атрибутов таблицы
-    'res': '5.',
 })
 """
 Сведения о земельных участках, посредством которых обеспечивается доступ
@@ -245,7 +245,6 @@ CHANGEPARCELS = type('CHANGEPARCELS', (), {
         'utilization': 'dUtilizations_v01.xsd',
         'landuse': 'dAllowedUse_v01.xsd'
     },
-    'res': '3.'
 })
 """
  Описание  словаря  описывающий  измеенный  участок
@@ -262,5 +261,5 @@ CONCLUSION = {
 
 # ======================================================================================================================
 
+
 PATH_XSD = 'xsd'
-PATH_RESULT = 'res'

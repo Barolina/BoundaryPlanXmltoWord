@@ -1,11 +1,9 @@
-import copy
-
-import config as cnfg
-from core.xmlbasic import *
+"""
+  Модуль содержит классы, преобразующий  основные  блоки xml ( межевого плана ) в словар значений
+"""
+from xml_mp.basic import *
 from utils.xsd import value_from_xsd
 from datetime import datetime
-
-
 import logging
 from logging.config import fileConfig
 # fileConfig('loggers/logging_config.ini')
@@ -15,17 +13,17 @@ logger = logging.getLogger()
 class XmlTitleDict:
     """
         Формированяи словаря для титульника
-        :param root == GeneralCadastralWorks
     """
-
     def __init__(self, node):
+        """
+        :param node: GeneralCadastralWorks
+        """
         self.node = node
         self.contractor = None
 
     def __children_dict(self, node, *args):
         """
         :param node: Contractor/child
-        :param args:
         :return: dict (node.tag : node.text)
         """
         res = dict()
@@ -38,16 +36,16 @@ class XmlTitleDict:
             return self.__children_dict(self.node.xpath('Contractor/child::*'))
         return self.contractor
 
-    def xml_reason_to_text(self):
+    def __xml_reason_to_text(self):
         return ''.join(self.node.xpath('Reason/text()'))
 
-    def xml_purpose_to_text(self):
+    def __xml_purpose_to_text(self):
         return ''.join(self.node.xpath('Purpose/text()'))
 
-    def xml_client_to_text(self):
+    def __xml_client_to_text(self):
         return ' '.join(self.node.xpath('Clients/*[1]/child::*/node()/text()'))
 
-    def xml_contrsactor_fio_to_text(self):
+    def __xml_contrsactor_fio_to_text(self):
         _ = self.__contractor()
         if _:
             return f"{_.get('FamilyName', '')} " \
@@ -55,46 +53,50 @@ class XmlTitleDict:
                    f"{_.get('Patronymic', '')}"
         return ''
 
-    def xml_ncertificate_to_text(self):
+    def __xml_ncertificate_to_text(self):
         _ = self.__contractor()
         if _:
             return _.get('NCertificate', '')
         return ''
 
-    def xml_telefon_to_text(self):
+    def __xml_telefon_to_text(self):
         _ = self.__contractor()
         if _:
             return _.get('Telephone', '')
         return ''
 
-    def xml_email_to_text(self):
+    def __xml_email_to_text(self):
         _ = self.__contractor()
         if _:
             return _.get('Email', '')
         return ''
 
-    def xml_address_to_text(self):
+    def __xml_address_to_text(self):
         _ = self.__contractor()
         if _:
             return _.get('Address', '')
         return ''
 
-    def xml_organization_to_text(self):
+    def __xml_organization_to_text(self):
         return ' '.join(self.node.xpath('Contractor/Organization/node()/text()'))
 
-    def xml_data_to_text(self):
+    def __xml_data_to_text(self):
         _dt = datetime.strptime(dict(self.node.attrib).get('DateCadastral'), "%Y-%m-%d")
         if _dt:
             return  f"""{_dt:%d.%m.%Y}"""
         return ''
 
     def to_dict(self):
+        """
+            Данный  метод  возвращает словарь значения для  заполнения  шаблона title.docx
+        :return: dict->cnfg.Title
+        """
         result = None
         try:
-            value_title = [self.xml_reason_to_text(),self.xml_purpose_to_text(),
-                           self.xml_client_to_text(),self.xml_contrsactor_fio_to_text(),
-                           self.xml_ncertificate_to_text(), self.xml_telefon_to_text(), self.xml_address_to_text(),
-                           self.xml_email_to_text(),self.xml_organization_to_text(), self.xml_data_to_text()]
+            value_title = [self.__xml_reason_to_text(), self.__xml_purpose_to_text(),
+                           self.__xml_client_to_text(), self.__xml_contrsactor_fio_to_text(),
+                           self.__xml_ncertificate_to_text(), self.__xml_telefon_to_text(), self.__xml_address_to_text(),
+                           self.__xml_email_to_text(), self.__xml_organization_to_text(), self.__xml_data_to_text()]
             result = dict(zip(cnfg.TITLE.attr, value_title))
         except Exception as e:
             logger.error(f""" Ошибки при формировании титульника {e} """)
@@ -106,43 +108,54 @@ class XmlTitleDict:
 class XmlSurveyDict(XMLElemenBase):
     """
         Формирование словаря для  Сведени о выполненных измерениях и расчетах
-        :param root == Survey
+        :param root: Survey
     """
     pathListGeopointsOpred = 'GeopointsOpred/child::*'
     pathTochAreaParcel = 'TochnAreaParcels/child::*'
     pathTochGeopoitsParcels = 'TochnGeopointsParcels/child::*'
 
-    def xml_geopoints_opred_to_list(self):
+    def __xml_geopoints_opred_to_list(self):
         """
         :return: list (geopoint_opreds)
         """
         el = self.node.xpath(self.pathListGeopointsOpred)
         res = []
-        for index, _ in enumerate(el):
-            _method = ''.join(_.xpath('Methods/child::*[name()="GeopointOpred"]/text()'))
-            method_val = value_from_xsd('/'.join([cnfg.PATH_XSD,cnfg.GEOPOINTS_OPRED.dict['geopointopred']]),_method)
-            res.append([str(index + 1),''.join(_.xpath('CadastralNumberDefinition/text()')), method_val])
+        try:
+            for index, _ in enumerate(el):
+                _method = ''.join(_.xpath('Methods/child::*[name()="GeopointOpred"]/text()'))
+                method_val = value_from_xsd('/'.join([cnfg.PATH_XSD,cnfg.GEOPOINTS_OPRED.dict['geopointopred']]),_method)
+                res.append([str(index + 1),''.join(_.xpath('CadastralNumberDefinition/text()')), method_val])
+        except Exception as e:
+            logger.error(f"Ошибка при разборе  {el}")
+        finally:
+            el.clear
         return res
 
-    def xml_toch_area_parcel_to_list(self):
+    def __xml_toch_area_parcel_to_list(self):
         el = self.node.xpath(self.pathTochAreaParcel)
         res = []
-        for index, _ in enumerate(el):
-            res.append([str(index + 1),
-                        ''.join(_.xpath('CadastralNumberDefinition/text()')),
-                        ''.join(_.xpath('Area/Area/text()')),
-                        ''.join(_.xpath('Formula/text()')),
-                        ])
+        try:
+            for index, _ in enumerate(el):
+                res.append([str(index + 1),
+                            ''.join(_.xpath('CadastralNumberDefinition/text()')),
+                            ''.join(_.xpath('Area/Area/text()')),
+                            ''.join(_.xpath('Formula/text()')),
+                            ])
+        finally:
+            el.clear()
         return res
 
-    def xml_toch_geopoints_parcel_to_list(self):
+    def __xml_toch_geopoints_parcel_to_list(self):
         el = self.node.xpath(self.pathTochGeopoitsParcels)
         res = []
-        for index, _ in enumerate(el):
-            res.append([str(index + 1),
-                        ''.join(_.xpath('CadastralNumberDefinition/text()')),
-                        ''.join(_.xpath('Formula/text()')),
-                        ])
+        try:
+            for index, _ in enumerate(el):
+                res.append([str(index + 1),
+                            ''.join(_.xpath('CadastralNumberDefinition/text()')),
+                            ''.join(_.xpath('Formula/text()')),
+                            ])
+        finally:
+            el.clear()
         return res
 
     def to_dict(self):
@@ -150,11 +163,11 @@ class XmlSurveyDict(XMLElemenBase):
         try:
             _res = {
                 cnfg.GEOPOINTS_OPRED.name: StaticMethod.merge_array_list(cnfg.GEOPOINTS_OPRED.attr,
-                                                                    self.xml_geopoints_opred_to_list()),
+                                                                    self.__xml_geopoints_opred_to_list()),
                 cnfg.TOCHN_GEOPOINTS_PARCELS.name: StaticMethod.merge_array_list(cnfg.TOCHN_GEOPOINTS_PARCELS.attr,
-                                                                            self.xml_toch_geopoints_parcel_to_list()),
+                                                                            self.__xml_toch_geopoints_parcel_to_list()),
                 cnfg.TOCHN_AREA_PARCELS.name: StaticMethod.merge_array_list(cnfg.TOCHN_AREA_PARCELS.attr,
-                                                                       self.xml_toch_area_parcel_to_list())
+                                                                       self.__xml_toch_area_parcel_to_list())
             }
         except Exception as e:
             logger.error(f"""Ошибка в формировании  словаря для средств измерений {e}""")
@@ -198,28 +211,37 @@ class XmlInputDataDict(XMLElemenBase):
     def xml_geodesic_bases_to_list(self):
         el = self.node.xpath(self.pathGeodesicBses)
         res = []
-        for index, _ in enumerate(el):
-            _tmp = f"{''.join(_.xpath('PName/text()'))} {''.join(_.xpath('PKind/text()'))}"
-            res.append([str(index + 1), _tmp, ''.join(_.xpath('PKlass/text()')),
-                        ''.join(_.xpath('OrdX/text()')),
-                        ''.join(_.xpath('OrdY/text()'))])
+        try:
+            for index, _ in enumerate(el):
+                _tmp = f"{''.join(_.xpath('PName/text()'))} {''.join(_.xpath('PKind/text()'))}"
+                res.append([str(index + 1), _tmp, ''.join(_.xpath('PKlass/text()')),
+                            ''.join(_.xpath('OrdX/text()')),
+                            ''.join(_.xpath('OrdY/text()'))])
+        finally:
+            el.clear()
         return res
 
     def xml_means_surveys_to_list(self):
         el = self.node.xpath(self.pathMeansSurveys)
         res = []
-        for index, _ in enumerate(el):
-            res.append([str(index + 1), ''.join(_.xpath('Name/text()')),
-                        ' '.join(_.xpath('Registration/child::*/text()')),
-                        ''.join(_.xpath('CertificateVerification/text()'))])
+        try:
+            for index, _ in enumerate(el):
+                res.append([str(index + 1), ''.join(_.xpath('Name/text()')),
+                            ' '.join(_.xpath('Registration/child::*/text()')),
+                            ''.join(_.xpath('CertificateVerification/text()'))])
+        finally:
+            el.clear()
         return res
 
     def xml_objects_realtys_to_list(self):
-        el= self.node.xpath(self.pathObjectsRealty)
-        res= list()
-        for index, _ in enumerate(el):
-            res.append([str(index + 1),''.join(_.xpath('CadastralNumberParcel/text()')), ', '.join(_.xpath('InnerCadastralNumbers/child::*/text()'))])
-        logging.info(f"""Сведения о наличии объектов недвижимости { res }""")
+        el = self.node.xpath(self.pathObjectsRealty)
+        res = list()
+        try:
+            for index, _ in enumerate(el):
+                res.append([str(index + 1),''.join(_.xpath('CadastralNumberParcel/text()')), ', '.join(_.xpath('InnerCadastralNumbers/child::*/text()'))])
+            logging.info(f"""Сведения о наличии объектов недвижимости { res }""")
+        finally:
+            el.clear()
         return res
 
     def to_dict(self):

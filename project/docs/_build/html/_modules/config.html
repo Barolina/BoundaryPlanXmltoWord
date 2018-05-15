@@ -79,7 +79,7 @@
             
               <p class="caption"><span class="caption-text">Contents:</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../modules.html">new_project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modules.html">project</a></li>
 </ul>
 
             
@@ -144,21 +144,23 @@
             
   <h1>Source code for config</h1><div class="highlight"><pre>
 <span></span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Набор основных  словарей для render words - документа</span>
-<span class="sd">    Струкура, при описании  всех  объектов, следующая</span>
+<span class="sd">Данный модуль содержит надор основных словарей, используемых при генерации и рендеринге word- шаблоны</span>
 
-<span class="sd">    name_object = type(&#39;name_object&#39;, (), {  #name_object - наименование объекта для рендеринга \n\r</span>
-<span class="sd">        &#39;name&#39;: наименование объекта в word-шаблоне (Н - необязательно)\n\r</span>
-<span class="sd">        &#39;attr&#39;: список  атрибутов  используемых в word-шаблоне по name  ( к пр. список наименований колонок ) \r\n</span>
-<span class="sd">    }</span>
+<span class="sd">    :param attr: список  атрибутов используемых для генерации таблицы; \n\r</span>
+<span class="sd">    :param name: наименование элемента в шаблоне (н - необязательный);\n\r\</span>
+<span class="sd">    :param dict: список справочников, данного элемента, используемых для преобразования значений (key; value);\n\r</span>
+<span class="sd">    # :param res_name: наименование результирующегог файла, так формирвание печатного   вида  мп имеет некий попрядок элемнтов,</span>
+<span class="sd">    #         а при рендеринге xml  порядок элементов иной, необходимо задать порядковое значение результирующего файла;\n\r</span>
+<span class="sd">    :param fields:  список остальных элементов используемых в шаблоне</span>
 <span class="sd">&quot;&quot;&quot;</span>
 
-<span class="c1"># ======================================================================================================================</span>
+<span class="c1"># =====================template title.docx==============================================================================</span>
 
 <span class="n">TITLE</span> <span class="o">=</span> <span class="nb">type</span><span class="p">(</span><span class="s1">&#39;TITLE&#39;</span><span class="p">,</span> <span class="p">(),</span> <span class="p">{</span>
-    <span class="s1">&#39;attr&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;REASON&#39;</span><span class="p">,</span> <span class="s1">&#39;PURPOSE&#39;</span><span class="p">,</span> <span class="s1">&#39;CLIENT&#39;</span><span class="p">,</span> <span class="s1">&#39;FIO&#39;</span><span class="p">,</span> <span class="s1">&#39;NCERTIFICATE&#39;</span><span class="p">,</span> <span class="s1">&#39;TELEPHONE&#39;</span><span class="p">,</span> <span class="s1">&#39;ADDRESS&#39;</span><span class="p">,</span> <span class="s1">&#39;EMAIL&#39;</span><span class="p">,</span> <span class="s1">&#39;ORGANIZATION&#39;</span><span class="p">,</span> <span class="s1">&#39;DATA&#39;</span><span class="p">]</span>
+    <span class="s1">&#39;attr&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;REASON&#39;</span><span class="p">,</span> <span class="s1">&#39;PURPOSE&#39;</span><span class="p">,</span> <span class="s1">&#39;CLIENT&#39;</span><span class="p">,</span> <span class="s1">&#39;FIO&#39;</span><span class="p">,</span> <span class="s1">&#39;NCERTIFICATE&#39;</span><span class="p">,</span> <span class="s1">&#39;TELEPHONE&#39;</span><span class="p">,</span> <span class="s1">&#39;ADDRESS&#39;</span><span class="p">,</span> <span class="s1">&#39;EMAIL&#39;</span><span class="p">,</span> <span class="s1">&#39;ORGANIZATION&#39;</span><span class="p">,</span> <span class="s1">&#39;DATA&#39;</span><span class="p">],</span>
 <span class="p">})</span>
 <span class="sd">&quot;&quot;&quot;      </span>
+<span class="sd">TEMPLATE: title.docx \n\r</span>
 <span class="sd">Описание ключей заполнения титульного листа   &lt;br&gt;</span>
 <span class="sd">&quot;&quot;&quot;</span>
 
@@ -174,7 +176,7 @@
     <span class="s1">&#39;attr&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">,</span> <span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="s1">&#39;klass&#39;</span><span class="p">,</span> <span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">]</span>
 <span class="p">})</span>
 <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">INPUT_DATA:</span>
+<span class="sd">TEMPLATE: inputdata.docx \n\r</span>
 <span class="sd">Сведения о геодезической основе</span>
 <span class="sd">&quot;&quot;&quot;</span>
 
@@ -187,7 +189,7 @@
     <span class="s1">&#39;res&#39;</span><span class="p">:</span> <span class="s1">&#39;2.&#39;</span>
 <span class="p">})</span>
 <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">INPUT_DATA:</span>
+<span class="sd">TEMPLATE: inputdata.docx\n\r</span>
 <span class="sd">Реквизиты (копии) использованных документов и документов, на основании</span>
 <span class="sd">&quot;&quot;&quot;</span>
 
@@ -196,7 +198,7 @@
     <span class="s1">&#39;attr&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">,</span> <span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="s1">&#39;registration&#39;</span><span class="p">,</span> <span class="s1">&#39;certificateverification&#39;</span><span class="p">]</span>
 <span class="p">})</span>
 <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">INPUT_DATA:</span>
+<span class="sd">TEMPLATE: inputdata.docx\n\r</span>
 <span class="sd">Сведения о средствах измерений</span>
 <span class="sd">&quot;&quot;&quot;</span>
 
@@ -205,7 +207,7 @@
     <span class="s1">&#39;attr&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">,</span> <span class="s1">&#39;cadastralnumber_parcel&#39;</span><span class="p">,</span> <span class="s1">&#39;cadastralnumbers&#39;</span><span class="p">]</span>
 <span class="p">})</span>
 <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">INPUT_DATA:</span>
+<span class="sd">TEMPLATE: inputdata.docx\n\r</span>
 <span class="sd">Сведения о наличии зданий, сооружений, объектов незавершенного строительства на исходных земельных участках</span>
 <span class="sd">&quot;&quot;&quot;</span>
 
@@ -219,7 +221,7 @@
     <span class="p">}</span>
 <span class="p">})</span>
 <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">Survey:</span>
+<span class="sd">TEMPLATE: survey.docx\n\r</span>
 <span class="sd">Метод определения координат характерных точек границ земельных участков и их частей</span>
 <span class="sd">&quot;&quot;&quot;</span>
 
@@ -228,7 +230,7 @@
     <span class="s1">&#39;attr&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">,</span> <span class="s1">&#39;cadastralnumber&#39;</span><span class="p">,</span> <span class="s1">&#39;formula&#39;</span><span class="p">],</span>
 <span class="p">})</span>
 <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">Survey:</span>
+<span class="sd">TEMPLATE: survey.docx\n\r</span>
 <span class="sd">Точность положения характерных точек границ земельных участков</span>
 <span class="sd">&quot;&quot;&quot;</span>
 
@@ -237,7 +239,7 @@
     <span class="s1">&#39;attr&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">,</span> <span class="s1">&#39;cadastralnumber&#39;</span><span class="p">,</span> <span class="s1">&#39;area&#39;</span><span class="p">,</span> <span class="s1">&#39;formula&#39;</span><span class="p">]</span>
 <span class="p">})</span>
 <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">Survey</span>
+<span class="sd">TEMPLATE: survey.docx\n\r</span>
 <span class="sd">Точность определения площади земельных участков</span>
 <span class="sd">&quot;&quot;&quot;</span>
 
@@ -294,8 +296,7 @@
         <span class="s1">&#39;categories&#39;</span><span class="p">:</span> <span class="s1">&#39;dCategories_v01.xsd&#39;</span><span class="p">,</span>
         <span class="s1">&#39;utilization&#39;</span><span class="p">:</span> <span class="s1">&#39;dUtilizations_v01.xsd&#39;</span><span class="p">,</span>
         <span class="s1">&#39;landuse&#39;</span><span class="p">:</span> <span class="s1">&#39;dAllowedUse_v01.xsd&#39;</span>
-    <span class="p">},</span>
-    <span class="s1">&#39;res&#39;</span><span class="p">:</span> <span class="s1">&#39;3.&#39;</span>
+    <span class="p">}</span>
 <span class="p">})</span>
 <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">Описание общих характеристик участка</span>
@@ -368,7 +369,6 @@
 <span class="n">PROVIDING</span> <span class="o">=</span> <span class="nb">type</span><span class="p">(</span><span class="s1">&#39;PROVIDING&#39;</span><span class="p">,</span> <span class="p">(),</span> <span class="p">{</span>
     <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;PROVIDINGCADASTRAL&#39;</span><span class="p">,</span> <span class="c1"># наименование  атрибута в шаблоне</span>
     <span class="s1">&#39;attr&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">,</span> <span class="s1">&#39;cadastralnumber&#39;</span><span class="p">,</span> <span class="s1">&#39;note&#39;</span><span class="p">],</span> <span class="c1"># описание  атрибутов таблицы</span>
-    <span class="s1">&#39;res&#39;</span><span class="p">:</span> <span class="s1">&#39;5.&#39;</span><span class="p">,</span>
 <span class="p">})</span>
 <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">Сведения о земельных участках, посредством которых обеспечивается доступ</span>
@@ -390,7 +390,6 @@
         <span class="s1">&#39;utilization&#39;</span><span class="p">:</span> <span class="s1">&#39;dUtilizations_v01.xsd&#39;</span><span class="p">,</span>
         <span class="s1">&#39;landuse&#39;</span><span class="p">:</span> <span class="s1">&#39;dAllowedUse_v01.xsd&#39;</span>
     <span class="p">},</span>
-    <span class="s1">&#39;res&#39;</span><span class="p">:</span> <span class="s1">&#39;3.&#39;</span>
 <span class="p">})</span>
 <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd"> Описание  словаря  описывающий  измеенный  участок</span>
@@ -407,8 +406,8 @@
 
 <span class="c1"># ======================================================================================================================</span>
 
+
 <span class="n">PATH_XSD</span> <span class="o">=</span> <span class="s1">&#39;xsd&#39;</span>
-<span class="n">PATH_RESULT</span> <span class="o">=</span> <span class="s1">&#39;res&#39;</span>
 </pre></div>
 
            </div>

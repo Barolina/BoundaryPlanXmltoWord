@@ -3,7 +3,7 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to test_main's documentation!
+Описание приложения MP_to_Word (печать межевого плана в Word)!
 =====================================
 
 .. toctree::
