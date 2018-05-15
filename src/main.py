@@ -1,6 +1,7 @@
 """
     Parsing xml to WORD
 """
+import argparse
 import shutil
 import tempfile
 from builtins import enumerate
@@ -181,10 +182,20 @@ if __name__ == '__main__':
         поехали 
     """
     logger.info('START PARSING')
-    try:
-        with closing(MpXMlToWORd()) as generat:
-            generat.run('../TEST/3/3.xml', '../TEST/3/3.docx')
-    except Exception as e:
-        logger.error(f"""Error parsing file {e}""")
+    parser = argparse.ArgumentParser()
+
+    parser.add_argument('-i', '--input', help='Путь к xml-файлу', type=str)
+    parser.add_argument('-o', '--output', help='Файл для получения реультата', type=str)
+    args = parser.parse_args()
+    if not args.input:
+        parser.print_help()
     else:
-        logger.info('The file parsing done! ')
+        xml_file = os.path.normpath(args.input)
+        res_file = os.path.normpath(args.output)
+        try:
+            with closing(MpXMlToWORd()) as generat:
+                generat.run(xml_file, res_file)
+        except Exception as e:
+            logger.error(f"""Error parsing file {xml_file}  -> {e}""")
+        else:
+            logger.info(f"""The file path = {xml_file} -> parsing done! """)
