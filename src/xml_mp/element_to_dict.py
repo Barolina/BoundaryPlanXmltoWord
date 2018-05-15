@@ -260,6 +260,13 @@ class XmlInputDataDict(XMLElemenBase):
 
 
 class XmlParcel(XMLElemenBase):
+
+    def xml_cadnum_to_text(self):
+        _ = self.node.xpath('@Definition | @CadastralNumber | @NumberRecord')
+        if _:
+            return _[0]
+        return ''
+
     """
         вспомогательный класс для  обработки  общих узлов участка
         root  in [NewParcel, SubParcels, ExistParcel, ChangeParcel ... все все остальные узлы с похожей структурой]
@@ -283,7 +290,7 @@ class XmlParcel(XMLElemenBase):
         res = dict()
         xml_ordinate = self.node.xpath('Contours | EntitySpatial')
         if xml_ordinate is not None and len(xml_ordinate) > 0:
-            full_ord = XmlFullOrdinate(xml_ordinate[0])
+            full_ord = XmlFullOrdinate(xml_ordinate[0], self.xml_cadnum_to_text())
 
             res = {cnfg.ENTITY_SPATIAL.name: StaticMethod.merge_array_list(cnfg.ENTITY_SPATIAL.attr,
                                                                               full_ord.full_ordinate()),
@@ -391,9 +398,8 @@ class XmlNewParcel(XmlParcel):
         #     _xml_area = node[0].xpath("child::*/Area")
         if node:
             for index, _ in enumerate(node,1):
-                _xml_area = _.xpath('Area')
-                if _xml_area:
-                    _area += f"""({index}) {self.__full_area(_xml_area[0])} """
+                # _xml_area = _.xpath('Area')
+                _area += f"""({index}) {self.__full_area(_)} """
         return _area
 
     def __xml_general_info_to_dict(self):
@@ -425,20 +431,15 @@ class XmlNewParcel(XmlParcel):
         dict_address['min_area'] = ''.join(self.node.xpath('MinArea/Area/text()'))
         dict_address['max_area'] = ''.join(self.node.xpath('MaxArea/Area/text()'))
         dict_address['note'] = ''.join(self.node.xpath('Note/text()'))
-        dict_address['prevcadastralnumber'] = self.__xml_object_realty_inner_cadastral_number_to_text()
+        dict_address['prevcadastralnumber'] = self.xml_object_realty_inner_cadastral_number_to_text()
         return dict_address
 
-    def __xml_object_realty_inner_cadastral_number_to_text(self):
+    def xml_object_realty_inner_cadastral_number_to_text(self):
         return ', '.join(self.node.xpath('ObjectRealty/InnerCadastralNumbers/child::*/text()'))
 
-    def __xml_cadnum_to_text(self):
-        _ = self.node.xpath('@Definition | @CadastralNumber | @NumberRecord')
-        if _:
-            return _[0]
-        return ''
 
     def to_dict(self):
-        res = {cnfg.PARCEL_COMMON.cadnum: self.__xml_cadnum_to_text(),
+        res = {cnfg.PARCEL_COMMON.cadnum: self.xml_cadnum_to_text(),
                cnfg.RELATEDPARCELS.name: StaticMethod.merge_array_list(cnfg.RELATEDPARCELS.attr,
                                                                  self.xml_related_parcel_to_list()),
               }
@@ -493,7 +494,7 @@ class XmlExistParcel(XmlNewParcel):
     def __init__(self, node):
         super(XmlExistParcel,self).__init__(node)
 
-    def __xml_cadnum_to_text(self):
+    def xml_cadnum_to_text(self):
         number_record = ''.join(self.node.xpath('@NumberRecord'))
         str_number_record = ''
         if number_record:
@@ -518,9 +519,9 @@ class XmlExistParcel(XmlNewParcel):
     def __xml_all_border_to_dict(self):
         allborder = self.node.xpath('AllBorder')
         res = dict()
-        if allborder and len(allborder) > 0 :
+        if allborder and len(allborder) > 0:
             try:
-                xmlfull = XmlFullOrdinate(allborder[0].xpath('Contours | EntitySpatial')[0])
+                xmlfull = XmlFullOrdinate(allborder[0].xpath('Contours | EntitySpatial')[0], self.xml_cadnum_to_text())
                 res = {cnfg.ENTITY_SPATIAL_EXIST.name: StaticMethod.merge_array_list(cnfg.ENTITY_SPATIAL_EXIST.attr,
                                                                                   xmlfull.full_ordinate()),
                        cnfg.BORDERS.name: StaticMethod.merge_array_list(cnfg.BORDERS.attr,
@@ -551,7 +552,7 @@ class XmlExistParcel(XmlNewParcel):
         res = dict()
         xml_ordinate = self.node.xpath('Contours | EntitySpatial')
         if xml_ordinate is not None and len(xml_ordinate) > 0:
-            full_ord = XmlFullOrdinate(xml_ordinate[0])
+            full_ord = XmlFullOrdinate(xml_ordinate[0], self.xml_cadnum_to_text())
 
             res = {cnfg.ENTITY_SPATIAL_EXIST.name: StaticMethod.merge_array_list(cnfg.ENTITY_SPATIAL_EXIST.attr,
                                                                               full_ord.full_ordinate()),
@@ -600,14 +601,14 @@ class XmlExistParcel(XmlNewParcel):
         max_area = self.node.xpath('MaxArea')
         if max_area:
             res_dict[cnfg.PARCEL_COMMON.max_area]= self.__full_area(max_area[0])
-        res_dict[cnfg.PARCEL_COMMON.prevcadastralnumber] = self.__xml_object_realty_inner_cadastral_number_to_text()
+        res_dict[cnfg.PARCEL_COMMON.prevcadastralnumber] = self.xml_object_realty_inner_cadastral_number_to_text()
         note= self.node.xpath('Note/text()')
         if note:
             res_dict[cnfg.PARCEL_COMMON.note]= note[0]
         return  res_dict
 
     def to_dict(self):
-        res = {cnfg.PARCEL_COMMON.cadnum: self.__xml_cadnum_to_text()}
+        res = {cnfg.PARCEL_COMMON.cadnum: self.xml_cadnum_to_text()}
         res.update(self.__xml_exist___general_info())
         res.update(self.__xml_ordinate_borders_to_dict())
         res.update(self.xml_subparcels_to_dict())
@@ -675,10 +676,10 @@ class XmlChangeParcel(XmlNewParcel):
         return res
 
     def to_dict(self):
-        res = {cnfg.CHANGEPARCELS.cadnum: self.__xml_cadnum_to_text(),
+        res = {cnfg.CHANGEPARCELS.cadnum: self.xml_cadnum_to_text(),
                cnfg.CHANGEPARCELS.deleteEntyParcel: self.__xml_delete_entry_parcels(),
                cnfg.CHANGEPARCELS.transformEntryParcel: self._xml_transform_entry_parcels(),
-               cnfg.CHANGEPARCELS.innerCadNum: self.__xml_object_realty_inner_cadastral_number_to_text(),
+               cnfg.CHANGEPARCELS.innerCadNum: self.xml_object_realty_inner_cadastral_number_to_text(),
                cnfg.CHANGEPARCELS.note: ''.join(self.node.xpath('Note/text()')),
               }
         res.update(self.xml_subparcels_to_dict())
@@ -694,3 +695,67 @@ class XmlConclusion(XMLElemenBase):
            return {
                cnfg.CONCLUSION['name']: self.node.text
            }
+
+
+BINDER_FILE = {
+    'GeneralCadastralWorks': {
+        'tpl': 'title.docx',
+        'pos_doc': '1.',
+        'class': XmlTitleDict,
+        'clear': True,
+    },
+    'InputData': {
+        'tpl': "inputdata.docx",
+        'pos_doc': '2.',
+        'class': XmlInputDataDict,
+        'clear': True,
+    },
+    'Survey': {
+        'tpl': "survey.docx",
+        'pos_doc': '3.',
+        'class': XmlSurveyDict,
+        'clear': True,
+    },
+    'NewParcel': {
+        'tpl': "newparcel.docx",
+        'pos_doc': '4.',
+        'class': XmlNewParcel,
+        'clear': False,
+    },
+    'ExistParcel': {
+        'tpl': "existparcel.docx",
+        'pos_doc': '4.',
+        'class': XmlExistParcel,
+        'clear': False,
+    },
+    'SubParcels': {
+        'tpl': "changeparcel.docx",
+        'pos_doc': '6.',
+        'class': XmlSubParcels,
+        'clear': False,
+    },
+    'ChangeParcel': {
+        'tpl': "changeparcel.docx",
+        'pos_doc': '5.',
+        'class': XmlChangeParcel,
+        'clear': False,
+    },
+    'SpecifyRelatedParcel': {
+        'tpl': 'existparcel.docx',
+        'pos_doc': '6.',
+        'class': XmlExistParcel,
+        'clear': False,
+    },
+    'FormParcels': {
+        'tpl': 'providing.docx',
+        'pos_doc': '7.',
+        'class': XmlNewParcelProviding,
+        'clear': True,
+    },
+    'Conclusion': {
+        'tpl': 'conclusion.docx',
+        'pos_doc': '8.',
+        'class': XmlConclusion,
+        'clear': True,
+    }
+}

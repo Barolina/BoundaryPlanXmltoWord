@@ -8,6 +8,7 @@
 """
 
 # =====================template title.docx==============================================================================
+from collections import namedtuple
 
 TITLE = type('TITLE', (), {
     'attr': ['REASON', 'PURPOSE', 'CLIENT', 'FIO', 'NCERTIFICATE', 'TELEPHONE', 'ADDRESS', 'EMAIL', 'ORGANIZATION', 'DATA'],
@@ -229,11 +230,11 @@ SUBPARCEL_ROWS = type('SUBPARCEL_ROWS', (), {
 """
 
 # ======================================================================================================================
-
-PROVIDING = type('PROVIDING', (), {
+__PROVIDING = {
     'name': 'PROVIDINGCADASTRAL', # наименование  атрибута в шаблоне
     'attr': ['id', 'cadastralnumber', 'note'], # описание  атрибутов таблицы
-})
+}
+PROVIDING = namedtuple('PROVIDING', __PROVIDING.keys())(**__PROVIDING)
 """
 Сведения о земельных участках, посредством которых обеспечивается доступ
 :param наименование  данного атприбута в шаблоне 
@@ -270,49 +271,22 @@ CONCLUSION = {
 
 # ======================================================================================================================
 
-
+TPL = ['']
 PATH_XSD = 'xsd'
 
-TPL = ['']
-BINDER_FILE = {
-    'GeneralCadastralWorks': {
-        'tpl' : 'title.docx',
-        'pos_dox': '1.'
-    },
-    'InputData': {
-        'tpl': "inputdata.docx",
-        'pos_doc': '2.'
-    },
-    'Survey': {
-        'tpl': "survey.docx",
-        'pos_doc': '3.'
-    },
-    'NewParcel': {
-        'tpl': "newparcel.docx",
-        'pos_doc': '4.',
-    },
-    'ExistParcel': {
-        'tpl': "existparcel.docx",
-        'pos_doc': '4.'
-    },
-    'SubParcels': {
-        'tpl': "changeparcel.docx",
-        'pos_doc': '6.'
-    },
-    'ChangeParcel': {
-        'tpl': "changeparcel.docx",
-        'pos_doc': '5.'
-    },
-    'SpecifyRelatedParcel': {
-        'tpl': 'existparcel.docx',
-        'pos_doc': '6.'
-    },
-    'FormParcels': {
-        'tpl': 'providing.docx',
-        'pos_doc': '7.',
-    },
-    'Conclusion': {
-        'tpl': 'conclusion.docx',
-        'pos_doc': '8.'
-    }
-}
+LIST_BLOCK_NODE = (
+    'GeneralCadastralWorks',
+    'InputData',
+    'Survey',
+    'NewParcel',
+    'ExistParcel',
+    'SubParcels',
+    'ChangeParcel',
+    'SpecifyRelatedParcel',
+    'FormParcels',
+    'Conclusion'
+)
+"""
+Список основных блоко xml для преобразования в word-tpl,
+наименования соответсвуют основым узлам MP-xml
+"""

@@ -576,14 +576,14 @@
     <span class="k">def</span> <span class="nf">__xml_object_realty_inner_cadastral_number_to_text</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="s1">&#39;, &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">node</span><span class="o">.</span><span class="n">xpath</span><span class="p">(</span><span class="s1">&#39;ObjectRealty/InnerCadastralNumbers/child::*/text()&#39;</span><span class="p">))</span>
 
-    <span class="k">def</span> <span class="nf">__xml_cadnum_to_text</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">xml_cadnum_to_text</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="n">_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">node</span><span class="o">.</span><span class="n">xpath</span><span class="p">(</span><span class="s1">&#39;@Definition | @CadastralNumber | @NumberRecord&#39;</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">_</span><span class="p">:</span>
             <span class="k">return</span> <span class="n">_</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
         <span class="k">return</span> <span class="s1">&#39;&#39;</span>
 
 <div class="viewcode-block" id="XmlNewParcel.to_dict"><a class="viewcode-back" href="../../xml_mp.html#xml_mp.element_to_dict.XmlNewParcel.to_dict">[docs]</a>    <span class="k">def</span> <span class="nf">to_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="n">res</span> <span class="o">=</span> <span class="p">{</span><span class="n">cnfg</span><span class="o">.</span><span class="n">PARCEL_COMMON</span><span class="o">.</span><span class="n">cadnum</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">__xml_cadnum_to_text</span><span class="p">(),</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="p">{</span><span class="n">cnfg</span><span class="o">.</span><span class="n">PARCEL_COMMON</span><span class="o">.</span><span class="n">cadnum</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">xml_cadnum_to_text</span><span class="p">(),</span>
                <span class="n">cnfg</span><span class="o">.</span><span class="n">RELATEDPARCELS</span><span class="o">.</span><span class="n">name</span><span class="p">:</span> <span class="n">StaticMethod</span><span class="o">.</span><span class="n">merge_array_list</span><span class="p">(</span><span class="n">cnfg</span><span class="o">.</span><span class="n">RELATEDPARCELS</span><span class="o">.</span><span class="n">attr</span><span class="p">,</span>
                                                                  <span class="bp">self</span><span class="o">.</span><span class="n">xml_related_parcel_to_list</span><span class="p">()),</span>
               <span class="p">}</span>
@@ -638,7 +638,7 @@
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">(</span><span class="n">XmlExistParcel</span><span class="p">,</span><span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">node</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">__xml_cadnum_to_text</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">xml_cadnum_to_text</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="n">number_record</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">node</span><span class="o">.</span><span class="n">xpath</span><span class="p">(</span><span class="s1">&#39;@NumberRecord&#39;</span><span class="p">))</span>
         <span class="n">str_number_record</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
         <span class="k">if</span> <span class="n">number_record</span><span class="p">:</span>
@@ -752,7 +752,7 @@
         <span class="k">return</span>  <span class="n">res_dict</span>
 
 <div class="viewcode-block" id="XmlExistParcel.to_dict"><a class="viewcode-back" href="../../xml_mp.html#xml_mp.element_to_dict.XmlExistParcel.to_dict">[docs]</a>    <span class="k">def</span> <span class="nf">to_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="n">res</span> <span class="o">=</span> <span class="p">{</span><span class="n">cnfg</span><span class="o">.</span><span class="n">PARCEL_COMMON</span><span class="o">.</span><span class="n">cadnum</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">__xml_cadnum_to_text</span><span class="p">()}</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="p">{</span><span class="n">cnfg</span><span class="o">.</span><span class="n">PARCEL_COMMON</span><span class="o">.</span><span class="n">cadnum</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">xml_cadnum_to_text</span><span class="p">()}</span>
         <span class="n">res</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__xml_exist___general_info</span><span class="p">())</span>
         <span class="n">res</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__xml_ordinate_borders_to_dict</span><span class="p">())</span>
         <span class="n">res</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">xml_subparcels_to_dict</span><span class="p">())</span>
@@ -820,7 +820,7 @@
         <span class="k">return</span> <span class="n">res</span>
 
 <div class="viewcode-block" id="XmlChangeParcel.to_dict"><a class="viewcode-back" href="../../xml_mp.html#xml_mp.element_to_dict.XmlChangeParcel.to_dict">[docs]</a>    <span class="k">def</span> <span class="nf">to_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="n">res</span> <span class="o">=</span> <span class="p">{</span><span class="n">cnfg</span><span class="o">.</span><span class="n">CHANGEPARCELS</span><span class="o">.</span><span class="n">cadnum</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">__xml_cadnum_to_text</span><span class="p">(),</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="p">{</span><span class="n">cnfg</span><span class="o">.</span><span class="n">CHANGEPARCELS</span><span class="o">.</span><span class="n">cadnum</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">xml_cadnum_to_text</span><span class="p">(),</span>
                <span class="n">cnfg</span><span class="o">.</span><span class="n">CHANGEPARCELS</span><span class="o">.</span><span class="n">deleteEntyParcel</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">__xml_delete_entry_parcels</span><span class="p">(),</span>
                <span class="n">cnfg</span><span class="o">.</span><span class="n">CHANGEPARCELS</span><span class="o">.</span><span class="n">transformEntryParcel</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_xml_transform_entry_parcels</span><span class="p">(),</span>
                <span class="n">cnfg</span><span class="o">.</span><span class="n">CHANGEPARCELS</span><span class="o">.</span><span class="n">innerCadNum</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">__xml_object_realty_inner_cadastral_number_to_text</span><span class="p">(),</span>

@@ -57,13 +57,22 @@ class MpXMlToWORd:
             else:
                 break
 
-    def __get_path_file(self, tag, pos):
+    def run_render_tpl(self, elem, xml_class_name, is_clean, pos_node):
         """
-        :param tag: наименование node
-        :param pos:  позиция node в xml
-        :return: string : формирование пути
+        Запуск парсинга определенного блока xml
+        :param elem: node
+        :param xml_class_name: class -> retun dict
+        :param is_clean: очищать  узел или там еще что то нужно
+        :param pos_node: просто порядковый номер позици узла
+        :return: docx
         """
-        return self.CNST_PATH_TPL+cnfg.BINDER_FILE[tag]['pos_doc']+str(pos)
+        if is_clean:
+            self.fast_iter_element(elem, self.render_tpl, args=(xml_class_name,
+                                                                self.CNST_PATH_TPL + BINDER_FILE[elem.tag]['tpl'],
+                                                                BINDER_FILE[elem.tag]['pos_doc'] + str(pos_node)))
+        else:
+            self.render_tpl(elem, xml_class_name, self.CNST_PATH_TPL + BINDER_FILE[elem.tag]['tpl'],
+                                                                BINDER_FILE[elem.tag]['pos_doc'] + str(pos_node))
 
     def __context_parser(self, context):
         """
@@ -72,46 +81,17 @@ class MpXMlToWORd:
         :return:None
         """
         i = 0
-        for event, elem in context:
-            i += 1
-            if elem.tag == cnfg.BINDER_FILE[elem.tag] and event == 'end':
-                self.fast_iter_element(elem, self.render_tpl,
-                                       args=(XmlTitleDict, 'template/common/title.docx','1.' + str(i)))
-            if elem.tag == 'InputData' and event == 'end':
-                self.fast_iter_element(elem, self.render_tpl,
-                                       args=(XmlInputDataDict, 'template/common/inputdata.docx', '2.' + str(i)))
-            if elem.tag == 'Survey' and event == 'end':
-                self.fast_iter_element(elem, self.render_tpl,
-                                       args=(XmlSurveyDict, 'template/common/survey.docx','3.' + str(i)))
-            if elem.tag == 'NewParcel' and event == 'end':
-                # self.fast_iter_element(elem, self.render_tpl,
-                                       # args=(XmlNewParcel, 'template/common/newparcel.docx', '4.' + str(i)))
-                self.render_tpl(elem, XmlNewParcel, 'template/common/newparcel.docx', '4.' + str(i))
-            if elem.tag == 'ExistParcel' and event == 'end':
-                # self.fast_iter_element(elem, self.render_tpl,
-                                       # args=(XmlExistParcel, 'template/common/existparcel.docx', '4.' + str(i)))
-                self.render_tpl(elem, XmlExistParcel, 'template/common/existparcel.docx', '4.' + str(i))
-
-            if elem.tag == 'SubParcels' and event == 'end' and elem.getparent().tag == 'Package':
-                # self.fast_iter_element(elem, self.render_tpl,
-                                       # args=(XmlSubParcels, 'template/common/subparcels.docx', '6.' + str(i)))
-                self.render_tpl(elem, XmlSubParcels, 'template/common/subparcels.docx', '6.' + str(i))
-
-            if elem.tag == 'ChangeParcel' and event == 'end':
-                # self.fast_iter_element(elem, self.render_tpl,
-                #                        args=(XmlChangeParcel, 'template/common/changeparcel.docx', '5.' + str(i)))
-                self.render_tpl(elem, XmlChangeParcel, 'template/common/changeparcel.docx', '5.' + str(i))
-            if elem.tag == 'SpecifyRelatedParcel' and event == 'end':
-                # self.fast_iter_element(elem, self.render_tpl,
-                                       # args=(XmlExistParcel, 'template/common/existparcel.docx','6.' + str(i)))
-                self.render_tpl(elem, XmlExistParcel, 'template/common/existparcel.docx', '6.' + str(i))
-            if elem.tag == 'FormParcels' and event == 'end':
-                self.render_tpl(elem, XmlNewParcelProviding, 'template/common/providing.docx','7.' + str(i))
-
-            if elem.tag == 'Conclusion' and event == 'end':
-                self.fast_iter_element(elem, self.render_tpl,
-                                       args=(XmlConclusion, 'template/common/conclusion.docx','8.' + str(i)))
-        del context
+        try:
+            for event, elem in context:
+                i += 1
+                if elem.tag in cnfg.LIST_BLOCK_NODE and event == 'end':
+                    if elem.tag == 'SubParcels' and event == 'end' and elem.getparent().tag != 'Package':
+                        continue
+                    self.run_render_tpl(elem, BINDER_FILE[elem.tag]['class'], BINDER_FILE[elem.tag]['clear'], i)
+        except Exception as e:
+            logger.error(f"""{e} ->{elem} """)
+        finally:
+            del context
 
     def __xml_block_to_docx(self, path):
         """
@@ -203,7 +183,7 @@ if __name__ == '__main__':
     logger.info('START PARSING')
     try:
         with closing(MpXMlToWORd()) as generat:
-            generat.run('../TEST/1/1.xml', '../TEST/1/1.docx')
+            generat.run('../TEST/3/3.xml', '../TEST/3/3.docx')
     except Exception as e:
         logger.error(f"""Error parsing file {e}""")
     else:

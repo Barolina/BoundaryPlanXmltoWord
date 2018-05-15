@@ -293,13 +293,15 @@ class XmlFullOrdinate(list):
     CNST_NAME_CONTOURS = 'Contours'
     CNST_NAME_ENTITY_SPATIAL = 'EntitySpatial'
 
-    def __init__(self, node):
+    def __init__(self, node, definition):
         """
             Get full ordinate and full borders
         :param node: Contours or EntitySpatial
+        :parma definition  this CadastralNumber  or Definition ot NumberRecoed
         """
         super(XmlFullOrdinate,self).__init__()
         self.node = node
+        self.definition = definition
 
     def __del__(self):
         logging.info(f""" del {self.node}""")
@@ -316,6 +318,8 @@ class XmlFullOrdinate(list):
                     _entityspatial = _.xpath('EntitySpatial')
                     if _entityspatial:
                         _defintion = _.xpath('@Definition | @Number | @NumberRecord')
+                        if not self.definition in _defintion[0]:
+                            _defintion = self.definition+'('+_defintion+')'
                         res.append(_defintion + StaticMethod.get_empty_tpl(_entityspatial[0]))
                         entity = EntitySpatial(_entityspatial[0])
                         res.extend(entity.xml_to_list())
@@ -380,7 +384,7 @@ class ElementSubParcel:
     def __entity_spatial(self):
         _ = self.node.xpath('Contours | EntitySpatial ')
         if _ is not None and len(_) > 0:
-            xml_full_ordinate = XmlFullOrdinate(_[0])
+            xml_full_ordinate = XmlFullOrdinate(_[0], self.__defintion())
             return xml_full_ordinate.full_ordinate()
         return None
 
