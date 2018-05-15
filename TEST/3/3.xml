@@ -37,7 +37,7 @@
 					</DocLandUse>
 				</LandUse>
 				<Contours>
-					<NewContour Definition=":ЗУ2(1)">
+					<NewContour Definition="1">
 						<Area>
 							<Area>35165.66</Area>
 							<Unit>055</Unit>

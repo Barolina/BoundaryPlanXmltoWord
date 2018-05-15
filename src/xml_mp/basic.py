@@ -319,7 +319,7 @@ class XmlFullOrdinate(list):
                     if _entityspatial:
                         _defintion = _.xpath('@Definition | @Number | @NumberRecord')
                         if not self.definition in _defintion[0]:
-                            _defintion = self.definition+'('+_defintion+')'
+                            _defintion = [self.definition+'('+str(_defintion[0])+')']
                         res.append(_defintion + StaticMethod.get_empty_tpl(_entityspatial[0]))
                         entity = EntitySpatial(_entityspatial[0])
                         res.extend(entity.xml_to_list())
@@ -350,6 +350,8 @@ class XmlFullOrdinate(list):
                     try:
                         for _ in contours:
                             _defintion = _.xpath('@Definition | @Number | @NumberRecord')
+                            if not self.definition in _defintion[0]:
+                                _defintion = [self.definition + '(' + str(_defintion[0]) + ')']
                             res.append([''.join(_defintion), '', '', '', ''])
                             _border = Border(_.xpath('EntitySpatial')[0])
                             res.extend(_border.xml_to_list())
