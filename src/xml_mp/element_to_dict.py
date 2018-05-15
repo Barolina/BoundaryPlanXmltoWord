@@ -725,7 +725,7 @@ BINDER_FILE = {
         'clear': False,
     },
     'SubParcels': {
-        'tpl': "changeparcel.docx",
+        'tpl': "subparcels.docx",
         'pos_doc': '6.',
         'class': XmlSubParcels,
         'clear': False,

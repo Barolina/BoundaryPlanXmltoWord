@@ -10,7 +10,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/src$Unnamed.coverage" NAME="Unnamed Coverage Results" MODIFIED="1526420632616" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/src$Unnamed.coverage" NAME="Unnamed Coverage Results" MODIFIED="1526421268466" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/project$Unnamed.coverage" NAME="Unnamed Coverage Results" MODIFIED="1526381156422" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="FileEditorManager">
@@ -30,8 +30,8 @@
       <file leaf-file-name="main.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="93">
-              <caret line="180" column="7" lean-forward="true" selection-start-line="180" selection-start-column="7" selection-end-line="180" selection-end-column="7" />
+            <state relative-caret-position="110">
+              <caret line="172" column="11" lean-forward="true" selection-start-line="172" selection-start-column="11" selection-end-line="172" selection-end-column="11" />
               <folding>
                 <element signature="e#32#47#0" expanded="true" />
               </folding>
@@ -42,8 +42,8 @@
       <file leaf-file-name="config.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/utils/config.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-659">
-              <caret line="234" column="2" lean-forward="true" selection-start-line="234" selection-start-column="2" selection-end-line="234" selection-end-column="2" />
+            <state relative-caret-position="200">
+              <caret line="283" column="11" lean-forward="true" selection-start-line="283" selection-start-column="11" selection-end-line="283" selection-end-column="11" />
             </state>
           </provider>
         </entry>
@@ -57,24 +57,29 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="element_to_dict.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="element_to_dict.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/xml_mp/element_to_dict.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="157">
-              <caret line="586" column="126" selection-start-line="586" selection-start-column="126" selection-end-line="586" selection-end-column="126" />
+            <state relative-caret-position="100">
+              <caret line="730" column="23" lean-forward="true" selection-start-line="730" selection-start-column="23" selection-end-line="730" selection-end-column="23" />
               <folding>
                 <element signature="e#351#3337#0" />
+                <element signature="e#9966#12680#0" />
+                <element signature="e#12730#17387#0" />
+                <element signature="e#17437#18618#0" />
+                <element signature="e#18661#24471#0" />
+                <element signature="e#24431#25747#0" />
                 <element signature="e#26951#27160#0" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="samples_mp.md" pinned="false" current-in-tab="false">
+      <file leaf-file-name="samples_mp.md" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/docs/samples_mp.md">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="4" column="41" lean-forward="true" selection-start-line="4" selection-start-column="41" selection-end-line="4" selection-end-column="41" />
+            <state relative-caret-position="102">
+              <caret line="6" column="184" selection-start-line="6" selection-start-column="184" selection-end-line="6" selection-end-column="184" />
             </state>
           </provider>
         </entry>
@@ -99,7 +104,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>xml_transformEntryParcels</find>
       <find>_getcontext</find>
       <find>__xml_objectRealty_inner_cadastral_number_to_text</find>
       <find>self.borders</find>
@@ -126,12 +130,12 @@
       <find>__xml_cadnum_to_text</find>
       <find>xml_object_realty_inner_cadastral_number_to_text</find>
       <find>XmlFullOrdinate</find>
-      <find>__xml_object_realty_inner_cadastral_number_to_text</find>
-      <find>full_area</find>
       <find>__full_contours_area</find>
+      <find>full_area</find>
+      <find>__xml_object_realty_inner_cadastral_number_to_text</find>
+      <find>__full_area</find>
     </findStrings>
     <replaceStrings>
-      <replace>__full_contours_area</replace>
       <replace>__xml_general_info_to_dict</replace>
       <replace>__xml_objectRealty_inner_cadastral_number_to_text</replace>
       <replace>__xml_cadnum_to_text</replace>
@@ -159,8 +163,9 @@
       <replace>__run_render_tpl</replace>
       <replace>xml_cadnum_to_text(</replace>
       <replace>xml_cadnum_to_text</replace>
-      <replace>xml_object_realty_inner_cadastral_number_to_text</replace>
       <replace>full_contours_area</replace>
+      <replace>xml_object_realty_inner_cadastral_number_to_text</replace>
+      <replace>full_area</replace>
     </replaceStrings>
   </component>
   <component name="IdeDocumentHistory">
@@ -192,8 +197,8 @@
         <option value="$PROJECT_DIR$/xml_mp/basic.py" />
         <option value="$PROJECT_DIR$/main.py" />
         <option value="$PROJECT_DIR$/main.py" />
-        <option value="$PROJECT_DIR$/docs/samples_mp.md" />
         <option value="$PROJECT_DIR$/xml_mp/element_to_dict.py" />
+        <option value="$PROJECT_DIR$/docs/samples_mp.md" />
       </list>
     </option>
   </component>
@@ -281,7 +286,7 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/main.py" />
-      <option name="PARAMETERS" value="-i=C:\Users\kitte_000\Documents\MP_TO_WORD\MP_to_Word.git\TEST\10\10.xml -o=C:\Users\kitte_000\Documents\MP_TO_WORD\MP_to_Word.git\TEST\res.docx" />
+      <option name="PARAMETERS" value="-i=C:\Users\kitte_000\Documents\MP_TO_WORD\MP_to_Word.git\TEST\14\14.xml -o=C:\Users\kitte_000\Documents\MP_TO_WORD\MP_to_Word.git\TEST\res.docx" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
@@ -328,7 +333,7 @@
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Python Console" order="7" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.26625386" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.26625386" />
       <window_info anchor="bottom" id="Terminal" order="7" weight="0.34055728" />
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.19062027" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
@@ -337,7 +342,7 @@
       <window_info anchor="right" id="SciView" order="3" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info active="true" anchor="bottom" id="Debug" order="3" sideWeight="0.49973017" visible="true" weight="0.2244582" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49973017" weight="0.45820433" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Coverage" order="3" side_tool="true" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -367,6 +372,21 @@
           <line>398</line>
           <option name="timeStamp" value="46" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/xml_mp/element_to_dict.py</url>
+          <line>674</line>
+          <option name="timeStamp" value="47" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/main.py</url>
+          <line>176</line>
+          <option name="timeStamp" value="48" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/main.py</url>
+          <line>175</line>
+          <option name="timeStamp" value="49" />
+        </line-breakpoint>
       </breakpoints>
       <default-breakpoints>
         <breakpoint type="python-exception">
@@ -375,7 +395,7 @@
           </properties>
         </breakpoint>
       </default-breakpoints>
-      <option name="time" value="47" />
+      <option name="time" value="50" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="PythonConfigurationType">
@@ -401,7 +421,7 @@
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string />
+        <expression-string>self.definition in _defintion[0]</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
@@ -451,6 +471,11 @@
           <caret line="258" column="19" selection-start-line="258" selection-start-column="19" selection-end-line="258" selection-end-column="19" />
           <folding>
             <element signature="e#351#3337#0" />
+            <element signature="e#9966#12680#0" />
+            <element signature="e#12730#17387#0" />
+            <element signature="e#17437#18618#0" />
+            <element signature="e#18661#24471#0" />
+            <element signature="e#24431#25747#0" />
             <element signature="e#26951#27160#0" />
           </folding>
         </state>
@@ -598,34 +623,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/utils/config.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-659">
-          <caret line="234" column="2" lean-forward="true" selection-start-line="234" selection-start-column="2" selection-end-line="234" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/docs/main.rst">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
           <caret line="7" selection-start-line="7" selection-end-line="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/docs/samples_mp.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="41" lean-forward="true" selection-start-line="4" selection-start-column="41" selection-end-line="4" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/main.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="93">
-          <caret line="180" column="7" lean-forward="true" selection-start-line="180" selection-start-column="7" selection-end-line="180" selection-end-column="7" />
-          <folding>
-            <element signature="e#32#47#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -639,14 +640,43 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="110">
+          <caret line="172" column="11" lean-forward="true" selection-start-line="172" selection-start-column="11" selection-end-line="172" selection-end-column="11" />
+          <folding>
+            <element signature="e#32#47#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utils/config.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="283" column="11" lean-forward="true" selection-start-line="283" selection-start-column="11" selection-end-line="283" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/xml_mp/element_to_dict.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="157">
-          <caret line="586" column="126" selection-start-line="586" selection-start-column="126" selection-end-line="586" selection-end-column="126" />
+        <state relative-caret-position="100">
+          <caret line="730" column="23" lean-forward="true" selection-start-line="730" selection-start-column="23" selection-end-line="730" selection-end-column="23" />
           <folding>
             <element signature="e#351#3337#0" />
+            <element signature="e#9966#12680#0" />
+            <element signature="e#12730#17387#0" />
+            <element signature="e#17437#18618#0" />
+            <element signature="e#18661#24471#0" />
+            <element signature="e#24431#25747#0" />
             <element signature="e#26951#27160#0" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/docs/samples_mp.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="184" selection-start-line="6" selection-start-column="184" selection-end-line="6" selection-end-column="184" />
         </state>
       </provider>
     </entry>
