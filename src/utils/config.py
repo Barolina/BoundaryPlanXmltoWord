@@ -4,8 +4,6 @@
     :param attr: список  атрибутов используемых для генерации таблицы; \n\r
     :param name: наименование элемента в шаблоне (н - необязательный);\n\r\
     :param dict: список справочников, данного элемента, используемых для преобразования значений (key; value);\n\r
-    # :param res_name: наименование результирующегог файла, так формирвание печатного   вида  мп имеет некий попрядок элемнтов,
-    #         а при рендеринге xml  порядок элементов иной, необходимо задать порядковое значение результирующего файла;\n\r
     :param fields:  список остальных элементов используемых в шаблоне
 """
 
@@ -13,6 +11,9 @@
 
 TITLE = type('TITLE', (), {
     'attr': ['REASON', 'PURPOSE', 'CLIENT', 'FIO', 'NCERTIFICATE', 'TELEPHONE', 'ADDRESS', 'EMAIL', 'ORGANIZATION', 'DATA'],
+    'node':'GeneralCadastralWorks',
+    'tpl': 'title.docx',
+    'position_doc': '1.',
 })
 """      
 TEMPLATE: title.docx \n\r
@@ -35,13 +36,15 @@ TEMPLATE: inputdata.docx \n\r
 Сведения о геодезической основе
 """
 
-INPUT_DATA = type('INPUT_DATAS', (), {
+INPUT_DATA = type('INPUT_DATA', (), {
     'name': 'INPUT_DATAS',
     'attr': ['id', 'name', 'note'],
     'dict': {
         'alldocuments': 'dAllDocuments_v02.xsd',
     },
-    'res': '2.'
+    'node': 'InputData',
+    'tpl': 'inputdata.docx',
+    'position_doc': '2.'
 })
 """
 TEMPLATE: inputdata.docx\n\r
@@ -65,6 +68,12 @@ OBJECTS_REALTY = type('OBJECTS_REALTY', (), {
 TEMPLATE: inputdata.docx\n\r
 Сведения о наличии зданий, сооружений, объектов незавершенного строительства на исходных земельных участках
 """
+
+SURVEY = type('SURVEY', (), {
+    'node': 'Survey',
+    'tpl': 'survey.docx',
+    'position_doc': '3.'
+})
 
 # ======================================================================================================================
 
@@ -263,3 +272,47 @@ CONCLUSION = {
 
 
 PATH_XSD = 'xsd'
+
+TPL = ['']
+BINDER_FILE = {
+    'GeneralCadastralWorks': {
+        'tpl' : 'title.docx',
+        'pos_dox': '1.'
+    },
+    'InputData': {
+        'tpl': "inputdata.docx",
+        'pos_doc': '2.'
+    },
+    'Survey': {
+        'tpl': "survey.docx",
+        'pos_doc': '3.'
+    },
+    'NewParcel': {
+        'tpl': "newparcel.docx",
+        'pos_doc': '4.',
+    },
+    'ExistParcel': {
+        'tpl': "existparcel.docx",
+        'pos_doc': '4.'
+    },
+    'SubParcels': {
+        'tpl': "changeparcel.docx",
+        'pos_doc': '6.'
+    },
+    'ChangeParcel': {
+        'tpl': "changeparcel.docx",
+        'pos_doc': '5.'
+    },
+    'SpecifyRelatedParcel': {
+        'tpl': 'existparcel.docx',
+        'pos_doc': '6.'
+    },
+    'FormParcels': {
+        'tpl': 'providing.docx',
+        'pos_doc': '7.',
+    },
+    'Conclusion': {
+        'tpl': 'conclusion.docx',
+        'pos_doc': '8.'
+    }
+}

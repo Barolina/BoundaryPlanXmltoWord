@@ -1,0 +1,807 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>xml_mp package &mdash; test_main 1.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="utils package" href="utils.html" /> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> test_main
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">src</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="main.html">main module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="utils.html">utils package</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">xml_mp package</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#submodules">Submodules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-xml_mp.basic">xml_mp.basic module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-xml_mp.element_to_dict">xml_mp.element_to_dict module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-xml_mp">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">test_main</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="modules.html">src</a> &raquo;</li>
+        
+      <li>xml_mp package</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/xml_mp.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="xml-mp-package">
+<h1>xml_mp package<a class="headerlink" href="#xml-mp-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-xml_mp.basic">
+<span id="xml-mp-basic-module"></span><h2>xml_mp.basic module<a class="headerlink" href="#module-xml_mp.basic" title="Permalink to this headline">¶</a></h2>
+<p>module:: xmlbasic
+Larisa &lt;<a class="reference external" href="mailto:solow_larisa&#37;&#52;&#48;mail&#46;ru">solow_larisa<span>&#64;</span>mail<span>&#46;</span>ru</a>&gt;</p>
+<dl class="class">
+<dt id="xml_mp.basic.Border">
+<em class="property">class </em><code class="descclassname">xml_mp.basic.</code><code class="descname">Border</code><span class="sig-paren">(</span><em>node</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/xml_mp/basic.html#Border"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xml_mp.basic.Border" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></p>
+<p>Get a list of  border the EntitySpatial</p>
+<dl class="method">
+<dt id="xml_mp.basic.Border.xml_to_list">
+<code class="descname">xml_to_list</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/xml_mp/basic.html#Border.xml_to_list"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xml_mp.basic.Border.xml_to_list" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="xml_mp.basic.ElementSubParcel">
+<em class="property">class </em><code class="descclassname">xml_mp.basic.</code><code class="descname">ElementSubParcel</code><span class="sig-paren">(</span><em>node</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/xml_mp/basic.html#ElementSubParcel"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xml_mp.basic.ElementSubParcel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>get inforamtion the dict - one SubParcel
+{</p>
+<blockquote>
+<div>‘defiition’: ‘чзу1’,
+‘entity_spatial’ : list(),
+‘type_ordinate’ : newparcel | existparcel</div></blockquote>
+<p>}</p>
+<dl class="attribute">
+<dt id="xml_mp.basic.ElementSubParcel.type_ordinate">
+<code class="descname">type_ordinate</code><a class="headerlink" href="#xml_mp.basic.ElementSubParcel.type_ordinate" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="xml_mp.basic.ElementSubParcel.xml_ext_dict">
+<code class="descname">xml_ext_dict</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/xml_mp/basic.html#ElementSubParcel.xml_ext_dict"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xml_mp.basic.ElementSubParcel.xml_ext_dict" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="xml_mp.basic.ElementSubParcel.xml_general_dict">
+<code class="descname">xml_general_dict</code><span class="sig-paren">(</span><em>position</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/xml_mp/basic.html#ElementSubParcel.xml_general_dict"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xml_mp.basic.ElementSubParcel.xml_general_dict" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="xml_mp.basic.ElementSubParcel.xml_new_dict">
+<code class="descname">xml_new_dict</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/xml_mp/basic.html#ElementSubParcel.xml_new_dict"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xml_mp.basic.ElementSubParcel.xml_new_dict" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="xml_mp.basic.EntitySpatial">
+<em class="property">class </em><code class="descclassname">xml_mp.basic.</code><code class="descname">EntitySpatial</code><span class="sig-paren">(</span><em>node</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/xml_mp/basic.html#EntitySpatial"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xml_mp.basic.EntitySpatial" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></p>
+<dl class="method">
+<dt id="xml_mp.basic.EntitySpatial.xml_to_list">
+<code class="descname">xml_to_list</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/xml_mp/basic.html#EntitySpatial.xml_to_list"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xml_mp.basic.EntitySpatial.xml_to_list" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">возвращает список  координат EntitySpatial</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="xml_mp.basic.Ordinatre">
+<em class="property">class </em><code class="descclassname">xml_mp.basic.</code><code class="descname">Ordinatre</code><span class="sig-paren">(</span><em>node</em>, <em>type_ordinate_ord</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/xml_mp/basic.html#Ordinatre"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xml_mp.basic.Ordinatre" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></p>
+<dl class="method">
+<dt id="xml_mp.basic.Ordinatre.xml_exist_ordinate_to_list">
+<code class="descname">xml_exist_ordinate_to_list</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/xml_mp/basic.html#Ordinatre.xml_exist_ordinate_to_list"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xml_mp.basic.Ordinatre.xml_exist_ordinate_to_list" title="Permalink to this definition">¶</a></dt>
+<dd><blockquote>
+<div>Список координат внутреннего конутра на уточнение</div></blockquote>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">list()</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="xml_mp.basic.Ordinatre.xml_new_ordinate_to_list">
+<code class="descname">xml_new_ordinate_to_list</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/xml_mp/basic.html#Ordinatre.xml_new_ordinate_to_list"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xml_mp.basic.Ordinatre.xml_new_ordinate_to_list" title="Permalink to this definition">¶</a></dt>
+<dd><blockquote>
+<div>Список координат внутренного контура на образование</div></blockquote>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">list ordinats</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="xml_mp.basic.Ordinatre.xml_to_list">
+<code class="descname">xml_to_list</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/xml_mp/basic.html#Ordinatre.xml_to_list"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xml_mp.basic.Ordinatre.xml_to_list" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="xml_mp.basic.StaticMethod">
+<em class="property">class </em><code class="descclassname">xml_mp.basic.</code><code class="descname">StaticMethod</code><a class="reference internal" href="_modules/xml_mp/basic.html#StaticMethod"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xml_mp.basic.StaticMethod" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Вспомогательный класс для работы  c node xml</p>
+<dl class="staticmethod">
+<dt id="xml_mp.basic.StaticMethod.get_empty_tpl">
+<em class="property">static </em><code class="descname">get_empty_tpl</code><span class="sig-paren">(</span><em>node</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/xml_mp/basic.html#StaticMethod.get_empty_tpl"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xml_mp.basic.StaticMethod.get_empty_tpl" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>node</strong> – node</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Return empty tpl rows  for word, depends on Type Ordinate</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="staticmethod">
+<dt id="xml_mp.basic.StaticMethod.merge_array_list">
+<em class="property">static </em><code class="descname">merge_array_list</code><span class="sig-paren">(</span><em>key</em>, <em>array_value</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/xml_mp/basic.html#StaticMethod.merge_array_list"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xml_mp.basic.StaticMethod.merge_array_list" title="Permalink to this definition">¶</a></dt>
+<dd><blockquote>
+<div>преобразоание  списков ключей и массива значений в словарь</div></blockquote>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>key</strong> – ключи словаря</li>
+<li><strong>array_value</strong> – массив значений</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><dl class="docutils">
+<dt>[</dt>
+<dd><p class="first last">{ ‘id’: 1, ‘name’: ‘ЗУ1’},
+{ ‘id’: 1, ‘name’: ‘ЗУ1’},</p>
+</dd>
+</dl>
+<p>]</p>
+</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="staticmethod">
+<dt id="xml_mp.basic.StaticMethod.type_ordinate">
+<em class="property">static </em><code class="descname">type_ordinate</code><span class="sig-paren">(</span><em>node</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/xml_mp/basic.html#StaticMethod.type_ordinate"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xml_mp.basic.StaticMethod.type_ordinate" title="Permalink to this definition">¶</a></dt>
+<dd><blockquote>
+<div>Определени типа  коорлинат - на  образование или на уточнение</div></blockquote>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>node</strong> – </td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="staticmethod">
+<dt id="xml_mp.basic.StaticMethod.xml_key_to_text">
+<em class="property">static </em><code class="descname">xml_key_to_text</code><span class="sig-paren">(</span><em>node</em>, <em>path</em>, <em>name_xsd</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/xml_mp/basic.html#StaticMethod.xml_key_to_text"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xml_mp.basic.StaticMethod.xml_key_to_text" title="Permalink to this definition">¶</a></dt>
+<dd><blockquote>
+<div>получение знсачения ноды по ключу из справоника</div></blockquote>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>node</strong> – узел - где ищем</li>
+<li><strong>path</strong> – парсер - что(как) ищем</li>
+<li><strong>name_xsd</strong> – наименование сравочнка</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">text</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="xml_mp.basic.XMLElemenBase">
+<em class="property">class </em><code class="descclassname">xml_mp.basic.</code><code class="descname">XMLElemenBase</code><span class="sig-paren">(</span><em>node</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/xml_mp/basic.html#XMLElemenBase"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xml_mp.basic.XMLElemenBase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Базовый класс - определяющий структуру наследников
+:param node - на вход узел дерева
+:return  возвращает словарь данных (to_dict)</p>
+<dl class="method">
+<dt id="xml_mp.basic.XMLElemenBase.to_dict">
+<code class="descname">to_dict</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/xml_mp/basic.html#XMLElemenBase.to_dict"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xml_mp.basic.XMLElemenBase.to_dict" title="Permalink to this definition">¶</a></dt>
+<dd><blockquote>
+<div>Обязательный метод для  наследников
+(( не обходим для  рендеринга tpl word)</div></blockquote>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">dict()</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="xml_mp.basic.XmlFullOrdinate">
+<em class="property">class </em><code class="descclassname">xml_mp.basic.</code><code class="descname">XmlFullOrdinate</code><span class="sig-paren">(</span><em>node</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/xml_mp/basic.html#XmlFullOrdinate"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xml_mp.basic.XmlFullOrdinate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></p>
+<dl class="attribute">
+<dt id="xml_mp.basic.XmlFullOrdinate.CNST_NAME_CONTOURS">
+<code class="descname">CNST_NAME_CONTOURS</code><em class="property"> = 'Contours'</em><a class="headerlink" href="#xml_mp.basic.XmlFullOrdinate.CNST_NAME_CONTOURS" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="xml_mp.basic.XmlFullOrdinate.CNST_NAME_ENTITY_SPATIAL">
+<code class="descname">CNST_NAME_ENTITY_SPATIAL</code><em class="property"> = 'EntitySpatial'</em><a class="headerlink" href="#xml_mp.basic.XmlFullOrdinate.CNST_NAME_ENTITY_SPATIAL" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="xml_mp.basic.XmlFullOrdinate.full_borders">
+<code class="descname">full_borders</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/xml_mp/basic.html#XmlFullOrdinate.full_borders"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xml_mp.basic.XmlFullOrdinate.full_borders" title="Permalink to this definition">¶</a></dt>
+<dd><blockquote>
+<div>get list all of borders</div></blockquote>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>node</strong> – Contours</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="xml_mp.basic.XmlFullOrdinate.full_ordinate">
+<code class="descname">full_ordinate</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/xml_mp/basic.html#XmlFullOrdinate.full_ordinate"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xml_mp.basic.XmlFullOrdinate.full_ordinate" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-xml_mp.element_to_dict">
+<span id="xml-mp-element-to-dict-module"></span><h2>xml_mp.element_to_dict module<a class="headerlink" href="#module-xml_mp.element_to_dict" title="Permalink to this headline">¶</a></h2>
+<p>Модуль содержит классы, преобразующий  основные  блоки xml ( межевого плана ) в словар значений</p>
+<dl class="class">
+<dt id="xml_mp.element_to_dict.XmlChangeParcel">
+<em class="property">class </em><code class="descclassname">xml_mp.element_to_dict.</code><code class="descname">XmlChangeParcel</code><span class="sig-paren">(</span><em>node</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/xml_mp/element_to_dict.html#XmlChangeParcel"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xml_mp.element_to_dict.XmlChangeParcel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#xml_mp.element_to_dict.XmlNewParcel" title="xml_mp.element_to_dict.XmlNewParcel"><code class="xref py py-class docutils literal notranslate"><span class="pre">xml_mp.element_to_dict.XmlNewParcel</span></code></a></p>
+<p>Формирования словаря данных для ChangeParcel(измененный участок)</p>
+<dl class="method">
+<dt id="xml_mp.element_to_dict.XmlChangeParcel.to_dict">
+<code class="descname">to_dict</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/xml_mp/element_to_dict.html#XmlChangeParcel.to_dict"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xml_mp.element_to_dict.XmlChangeParcel.to_dict" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Обязательный метод для  наследников</dt>
+<dd>(( не обходим для  рендеринга tpl word)</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">dict()</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="xml_mp.element_to_dict.XmlConclusion">
+<em class="property">class </em><code class="descclassname">xml_mp.element_to_dict.</code><code class="descname">XmlConclusion</code><span class="sig-paren">(</span><em>node</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/xml_mp/element_to_dict.html#XmlConclusion"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xml_mp.element_to_dict.XmlConclusion" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#xml_mp.basic.XMLElemenBase" title="xml_mp.basic.XMLElemenBase"><code class="xref py py-class docutils literal notranslate"><span class="pre">xml_mp.basic.XMLElemenBase</span></code></a></p>
+<p>Чтоб не отходит от фрмата - )) - &gt; заключение кадастрового инженера</p>
+<dl class="method">
+<dt id="xml_mp.element_to_dict.XmlConclusion.to_dict">
+<code class="descname">to_dict</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/xml_mp/element_to_dict.html#XmlConclusion.to_dict"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xml_mp.element_to_dict.XmlConclusion.to_dict" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Обязательный метод для  наследников</dt>
+<dd>(( не обходим для  рендеринга tpl word)</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">dict()</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="xml_mp.element_to_dict.XmlExistParcel">
+<em class="property">class </em><code class="descclassname">xml_mp.element_to_dict.</code><code class="descname">XmlExistParcel</code><span class="sig-paren">(</span><em>node</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/xml_mp/element_to_dict.html#XmlExistParcel"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xml_mp.element_to_dict.XmlExistParcel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#xml_mp.element_to_dict.XmlNewParcel" title="xml_mp.element_to_dict.XmlNewParcel"><code class="xref py py-class docutils literal notranslate"><span class="pre">xml_mp.element_to_dict.XmlNewParcel</span></code></a></p>
+<p>Фоомирования словаря значений для узлос  SpecifyRelatedParcel | ExistParcels</p>
+<dl class="method">
+<dt id="xml_mp.element_to_dict.XmlExistParcel.to_dict">
+<code class="descname">to_dict</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/xml_mp/element_to_dict.html#XmlExistParcel.to_dict"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xml_mp.element_to_dict.XmlExistParcel.to_dict" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Обязательный метод для  наследников</dt>
+<dd>(( не обходим для  рендеринга tpl word)</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">dict()</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="xml_mp.element_to_dict.XmlInputDataDict">
+<em class="property">class </em><code class="descclassname">xml_mp.element_to_dict.</code><code class="descname">XmlInputDataDict</code><span class="sig-paren">(</span><em>node</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/xml_mp/element_to_dict.html#XmlInputDataDict"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xml_mp.element_to_dict.XmlInputDataDict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#xml_mp.basic.XMLElemenBase" title="xml_mp.basic.XMLElemenBase"><code class="xref py py-class docutils literal notranslate"><span class="pre">xml_mp.basic.XMLElemenBase</span></code></a></p>
+<p>формирование словаря Исхпдные данные
+:param root == InputData</p>
+<dl class="attribute">
+<dt id="xml_mp.element_to_dict.XmlInputDataDict.DATE">
+<code class="descname">DATE</code><em class="property"> = 'Date'</em><a class="headerlink" href="#xml_mp.element_to_dict.XmlInputDataDict.DATE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="xml_mp.element_to_dict.XmlInputDataDict.NAME">
+<code class="descname">NAME</code><em class="property"> = 'Name'</em><a class="headerlink" href="#xml_mp.element_to_dict.XmlInputDataDict.NAME" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="xml_mp.element_to_dict.XmlInputDataDict.NUMBER">
+<code class="descname">NUMBER</code><em class="property"> = 'Number'</em><a class="headerlink" href="#xml_mp.element_to_dict.XmlInputDataDict.NUMBER" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="xml_mp.element_to_dict.XmlInputDataDict.pathGeodesicBses">
+<code class="descname">pathGeodesicBses</code><em class="property"> = 'GeodesicBases/child::*'</em><a class="headerlink" href="#xml_mp.element_to_dict.XmlInputDataDict.pathGeodesicBses" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="xml_mp.element_to_dict.XmlInputDataDict.pathListDocuments">
+<code class="descname">pathListDocuments</code><em class="property"> = 'Documents/child::*'</em><a class="headerlink" href="#xml_mp.element_to_dict.XmlInputDataDict.pathListDocuments" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="xml_mp.element_to_dict.XmlInputDataDict.pathListSystemCood">
+<code class="descname">pathListSystemCood</code><em class="property"> = '../CoordSystems/child::*/&#64;Name'</em><a class="headerlink" href="#xml_mp.element_to_dict.XmlInputDataDict.pathListSystemCood" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="xml_mp.element_to_dict.XmlInputDataDict.pathMeansSurveys">
+<code class="descname">pathMeansSurveys</code><em class="property"> = 'MeansSurvey/child::*'</em><a class="headerlink" href="#xml_mp.element_to_dict.XmlInputDataDict.pathMeansSurveys" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="xml_mp.element_to_dict.XmlInputDataDict.pathObjectsRealty">
+<code class="descname">pathObjectsRealty</code><em class="property"> = 'ObjectsRealty/child::*'</em><a class="headerlink" href="#xml_mp.element_to_dict.XmlInputDataDict.pathObjectsRealty" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="xml_mp.element_to_dict.XmlInputDataDict.to_dict">
+<code class="descname">to_dict</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/xml_mp/element_to_dict.html#XmlInputDataDict.to_dict"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xml_mp.element_to_dict.XmlInputDataDict.to_dict" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Обязательный метод для  наследников</dt>
+<dd>(( не обходим для  рендеринга tpl word)</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">dict()</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="xml_mp.element_to_dict.XmlNewParcel">
+<em class="property">class </em><code class="descclassname">xml_mp.element_to_dict.</code><code class="descname">XmlNewParcel</code><span class="sig-paren">(</span><em>node</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/xml_mp/element_to_dict.html#XmlNewParcel"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xml_mp.element_to_dict.XmlNewParcel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#xml_mp.element_to_dict.XmlParcel" title="xml_mp.element_to_dict.XmlParcel"><code class="xref py py-class docutils literal notranslate"><span class="pre">xml_mp.element_to_dict.XmlParcel</span></code></a></p>
+<p>Преобразование участка на образование  в словарь
+:param root = NewParcel</p>
+<dl class="method">
+<dt id="xml_mp.element_to_dict.XmlNewParcel.to_dict">
+<code class="descname">to_dict</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/xml_mp/element_to_dict.html#XmlNewParcel.to_dict"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xml_mp.element_to_dict.XmlNewParcel.to_dict" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Обязательный метод для  наследников</dt>
+<dd>(( не обходим для  рендеринга tpl word)</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">dict()</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="xml_mp.element_to_dict.XmlNewParcelProviding">
+<em class="property">class </em><code class="descclassname">xml_mp.element_to_dict.</code><code class="descname">XmlNewParcelProviding</code><span class="sig-paren">(</span><em>node</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/xml_mp/element_to_dict.html#XmlNewParcelProviding"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xml_mp.element_to_dict.XmlNewParcelProviding" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#xml_mp.element_to_dict.XmlNewParcel" title="xml_mp.element_to_dict.XmlNewParcel"><code class="xref py py-class docutils literal notranslate"><span class="pre">xml_mp.element_to_dict.XmlNewParcel</span></code></a></p>
+<p>Сведения о участках посредством которых обеспечивается доступ</p>
+<dl class="method">
+<dt id="xml_mp.element_to_dict.XmlNewParcelProviding.to_dict">
+<code class="descname">to_dict</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/xml_mp/element_to_dict.html#XmlNewParcelProviding.to_dict"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xml_mp.element_to_dict.XmlNewParcelProviding.to_dict" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Обязательный метод для  наследников</dt>
+<dd>(( не обходим для  рендеринга tpl word)</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">dict()</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="xml_mp.element_to_dict.XmlParcel">
+<em class="property">class </em><code class="descclassname">xml_mp.element_to_dict.</code><code class="descname">XmlParcel</code><span class="sig-paren">(</span><em>node</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/xml_mp/element_to_dict.html#XmlParcel"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xml_mp.element_to_dict.XmlParcel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#xml_mp.basic.XMLElemenBase" title="xml_mp.basic.XMLElemenBase"><code class="xref py py-class docutils literal notranslate"><span class="pre">xml_mp.basic.XMLElemenBase</span></code></a></p>
+<p>вспомогательный класс для  обработки  общих узлов участка
+root  in [NewParcel, SubParcels, ExistParcel, ChangeParcel … все все остальные узлы с похожей структурой]</p>
+<dl class="method">
+<dt id="xml_mp.element_to_dict.XmlParcel.xml_ordinates_to_dict">
+<code class="descname">xml_ordinates_to_dict</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/xml_mp/element_to_dict.html#XmlParcel.xml_ordinates_to_dict"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xml_mp.element_to_dict.XmlParcel.xml_ordinates_to_dict" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Получить словарь коорлинат</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="xml_mp.element_to_dict.XmlParcel.xml_related_parcel_to_list">
+<code class="descname">xml_related_parcel_to_list</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/xml_mp/element_to_dict.html#XmlParcel.xml_related_parcel_to_list"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xml_mp.element_to_dict.XmlParcel.xml_related_parcel_to_list" title="Permalink to this definition">¶</a></dt>
+<dd><p>‘attr’: [‘point’, ‘cadastralnumber’, ‘right’]
+:return: list сведений о смежниках участка</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xml_mp.element_to_dict.XmlParcel.xml_subparcels_to_dict">
+<code class="descname">xml_subparcels_to_dict</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/xml_mp/element_to_dict.html#XmlParcel.xml_subparcels_to_dict"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xml_mp.element_to_dict.XmlParcel.xml_subparcels_to_dict" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Словарь для частей</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="xml_mp.element_to_dict.XmlSubParcels">
+<em class="property">class </em><code class="descclassname">xml_mp.element_to_dict.</code><code class="descname">XmlSubParcels</code><span class="sig-paren">(</span><em>node</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/xml_mp/element_to_dict.html#XmlSubParcels"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xml_mp.element_to_dict.XmlSubParcels" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Формирования словаря значений для частей
+node: SubParcels</p>
+<dl class="method">
+<dt id="xml_mp.element_to_dict.XmlSubParcels.to_dict">
+<code class="descname">to_dict</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/xml_mp/element_to_dict.html#XmlSubParcels.to_dict"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xml_mp.element_to_dict.XmlSubParcels.to_dict" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="xml_mp.element_to_dict.XmlSurveyDict">
+<em class="property">class </em><code class="descclassname">xml_mp.element_to_dict.</code><code class="descname">XmlSurveyDict</code><span class="sig-paren">(</span><em>node</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/xml_mp/element_to_dict.html#XmlSurveyDict"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xml_mp.element_to_dict.XmlSurveyDict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#xml_mp.basic.XMLElemenBase" title="xml_mp.basic.XMLElemenBase"><code class="xref py py-class docutils literal notranslate"><span class="pre">xml_mp.basic.XMLElemenBase</span></code></a></p>
+<p>Формирование словаря для  Сведени о выполненных измерениях и расчетах
+:param root: Survey</p>
+<dl class="attribute">
+<dt id="xml_mp.element_to_dict.XmlSurveyDict.pathListGeopointsOpred">
+<code class="descname">pathListGeopointsOpred</code><em class="property"> = 'GeopointsOpred/child::*'</em><a class="headerlink" href="#xml_mp.element_to_dict.XmlSurveyDict.pathListGeopointsOpred" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="xml_mp.element_to_dict.XmlSurveyDict.pathTochAreaParcel">
+<code class="descname">pathTochAreaParcel</code><em class="property"> = 'TochnAreaParcels/child::*'</em><a class="headerlink" href="#xml_mp.element_to_dict.XmlSurveyDict.pathTochAreaParcel" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="xml_mp.element_to_dict.XmlSurveyDict.pathTochGeopoitsParcels">
+<code class="descname">pathTochGeopoitsParcels</code><em class="property"> = 'TochnGeopointsParcels/child::*'</em><a class="headerlink" href="#xml_mp.element_to_dict.XmlSurveyDict.pathTochGeopoitsParcels" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="xml_mp.element_to_dict.XmlSurveyDict.to_dict">
+<code class="descname">to_dict</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/xml_mp/element_to_dict.html#XmlSurveyDict.to_dict"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xml_mp.element_to_dict.XmlSurveyDict.to_dict" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Обязательный метод для  наследников</dt>
+<dd>(( не обходим для  рендеринга tpl word)</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">dict()</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="xml_mp.element_to_dict.XmlTitleDict">
+<em class="property">class </em><code class="descclassname">xml_mp.element_to_dict.</code><code class="descname">XmlTitleDict</code><span class="sig-paren">(</span><em>node</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/xml_mp/element_to_dict.html#XmlTitleDict"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xml_mp.element_to_dict.XmlTitleDict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Формированяи словаря для титульника</p>
+<dl class="method">
+<dt id="xml_mp.element_to_dict.XmlTitleDict.to_dict">
+<code class="descname">to_dict</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/xml_mp/element_to_dict.html#XmlTitleDict.to_dict"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xml_mp.element_to_dict.XmlTitleDict.to_dict" title="Permalink to this definition">¶</a></dt>
+<dd><blockquote>
+<div>Данный  метод  возвращает словарь значения для  заполнения  шаблона title.docx</div></blockquote>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">dict-&gt;cnfg.Title</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-xml_mp">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-xml_mp" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="utils.html" class="btn btn-neutral" title="utils package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, larisa.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'1.0',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

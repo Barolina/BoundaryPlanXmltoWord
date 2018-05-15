@@ -19,49 +19,12 @@ from logging.config import fileConfig
 logger = logging.getLogger()
 
 
-class XMLIter__context_parser:
-
-
-    def __init__(self, pathxml):
-        self.pathxml = pathxml
-        self.context = None
-
-    context = property()
-
-    @context.getter
-    def context(self):
-        self.context = iter(etree.iterparse(self.pathxml, events=('start', 'end',)))
-        for event, element in self.context:
-            yield event, element
-
-    def __del__(self):
-        if self.context:
-            for event, element in self._context:
-                if event == 'end':
-                    element.clear()
-                    while element.getprevious() is not None:
-                        if type(element.getprevious()) == etree._Element:
-                            if element.getparent() is not None:
-                                del element.getparent()[0]
-                        else:
-                            break
-        del self.context
-
-    def getcontext(self):
-        if not self._context:
-            self._context = iter(etree.iterparse(self.xml, events=('start', 'end',)))
-        for event, element in self._context:
-            self._current = element
-            yield event, element
-
-    def delcontext(self):
-        del self._context
-
-
 class MpXMlToWORd:
     """
         Преобразователь xml межевого  в ворд
     """
+    CNST_FORMAT = 'docx'
+    CNST_PATH_TPL = 'template/common/'
 
     def __init__(self):
         self.name_number = 0
@@ -75,37 +38,15 @@ class MpXMlToWORd:
         if os.path.exists(self.tempfolder):
             shutil.rmtree(self.tempfolder)
 
-    def fast_iter(self,context, func, args=[], kwargs={}):
+    def fast_iter_element(self, elem: object, func: object, args: object = [], kwargs: object = {}) -> object:
         """
-            ЧИстим корни в lxml
-        :param context:
-        :param func:
-        :param args:
-        :param kwargs:
-        :return:
-        """
-        # http://www.ibm.com/developerworks/xml/library/x-hiperfparse/
-        for event, elem in context:
-            # Also eliminate now-empty references from the root node to elem
-            for ancestor in elem.xpath('ancestor-or-self::*'):
-                print('Checking ancestor: {a}'.format(a=ancestor.tag))
-                while ancestor.getprevious() is not None:
-                    print(
-                        'Deleting {p}'.format(p=(ancestor.getparent()[0]).tag))
-                    del ancestor.getparent()[0]
-            print('Processing {e}'.format(e=etree.tostring(elem)))
-            func(elem, *args, **kwargs)
-            # It safe to call clear() here because no descendants will be
-            # accessed
-            print('Clearing {e}'.format(e=etree.tostring(elem)))
-            elem.clear()
-
-        del context
-
-    def __fast_iter_element(self, elem: object, func: object, args: object = [], kwargs: object = {}) -> object:
-        """
-
-        :rtype: XMLElemet
+            the node  cleaning
+            :param context: context
+            :param func: callback - renderToTPL
+            :param args: args
+            :param kwargs: kwargs
+            :return: None
+            :rtype: XMLElemet
         """
         func(elem, *args, **kwargs)
         elem.clear()
@@ -116,60 +57,66 @@ class MpXMlToWORd:
             else:
                 break
 
+    def __get_path_file(self, tag, pos):
+        """
+        :param tag: наименование node
+        :param pos:  позиция node в xml
+        :return: string : формирование пути
+        """
+        return self.CNST_PATH_TPL+cnfg.BINDER_FILE[tag]['pos_doc']+str(pos)
+
     def __context_parser(self, context):
         """
-            Парсим куск
+            Парсим node
         :param context:
-        :return:
+        :return:None
         """
         i = 0
         for event, elem in context:
             i += 1
-
-            if elem.tag == 'GeneralCadastralWorks' and event == 'end':
-                self.__fast_iter_element(elem, self.render_tpl,
+            if elem.tag == cnfg.BINDER_FILE[elem.tag] and event == 'end':
+                self.fast_iter_element(elem, self.render_tpl,
                                        args=(XmlTitleDict, 'template/common/title.docx','1.' + str(i)))
             if elem.tag == 'InputData' and event == 'end':
-                self.__fast_iter_element(elem, self.render_tpl,
+                self.fast_iter_element(elem, self.render_tpl,
                                        args=(XmlInputDataDict, 'template/common/inputdata.docx', '2.' + str(i)))
             if elem.tag == 'Survey' and event == 'end':
-                self.__fast_iter_element(elem, self.render_tpl,
+                self.fast_iter_element(elem, self.render_tpl,
                                        args=(XmlSurveyDict, 'template/common/survey.docx','3.' + str(i)))
             if elem.tag == 'NewParcel' and event == 'end':
-                # self.__fast_iter_element(elem, self.render_tpl,
+                # self.fast_iter_element(elem, self.render_tpl,
                                        # args=(XmlNewParcel, 'template/common/newparcel.docx', '4.' + str(i)))
                 self.render_tpl(elem, XmlNewParcel, 'template/common/newparcel.docx', '4.' + str(i))
             if elem.tag == 'ExistParcel' and event == 'end':
-                # self.__fast_iter_element(elem, self.render_tpl,
+                # self.fast_iter_element(elem, self.render_tpl,
                                        # args=(XmlExistParcel, 'template/common/existparcel.docx', '4.' + str(i)))
                 self.render_tpl(elem, XmlExistParcel, 'template/common/existparcel.docx', '4.' + str(i))
 
             if elem.tag == 'SubParcels' and event == 'end' and elem.getparent().tag == 'Package':
-                # self.__fast_iter_element(elem, self.render_tpl,
+                # self.fast_iter_element(elem, self.render_tpl,
                                        # args=(XmlSubParcels, 'template/common/subparcels.docx', '6.' + str(i)))
                 self.render_tpl(elem, XmlSubParcels, 'template/common/subparcels.docx', '6.' + str(i))
 
             if elem.tag == 'ChangeParcel' and event == 'end':
-                # self.__fast_iter_element(elem, self.render_tpl,
+                # self.fast_iter_element(elem, self.render_tpl,
                 #                        args=(XmlChangeParcel, 'template/common/changeparcel.docx', '5.' + str(i)))
                 self.render_tpl(elem, XmlChangeParcel, 'template/common/changeparcel.docx', '5.' + str(i))
             if elem.tag == 'SpecifyRelatedParcel' and event == 'end':
-                # self.__fast_iter_element(elem, self.render_tpl,
+                # self.fast_iter_element(elem, self.render_tpl,
                                        # args=(XmlExistParcel, 'template/common/existparcel.docx','6.' + str(i)))
                 self.render_tpl(elem, XmlExistParcel, 'template/common/existparcel.docx', '6.' + str(i))
             if elem.tag == 'FormParcels' and event == 'end':
                 self.render_tpl(elem, XmlNewParcelProviding, 'template/common/providing.docx','7.' + str(i))
 
             if elem.tag == 'Conclusion' and event == 'end':
-                self.__fast_iter_element(elem, self.render_tpl,
+                self.fast_iter_element(elem, self.render_tpl,
                                        args=(XmlConclusion, 'template/common/conclusion.docx','8.' + str(i)))
         del context
 
     def __xml_block_to_docx(self, path):
         """
             Формирование списка док. файлов  по блокам xml
-        :param path: путь до файла
-        :return:
+        :param path: путь до xml файла
         """
         # get an iterable
         context = iterparse(path, events=("start", "end"))
@@ -183,23 +130,23 @@ class MpXMlToWORd:
         :param node:  узел- noda
         :param XMLClass: класс отвечающий за парсинг данной ноды в dict (to_dict)
         :param path_tpl: путь до template
-        :return: file docx
+        :return: word файл  с наименованием =  [Number - позиция word- элемента в файле]+ [Number - позиция node].docx
         """
         try:
             if len(node) > 0 or node.text:
                 tpl = DocxTemplate(path_tpl)
                 instance = XMLClass(node)
                 tpl.render(instance.to_dict())
-                file_res = '.'.join([name_result, 'docx'])
+                file_res = '.'.join([name_result, self.CNST_FORMAT])
                 tpl.save(os.path.join(self.tempfolder, file_res))
                 logger.info(f"""Parsing {node}  done -> result {name_result}""")
         except Exception as e:
             logger.error(f"""Error parsing {node} : {e}""")
 
-    def __get_element_body_docx(self, path):
+    def __element_body_docx(self, path):
         """
-        :param path: блок ворд -файла
-        :return:
+        :param path: получить блок ворд -файла
+        :return: element docx
         """
         doc = Document(path)
         for element in doc.element.body:
@@ -207,22 +154,21 @@ class MpXMlToWORd:
 
     def combine_word_documents(self, result_path_file):
         """
+        Собираем все файлы в единый документ
         :param input_files: iterable список файлов
-        :return: Docx
+        :return: result braid Docx
         """
         files = sorted(os.listdir(self.tempfolder))
-        _dcx = filter(lambda x: x.endswith('.docx'), files)
+        _dcx = filter(lambda x: x.endswith('.' + self.CNST_FORMAT), files)
         _dcx = map(lambda x: os.path.join(self.tempfolder, x), _dcx)
 
         merged_document = Document()
         for filnr, file in enumerate(_dcx):
-            # if 'offerte_template' in file:
-            #     file = os.path.join(file)
             _ = os.path.join(file)
             if filnr == 0:
                 merged_document = Document(_)
             else:
-                for element in self.__get_element_body_docx(_):
+                for element in self.__element_body_docx(_):
                     merged_document.element.body.append(element)
                 # if filnr < len(files) - 1:
                 #     merged_document.element.body.text.page_break_before()
@@ -231,13 +177,19 @@ class MpXMlToWORd:
             #     merged_document = Document(_)
             #     merged_document.add_page_break()
             # else:
-            #     for el in self.__get_element_body_docx(_):
+            #     for el in self.__element_body_docx(_):
             #         merged_document.element.body.append(el)
             #     merged_document.add_page_break()
 
         merged_document.save(result_path_file)
 
     def run(self, path_file, result_file):
+        """
+            run convert xml to  word
+        :param path_file:  sourse file xml
+        :param result_file:  path file result
+        :return:
+        """
         generat.__xml_block_to_docx(path_file)
         logger.info('START COMBINE WORDS')
         generat.combine_word_documents(result_file)
@@ -255,4 +207,4 @@ if __name__ == '__main__':
     except Exception as e:
         logger.error(f"""Error parsing file {e}""")
     else:
-        logger.info('The file parsing done!')
+        logger.info('The file parsing done! ')

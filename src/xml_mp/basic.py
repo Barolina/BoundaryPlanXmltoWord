@@ -2,12 +2,12 @@
 module:: xmlbasic
 Larisa <solow_larisa@mail.ru>
 """
-import config as cnfg
+from utils import config as cnfg
 from utils.xsd import value_from_xsd
 import os
 from lxml.etree import _Element
 import logging
-from logging.config import fileConfig
+
 # fileConfig('loggers/logging_config.ini')
 logger = logging.getLogger()
 
@@ -16,15 +16,15 @@ CNST_EXISTPARCEL = 'existparcel'
 CNST_UNDEFINE = 'undefine'
 
 META_TPL_ORDINATE = {  # шаблон для пребразвоания в вордовском tpl
-    CNST_EXISTPARCEL: ['', ] * 7,
-    CNST_NEWPARCEL: ['', ] * 5,
+    CNST_EXISTPARCEL: ['', ] * 7, # 7-кол-во колонок в таблице на уточнение
+    CNST_NEWPARCEL: ['', ] * 5, # 5 кол-во колонок в таблице  на образование
     CNST_UNDEFINE: '',
 }
 
 
 class XMLElemenBase:
     """
-         Наслденики  данного базовый класс преобразователя
+        Базовый класс - определяющий структуру наследников
         :param node - на вход узел дерева
         :return  возвращает словарь данных (to_dict)
     """
@@ -35,13 +35,15 @@ class XMLElemenBase:
         """
             Обязательный метод для  наследников
             (( не обходим для  рендеринга tpl word)
-        :return:
+        :return: dict()
         """
         pass
 
 
 class StaticMethod:
-
+    """
+        Вспомогательный класс для работы  c node xml
+    """
     @staticmethod
     def type_ordinate(node):
         """
@@ -70,7 +72,7 @@ class StaticMethod:
     @staticmethod
     def get_empty_tpl(node):
         """
-        :param node:
+        :param node: node
         :return: Return empty tpl rows  for word, depends on Type Ordinate
         """
         if node is not None:
@@ -96,7 +98,7 @@ class StaticMethod:
         return res
 
     @staticmethod
-    def xmlnode_key_to_text(node, path, name_xsd):
+    def xml_key_to_text(node, path, name_xsd):
         """
             получение знсачения ноды по ключу из справоника
         :param node:  узел - где ищем
@@ -226,13 +228,12 @@ class EntitySpatial(list):
 
 class Border(list):
     """
-        .. Get a list of  border the EntitySpatial
+        Get a list of  border the EntitySpatial
     """
 
     def __init__(self, node):
         """
-        :param node: the EntitySpatial
-        :return:
+            :param node: the EntitySpatial
         """
         super(Border, self).__init__()
         self.node = node
@@ -240,7 +241,7 @@ class Border(list):
     def __del__(self):
         self.node.clear()
 
-    def border_spelement(self, xml_spatial_element, point):
+    def __border_spatial_unit(self, xml_spatial_element, point):
         pathPoint = 'child::*[name()="NewOrdinate" or name()="Ordinate"]/@*[name()="PointPref"]'
         pathNumb = 'child::*[name()="NewOrdinate" or name()="Ordinate"]/@*[name()="NumGeopoint"]'
         pathOldNumb = 'child::*[name()="OldOrdinate"]/@*[name()="NumGeopoint"]'
@@ -252,7 +253,7 @@ class Border(list):
             return ''.join(xml_SpatialUnit[0].xpath(pathPoint) + numb_geopoint)
         return ''
 
-    def get_border_spatila(self, spatial_index):
+    def __border_spatial_element(self, spatial_index):
         pathBorders = 'child::Borders'
         path = pathBorders + '/child::*[@Spatial=' + str(spatial_index+1) + ']'
         # get a list  of border one SpatialElement
@@ -266,20 +267,20 @@ class Border(list):
             xml_SpatialElement = self.node.xpath('SpatialElement[position()=' + spatial + ']')
             endpoint = ['']  # for tpl - name the contour
             if xml_SpatialElement and len(xml_SpatialElement) > 0:
-                endpoint.append(self.border_spelement(xml_SpatialElement[0], point1))
-                endpoint.append(self.border_spelement(xml_SpatialElement[0], point2))
+                endpoint.append(self.__border_spatial_unit(xml_SpatialElement[0], point1))
+                endpoint.append(self.__border_spatial_unit(xml_SpatialElement[0], point2))
             endpoint.append(''.join(point.xpath('Edge/Length/text()')))
             res.append(endpoint)
         border.clear()
         return res
 
-    def get_border(self):
+    def xml_to_list(self):
         pathEntitySpatial1 = 'child::SpatialElement'
         countSpatialElement = len(self.node.xpath(pathEntitySpatial1))
         res = []
         #went on to  the SpatialElement
         for _ in range(0, countSpatialElement):
-            res.extend(self.get_border_spatila(_))
+            res.extend(self.__border_spatial_element(_))
             if _ != countSpatialElement - 1:
                 # добавление пустой строки - разжеление контуров
                 res.append(['', '', '', '', 'yes'])
@@ -347,11 +348,11 @@ class XmlFullOrdinate(list):
                             _defintion = _.xpath('@Definition | @Number | @NumberRecord')
                             res.append([''.join(_defintion), '', '', '', ''])
                             _border = Border(_.xpath('EntitySpatial')[0])
-                            res.extend(_border.get_border())
+                            res.extend(_border.xml_to_list())
                     finally:
                         contours.clear()
             else:
-                res = Border(self.node).get_border()
+                res = Border(self.node).xml_to_list()
         return res
 
 
@@ -373,10 +374,10 @@ class ElementSubParcel:
        logging.info(f""" del {self.node}""")
        self.node.clear()
 
-    def defintion(self):
+    def __defintion(self):
         return self.node.xpath('@Definition | @NumberRecord')
 
-    def entity_spatial(self):
+    def __entity_spatial(self):
         _ = self.node.xpath('Contours | EntitySpatial ')
         if _ is not None and len(_) > 0:
             xml_full_ordinate = XmlFullOrdinate(_[0])
@@ -389,25 +390,25 @@ class ElementSubParcel:
             return StaticMethod.type_ordinate(self.node)
         return self.type_ord
 
-    def general_info(self, position):
+    def __general_info(self, position):
         """
           словарб общих сведений  части
         :param position: просто  задать номер
         :return:
         """
         res = [str(position)]
-        res.append(''.join(self.defintion()))
+        res.append(''.join(self.__defintion()))
         res.append(''.join(self.node.xpath('Area/Area/text()')))
         res.append(''.join(self.node.xpath('Area/Inaccuracy/text()')))
-        res.append(StaticMethod.xmlnode_key_to_text(self.node, 'Encumbrance/Type/text()',
+        res.append(StaticMethod.xml_key_to_text(self.node, 'Encumbrance/Type/text()',
                                                     cnfg.SUBPARCEL_GENERAL.dict['encumbrace']))
         return res
 
     def xml_new_dict(self):
         try:
-           _ent = StaticMethod.merge_array_list(cnfg.SUBPARCEL_ENTITY_SPATIAL.attr, self.entity_spatial())
+           _ent = StaticMethod.merge_array_list(cnfg.SUBPARCEL_ENTITY_SPATIAL.attr, self.__entity_spatial())
            res = list()
-           res = self.defintion()
+           res = self.__defintion()
            res.append(_ent)
            result = dict(zip(cnfg.SUB_FULL_ORDINATE.attr,res))
            print(result)
@@ -417,15 +418,15 @@ class ElementSubParcel:
 
     def xml_ext_dict(self):
         try:
-            _ent = StaticMethod.merge_array_list(cnfg.SUBPARCEL_ENTITY_SPATIAL_EXIST.attr, self.entity_spatial())
+            _ent = StaticMethod.merge_array_list(cnfg.SUBPARCEL_ENTITY_SPATIAL_EXIST.attr, self.__entity_spatial())
             res = list()
-            res = self.defintion()
+            res = self.__defintion()
             res.append(_ent)
             return dict(zip(cnfg.SUB_EX_FULL_ORDINATE.attr, res))
         except:
             return []
 
     def xml_general_dict(self, position):
-        return dict(zip(cnfg.SUBPARCEL_GENERAL.attr, self.general_info(position)))
+        return dict(zip(cnfg.SUBPARCEL_GENERAL.attr, self.__general_info(position)))
 
 

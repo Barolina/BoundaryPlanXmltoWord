@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>config &mdash; test_main 1.0 documentation</title>
+  <title>utils.config &mdash; test_main 1.0 documentation</title>
   
 
   
@@ -25,13 +25,13 @@
   
 
   
-    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="index" title="Index" href="../genindex.html" />
-    <link rel="search" title="Search" href="../search.html" /> 
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
 
   
-  <script src="../_static/js/modernizr.min.js"></script>
+  <script src="../../_static/js/modernizr.min.js"></script>
 
 </head>
 
@@ -47,7 +47,7 @@
           
 
           
-            <a href="../index.html" class="icon icon-home"> test_main
+            <a href="../../index.html" class="icon icon-home"> test_main
           
 
           
@@ -60,7 +60,7 @@
 
           
 <div role="search">
-  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
@@ -79,7 +79,7 @@
             
               <p class="caption"><span class="caption-text">Contents:</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../modules.html">project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../modules.html">src</a></li>
 </ul>
 
             
@@ -94,7 +94,7 @@
       <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../index.html">test_main</a>
+          <a href="../../index.html">test_main</a>
         
       </nav>
 
@@ -123,11 +123,11 @@
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="../index.html">Docs</a> &raquo;</li>
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
         
-          <li><a href="index.html">Module code</a> &raquo;</li>
+          <li><a href="../index.html">Module code</a> &raquo;</li>
         
-      <li>config</li>
+      <li>utils.config</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -142,15 +142,13 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <h1>Source code for config</h1><div class="highlight"><pre>
+  <h1>Source code for utils.config</h1><div class="highlight"><pre>
 <span></span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">Данный модуль содержит надор основных словарей, используемых при генерации и рендеринге word- шаблоны</span>
 
 <span class="sd">    :param attr: список  атрибутов используемых для генерации таблицы; \n\r</span>
 <span class="sd">    :param name: наименование элемента в шаблоне (н - необязательный);\n\r\</span>
 <span class="sd">    :param dict: список справочников, данного элемента, используемых для преобразования значений (key; value);\n\r</span>
-<span class="sd">    # :param res_name: наименование результирующегог файла, так формирвание печатного   вида  мп имеет некий попрядок элемнтов,</span>
-<span class="sd">    #         а при рендеринге xml  порядок элементов иной, необходимо задать порядковое значение результирующего файла;\n\r</span>
 <span class="sd">    :param fields:  список остальных элементов используемых в шаблоне</span>
 <span class="sd">&quot;&quot;&quot;</span>
 
@@ -158,6 +156,9 @@
 
 <span class="n">TITLE</span> <span class="o">=</span> <span class="nb">type</span><span class="p">(</span><span class="s1">&#39;TITLE&#39;</span><span class="p">,</span> <span class="p">(),</span> <span class="p">{</span>
     <span class="s1">&#39;attr&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;REASON&#39;</span><span class="p">,</span> <span class="s1">&#39;PURPOSE&#39;</span><span class="p">,</span> <span class="s1">&#39;CLIENT&#39;</span><span class="p">,</span> <span class="s1">&#39;FIO&#39;</span><span class="p">,</span> <span class="s1">&#39;NCERTIFICATE&#39;</span><span class="p">,</span> <span class="s1">&#39;TELEPHONE&#39;</span><span class="p">,</span> <span class="s1">&#39;ADDRESS&#39;</span><span class="p">,</span> <span class="s1">&#39;EMAIL&#39;</span><span class="p">,</span> <span class="s1">&#39;ORGANIZATION&#39;</span><span class="p">,</span> <span class="s1">&#39;DATA&#39;</span><span class="p">],</span>
+    <span class="s1">&#39;node&#39;</span><span class="p">:</span><span class="s1">&#39;GeneralCadastralWorks&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;tpl&#39;</span><span class="p">:</span> <span class="s1">&#39;title.docx&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;position_doc&#39;</span><span class="p">:</span> <span class="s1">&#39;1.&#39;</span><span class="p">,</span>
 <span class="p">})</span>
 <span class="sd">&quot;&quot;&quot;      </span>
 <span class="sd">TEMPLATE: title.docx \n\r</span>
@@ -180,13 +181,15 @@
 <span class="sd">Сведения о геодезической основе</span>
 <span class="sd">&quot;&quot;&quot;</span>
 
-<span class="n">INPUT_DATA</span> <span class="o">=</span> <span class="nb">type</span><span class="p">(</span><span class="s1">&#39;INPUT_DATAS&#39;</span><span class="p">,</span> <span class="p">(),</span> <span class="p">{</span>
+<span class="n">INPUT_DATA</span> <span class="o">=</span> <span class="nb">type</span><span class="p">(</span><span class="s1">&#39;INPUT_DATA&#39;</span><span class="p">,</span> <span class="p">(),</span> <span class="p">{</span>
     <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;INPUT_DATAS&#39;</span><span class="p">,</span>
     <span class="s1">&#39;attr&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">,</span> <span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="s1">&#39;note&#39;</span><span class="p">],</span>
     <span class="s1">&#39;dict&#39;</span><span class="p">:</span> <span class="p">{</span>
         <span class="s1">&#39;alldocuments&#39;</span><span class="p">:</span> <span class="s1">&#39;dAllDocuments_v02.xsd&#39;</span><span class="p">,</span>
     <span class="p">},</span>
-    <span class="s1">&#39;res&#39;</span><span class="p">:</span> <span class="s1">&#39;2.&#39;</span>
+    <span class="s1">&#39;node&#39;</span><span class="p">:</span> <span class="s1">&#39;InputData&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;tpl&#39;</span><span class="p">:</span> <span class="s1">&#39;inputdata.docx&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;position_doc&#39;</span><span class="p">:</span> <span class="s1">&#39;2.&#39;</span>
 <span class="p">})</span>
 <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">TEMPLATE: inputdata.docx\n\r</span>
@@ -210,6 +213,12 @@
 <span class="sd">TEMPLATE: inputdata.docx\n\r</span>
 <span class="sd">Сведения о наличии зданий, сооружений, объектов незавершенного строительства на исходных земельных участках</span>
 <span class="sd">&quot;&quot;&quot;</span>
+
+<span class="n">SURVEY</span> <span class="o">=</span> <span class="nb">type</span><span class="p">(</span><span class="s1">&#39;SURVEY&#39;</span><span class="p">,</span> <span class="p">(),</span> <span class="p">{</span>
+    <span class="s1">&#39;node&#39;</span><span class="p">:</span> <span class="s1">&#39;Survey&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;tpl&#39;</span><span class="p">:</span> <span class="s1">&#39;survey.docx&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;position_doc&#39;</span><span class="p">:</span> <span class="s1">&#39;3.&#39;</span>
+<span class="p">})</span>
 
 <span class="c1"># ======================================================================================================================</span>
 
@@ -408,6 +417,50 @@
 
 
 <span class="n">PATH_XSD</span> <span class="o">=</span> <span class="s1">&#39;xsd&#39;</span>
+
+<span class="n">TPL</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;&#39;</span><span class="p">]</span>
+<span class="n">BINDER_FILE</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;GeneralCadastralWorks&#39;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">&#39;tpl&#39;</span> <span class="p">:</span> <span class="s1">&#39;title.docx&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;pos_dox&#39;</span><span class="p">:</span> <span class="s1">&#39;1.&#39;</span>
+    <span class="p">},</span>
+    <span class="s1">&#39;InputData&#39;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">&#39;tpl&#39;</span><span class="p">:</span> <span class="s2">&quot;inputdata.docx&quot;</span><span class="p">,</span>
+        <span class="s1">&#39;pos_doc&#39;</span><span class="p">:</span> <span class="s1">&#39;2.&#39;</span>
+    <span class="p">},</span>
+    <span class="s1">&#39;Survey&#39;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">&#39;tpl&#39;</span><span class="p">:</span> <span class="s2">&quot;survey.docx&quot;</span><span class="p">,</span>
+        <span class="s1">&#39;pos_doc&#39;</span><span class="p">:</span> <span class="s1">&#39;3.&#39;</span>
+    <span class="p">},</span>
+    <span class="s1">&#39;NewParcel&#39;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">&#39;tpl&#39;</span><span class="p">:</span> <span class="s2">&quot;newparcel.docx&quot;</span><span class="p">,</span>
+        <span class="s1">&#39;pos_doc&#39;</span><span class="p">:</span> <span class="s1">&#39;4.&#39;</span><span class="p">,</span>
+    <span class="p">},</span>
+    <span class="s1">&#39;ExistParcel&#39;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">&#39;tpl&#39;</span><span class="p">:</span> <span class="s2">&quot;existparcel.docx&quot;</span><span class="p">,</span>
+        <span class="s1">&#39;pos_doc&#39;</span><span class="p">:</span> <span class="s1">&#39;4.&#39;</span>
+    <span class="p">},</span>
+    <span class="s1">&#39;SubParcels&#39;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">&#39;tpl&#39;</span><span class="p">:</span> <span class="s2">&quot;changeparcel.docx&quot;</span><span class="p">,</span>
+        <span class="s1">&#39;pos_doc&#39;</span><span class="p">:</span> <span class="s1">&#39;6.&#39;</span>
+    <span class="p">},</span>
+    <span class="s1">&#39;ChangeParcel&#39;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">&#39;tpl&#39;</span><span class="p">:</span> <span class="s2">&quot;changeparcel.docx&quot;</span><span class="p">,</span>
+        <span class="s1">&#39;pos_doc&#39;</span><span class="p">:</span> <span class="s1">&#39;5.&#39;</span>
+    <span class="p">},</span>
+    <span class="s1">&#39;SpecifyRelatedParcel&#39;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">&#39;tpl&#39;</span><span class="p">:</span> <span class="s1">&#39;existparcel.docx&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;pos_doc&#39;</span><span class="p">:</span> <span class="s1">&#39;6.&#39;</span>
+    <span class="p">},</span>
+    <span class="s1">&#39;FormParcels&#39;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">&#39;tpl&#39;</span><span class="p">:</span> <span class="s1">&#39;providing.docx&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;pos_doc&#39;</span><span class="p">:</span> <span class="s1">&#39;7.&#39;</span><span class="p">,</span>
+    <span class="p">},</span>
+    <span class="s1">&#39;Conclusion&#39;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">&#39;tpl&#39;</span><span class="p">:</span> <span class="s1">&#39;conclusion.docx&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;pos_doc&#39;</span><span class="p">:</span> <span class="s1">&#39;8.&#39;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 </pre></div>
 
            </div>
@@ -441,7 +494,7 @@
 
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
-            URL_ROOT:'../',
+            URL_ROOT:'../../',
             VERSION:'1.0',
             LANGUAGE:'None',
             COLLAPSE_INDEX:false,
@@ -450,15 +503,15 @@
             SOURCELINK_SUFFIX: '.txt'
         };
     </script>
-      <script type="text/javascript" src="../_static/jquery.js"></script>
-      <script type="text/javascript" src="../_static/underscore.js"></script>
-      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
 
   
 
   
   
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
   
 
   <script type="text/javascript">

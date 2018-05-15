@@ -1,3 +1,6 @@
+"""
+Модуль позволяющтй из xsd файла извлечь value по key
+"""
 from lxml import etree
 
 
@@ -29,6 +32,11 @@ class Schema:
         return self.get_Types("xs:complexType")
 
     def get_element_attributes(self, name):
+        """
+            Получить значение аттрибута
+        :param name: xs:enumeration
+        :return: <xsd:element> text </xsd:element>
+        """
         node = self.find(".//xs:enumeration[@value='" + name + "']")
         if node is None:
             return None
@@ -42,9 +50,15 @@ class Schema:
                 return ''
 
 
-def value_from_xsd(path,key):
+def value_from_xsd(path, key):
+    """
+        Получить значение ключа из xsd
+    :param path: путь к xsd
+    :param key: key
+    :return: value
+    """
     try:
         schema = Schema(path)
-        return  schema.get_element_attributes(key)
+        return schema.get_element_attributes(key)
     except:
         return ""
