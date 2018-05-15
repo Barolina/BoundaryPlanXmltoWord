@@ -378,7 +378,7 @@ class XmlNewParcel(XmlParcel):
             node.clear()
         return res
 
-    def __full_area(self, node):
+    def full_area(self, node):
         """
             Преобразование площади
         :param node: Area
@@ -388,7 +388,7 @@ class XmlNewParcel(XmlParcel):
         node.clear()
         return result
 
-    def __full_contours_area(self, node):
+    def full_contours_area(self, node):
         """
         :param node: node = Contours
         :return:
@@ -399,7 +399,7 @@ class XmlNewParcel(XmlParcel):
         if node:
             for index, _ in enumerate(node,1):
                 # _xml_area = _.xpath('Area')
-                _area += f"""({index}) {self.__full_area(_)} """
+                _area += f"""({index}) {self.full_area(_)} """
         return _area
 
     def __xml_general_info_to_dict(self):
@@ -407,8 +407,6 @@ class XmlNewParcel(XmlParcel):
         xml_addrss = self.node.xpath('Address')
         xml_category = self.node.xpath('Category')
         xml_utilization = self.node.xpath('Utilization | LandUse')
-        xml_area = self.node.xpath('Area')
-        xml_area_contour = self.node.xpath('Contours/child::*/child::Area')
         if xml_addrss:
             addres=xml_addrss[0]
             dict_address['location_note'] = ''.join(addres.xpath("Other/text()"))
@@ -426,8 +424,10 @@ class XmlNewParcel(XmlParcel):
         if xml_utilization:
             dict_address['utilization_landuse'] =  self.__full_utilization(xml_utilization[0])
             xml_utilization.clear()
+        xml_area = self.node.xpath('Area')
+        xml_area_contour = self.node.xpath('Contours/child::*/child::Area')
         if xml_area:
-            dict_address['area'] = self.__full_area(xml_area[0]) + '\n' + self.__full_contours_area(xml_area_contour)
+            dict_address['area'] = self.full_area(xml_area[0]) + '\n' + self.full_contours_area(xml_area_contour)
         dict_address['min_area'] = ''.join(self.node.xpath('MinArea/Area/text()'))
         dict_address['max_area'] = ''.join(self.node.xpath('MaxArea/Area/text()'))
         dict_address['note'] = ''.join(self.node.xpath('Note/text()'))
@@ -581,14 +581,10 @@ class XmlExistParcel(XmlNewParcel):
 
     def __xml_exist___general_info(self):
         res_dict = dict()
-        xml_area_contour = self.node.xpath('Contours')
-        xml_area = self.node.xpath('Area') #self.node.xpath('following-sibling::*//Contours//Area//* | Area//*')
-        if len(xml_area) > 0:
-            # dict_address['area'] = self.__full_area(xml_area[0]) + '\n\r' + self.full_ares_contours(xml_area_contour)
-            # _area_cont = self.node('following-sibling::*//Contours//Area//* | Area//*')
-            res_dict[cnfg.PARCEL_COMMON.area] =  self.__full_area(xml_area[0])
-        if xml_area_contour:
-            res_dict[cnfg.PARCEL_COMMON.area] += '\n\r' + self.__full_contours_area(xml_area_contour[0])
+        xml_area = self.node.xpath('Area')
+        xml_area_contour = self.node.xpath('Contours/child::*/child::Area')
+        if xml_area:
+            res_dict[cnfg.PARCEL_COMMON.area] = self.full_area(xml_area[0]) + '\n' + self.full_contours_area(xml_area_contour)
         area_gkn = self.node.xpath('AreaInGKN/text()')
         if  area_gkn:
             res_dict[cnfg.PARCEL_COMMON.areaGKN]=  area_gkn[0]
@@ -597,10 +593,10 @@ class XmlExistParcel(XmlNewParcel):
             res_dict[cnfg.PARCEL_COMMON.deltaArea]= delta[0]
         min_area = self.node.xpath('MinArea')
         if min_area:
-            res_dict[cnfg.PARCEL_COMMON.min_area]= self.__full_area(min_area[0])
+            res_dict[cnfg.PARCEL_COMMON.min_area]= self.full_area(min_area[0])
         max_area = self.node.xpath('MaxArea')
         if max_area:
-            res_dict[cnfg.PARCEL_COMMON.max_area]= self.__full_area(max_area[0])
+            res_dict[cnfg.PARCEL_COMMON.max_area]= self.full_area(max_area[0])
         res_dict[cnfg.PARCEL_COMMON.prevcadastralnumber] = self.xml_object_realty_inner_cadastral_number_to_text()
         note= self.node.xpath('Note/text()')
         if note:
