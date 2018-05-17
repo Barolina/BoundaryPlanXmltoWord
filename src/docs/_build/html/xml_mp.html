@@ -172,6 +172,14 @@ Larisa &lt;<a class="reference external" href="mailto:solow_larisa&#37;&#52;&#48
 <em class="property">class </em><code class="descclassname">xml_mp.basic.</code><code class="descname">Border</code><span class="sig-paren">(</span><em>node</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/xml_mp/basic.html#Border"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xml_mp.basic.Border" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></p>
 <p>Get a list of  border the EntitySpatial</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>node</strong> – the EntitySpatial</td>
+</tr>
+</tbody>
+</table>
 <dl class="method">
 <dt id="xml_mp.basic.Border.xml_to_list">
 <code class="descname">xml_to_list</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/xml_mp/basic.html#Border.xml_to_list"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xml_mp.basic.Border.xml_to_list" title="Permalink to this definition">¶</a></dt>
@@ -216,6 +224,10 @@ Larisa &lt;<a class="reference external" href="mailto:solow_larisa&#37;&#52;&#48
 <dt id="xml_mp.basic.EntitySpatial">
 <em class="property">class </em><code class="descclassname">xml_mp.basic.</code><code class="descname">EntitySpatial</code><span class="sig-paren">(</span><em>node</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/xml_mp/basic.html#EntitySpatial"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xml_mp.basic.EntitySpatial" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></p>
+<p>Get  a list of ordinates the EntitySpatial
+Получить список координат EntitySpatial
+:param node this EntitySpatial
+:return list ordinats EntitySpatial</p>
 <dl class="method">
 <dt id="xml_mp.basic.EntitySpatial.xml_to_list">
 <code class="descname">xml_to_list</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/xml_mp/basic.html#EntitySpatial.xml_to_list"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xml_mp.basic.EntitySpatial.xml_to_list" title="Permalink to this definition">¶</a></dt>
@@ -235,6 +247,11 @@ Larisa &lt;<a class="reference external" href="mailto:solow_larisa&#37;&#52;&#48
 <dt id="xml_mp.basic.Ordinatre">
 <em class="property">class </em><code class="descclassname">xml_mp.basic.</code><code class="descname">Ordinatre</code><span class="sig-paren">(</span><em>node</em>, <em>type_ordinate_ord</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/xml_mp/basic.html#Ordinatre"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xml_mp.basic.Ordinatre" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></p>
+<p>Get a list of coorinates the  inner contour(SpatialElement)
+Получить список коорлинат внутреннего контура
+:param node: SpatialElement
+:param type_ordinate_ord: тип коорлинат уточнение или образовние
+(лучше передать, так как не имеет смылса высчитавать тип в каждом внутреннем контуре)</p>
 <dl class="method">
 <dt id="xml_mp.basic.Ordinatre.xml_exist_ordinate_to_list">
 <code class="descname">xml_exist_ordinate_to_list</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/xml_mp/basic.html#Ordinatre.xml_exist_ordinate_to_list"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xml_mp.basic.Ordinatre.xml_exist_ordinate_to_list" title="Permalink to this definition">¶</a></dt>
@@ -390,8 +407,19 @@ Larisa &lt;<a class="reference external" href="mailto:solow_larisa&#37;&#52;&#48
 
 <dl class="class">
 <dt id="xml_mp.basic.XmlFullOrdinate">
-<em class="property">class </em><code class="descclassname">xml_mp.basic.</code><code class="descname">XmlFullOrdinate</code><span class="sig-paren">(</span><em>node</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/xml_mp/basic.html#XmlFullOrdinate"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xml_mp.basic.XmlFullOrdinate" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">xml_mp.basic.</code><code class="descname">XmlFullOrdinate</code><span class="sig-paren">(</span><em>node</em>, <em>definition</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/xml_mp/basic.html#XmlFullOrdinate"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xml_mp.basic.XmlFullOrdinate" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></p>
+<blockquote>
+<div>Get full ordinate and full borders</div></blockquote>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>node</strong> – Contours or EntitySpatial</td>
+</tr>
+</tbody>
+</table>
+<p>:parma definition  this CadastralNumber  or Definition ot NumberRecoed</p>
 <dl class="attribute">
 <dt id="xml_mp.basic.XmlFullOrdinate.CNST_NAME_CONTOURS">
 <code class="descname">CNST_NAME_CONTOURS</code><em class="property"> = 'Contours'</em><a class="headerlink" href="#xml_mp.basic.XmlFullOrdinate.CNST_NAME_CONTOURS" title="Permalink to this definition">¶</a></dt>
@@ -500,6 +528,11 @@ Larisa &lt;<a class="reference external" href="mailto:solow_larisa&#37;&#52;&#48
 </table>
 </dd></dl>
 
+<dl class="method">
+<dt id="xml_mp.element_to_dict.XmlExistParcel.xml_cadnum_to_text">
+<code class="descname">xml_cadnum_to_text</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/xml_mp/element_to_dict.html#XmlExistParcel.xml_cadnum_to_text"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xml_mp.element_to_dict.XmlExistParcel.xml_cadnum_to_text" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
 </dd></dl>
 
 <dl class="class">
@@ -574,6 +607,38 @@ Larisa &lt;<a class="reference external" href="mailto:solow_larisa&#37;&#52;&#48
 <p>Преобразование участка на образование  в словарь
 :param root = NewParcel</p>
 <dl class="method">
+<dt id="xml_mp.element_to_dict.XmlNewParcel.full_area">
+<code class="descname">full_area</code><span class="sig-paren">(</span><em>node</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/xml_mp/element_to_dict.html#XmlNewParcel.full_area"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xml_mp.element_to_dict.XmlNewParcel.full_area" title="Permalink to this definition">¶</a></dt>
+<dd><blockquote>
+<div>Преобразование площади</div></blockquote>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>node</strong> – Area</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">valua is the Area</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="xml_mp.element_to_dict.XmlNewParcel.full_contours_area">
+<code class="descname">full_contours_area</code><span class="sig-paren">(</span><em>node</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/xml_mp/element_to_dict.html#XmlNewParcel.full_contours_area"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xml_mp.element_to_dict.XmlNewParcel.full_contours_area" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>node</strong> – node = Contours</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
 <dt id="xml_mp.element_to_dict.XmlNewParcel.to_dict">
 <code class="descname">to_dict</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/xml_mp/element_to_dict.html#XmlNewParcel.to_dict"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xml_mp.element_to_dict.XmlNewParcel.to_dict" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="docutils">
@@ -589,6 +654,11 @@ Larisa &lt;<a class="reference external" href="mailto:solow_larisa&#37;&#52;&#48
 </tbody>
 </table>
 </dd></dl>
+
+<dl class="method">
+<dt id="xml_mp.element_to_dict.XmlNewParcel.xml_object_realty_inner_cadastral_number_to_text">
+<code class="descname">xml_object_realty_inner_cadastral_number_to_text</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/xml_mp/element_to_dict.html#XmlNewParcel.xml_object_realty_inner_cadastral_number_to_text"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xml_mp.element_to_dict.XmlNewParcel.xml_object_realty_inner_cadastral_number_to_text" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
 
 </dd></dl>
 
@@ -620,8 +690,11 @@ Larisa &lt;<a class="reference external" href="mailto:solow_larisa&#37;&#52;&#48
 <dt id="xml_mp.element_to_dict.XmlParcel">
 <em class="property">class </em><code class="descclassname">xml_mp.element_to_dict.</code><code class="descname">XmlParcel</code><span class="sig-paren">(</span><em>node</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/xml_mp/element_to_dict.html#XmlParcel"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xml_mp.element_to_dict.XmlParcel" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#xml_mp.basic.XMLElemenBase" title="xml_mp.basic.XMLElemenBase"><code class="xref py py-class docutils literal notranslate"><span class="pre">xml_mp.basic.XMLElemenBase</span></code></a></p>
-<p>вспомогательный класс для  обработки  общих узлов участка
-root  in [NewParcel, SubParcels, ExistParcel, ChangeParcel … все все остальные узлы с похожей структурой]</p>
+<dl class="method">
+<dt id="xml_mp.element_to_dict.XmlParcel.xml_cadnum_to_text">
+<code class="descname">xml_cadnum_to_text</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/xml_mp/element_to_dict.html#XmlParcel.xml_cadnum_to_text"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xml_mp.element_to_dict.XmlParcel.xml_cadnum_to_text" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
 <dl class="method">
 <dt id="xml_mp.element_to_dict.XmlParcel.xml_ordinates_to_dict">
 <code class="descname">xml_ordinates_to_dict</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/xml_mp/element_to_dict.html#XmlParcel.xml_ordinates_to_dict"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xml_mp.element_to_dict.XmlParcel.xml_ordinates_to_dict" title="Permalink to this definition">¶</a></dt>
@@ -715,6 +788,14 @@ node: SubParcels</p>
 <em class="property">class </em><code class="descclassname">xml_mp.element_to_dict.</code><code class="descname">XmlTitleDict</code><span class="sig-paren">(</span><em>node</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/xml_mp/element_to_dict.html#XmlTitleDict"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xml_mp.element_to_dict.XmlTitleDict" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Формированяи словаря для титульника</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>node</strong> – GeneralCadastralWorks</td>
+</tr>
+</tbody>
+</table>
 <dl class="method">
 <dt id="xml_mp.element_to_dict.XmlTitleDict.to_dict">
 <code class="descname">to_dict</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/xml_mp/element_to_dict.html#XmlTitleDict.to_dict"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xml_mp.element_to_dict.XmlTitleDict.to_dict" title="Permalink to this definition">¶</a></dt>

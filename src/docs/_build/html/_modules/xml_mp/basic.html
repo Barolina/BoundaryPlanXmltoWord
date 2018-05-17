@@ -438,13 +438,15 @@
     <span class="n">CNST_NAME_CONTOURS</span> <span class="o">=</span> <span class="s1">&#39;Contours&#39;</span>
     <span class="n">CNST_NAME_ENTITY_SPATIAL</span> <span class="o">=</span> <span class="s1">&#39;EntitySpatial&#39;</span>
 
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">,</span> <span class="n">definition</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">            Get full ordinate and full borders</span>
 <span class="sd">        :param node: Contours or EntitySpatial</span>
+<span class="sd">        :parma definition  this CadastralNumber  or Definition ot NumberRecoed</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="nb">super</span><span class="p">(</span><span class="n">XmlFullOrdinate</span><span class="p">,</span><span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">node</span> <span class="o">=</span> <span class="n">node</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">definition</span> <span class="o">=</span> <span class="n">definition</span>
 
     <span class="k">def</span> <span class="nf">__del__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="n">f</span><span class="s2">&quot;&quot;&quot; del </span><span class="si">{self.node}</span><span class="s2">&quot;&quot;&quot;</span><span class="p">)</span>
@@ -461,6 +463,8 @@
                     <span class="n">_entityspatial</span> <span class="o">=</span> <span class="n">_</span><span class="o">.</span><span class="n">xpath</span><span class="p">(</span><span class="s1">&#39;EntitySpatial&#39;</span><span class="p">)</span>
                     <span class="k">if</span> <span class="n">_entityspatial</span><span class="p">:</span>
                         <span class="n">_defintion</span> <span class="o">=</span> <span class="n">_</span><span class="o">.</span><span class="n">xpath</span><span class="p">(</span><span class="s1">&#39;@Definition | @Number | @NumberRecord&#39;</span><span class="p">)</span>
+                        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">definition</span> <span class="ow">in</span> <span class="n">_defintion</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span>
+                            <span class="n">_defintion</span> <span class="o">=</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">definition</span><span class="o">+</span><span class="s1">&#39;(&#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">_defintion</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">+</span><span class="s1">&#39;)&#39;</span><span class="p">]</span>
                         <span class="n">res</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">_defintion</span> <span class="o">+</span> <span class="n">StaticMethod</span><span class="o">.</span><span class="n">get_empty_tpl</span><span class="p">(</span><span class="n">_entityspatial</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
                         <span class="n">entity</span> <span class="o">=</span> <span class="n">EntitySpatial</span><span class="p">(</span><span class="n">_entityspatial</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
                         <span class="n">res</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">entity</span><span class="o">.</span><span class="n">xml_to_list</span><span class="p">())</span>
@@ -491,6 +495,8 @@
                     <span class="k">try</span><span class="p">:</span>
                         <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="n">contours</span><span class="p">:</span>
                             <span class="n">_defintion</span> <span class="o">=</span> <span class="n">_</span><span class="o">.</span><span class="n">xpath</span><span class="p">(</span><span class="s1">&#39;@Definition | @Number | @NumberRecord&#39;</span><span class="p">)</span>
+                            <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">definition</span> <span class="ow">in</span> <span class="n">_defintion</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span>
+                                <span class="n">_defintion</span> <span class="o">=</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">definition</span> <span class="o">+</span> <span class="s1">&#39;(&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">_defintion</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">+</span> <span class="s1">&#39;)&#39;</span><span class="p">]</span>
                             <span class="n">res</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">_defintion</span><span class="p">),</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">])</span>
                             <span class="n">_border</span> <span class="o">=</span> <span class="n">Border</span><span class="p">(</span><span class="n">_</span><span class="o">.</span><span class="n">xpath</span><span class="p">(</span><span class="s1">&#39;EntitySpatial&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">])</span>
                             <span class="n">res</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">_border</span><span class="o">.</span><span class="n">xml_to_list</span><span class="p">())</span>
@@ -525,7 +531,7 @@
     <span class="k">def</span> <span class="nf">__entity_spatial</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="n">_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">node</span><span class="o">.</span><span class="n">xpath</span><span class="p">(</span><span class="s1">&#39;Contours | EntitySpatial &#39;</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">_</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">_</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
-            <span class="n">xml_full_ordinate</span> <span class="o">=</span> <span class="n">XmlFullOrdinate</span><span class="p">(</span><span class="n">_</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+            <span class="n">xml_full_ordinate</span> <span class="o">=</span> <span class="n">XmlFullOrdinate</span><span class="p">(</span><span class="n">_</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">__defintion</span><span class="p">())</span>
             <span class="k">return</span> <span class="n">xml_full_ordinate</span><span class="o">.</span><span class="n">full_ordinate</span><span class="p">()</span>
         <span class="k">return</span> <span class="kc">None</span>
 

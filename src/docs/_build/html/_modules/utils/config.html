@@ -153,6 +153,7 @@
 <span class="sd">&quot;&quot;&quot;</span>
 
 <span class="c1"># =====================template title.docx==============================================================================</span>
+<span class="kn">from</span> <span class="nn">collections</span> <span class="k">import</span> <span class="n">namedtuple</span>
 
 <span class="n">TITLE</span> <span class="o">=</span> <span class="nb">type</span><span class="p">(</span><span class="s1">&#39;TITLE&#39;</span><span class="p">,</span> <span class="p">(),</span> <span class="p">{</span>
     <span class="s1">&#39;attr&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;REASON&#39;</span><span class="p">,</span> <span class="s1">&#39;PURPOSE&#39;</span><span class="p">,</span> <span class="s1">&#39;CLIENT&#39;</span><span class="p">,</span> <span class="s1">&#39;FIO&#39;</span><span class="p">,</span> <span class="s1">&#39;NCERTIFICATE&#39;</span><span class="p">,</span> <span class="s1">&#39;TELEPHONE&#39;</span><span class="p">,</span> <span class="s1">&#39;ADDRESS&#39;</span><span class="p">,</span> <span class="s1">&#39;EMAIL&#39;</span><span class="p">,</span> <span class="s1">&#39;ORGANIZATION&#39;</span><span class="p">,</span> <span class="s1">&#39;DATA&#39;</span><span class="p">],</span>
@@ -374,11 +375,11 @@
 <span class="sd">&quot;&quot;&quot;</span>
 
 <span class="c1"># ======================================================================================================================</span>
-
-<span class="n">PROVIDING</span> <span class="o">=</span> <span class="nb">type</span><span class="p">(</span><span class="s1">&#39;PROVIDING&#39;</span><span class="p">,</span> <span class="p">(),</span> <span class="p">{</span>
+<span class="n">__PROVIDING</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;PROVIDINGCADASTRAL&#39;</span><span class="p">,</span> <span class="c1"># наименование  атрибута в шаблоне</span>
     <span class="s1">&#39;attr&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">,</span> <span class="s1">&#39;cadastralnumber&#39;</span><span class="p">,</span> <span class="s1">&#39;note&#39;</span><span class="p">],</span> <span class="c1"># описание  атрибутов таблицы</span>
-<span class="p">})</span>
+<span class="p">}</span>
+<span class="n">PROVIDING</span> <span class="o">=</span> <span class="n">namedtuple</span><span class="p">(</span><span class="s1">&#39;PROVIDING&#39;</span><span class="p">,</span> <span class="n">__PROVIDING</span><span class="o">.</span><span class="n">keys</span><span class="p">())(</span><span class="o">**</span><span class="n">__PROVIDING</span><span class="p">)</span>
 <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">Сведения о земельных участках, посредством которых обеспечивается доступ</span>
 <span class="sd">:param наименование  данного атприбута в шаблоне </span>
@@ -415,52 +416,25 @@
 
 <span class="c1"># ======================================================================================================================</span>
 
-
+<span class="n">TPL</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;&#39;</span><span class="p">]</span>
 <span class="n">PATH_XSD</span> <span class="o">=</span> <span class="s1">&#39;xsd&#39;</span>
 
-<span class="n">TPL</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;&#39;</span><span class="p">]</span>
-<span class="n">BINDER_FILE</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s1">&#39;GeneralCadastralWorks&#39;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="s1">&#39;tpl&#39;</span> <span class="p">:</span> <span class="s1">&#39;title.docx&#39;</span><span class="p">,</span>
-        <span class="s1">&#39;pos_dox&#39;</span><span class="p">:</span> <span class="s1">&#39;1.&#39;</span>
-    <span class="p">},</span>
-    <span class="s1">&#39;InputData&#39;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="s1">&#39;tpl&#39;</span><span class="p">:</span> <span class="s2">&quot;inputdata.docx&quot;</span><span class="p">,</span>
-        <span class="s1">&#39;pos_doc&#39;</span><span class="p">:</span> <span class="s1">&#39;2.&#39;</span>
-    <span class="p">},</span>
-    <span class="s1">&#39;Survey&#39;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="s1">&#39;tpl&#39;</span><span class="p">:</span> <span class="s2">&quot;survey.docx&quot;</span><span class="p">,</span>
-        <span class="s1">&#39;pos_doc&#39;</span><span class="p">:</span> <span class="s1">&#39;3.&#39;</span>
-    <span class="p">},</span>
-    <span class="s1">&#39;NewParcel&#39;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="s1">&#39;tpl&#39;</span><span class="p">:</span> <span class="s2">&quot;newparcel.docx&quot;</span><span class="p">,</span>
-        <span class="s1">&#39;pos_doc&#39;</span><span class="p">:</span> <span class="s1">&#39;4.&#39;</span><span class="p">,</span>
-    <span class="p">},</span>
-    <span class="s1">&#39;ExistParcel&#39;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="s1">&#39;tpl&#39;</span><span class="p">:</span> <span class="s2">&quot;existparcel.docx&quot;</span><span class="p">,</span>
-        <span class="s1">&#39;pos_doc&#39;</span><span class="p">:</span> <span class="s1">&#39;4.&#39;</span>
-    <span class="p">},</span>
-    <span class="s1">&#39;SubParcels&#39;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="s1">&#39;tpl&#39;</span><span class="p">:</span> <span class="s2">&quot;changeparcel.docx&quot;</span><span class="p">,</span>
-        <span class="s1">&#39;pos_doc&#39;</span><span class="p">:</span> <span class="s1">&#39;6.&#39;</span>
-    <span class="p">},</span>
-    <span class="s1">&#39;ChangeParcel&#39;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="s1">&#39;tpl&#39;</span><span class="p">:</span> <span class="s2">&quot;changeparcel.docx&quot;</span><span class="p">,</span>
-        <span class="s1">&#39;pos_doc&#39;</span><span class="p">:</span> <span class="s1">&#39;5.&#39;</span>
-    <span class="p">},</span>
-    <span class="s1">&#39;SpecifyRelatedParcel&#39;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="s1">&#39;tpl&#39;</span><span class="p">:</span> <span class="s1">&#39;existparcel.docx&#39;</span><span class="p">,</span>
-        <span class="s1">&#39;pos_doc&#39;</span><span class="p">:</span> <span class="s1">&#39;6.&#39;</span>
-    <span class="p">},</span>
-    <span class="s1">&#39;FormParcels&#39;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="s1">&#39;tpl&#39;</span><span class="p">:</span> <span class="s1">&#39;providing.docx&#39;</span><span class="p">,</span>
-        <span class="s1">&#39;pos_doc&#39;</span><span class="p">:</span> <span class="s1">&#39;7.&#39;</span><span class="p">,</span>
-    <span class="p">},</span>
-    <span class="s1">&#39;Conclusion&#39;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="s1">&#39;tpl&#39;</span><span class="p">:</span> <span class="s1">&#39;conclusion.docx&#39;</span><span class="p">,</span>
-        <span class="s1">&#39;pos_doc&#39;</span><span class="p">:</span> <span class="s1">&#39;8.&#39;</span>
-    <span class="p">}</span>
-<span class="p">}</span>
+<span class="n">LIST_BLOCK_NODE</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="s1">&#39;GeneralCadastralWorks&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;InputData&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;Survey&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;NewParcel&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;ExistParcel&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;SubParcels&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;ChangeParcel&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;SpecifyRelatedParcel&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;FormParcels&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;Conclusion&#39;</span>
+<span class="p">)</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Список основных блоко xml для преобразования в word-tpl,</span>
+<span class="sd">наименования соответсвуют основым узлам MP-xml</span>
+<span class="sd">&quot;&quot;&quot;</span>
 </pre></div>
 
            </div>

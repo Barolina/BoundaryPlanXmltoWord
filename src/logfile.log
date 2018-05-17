@@ -1,0 +1,60 @@
+2018-05-17 11:11:34,315 - sLogger - DEBUG - debug message
+2018-05-17 11:11:34,315 - sLogger - INFO - info message
+2018-05-17 11:11:34,316 - sLogger - WARNING - warn message
+2018-05-17 11:11:34,316 - sLogger - ERROR - error message
+2018-05-17 11:11:34,316 - sLogger - CRITICAL - critical message
+2018-05-17 11:11:34,316 - sLogger - INFO - START PARSING
+2018-05-17 11:11:38,258 - sLogger - INFO - Parsing <Element NewParcel at 0x7f5b1a47dd08>  done -> result 4.2427
+2018-05-17 11:11:38,301 - sLogger - INFO - Parsing <Element FormParcels at 0x7f5b1a47ddc8>  done -> result 7.2428
+2018-05-17 11:11:38,342 - sLogger - INFO - Parsing <Element GeneralCadastralWorks at 0x7f5b1a439b88>  done -> result 1.2467
+2018-05-17 11:11:38,421 - sLogger - INFO - Parsing <Element InputData at 0x7f5b1a436b88>  done -> result 2.2573
+2018-05-17 11:11:38,491 - sLogger - INFO - Parsing <Element Survey at 0x7f5b1a43a288>  done -> result 3.2679
+2018-05-17 11:11:38,513 - sLogger - INFO - Parsing <Element Conclusion at 0x7f5b1a434ec8>  done -> result 8.2681
+2018-05-17 11:11:38,514 - sLogger - INFO - START COMBINE WORDS
+2018-05-17 11:11:45,288 - sLogger - INFO - END
+2018-05-17 11:11:45,289 - sLogger - INFO - The file path = /home/larisa/Documents/projects/MP_to_Word/TEST/1/1.xml -> parsing done! 
+2018-05-17 11:12:19,020 - sLogger - DEBUG - debug message
+2018-05-17 11:12:19,020 - sLogger - INFO - info message
+2018-05-17 11:12:19,020 - sLogger - WARNING - warn message
+2018-05-17 11:12:19,020 - sLogger - ERROR - error message
+2018-05-17 11:12:19,020 - sLogger - CRITICAL - critical message
+2018-05-17 11:12:19,021 - sLogger - INFO - START PARSING
+2018-05-17 11:12:19,438 - sLogger - INFO - Parsing <Element NewParcel at 0x7f72748d3d48>  done -> result 4.2427
+2018-05-17 11:12:19,466 - sLogger - INFO - Parsing <Element FormParcels at 0x7f72748d3e08>  done -> result 7.2428
+2018-05-17 11:12:19,500 - sLogger - INFO - Parsing <Element GeneralCadastralWorks at 0x7f727488fbc8>  done -> result 1.2467
+2018-05-17 11:12:19,592 - sLogger - INFO - Parsing <Element InputData at 0x7f727488cbc8>  done -> result 2.2573
+2018-05-17 11:12:19,655 - sLogger - INFO - Parsing <Element Survey at 0x7f72748902c8>  done -> result 3.2679
+2018-05-17 11:12:19,672 - sLogger - INFO - Parsing <Element Conclusion at 0x7f72748d3b48>  done -> result 8.2681
+2018-05-17 11:12:19,672 - sLogger - INFO - START COMBINE WORDS
+2018-05-17 11:12:21,795 - sLogger - INFO - END
+2018-05-17 11:12:21,796 - sLogger - INFO - The file path = /home/larisa/Documents/projects/MP_to_Word/TEST/1/1.xml -> parsing done! 
+2018-05-17 11:13:23,873 - sLogger - INFO - START PARSING
+2018-05-17 11:13:24,297 - sLogger - INFO - Parsing <Element NewParcel at 0x7fa05503ed08>  done -> result 4.2427
+2018-05-17 11:13:24,330 - sLogger - INFO - Parsing <Element FormParcels at 0x7fa05503ee08>  done -> result 7.2428
+2018-05-17 11:13:24,370 - sLogger - INFO - Parsing <Element GeneralCadastralWorks at 0x7fa054ff8b08>  done -> result 1.2467
+2018-05-17 11:13:24,449 - sLogger - INFO - Parsing <Element InputData at 0x7fa054ff5b08>  done -> result 2.2573
+2018-05-17 11:13:24,517 - sLogger - INFO - Parsing <Element Survey at 0x7fa054ff9208>  done -> result 3.2679
+2018-05-17 11:13:24,537 - sLogger - INFO - Parsing <Element Conclusion at 0x7fa054fe1cc8>  done -> result 8.2681
+2018-05-17 11:13:24,537 - sLogger - INFO - START COMBINE WORDS
+2018-05-17 11:13:29,348 - sLogger - INFO - END
+2018-05-17 11:13:29,348 - sLogger - INFO - The file path = /home/larisa/Documents/projects/MP_to_Word/TEST/1/1.xml -> parsing done! 
+2018-05-17 11:13:35,245 - sLogger - INFO - START PARSING
+2018-05-17 11:13:35,730 - sLogger - INFO - Parsing <Element NewParcel at 0x7f1159333d08>  done -> result 4.2427
+2018-05-17 11:13:35,756 - sLogger - INFO - Parsing <Element FormParcels at 0x7f1159333e08>  done -> result 7.2428
+2018-05-17 11:13:35,792 - sLogger - INFO - Parsing <Element GeneralCadastralWorks at 0x7f11592edac8>  done -> result 1.2467
+2018-05-17 11:13:35,858 - sLogger - INFO - Parsing <Element InputData at 0x7f11592eaac8>  done -> result 2.2573
+2018-05-17 11:13:35,919 - sLogger - INFO - Parsing <Element Survey at 0x7f11592ee1c8>  done -> result 3.2679
+2018-05-17 11:13:35,936 - sLogger - INFO - Parsing <Element Conclusion at 0x7f11592e3808>  done -> result 8.2681
+2018-05-17 11:13:35,937 - sLogger - INFO - START COMBINE WORDS
+2018-05-17 11:13:38,165 - sLogger - INFO - END
+2018-05-17 11:13:38,166 - sLogger - INFO - The file path = /home/larisa/Documents/projects/MP_to_Word/TEST/1/1.xml -> parsing done! 
+2018-05-17 11:45:48,434 - sLogger - INFO - START PARSING
+2018-05-17 11:45:49,361 - sLogger - INFO - Parsing <Element NewParcel at 0x7fc2d4327d08>  done -> result 4.2427
+2018-05-17 11:45:49,387 - sLogger - INFO - Parsing <Element FormParcels at 0x7fc2d4327e08>  done -> result 7.2428
+2018-05-17 11:45:49,418 - sLogger - INFO - Parsing <Element GeneralCadastralWorks at 0x7fc2d42e1b08>  done -> result 1.2467
+2018-05-17 11:45:49,492 - sLogger - INFO - Parsing <Element InputData at 0x7fc2d42deb08>  done -> result 2.2573
+2018-05-17 11:45:49,578 - sLogger - INFO - Parsing <Element Survey at 0x7fc2d42e2208>  done -> result 3.2679
+2018-05-17 11:45:49,607 - sLogger - INFO - Parsing <Element Conclusion at 0x7fc2d42dcb08>  done -> result 8.2681
+2018-05-17 11:45:49,608 - sLogger - INFO - START COMBINE WORDS
+2018-05-17 11:45:52,372 - sLogger - INFO - END
+2018-05-17 11:45:52,373 - sLogger - INFO - The file path = /home/larisa/Documents/projects/MP_to_Word/TEST/1/1.xml -> parsing done! 

@@ -146,6 +146,7 @@
 <span></span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Parsing xml to WORD</span>
 <span class="sd">&quot;&quot;&quot;</span>
+<span class="kn">import</span> <span class="nn">argparse</span>
 <span class="kn">import</span> <span class="nn">shutil</span>
 <span class="kn">import</span> <span class="nn">tempfile</span>
 <span class="kn">from</span> <span class="nn">builtins</span> <span class="k">import</span> <span class="nb">enumerate</span>
@@ -157,11 +158,14 @@
 <span class="kn">from</span> <span class="nn">xml_mp.element_to_dict</span> <span class="k">import</span> <span class="o">*</span>
 <span class="kn">from</span> <span class="nn">docx</span> <span class="k">import</span> <span class="n">Document</span>
 <span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">logging.config</span>
 
-<span class="kn">import</span> <span class="nn">logging</span>
-<span class="kn">from</span> <span class="nn">logging.config</span> <span class="k">import</span> <span class="n">fileConfig</span>
-<span class="c1"># fileConfig(&#39;loggers/logging_config.ini&#39;)</span>
-<span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">()</span>
+<span class="c1"># set up logging</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">logging</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">fileConfig</span><span class="p">(</span><span class="s2">&quot;logging_config.ini&quot;</span><span class="p">)</span>
+<span class="k">except</span><span class="p">:</span>
+    <span class="k">pass</span>
+<span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="s1">&#39;sLogger&#39;</span><span class="p">)</span>
 
 
 <div class="viewcode-block" id="MpXMlToWORd"><a class="viewcode-back" href="../main.html#main.MpXMlToWORd">[docs]</a><span class="k">class</span> <span class="nc">MpXMlToWORd</span><span class="p">:</span>
@@ -202,13 +206,22 @@
             <span class="k">else</span><span class="p">:</span>
                 <span class="k">break</span></div>
 
-    <span class="k">def</span> <span class="nf">__get_path_file</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tag</span><span class="p">,</span> <span class="n">pos</span><span class="p">):</span>
+<div class="viewcode-block" id="MpXMlToWORd.run_render_tpl"><a class="viewcode-back" href="../main.html#main.MpXMlToWORd.run_render_tpl">[docs]</a>    <span class="k">def</span> <span class="nf">run_render_tpl</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">elem</span><span class="p">,</span> <span class="n">xml_class_name</span><span class="p">,</span> <span class="n">is_clean</span><span class="p">,</span> <span class="n">pos_node</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        :param tag: наименование node</span>
-<span class="sd">        :param pos:  позиция node в xml</span>
-<span class="sd">        :return: string : формирование пути</span>
+<span class="sd">        Запуск парсинга определенного блока xml</span>
+<span class="sd">        :param elem: node</span>
+<span class="sd">        :param xml_class_name: class -&gt; retun dict</span>
+<span class="sd">        :param is_clean: очищать  узел или там еще что то нужно</span>
+<span class="sd">        :param pos_node: просто порядковый номер позици узла</span>
+<span class="sd">        :return: docx</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">CNST_PATH_TPL</span><span class="o">+</span><span class="n">cnfg</span><span class="o">.</span><span class="n">BINDER_FILE</span><span class="p">[</span><span class="n">tag</span><span class="p">][</span><span class="s1">&#39;pos_doc&#39;</span><span class="p">]</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">pos</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">is_clean</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">fast_iter_element</span><span class="p">(</span><span class="n">elem</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">render_tpl</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">xml_class_name</span><span class="p">,</span>
+                                                                <span class="bp">self</span><span class="o">.</span><span class="n">CNST_PATH_TPL</span> <span class="o">+</span> <span class="n">BINDER_FILE</span><span class="p">[</span><span class="n">elem</span><span class="o">.</span><span class="n">tag</span><span class="p">][</span><span class="s1">&#39;tpl&#39;</span><span class="p">],</span>
+                                                                <span class="n">BINDER_FILE</span><span class="p">[</span><span class="n">elem</span><span class="o">.</span><span class="n">tag</span><span class="p">][</span><span class="s1">&#39;pos_doc&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">pos_node</span><span class="p">)))</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">render_tpl</span><span class="p">(</span><span class="n">elem</span><span class="p">,</span> <span class="n">xml_class_name</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">CNST_PATH_TPL</span> <span class="o">+</span> <span class="n">BINDER_FILE</span><span class="p">[</span><span class="n">elem</span><span class="o">.</span><span class="n">tag</span><span class="p">][</span><span class="s1">&#39;tpl&#39;</span><span class="p">],</span>
+                                                                <span class="n">BINDER_FILE</span><span class="p">[</span><span class="n">elem</span><span class="o">.</span><span class="n">tag</span><span class="p">][</span><span class="s1">&#39;pos_doc&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">pos_node</span><span class="p">))</span></div>
 
     <span class="k">def</span> <span class="nf">__context_parser</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">context</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
@@ -217,46 +230,17 @@
 <span class="sd">        :return:None</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
-        <span class="k">for</span> <span class="n">event</span><span class="p">,</span> <span class="n">elem</span> <span class="ow">in</span> <span class="n">context</span><span class="p">:</span>
-            <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
-            <span class="k">if</span> <span class="n">elem</span><span class="o">.</span><span class="n">tag</span> <span class="o">==</span> <span class="n">cnfg</span><span class="o">.</span><span class="n">BINDER_FILE</span><span class="p">[</span><span class="n">elem</span><span class="o">.</span><span class="n">tag</span><span class="p">]</span> <span class="ow">and</span> <span class="n">event</span> <span class="o">==</span> <span class="s1">&#39;end&#39;</span><span class="p">:</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">fast_iter_element</span><span class="p">(</span><span class="n">elem</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">render_tpl</span><span class="p">,</span>
-                                       <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">XmlTitleDict</span><span class="p">,</span> <span class="s1">&#39;template/common/title.docx&#39;</span><span class="p">,</span><span class="s1">&#39;1.&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)))</span>
-            <span class="k">if</span> <span class="n">elem</span><span class="o">.</span><span class="n">tag</span> <span class="o">==</span> <span class="s1">&#39;InputData&#39;</span> <span class="ow">and</span> <span class="n">event</span> <span class="o">==</span> <span class="s1">&#39;end&#39;</span><span class="p">:</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">fast_iter_element</span><span class="p">(</span><span class="n">elem</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">render_tpl</span><span class="p">,</span>
-                                       <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">XmlInputDataDict</span><span class="p">,</span> <span class="s1">&#39;template/common/inputdata.docx&#39;</span><span class="p">,</span> <span class="s1">&#39;2.&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)))</span>
-            <span class="k">if</span> <span class="n">elem</span><span class="o">.</span><span class="n">tag</span> <span class="o">==</span> <span class="s1">&#39;Survey&#39;</span> <span class="ow">and</span> <span class="n">event</span> <span class="o">==</span> <span class="s1">&#39;end&#39;</span><span class="p">:</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">fast_iter_element</span><span class="p">(</span><span class="n">elem</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">render_tpl</span><span class="p">,</span>
-                                       <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">XmlSurveyDict</span><span class="p">,</span> <span class="s1">&#39;template/common/survey.docx&#39;</span><span class="p">,</span><span class="s1">&#39;3.&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)))</span>
-            <span class="k">if</span> <span class="n">elem</span><span class="o">.</span><span class="n">tag</span> <span class="o">==</span> <span class="s1">&#39;NewParcel&#39;</span> <span class="ow">and</span> <span class="n">event</span> <span class="o">==</span> <span class="s1">&#39;end&#39;</span><span class="p">:</span>
-                <span class="c1"># self.fast_iter_element(elem, self.render_tpl,</span>
-                                       <span class="c1"># args=(XmlNewParcel, &#39;template/common/newparcel.docx&#39;, &#39;4.&#39; + str(i)))</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">render_tpl</span><span class="p">(</span><span class="n">elem</span><span class="p">,</span> <span class="n">XmlNewParcel</span><span class="p">,</span> <span class="s1">&#39;template/common/newparcel.docx&#39;</span><span class="p">,</span> <span class="s1">&#39;4.&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">))</span>
-            <span class="k">if</span> <span class="n">elem</span><span class="o">.</span><span class="n">tag</span> <span class="o">==</span> <span class="s1">&#39;ExistParcel&#39;</span> <span class="ow">and</span> <span class="n">event</span> <span class="o">==</span> <span class="s1">&#39;end&#39;</span><span class="p">:</span>
-                <span class="c1"># self.fast_iter_element(elem, self.render_tpl,</span>
-                                       <span class="c1"># args=(XmlExistParcel, &#39;template/common/existparcel.docx&#39;, &#39;4.&#39; + str(i)))</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">render_tpl</span><span class="p">(</span><span class="n">elem</span><span class="p">,</span> <span class="n">XmlExistParcel</span><span class="p">,</span> <span class="s1">&#39;template/common/existparcel.docx&#39;</span><span class="p">,</span> <span class="s1">&#39;4.&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">))</span>
-
-            <span class="k">if</span> <span class="n">elem</span><span class="o">.</span><span class="n">tag</span> <span class="o">==</span> <span class="s1">&#39;SubParcels&#39;</span> <span class="ow">and</span> <span class="n">event</span> <span class="o">==</span> <span class="s1">&#39;end&#39;</span> <span class="ow">and</span> <span class="n">elem</span><span class="o">.</span><span class="n">getparent</span><span class="p">()</span><span class="o">.</span><span class="n">tag</span> <span class="o">==</span> <span class="s1">&#39;Package&#39;</span><span class="p">:</span>
-                <span class="c1"># self.fast_iter_element(elem, self.render_tpl,</span>
-                                       <span class="c1"># args=(XmlSubParcels, &#39;template/common/subparcels.docx&#39;, &#39;6.&#39; + str(i)))</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">render_tpl</span><span class="p">(</span><span class="n">elem</span><span class="p">,</span> <span class="n">XmlSubParcels</span><span class="p">,</span> <span class="s1">&#39;template/common/subparcels.docx&#39;</span><span class="p">,</span> <span class="s1">&#39;6.&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">))</span>
-
-            <span class="k">if</span> <span class="n">elem</span><span class="o">.</span><span class="n">tag</span> <span class="o">==</span> <span class="s1">&#39;ChangeParcel&#39;</span> <span class="ow">and</span> <span class="n">event</span> <span class="o">==</span> <span class="s1">&#39;end&#39;</span><span class="p">:</span>
-                <span class="c1"># self.fast_iter_element(elem, self.render_tpl,</span>
-                <span class="c1">#                        args=(XmlChangeParcel, &#39;template/common/changeparcel.docx&#39;, &#39;5.&#39; + str(i)))</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">render_tpl</span><span class="p">(</span><span class="n">elem</span><span class="p">,</span> <span class="n">XmlChangeParcel</span><span class="p">,</span> <span class="s1">&#39;template/common/changeparcel.docx&#39;</span><span class="p">,</span> <span class="s1">&#39;5.&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">))</span>
-            <span class="k">if</span> <span class="n">elem</span><span class="o">.</span><span class="n">tag</span> <span class="o">==</span> <span class="s1">&#39;SpecifyRelatedParcel&#39;</span> <span class="ow">and</span> <span class="n">event</span> <span class="o">==</span> <span class="s1">&#39;end&#39;</span><span class="p">:</span>
-                <span class="c1"># self.fast_iter_element(elem, self.render_tpl,</span>
-                                       <span class="c1"># args=(XmlExistParcel, &#39;template/common/existparcel.docx&#39;,&#39;6.&#39; + str(i)))</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">render_tpl</span><span class="p">(</span><span class="n">elem</span><span class="p">,</span> <span class="n">XmlExistParcel</span><span class="p">,</span> <span class="s1">&#39;template/common/existparcel.docx&#39;</span><span class="p">,</span> <span class="s1">&#39;6.&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">))</span>
-            <span class="k">if</span> <span class="n">elem</span><span class="o">.</span><span class="n">tag</span> <span class="o">==</span> <span class="s1">&#39;FormParcels&#39;</span> <span class="ow">and</span> <span class="n">event</span> <span class="o">==</span> <span class="s1">&#39;end&#39;</span><span class="p">:</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">render_tpl</span><span class="p">(</span><span class="n">elem</span><span class="p">,</span> <span class="n">XmlNewParcelProviding</span><span class="p">,</span> <span class="s1">&#39;template/common/providing.docx&#39;</span><span class="p">,</span><span class="s1">&#39;7.&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">))</span>
-
-            <span class="k">if</span> <span class="n">elem</span><span class="o">.</span><span class="n">tag</span> <span class="o">==</span> <span class="s1">&#39;Conclusion&#39;</span> <span class="ow">and</span> <span class="n">event</span> <span class="o">==</span> <span class="s1">&#39;end&#39;</span><span class="p">:</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">fast_iter_element</span><span class="p">(</span><span class="n">elem</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">render_tpl</span><span class="p">,</span>
-                                       <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">XmlConclusion</span><span class="p">,</span> <span class="s1">&#39;template/common/conclusion.docx&#39;</span><span class="p">,</span><span class="s1">&#39;8.&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)))</span>
-        <span class="k">del</span> <span class="n">context</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">event</span><span class="p">,</span> <span class="n">elem</span> <span class="ow">in</span> <span class="n">context</span><span class="p">:</span>
+                <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+                <span class="k">if</span> <span class="n">elem</span><span class="o">.</span><span class="n">tag</span> <span class="ow">in</span> <span class="n">cnfg</span><span class="o">.</span><span class="n">LIST_BLOCK_NODE</span> <span class="ow">and</span> <span class="n">event</span> <span class="o">==</span> <span class="s1">&#39;end&#39;</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="n">elem</span><span class="o">.</span><span class="n">tag</span> <span class="o">==</span> <span class="s1">&#39;SubParcels&#39;</span> <span class="ow">and</span> <span class="n">event</span> <span class="o">==</span> <span class="s1">&#39;end&#39;</span> <span class="ow">and</span> <span class="n">elem</span><span class="o">.</span><span class="n">getparent</span><span class="p">()</span><span class="o">.</span><span class="n">tag</span> <span class="o">!=</span> <span class="s1">&#39;Package&#39;</span><span class="p">:</span>
+                        <span class="k">continue</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">run_render_tpl</span><span class="p">(</span><span class="n">elem</span><span class="p">,</span> <span class="n">BINDER_FILE</span><span class="p">[</span><span class="n">elem</span><span class="o">.</span><span class="n">tag</span><span class="p">][</span><span class="s1">&#39;class&#39;</span><span class="p">],</span> <span class="n">BINDER_FILE</span><span class="p">[</span><span class="n">elem</span><span class="o">.</span><span class="n">tag</span><span class="p">][</span><span class="s1">&#39;clear&#39;</span><span class="p">],</span> <span class="n">i</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="n">f</span><span class="s2">&quot;&quot;&quot;</span><span class="si">{e}</span><span class="s2"> -&gt;</span><span class="si">{elem}</span><span class="s2"> &quot;&quot;&quot;</span><span class="p">)</span>
+        <span class="k">finally</span><span class="p">:</span>
+            <span class="k">del</span> <span class="n">context</span>
 
     <span class="k">def</span> <span class="nf">__xml_block_to_docx</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
@@ -346,13 +330,23 @@
 <span class="sd">        поехали </span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;START PARSING&#39;</span><span class="p">)</span>
-    <span class="k">try</span><span class="p">:</span>
-        <span class="k">with</span> <span class="n">closing</span><span class="p">(</span><span class="n">MpXMlToWORd</span><span class="p">())</span> <span class="k">as</span> <span class="n">generat</span><span class="p">:</span>
-            <span class="n">generat</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s1">&#39;../TEST/1/1.xml&#39;</span><span class="p">,</span> <span class="s1">&#39;../TEST/1/1.docx&#39;</span><span class="p">)</span>
-    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-        <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="n">f</span><span class="s2">&quot;&quot;&quot;Error parsing file </span><span class="si">{e}</span><span class="s2">&quot;&quot;&quot;</span><span class="p">)</span>
+    <span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">()</span>
+
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-i&#39;</span><span class="p">,</span> <span class="s1">&#39;--input&#39;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Путь к xml-файлу&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">str</span><span class="p">)</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-o&#39;</span><span class="p">,</span> <span class="s1">&#39;--output&#39;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Файл для получения реультата&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">str</span><span class="p">)</span>
+    <span class="n">args</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">args</span><span class="o">.</span><span class="n">input</span><span class="p">:</span>
+        <span class="n">parser</span><span class="o">.</span><span class="n">print_help</span><span class="p">()</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;The file parsing done! &#39;</span><span class="p">)</span>
+        <span class="n">xml_file</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">normpath</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">input</span><span class="p">)</span>
+        <span class="n">res_file</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">normpath</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">output</span><span class="p">)</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">with</span> <span class="n">closing</span><span class="p">(</span><span class="n">MpXMlToWORd</span><span class="p">())</span> <span class="k">as</span> <span class="n">generat</span><span class="p">:</span>
+                <span class="n">generat</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">xml_file</span><span class="p">,</span> <span class="n">res_file</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="n">f</span><span class="s2">&quot;&quot;&quot;Error parsing file </span><span class="si">{xml_file}</span><span class="s2">  -&gt; </span><span class="si">{e}</span><span class="s2">&quot;&quot;&quot;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="n">f</span><span class="s2">&quot;&quot;&quot;The file path = </span><span class="si">{xml_file}</span><span class="s2"> -&gt; parsing done! &quot;&quot;&quot;</span><span class="p">)</span>
 </pre></div>
 
            </div>

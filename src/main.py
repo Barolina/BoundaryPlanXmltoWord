@@ -13,11 +13,14 @@ from lxml.etree import iterparse
 from xml_mp.element_to_dict import *
 from docx import Document
 import os
+import logging.config
 
-import logging
-from logging.config import fileConfig
-# fileConfig('loggers/logging_config.ini')
-logger = logging.getLogger()
+# set up logging
+try:
+    logging.config.fileConfig("logging_config.ini")
+except:
+    pass
+logger = logging.getLogger('sLogger')
 
 
 class MpXMlToWORd:
