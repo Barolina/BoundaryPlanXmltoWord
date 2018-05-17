@@ -26,16 +26,16 @@ class XMLElemenBase:
     """
         Базовый класс - определяющий структуру наследников
         :param node - на вход узел дерева
-        :return  возвращает словарь данных (to_dict)
+        :return  json(object)
     """
     def __init__(self, node):
         self.node = node
 
     def to_dict(self):
         """
-            Обязательный метод для  наследников
-            (( не обходим для  рендеринга tpl word)
-        :return: dict()
+            Return json - object, based on the dictionary in config
+            (данные метод реализован у всех наследников, необходимых для render шааболонов)
+        :return: json()
         """
         pass
 
