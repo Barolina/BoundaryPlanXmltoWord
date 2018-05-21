@@ -85,9 +85,9 @@
 <li class="toctree-l2"><a class="reference internal" href="main.html">main module</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">utils package</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#submodules">Submodules</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#utils-config-module">utils.config module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#utils-xsd-module">utils.xsd module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#module-contents">Module contents</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-utils.config">utils.config module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-utils.xsd">utils.xsd module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-utils">Module contents</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="xml_mp.html">xml_mp package</a></li>
@@ -164,14 +164,632 @@
 <div class="section" id="submodules">
 <h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
 </div>
-<div class="section" id="utils-config-module">
-<h2>utils.config module<a class="headerlink" href="#utils-config-module" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-utils.config">
+<span id="utils-config-module"></span><h2>utils.config module<a class="headerlink" href="#module-utils.config" title="Permalink to this headline">¶</a></h2>
+<p>Данный модуль содержит надор основных словарей, используемых при генерации и рендеринге word- шаблоны</p>
+<blockquote>
+<div><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">param attr:</th><td class="field-body">список  атрибутов используемых для генерации таблицы;</td>
+</tr>
+<tr class="field-even field"><th class="field-name">param name:</th><td class="field-body">наименование элемента в шаблоне (н - необязательный);</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">param dict:</th><td class="field-body">список справочников, данного элемента, используемых для преобразования значений (key; value);</td>
+</tr>
+<tr class="field-even field"><th class="field-name">param fields:</th><td class="field-body">список остальных элементов используемых в шаблоне</td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+<dl class="class">
+<dt id="utils.config.BORDERS">
+<em class="property">class </em><code class="descclassname">utils.config.</code><code class="descname">BORDERS</code><a class="headerlink" href="#utils.config.BORDERS" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Описание частей границ (от точки до точки)</p>
+<dl class="attribute">
+<dt id="utils.config.BORDERS.attr">
+<code class="descname">attr</code><em class="property"> = ['contour', 'point1', 'point2', 'length', 'empty']</em><a class="headerlink" href="#utils.config.BORDERS.attr" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="utils.config.BORDERS.name">
+<code class="descname">name</code><em class="property"> = 'BORDERS'</em><a class="headerlink" href="#utils.config.BORDERS.name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="utils.config.CHANGEPARCELS">
+<em class="property">class </em><code class="descclassname">utils.config.</code><code class="descname">CHANGEPARCELS</code><a class="headerlink" href="#utils.config.CHANGEPARCELS" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Описание  словаря  описывающий  измеенный  участок</p>
+<dl class="attribute">
+<dt id="utils.config.CHANGEPARCELS.cadnum">
+<code class="descname">cadnum</code><em class="property"> = 'cadastralnumber_parcel'</em><a class="headerlink" href="#utils.config.CHANGEPARCELS.cadnum" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="utils.config.CHANGEPARCELS.deleteEntyParcel">
+<code class="descname">deleteEntyParcel</code><em class="property"> = 'delete_entry_parcels'</em><a class="headerlink" href="#utils.config.CHANGEPARCELS.deleteEntyParcel" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="utils.config.CHANGEPARCELS.dict">
+<code class="descname">dict</code><em class="property"> = {'address_code': 'adresCod.xsd', 'categories': 'dCategories_v01.xsd', 'landuse': 'dAllowedUse_v01.xsd', 'utilization': 'dUtilizations_v01.xsd'}</em><a class="headerlink" href="#utils.config.CHANGEPARCELS.dict" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="utils.config.CHANGEPARCELS.innerCadNum">
+<code class="descname">innerCadNum</code><em class="property"> = 'inner_cadastral_number'</em><a class="headerlink" href="#utils.config.CHANGEPARCELS.innerCadNum" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="utils.config.CHANGEPARCELS.note">
+<code class="descname">note</code><em class="property"> = 'note'</em><a class="headerlink" href="#utils.config.CHANGEPARCELS.note" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="utils.config.CHANGEPARCELS.transformEntryParcel">
+<code class="descname">transformEntryParcel</code><em class="property"> = 'transformation_entry_parcels'</em><a class="headerlink" href="#utils.config.CHANGEPARCELS.transformEntryParcel" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="data">
+<dt id="utils.config.CONCLUSION">
+<code class="descclassname">utils.config.</code><code class="descname">CONCLUSION</code><em class="property"> = {'name': 'conclusion'}</em><a class="headerlink" href="#utils.config.CONCLUSION" title="Permalink to this definition">¶</a></dt>
+<dd><p>Обозначение  заключения кад. инженера</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="utils.config.ENTITY_SPATIAL">
+<em class="property">class </em><code class="descclassname">utils.config.</code><code class="descname">ENTITY_SPATIAL</code><a class="headerlink" href="#utils.config.ENTITY_SPATIAL" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Описание местоположения границ  на образование
+:param empty - свидетельствует о наличии пустой строки
+:param contour  - свидетельствует о наличии строки контура</p>
+<dl class="attribute">
+<dt id="utils.config.ENTITY_SPATIAL.attr">
+<code class="descname">attr</code><em class="property"> = ['contour', 'numGeopoint', 'x', 'y', 'deltaGeopoint', 'empty']</em><a class="headerlink" href="#utils.config.ENTITY_SPATIAL.attr" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="utils.config.ENTITY_SPATIAL.name">
+<code class="descname">name</code><em class="property"> = 'ENTITY_SPATIAL'</em><a class="headerlink" href="#utils.config.ENTITY_SPATIAL.name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="utils.config.ENTITY_SPATIAL_EXIST">
+<em class="property">class </em><code class="descclassname">utils.config.</code><code class="descname">ENTITY_SPATIAL_EXIST</code><a class="headerlink" href="#utils.config.ENTITY_SPATIAL_EXIST" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Описание местоположения границ на уточнение
+:param empty - свидетельствует о наличии пустой строки
+:param contour  - свидетельствует о наличии строки контура</p>
+<dl class="attribute">
+<dt id="utils.config.ENTITY_SPATIAL_EXIST.attr">
+<code class="descname">attr</code><em class="property"> = ['contour', 'numGeopoint', 'oldX', 'oldY', 'newX', 'newY', 'delta', 'empty']</em><a class="headerlink" href="#utils.config.ENTITY_SPATIAL_EXIST.attr" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="utils.config.ENTITY_SPATIAL_EXIST.name">
+<code class="descname">name</code><em class="property"> = 'ENTITY_SPATIAL'</em><a class="headerlink" href="#utils.config.ENTITY_SPATIAL_EXIST.name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="utils.config.GEODESIC_BASES">
+<em class="property">class </em><code class="descclassname">utils.config.</code><code class="descname">GEODESIC_BASES</code><a class="headerlink" href="#utils.config.GEODESIC_BASES" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>TEMPLATE: inputdata.docx</p>
+<p>Сведения о геодезической основе</p>
+<dl class="attribute">
+<dt id="utils.config.GEODESIC_BASES.attr">
+<code class="descname">attr</code><em class="property"> = ['id', 'name', 'klass', 'x', 'y']</em><a class="headerlink" href="#utils.config.GEODESIC_BASES.attr" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="utils.config.GEODESIC_BASES.name">
+<code class="descname">name</code><em class="property"> = 'GEODESIC_BASES'</em><a class="headerlink" href="#utils.config.GEODESIC_BASES.name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="utils.config.GEOPOINTS_OPRED">
+<em class="property">class </em><code class="descclassname">utils.config.</code><code class="descname">GEOPOINTS_OPRED</code><a class="headerlink" href="#utils.config.GEOPOINTS_OPRED" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>TEMPLATE: survey.docx</p>
+<p>Метод определения координат характерных точек границ земельных участков и их частей</p>
+<dl class="attribute">
+<dt id="utils.config.GEOPOINTS_OPRED.attr">
+<code class="descname">attr</code><em class="property"> = ['id', 'cadastralnumber', 'method']</em><a class="headerlink" href="#utils.config.GEOPOINTS_OPRED.attr" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="utils.config.GEOPOINTS_OPRED.dict">
+<code class="descname">dict</code><em class="property"> = {'geopointopred': 'dGeopointOpred_v01.xsd'}</em><a class="headerlink" href="#utils.config.GEOPOINTS_OPRED.dict" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="utils.config.GEOPOINTS_OPRED.name">
+<code class="descname">name</code><em class="property"> = 'GEOPOINTS_OPRED'</em><a class="headerlink" href="#utils.config.GEOPOINTS_OPRED.name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="utils.config.INPUT_DATA">
+<em class="property">class </em><code class="descclassname">utils.config.</code><code class="descname">INPUT_DATA</code><a class="headerlink" href="#utils.config.INPUT_DATA" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>TEMPLATE: inputdata.docx</p>
+<p>Реквизиты (копии) использованных документов и документов, на основании</p>
+<dl class="attribute">
+<dt id="utils.config.INPUT_DATA.attr">
+<code class="descname">attr</code><em class="property"> = ['id', 'name', 'note']</em><a class="headerlink" href="#utils.config.INPUT_DATA.attr" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="utils.config.INPUT_DATA.dict">
+<code class="descname">dict</code><em class="property"> = {'alldocuments': 'dAllDocuments_v02.xsd'}</em><a class="headerlink" href="#utils.config.INPUT_DATA.dict" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="utils.config.INPUT_DATA.name">
+<code class="descname">name</code><em class="property"> = 'INPUT_DATAS'</em><a class="headerlink" href="#utils.config.INPUT_DATA.name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="utils.config.INPUT_DATA.node">
+<code class="descname">node</code><em class="property"> = 'InputData'</em><a class="headerlink" href="#utils.config.INPUT_DATA.node" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="utils.config.INPUT_DATA.position_doc">
+<code class="descname">position_doc</code><em class="property"> = '2.'</em><a class="headerlink" href="#utils.config.INPUT_DATA.position_doc" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="utils.config.INPUT_DATA.tpl">
+<code class="descname">tpl</code><em class="property"> = 'inputdata.docx'</em><a class="headerlink" href="#utils.config.INPUT_DATA.tpl" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="data">
+<dt id="utils.config.LIST_BLOCK_NODE">
+<code class="descclassname">utils.config.</code><code class="descname">LIST_BLOCK_NODE</code><em class="property"> = ('GeneralCadastralWorks', 'InputData', 'Survey', 'NewParcel', 'ExistParcel', 'SubParcels', 'ChangeParcel', 'SpecifyRelatedParcel', 'FormParcels', 'Conclusion')</em><a class="headerlink" href="#utils.config.LIST_BLOCK_NODE" title="Permalink to this definition">¶</a></dt>
+<dd><p>Список основных блоко xml для преобразования в word-tpl,
+наименования соответсвуют основым узлам MP-xml</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="utils.config.MEANS_SURVEY">
+<em class="property">class </em><code class="descclassname">utils.config.</code><code class="descname">MEANS_SURVEY</code><a class="headerlink" href="#utils.config.MEANS_SURVEY" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>TEMPLATE: inputdata.docx</p>
+<p>Сведения о средствах измерений</p>
+<dl class="attribute">
+<dt id="utils.config.MEANS_SURVEY.attr">
+<code class="descname">attr</code><em class="property"> = ['id', 'name', 'registration', 'certificateverification']</em><a class="headerlink" href="#utils.config.MEANS_SURVEY.attr" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="utils.config.MEANS_SURVEY.name">
+<code class="descname">name</code><em class="property"> = 'MEANS_SURVEY'</em><a class="headerlink" href="#utils.config.MEANS_SURVEY.name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="utils.config.OBJECTS_REALTY">
+<em class="property">class </em><code class="descclassname">utils.config.</code><code class="descname">OBJECTS_REALTY</code><a class="headerlink" href="#utils.config.OBJECTS_REALTY" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>TEMPLATE: inputdata.docx</p>
+<p>Сведения о наличии зданий, сооружений, объектов незавершенного строительства на исходных земельных участках</p>
+<dl class="attribute">
+<dt id="utils.config.OBJECTS_REALTY.attr">
+<code class="descname">attr</code><em class="property"> = ['id', 'cadastralnumber_parcel', 'cadastralnumbers']</em><a class="headerlink" href="#utils.config.OBJECTS_REALTY.attr" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="utils.config.OBJECTS_REALTY.name">
+<code class="descname">name</code><em class="property"> = 'OBJECTS_REALTY'</em><a class="headerlink" href="#utils.config.OBJECTS_REALTY.name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="utils.config.PARCEL_COMMON">
+<em class="property">class </em><code class="descclassname">utils.config.</code><code class="descname">PARCEL_COMMON</code><a class="headerlink" href="#utils.config.PARCEL_COMMON" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Описание общих характеристик участка</p>
+<dl class="attribute">
+<dt id="utils.config.PARCEL_COMMON.address">
+<code class="descname">address</code><em class="property"> = 'address'</em><a class="headerlink" href="#utils.config.PARCEL_COMMON.address" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="utils.config.PARCEL_COMMON.area">
+<code class="descname">area</code><em class="property"> = 'area'</em><a class="headerlink" href="#utils.config.PARCEL_COMMON.area" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="utils.config.PARCEL_COMMON.areaGKN">
+<code class="descname">areaGKN</code><em class="property"> = 'areaGKN'</em><a class="headerlink" href="#utils.config.PARCEL_COMMON.areaGKN" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="utils.config.PARCEL_COMMON.cadnum">
+<code class="descname">cadnum</code><em class="property"> = 'cadastralnumber_parcel'</em><a class="headerlink" href="#utils.config.PARCEL_COMMON.cadnum" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="utils.config.PARCEL_COMMON.category">
+<code class="descname">category</code><em class="property"> = 'category'</em><a class="headerlink" href="#utils.config.PARCEL_COMMON.category" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="utils.config.PARCEL_COMMON.deltaArea">
+<code class="descname">deltaArea</code><em class="property"> = 'deltaArea'</em><a class="headerlink" href="#utils.config.PARCEL_COMMON.deltaArea" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="utils.config.PARCEL_COMMON.dict">
+<code class="descname">dict</code><em class="property"> = {'address_code': 'adresCod.xsd', 'categories': 'dCategories_v01.xsd', 'landuse': 'dAllowedUse_v01.xsd', 'utilization': 'dUtilizations_v01.xsd'}</em><a class="headerlink" href="#utils.config.PARCEL_COMMON.dict" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="utils.config.PARCEL_COMMON.location">
+<code class="descname">location</code><em class="property"> = 'location'</em><a class="headerlink" href="#utils.config.PARCEL_COMMON.location" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="utils.config.PARCEL_COMMON.location_note">
+<code class="descname">location_note</code><em class="property"> = 'location_note'</em><a class="headerlink" href="#utils.config.PARCEL_COMMON.location_note" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="utils.config.PARCEL_COMMON.max_area">
+<code class="descname">max_area</code><em class="property"> = 'max_area'</em><a class="headerlink" href="#utils.config.PARCEL_COMMON.max_area" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="utils.config.PARCEL_COMMON.min_area">
+<code class="descname">min_area</code><em class="property"> = 'min_area'</em><a class="headerlink" href="#utils.config.PARCEL_COMMON.min_area" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="utils.config.PARCEL_COMMON.note">
+<code class="descname">note</code><em class="property"> = 'note'</em><a class="headerlink" href="#utils.config.PARCEL_COMMON.note" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="utils.config.PARCEL_COMMON.prevcadastralnumber">
+<code class="descname">prevcadastralnumber</code><em class="property"> = 'prevcadastralnumber'</em><a class="headerlink" href="#utils.config.PARCEL_COMMON.prevcadastralnumber" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="utils.config.PARCEL_COMMON.utilization_landuse">
+<code class="descname">utilization_landuse</code><em class="property"> = 'utilization_landuse'</em><a class="headerlink" href="#utils.config.PARCEL_COMMON.utilization_landuse" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="utils.config.PARCEL_COMMON.zone">
+<code class="descname">zone</code><em class="property"> = 'zona'</em><a class="headerlink" href="#utils.config.PARCEL_COMMON.zone" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="data">
+<dt id="utils.config.PROVIDING">
+<code class="descclassname">utils.config.</code><code class="descname">PROVIDING</code><em class="property"> = PROVIDING(name='PROVIDINGCADASTRAL', attr=['id', 'cadastralnumber', 'note'])</em><a class="headerlink" href="#utils.config.PROVIDING" title="Permalink to this definition">¶</a></dt>
+<dd><p>Сведения о земельных участках, посредством которых обеспечивается доступ
+:param наименование  данного атприбута в шаблоне 
+:param attr: наименование колонок</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="utils.config.RELATEDPARCELS">
+<em class="property">class </em><code class="descclassname">utils.config.</code><code class="descname">RELATEDPARCELS</code><a class="headerlink" href="#utils.config.RELATEDPARCELS" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Сведения о земельных участках, смежных с образуемым земельным участком</p>
+<dl class="attribute">
+<dt id="utils.config.RELATEDPARCELS.attr">
+<code class="descname">attr</code><em class="property"> = ['point', 'cadastralnumber', 'right']</em><a class="headerlink" href="#utils.config.RELATEDPARCELS.attr" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="utils.config.RELATEDPARCELS.name">
+<code class="descname">name</code><em class="property"> = 'RELATEDPARCELS'</em><a class="headerlink" href="#utils.config.RELATEDPARCELS.name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="utils.config.SUBPARCEL_ENTITY_SPATIAL">
+<em class="property">class </em><code class="descclassname">utils.config.</code><code class="descname">SUBPARCEL_ENTITY_SPATIAL</code><a class="headerlink" href="#utils.config.SUBPARCEL_ENTITY_SPATIAL" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Описание шаблона коорлинат для  частей на образование</p>
+<dl class="attribute">
+<dt id="utils.config.SUBPARCEL_ENTITY_SPATIAL.attr">
+<code class="descname">attr</code><em class="property"> = ['contour', 'numGeopoint', 'x', 'y', 'deltaGeopoint', 'empty']</em><a class="headerlink" href="#utils.config.SUBPARCEL_ENTITY_SPATIAL.attr" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="utils.config.SUBPARCEL_ENTITY_SPATIAL.name">
+<code class="descname">name</code><em class="property"> = 'ENTITY_SPATIAL'</em><a class="headerlink" href="#utils.config.SUBPARCEL_ENTITY_SPATIAL.name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="utils.config.SUBPARCEL_ENTITY_SPATIAL_EXIST">
+<em class="property">class </em><code class="descclassname">utils.config.</code><code class="descname">SUBPARCEL_ENTITY_SPATIAL_EXIST</code><a class="headerlink" href="#utils.config.SUBPARCEL_ENTITY_SPATIAL_EXIST" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Описание шаблона координат для частей на уточнение</p>
+<dl class="attribute">
+<dt id="utils.config.SUBPARCEL_ENTITY_SPATIAL_EXIST.attr">
+<code class="descname">attr</code><em class="property"> = ['contour', 'numGeopoint', 'oldX', 'oldY', 'newX', 'newY', 'delta', 'empty']</em><a class="headerlink" href="#utils.config.SUBPARCEL_ENTITY_SPATIAL_EXIST.attr" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="utils.config.SUBPARCEL_ENTITY_SPATIAL_EXIST.name">
+<code class="descname">name</code><em class="property"> = 'ENTITY_SPATIAL_EXIST'</em><a class="headerlink" href="#utils.config.SUBPARCEL_ENTITY_SPATIAL_EXIST.name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="utils.config.SUBPARCEL_GENERAL">
+<em class="property">class </em><code class="descclassname">utils.config.</code><code class="descname">SUBPARCEL_GENERAL</code><a class="headerlink" href="#utils.config.SUBPARCEL_GENERAL" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Словарь для определения общей информации части</p>
+<dl class="attribute">
+<dt id="utils.config.SUBPARCEL_GENERAL.attr">
+<code class="descname">attr</code><em class="property"> = ['id', 'cadnumber', 'area', 'delta', 'encumbrace']</em><a class="headerlink" href="#utils.config.SUBPARCEL_GENERAL.attr" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="utils.config.SUBPARCEL_GENERAL.dict">
+<code class="descname">dict</code><em class="property"> = {'encumbrace': 'dEncumbrances_v02.xsd'}</em><a class="headerlink" href="#utils.config.SUBPARCEL_GENERAL.dict" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="utils.config.SUBPARCEL_GENERAL.name">
+<code class="descname">name</code><em class="property"> = 'SUBPARCEL_GENERAL'</em><a class="headerlink" href="#utils.config.SUBPARCEL_GENERAL.name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="utils.config.SUBPARCEL_ROWS">
+<em class="property">class </em><code class="descclassname">utils.config.</code><code class="descname">SUBPARCEL_ROWS</code><a class="headerlink" href="#utils.config.SUBPARCEL_ROWS" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Обозначение кадастрового номера части</p>
+<dl class="attribute">
+<dt id="utils.config.SUBPARCEL_ROWS.cadnum">
+<code class="descname">cadnum</code><em class="property"> = 'cadastralnumber'</em><a class="headerlink" href="#utils.config.SUBPARCEL_ROWS.cadnum" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="utils.config.SUB_EX_FULL_ORDINATE">
+<em class="property">class </em><code class="descclassname">utils.config.</code><code class="descname">SUB_EX_FULL_ORDINATE</code><a class="headerlink" href="#utils.config.SUB_EX_FULL_ORDINATE" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Описание шаблона для уточняемых частей</p>
+<dl class="attribute">
+<dt id="utils.config.SUB_EX_FULL_ORDINATE.attr">
+<code class="descname">attr</code><em class="property"> = ['definition', 'ENTITY_SPATIAL']</em><a class="headerlink" href="#utils.config.SUB_EX_FULL_ORDINATE.attr" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="utils.config.SUB_EX_FULL_ORDINATE.name">
+<code class="descname">name</code><em class="property"> = 'EX_SUBPARCELS'</em><a class="headerlink" href="#utils.config.SUB_EX_FULL_ORDINATE.name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="utils.config.SUB_FULL_ORDINATE">
+<em class="property">class </em><code class="descclassname">utils.config.</code><code class="descname">SUB_FULL_ORDINATE</code><a class="headerlink" href="#utils.config.SUB_FULL_ORDINATE" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Описание шаблона для образуемых частей</p>
+<dl class="attribute">
+<dt id="utils.config.SUB_FULL_ORDINATE.attr">
+<code class="descname">attr</code><em class="property"> = ['definition', 'ENTITY_SPATIAL']</em><a class="headerlink" href="#utils.config.SUB_FULL_ORDINATE.attr" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="utils.config.SUB_FULL_ORDINATE.name">
+<code class="descname">name</code><em class="property"> = 'SUBPARCELS'</em><a class="headerlink" href="#utils.config.SUB_FULL_ORDINATE.name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="utils.config.SURVEY">
+<em class="property">class </em><code class="descclassname">utils.config.</code><code class="descname">SURVEY</code><a class="headerlink" href="#utils.config.SURVEY" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="attribute">
+<dt id="utils.config.SURVEY.node">
+<code class="descname">node</code><em class="property"> = 'Survey'</em><a class="headerlink" href="#utils.config.SURVEY.node" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="utils.config.SURVEY.position_doc">
+<code class="descname">position_doc</code><em class="property"> = '3.'</em><a class="headerlink" href="#utils.config.SURVEY.position_doc" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="utils.config.SURVEY.tpl">
+<code class="descname">tpl</code><em class="property"> = 'survey.docx'</em><a class="headerlink" href="#utils.config.SURVEY.tpl" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="data">
+<dt id="utils.config.SYSTEM_COORD">
+<code class="descclassname">utils.config.</code><code class="descname">SYSTEM_COORD</code><em class="property"> = 'system_coord'</em><a class="headerlink" href="#utils.config.SYSTEM_COORD" title="Permalink to this definition">¶</a></dt>
+<dd><p>Обозначение системы координат</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="utils.config.TITLE">
+<em class="property">class </em><code class="descclassname">utils.config.</code><code class="descname">TITLE</code><a class="headerlink" href="#utils.config.TITLE" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>TEMPLATE: title.docx</p>
+<p>Описание ключей заполнения титульного листа   &lt;br&gt;</p>
+<dl class="attribute">
+<dt id="utils.config.TITLE.attr">
+<code class="descname">attr</code><em class="property"> = ['REASON', 'PURPOSE', 'CLIENT', 'FIO', 'NCERTIFICATE', 'TELEPHONE', 'ADDRESS', 'EMAIL', 'ORGANIZATION', 'DATA']</em><a class="headerlink" href="#utils.config.TITLE.attr" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="utils.config.TITLE.node">
+<code class="descname">node</code><em class="property"> = 'GeneralCadastralWorks'</em><a class="headerlink" href="#utils.config.TITLE.node" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="utils.config.TITLE.position_doc">
+<code class="descname">position_doc</code><em class="property"> = '1.'</em><a class="headerlink" href="#utils.config.TITLE.position_doc" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="utils.config.TITLE.tpl">
+<code class="descname">tpl</code><em class="property"> = 'title.docx'</em><a class="headerlink" href="#utils.config.TITLE.tpl" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="utils.config.TOCHN_AREA_PARCELS">
+<em class="property">class </em><code class="descclassname">utils.config.</code><code class="descname">TOCHN_AREA_PARCELS</code><a class="headerlink" href="#utils.config.TOCHN_AREA_PARCELS" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>TEMPLATE: survey.docx</p>
+<p>Точность определения площади земельных участков</p>
+<dl class="attribute">
+<dt id="utils.config.TOCHN_AREA_PARCELS.attr">
+<code class="descname">attr</code><em class="property"> = ['id', 'cadastralnumber', 'area', 'formula']</em><a class="headerlink" href="#utils.config.TOCHN_AREA_PARCELS.attr" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="utils.config.TOCHN_AREA_PARCELS.name">
+<code class="descname">name</code><em class="property"> = 'TOCHN_AREA_PARCELS'</em><a class="headerlink" href="#utils.config.TOCHN_AREA_PARCELS.name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="utils.config.TOCHN_GEOPOINTS_PARCELS">
+<em class="property">class </em><code class="descclassname">utils.config.</code><code class="descname">TOCHN_GEOPOINTS_PARCELS</code><a class="headerlink" href="#utils.config.TOCHN_GEOPOINTS_PARCELS" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>TEMPLATE: survey.docx</p>
+<p>Точность положения характерных точек границ земельных участков</p>
+<dl class="attribute">
+<dt id="utils.config.TOCHN_GEOPOINTS_PARCELS.attr">
+<code class="descname">attr</code><em class="property"> = ['id', 'cadastralnumber', 'formula']</em><a class="headerlink" href="#utils.config.TOCHN_GEOPOINTS_PARCELS.attr" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="utils.config.TOCHN_GEOPOINTS_PARCELS.name">
+<code class="descname">name</code><em class="property"> = 'TOCHN_GEOPOINTS_PARCELS'</em><a class="headerlink" href="#utils.config.TOCHN_GEOPOINTS_PARCELS.name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
 </div>
-<div class="section" id="utils-xsd-module">
-<h2>utils.xsd module<a class="headerlink" href="#utils-xsd-module" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-utils.xsd">
+<span id="utils-xsd-module"></span><h2>utils.xsd module<a class="headerlink" href="#module-utils.xsd" title="Permalink to this headline">¶</a></h2>
+<p>Модуль позволяющтй из xsd файла извлечь value по key</p>
+<dl class="class">
+<dt id="utils.xsd.Schema">
+<em class="property">class </em><code class="descclassname">utils.xsd.</code><code class="descname">Schema</code><span class="sig-paren">(</span><em>schemafile</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/utils/xsd.html#Schema"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#utils.xsd.Schema" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="attribute">
+<dt id="utils.xsd.Schema.SCHEMA_SPACE">
+<code class="descname">SCHEMA_SPACE</code><em class="property"> = '{http://www.w3.org/2001/XMLSchema}'</em><a class="headerlink" href="#utils.xsd.Schema.SCHEMA_SPACE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="utils.xsd.Schema.find">
+<code class="descname">find</code><span class="sig-paren">(</span><em>path</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/utils/xsd.html#Schema.find"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#utils.xsd.Schema.find" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="utils.xsd.Schema.findall">
+<code class="descname">findall</code><span class="sig-paren">(</span><em>path</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/utils/xsd.html#Schema.findall"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#utils.xsd.Schema.findall" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="utils.xsd.Schema.get_Types">
+<code class="descname">get_Types</code><span class="sig-paren">(</span><em>t_name</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/utils/xsd.html#Schema.get_Types"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#utils.xsd.Schema.get_Types" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="utils.xsd.Schema.get_complexTypes">
+<code class="descname">get_complexTypes</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/utils/xsd.html#Schema.get_complexTypes"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#utils.xsd.Schema.get_complexTypes" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="utils.xsd.Schema.get_element_attributes">
+<code class="descname">get_element_attributes</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/utils/xsd.html#Schema.get_element_attributes"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#utils.xsd.Schema.get_element_attributes" title="Permalink to this definition">¶</a></dt>
+<dd><blockquote>
+<div>Получить значение аттрибута</div></blockquote>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>name</strong> – xs:enumeration</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">&lt;xsd:element&gt; text &lt;/xsd:element&gt;</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="utils.xsd.Schema.get_simpleTypes">
+<code class="descname">get_simpleTypes</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/utils/xsd.html#Schema.get_simpleTypes"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#utils.xsd.Schema.get_simpleTypes" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="utils.xsd.Schema.names_of">
+<code class="descname">names_of</code><span class="sig-paren">(</span><em>nodes</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/utils/xsd.html#Schema.names_of"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#utils.xsd.Schema.names_of" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="utils.xsd.value_from_xsd">
+<code class="descclassname">utils.xsd.</code><code class="descname">value_from_xsd</code><span class="sig-paren">(</span><em>path</em>, <em>key</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/utils/xsd.html#value_from_xsd"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#utils.xsd.value_from_xsd" title="Permalink to this definition">¶</a></dt>
+<dd><blockquote>
+<div>Получить значение ключа из xsd</div></blockquote>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>path</strong> – путь к xsd</li>
+<li><strong>key</strong> – key</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">value</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
 </div>
-<div class="section" id="module-contents">
-<h2>Module contents<a class="headerlink" href="#module-contents" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-utils">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-utils" title="Permalink to this headline">¶</a></h2>
 </div>
 </div>
 
