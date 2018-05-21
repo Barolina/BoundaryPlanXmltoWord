@@ -1,0 +1,362 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<MP NameSoftware="OfficeCI" VersionSoftware="0.1" Version="06" GUID="B6189617-BA58-4785-900E-0DB5352B5E39" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<Package>
+<SpecifyParcel>
+<ExistParcel CadastralNumber="36:25:3100003:79">
+<CadastralBlock>36:25:3100005</CadastralBlock>
+<ObjectRealty></ObjectRealty>
+<Area>
+<Area>1200</Area>
+<Unit>055</Unit>
+<Inaccuracy>7</Inaccuracy>
+</Area>
+<EntitySpatial EntSys="l9F66E9CD-0541-4CD6-A2DD-148325C1F6E9l">
+<SpatialElement>
+<SpelementUnit TypeUnit="Точка">
+<NewOrdinate X="560464.53" Y="1307845.18" NumGeopoint="1" DeltaGeopoint="0.1" PointPref="н"></NewOrdinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<OldOrdinate X="560461.88" Y="1307846.28"></OldOrdinate>
+<NewOrdinate X="560461.88" Y="1307846.28" NumGeopoint="2" DeltaGeopoint="0.1"></NewOrdinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<OldOrdinate X="560450.7" Y="1307850.82"></OldOrdinate>
+<NewOrdinate X="560450.7" Y="1307850.82" NumGeopoint="1" DeltaGeopoint="0.1"></NewOrdinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<NewOrdinate X="560448.64" Y="1307851.71" NumGeopoint="6" DeltaGeopoint="0.1" PointPref="н"></NewOrdinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<NewOrdinate X="560456.93" Y="1307869.42" NumGeopoint="5" DeltaGeopoint="0.1" PointPref="н"></NewOrdinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<NewOrdinate X="560479.66" Y="1307917.96" NumGeopoint="4" DeltaGeopoint="0.1" PointPref="н"></NewOrdinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<NewOrdinate X="560493.86" Y="1307911.56" NumGeopoint="3" DeltaGeopoint="0.1" PointPref="н"></NewOrdinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<NewOrdinate X="560490.6" Y="1307903.69" NumGeopoint="2" DeltaGeopoint="0.1" PointPref="н"></NewOrdinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<NewOrdinate X="560464.53" Y="1307845.18" NumGeopoint="1" DeltaGeopoint="0.1" PointPref="н"></NewOrdinate>
+</SpelementUnit>
+</SpatialElement>
+<Borders>
+<Border Spatial="1" Point1="1" Point2="2">
+<Edge>
+<Length>2.87</Length>
+</Edge>
+</Border>
+<Border Spatial="1" Point1="2" Point2="3">
+<Edge>
+<Length>12.07</Length>
+</Edge>
+</Border>
+<Border Spatial="1" Point1="3" Point2="4">
+<Edge>
+<Length>2.24</Length>
+</Edge>
+</Border>
+<Border Spatial="1" Point1="4" Point2="5">
+<Edge>
+<Length>19.55</Length>
+</Edge>
+</Border>
+<Border Spatial="1" Point1="5" Point2="6">
+<Edge>
+<Length>53.6</Length>
+</Edge>
+</Border>
+<Border Spatial="1" Point1="6" Point2="7">
+<Edge>
+<Length>15.58</Length>
+</Edge>
+</Border>
+<Border Spatial="1" Point1="7" Point2="8">
+<Edge>
+<Length>8.52</Length>
+</Edge>
+</Border>
+<Border Spatial="1" Point1="8" Point2="9">
+<Edge>
+<Length>64.06</Length>
+</Edge>
+</Border>
+<Border Spatial="1" Point1="9" Point2="1">
+<Edge>
+<Length>2.87</Length>
+</Edge>
+</Border>
+</Borders>
+</EntitySpatial>
+<AreaInGKN>1200</AreaInGKN>
+<RelatedParcels>
+<ParcelNeighbours>
+<Definition>н4-н5</Definition>
+<ParcelNeighbour>
+<CadastralNumber>36:25:3100005:3</CadastralNumber>
+<OwnerNeighbours>
+<NameRight>собственность</NameRight>
+<OwnerNeighbour>
+<NameOwner>Кочетов Владимир Иванович</NameOwner>
+<ContactAddress>394030, г. Воронеж, ул. Революции 1905г, дом 42, кв. 126</ContactAddress>
+</OwnerNeighbour>
+</OwnerNeighbours>
+</ParcelNeighbour>
+</ParcelNeighbours>
+</RelatedParcels>
+</ExistParcel>
+<SpecifyRelatedParcel CadastralNumber="36:25:3100005:3">
+<AllBorder>
+<EntitySpatial EntSys="l9F66E9CD-0541-4CD6-A2DD-148325C1F6E9l">
+<SpatialElement>
+<SpelementUnit TypeUnit="Точка">
+<NewOrdinate X="560456.93" Y="1307869.42" NumGeopoint="1" DeltaGeopoint="0.1" PointPref="н"></NewOrdinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<OldOrdinate X="560447.06" Y="1307873.5" NumGeopoint="6"></OldOrdinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<NewOrdinate X="560437.58" Y="1307878.64" NumGeopoint="5" DeltaGeopoint="0.1" PointPref="н"></NewOrdinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<OldOrdinate X="560470.98" Y="1307924.39" NumGeopoint="5"></OldOrdinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<NewOrdinate X="560472.14" Y="1307951.48" NumGeopoint="4" DeltaGeopoint="0.1" PointPref="н"></NewOrdinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<OldOrdinate X="560481.4" Y="1307946.28" NumGeopoint="4"></OldOrdinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<NewOrdinate X="560490.86" Y="1307941.32" NumGeopoint="3" DeltaGeopoint="0.1" PointPref="н"></NewOrdinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<OldOrdinate X="560500.1" Y="1307936.2" NumGeopoint="3"></OldOrdinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<OldOrdinate X="560491.26" Y="1307917.63" NumGeopoint="2"></OldOrdinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<NewOrdinate X="560479.66" Y="1307917.96" NumGeopoint="2" DeltaGeopoint="0.1" PointPref="н"></NewOrdinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<OldOrdinate X="560466.43" Y="1307864.32" NumGeopoint="1"></OldOrdinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<NewOrdinate X="560456.93" Y="1307869.42" NumGeopoint="1" DeltaGeopoint="0.1" PointPref="н"></NewOrdinate>
+</SpelementUnit>
+</SpatialElement>
+<Borders>
+<Border Spatial="1" Point1="1" Point2="2">
+<Edge>
+<Length>21.43</Length>
+</Edge>
+</Border>
+<Border Spatial="1" Point1="2" Point2="3">
+<Edge>
+<Length>80.62</Length>
+</Edge>
+</Border>
+<Border Spatial="1" Point1="3" Point2="4">
+<Edge>
+<Length>21.3</Length>
+</Edge>
+</Border>
+<Border Spatial="1" Point1="4" Point2="5">
+<Edge>
+<Length>25.91</Length>
+</Edge>
+</Border>
+<Border Spatial="1" Point1="5" Point2="6">
+<Edge>
+<Length>53.6</Length>
+</Edge>
+</Border>
+<Border Spatial="1" Point1="6" Point2="1">
+<Edge>
+<Length>21.43</Length>
+</Edge>
+</Border>
+</Borders>
+</EntitySpatial>
+</AllBorder>
+</SpecifyRelatedParcel>
+</SpecifyParcel>
+</Package>
+<GeneralCadastralWorks DateCadastral="2017-10-05">
+<Contractor>
+<FamilyName>Наумова</FamilyName>
+<FirstName>Ольга</FirstName>
+<Patronymic>Александровна</Patronymic>
+<NCertificate>36-11-185</NCertificate>
+<Telephone>8-951-540-72-04</Telephone>
+<Address>394055, г. Воронеж, ул. Домостроителей, д.51, кв.58</Address>
+<Email>naumovao.2011@mail.ru</Email>
+<Organization>
+<Name>ООО «Землемер»</Name>
+<AddressOrganization>г.Воронеж, проспект Революции, д. 1в</AddressOrganization>
+</Organization>
+</Contractor>
+<Reason>уточнением местоположения границ и площади земельного участка с кадастровым номером 36:25:3100003:79, расположенного: Воронежская обл, р-н Рамонский, с Сенное, ул Механизаторов, 2-а</Reason>
+<Clients>
+<Client>
+<Person>
+<FamilyName>Болдырихина</FamilyName>
+<FirstName>Разиля</FirstName>
+<Patronymic>Гайзулловна</Patronymic>
+<SNILS>07907562297</SNILS>
+</Person>
+</Client>
+</Clients>
+</GeneralCadastralWorks>
+<CoordSystems>
+<CoordSystem Name="СК кадастрового округа" CsId="l9F66E9CD-0541-4CD6-A2DD-148325C1F6E9l"></CoordSystem>
+</CoordSystems>
+<InputData>
+<Documents>
+<Document>
+<CodeDocument>558217000000</CodeDocument>
+<Name>Кадастровый план территории</Name>
+<Number>36/исх/17-137031</Number>
+<Date>2017-03-07</Date>
+</Document>
+<Document>
+<CodeDocument>558220000000</CodeDocument>
+<Name>Выписка из ЕГРН</Name>
+<Number>99/2017/26778406</Number>
+<Date>2017-09-01</Date>
+</Document>
+<Document>
+<CodeDocument>558220000000</CodeDocument>
+<Name>Выписка из ЕГРН</Name>
+<Number>99/2017/24318158</Number>
+<Date>2017-08-03</Date>
+</Document>
+<Document>
+<CodeDocument>558220000000</CodeDocument>
+<Name>Выписка из ЕГРН</Name>
+<Number>99/2017/24345559</Number>
+<Date>2017-08-03</Date>
+</Document>
+</Documents>
+<GeodesicBases>
+<GeodesicBase>
+<PName>КТ-87</PName>
+<PKind>ЦЕНТР</PKind>
+<PKlass>4 класс</PKlass>
+<OrdX>560633.99</OrdX>
+<OrdY>1307740.51</OrdY>
+</GeodesicBase>
+<GeodesicBase>
+<PName>КТ-89</PName>
+<PKind>ЦЕНТР</PKind>
+<PKlass>4 класс</PKlass>
+<OrdX>560690.97</OrdX>
+<OrdY>1307878.33</OrdY>
+</GeodesicBase>
+<GeodesicBase>
+<PName>КТ-90</PName>
+<PKind>ЦЕНТР</PKind>
+<PKlass>4 класс</PKlass>
+<OrdX>560713.3</OrdX>
+<OrdY>1307982.1</OrdY>
+</GeodesicBase>
+</GeodesicBases>
+<MeansSurvey>
+<MeanSurvey>
+<Name>GNSS - приемник спутниковый геодезический двухчастотный Trimble R8 GNSS</Name>
+<Registration>
+<Number>№ 33967-07</Number>
+<Duration>до 17 января 2018 года</Duration>
+</Registration>
+<CertificateVerification>№ 012343</CertificateVerification>
+</MeanSurvey>
+<MeanSurvey>
+<Name>Аппаратура геодезическая потребителей спутниковых навигационных систем ГЛОНАСС и GPS Trimble R 7 GNSS</Name>
+<Registration>
+<Number>№ 37145-08</Number>
+<Duration>до 17 января 2018 года</Duration>
+</Registration>
+<CertificateVerification>№012342</CertificateVerification>
+</MeanSurvey>
+</MeansSurvey>
+</InputData>
+<Survey>
+<GeopointsOpred>
+<GeopointOpred>
+<CadastralNumberDefinition>36:25:3100003:79</CadastralNumberDefinition>
+<Methods>
+<GeopointOpred>692005000000</GeopointOpred>
+</Methods>
+</GeopointOpred>
+</GeopointsOpred>
+<TochnGeopointsParcels>
+<TochnGeopointsParcel>
+<CadastralNumberDefinition>36:25:3100003:79</CadastralNumberDefinition>
+<Formula>Mt =0.10</Formula>
+</TochnGeopointsParcel>
+</TochnGeopointsParcels>
+<TochnAreaParcels>
+<TochnAreaParcel>
+<CadastralNumberDefinition>36:25:3100003:79</CadastralNumberDefinition>
+<Formula>∆Р=2mt√p=2*0.10*√1200=7</Formula>
+<Area>
+<Area>1200</Area>
+<Unit>055</Unit>
+</Area>
+</TochnAreaParcel>
+</TochnAreaParcels>
+</Survey>
+<Conclusion>1. Земельный участок с кадастровым номером 36:25:3100003:79, согласно сведениям ЕГРН внесен как ранее учтенный. На основании выписки из ЕГРН об основных характеристиках и зарегистрированных правах на объект недвижимости (№99/2017/26778406 от 01.09.2017 г.)  граница земельного участка не установлена в соответствии с требованиями земельного законодательства. Координатное описание границ в представленных сведениях отсутствует.  По материалам проведенных кадастровых работ фактическая площадь участка составляет 1200 кв.м.  Для приведения границ земельного участка в соответствие с требованиями земельного законодательства подготовлен межевой план по уточнению границ ранее учтенного земельного участка с кадастровым номером 36:25:3100003:79. 
+
+2. В ходе проведения кадастровых работ по межеванию земельного участка и при анализе топографической основы 1:5000, материалов геодезической съемки, выявлено, что земельный участок 36:25:3100003:79 пересекает земельный участок с кадастровым номером 36:25:3100005:3, что отражено на схеме расположения земельных участков, приведенной в данном межевом плане. С целью установления фактического местоположения границ земельного участка с кадастровым номером 36:25:3100005:3, расположенного по адресу Воронежская область, Рамон-ский р-н, с. Сенное, ул. Нагорная, 18 «а», кадастровым инженером Наумовой Ольгой Александровной был проведен анализ сведений, содержащихся в ЕГРН (Выписка из ЕГРН от 03.08.2017г. № 99/2017/24318158). По данным вышеуказанных сведений ЕГРН:
+-  данный земельный участок принадлежит Кочетову Владимиру Ивановичу;
+-  сведения об объекте недвижимости имеют статус «актуальные, ранее учтенные»;
+- средняя квадратическая погрешность определения координат характерных точек границ земельного участка равна 0.3 м., что противоречит приложению №1 к «Требованиям к точности и методам определения координат характерных точек границ земельного участка, требования к точности и методам определения координат характерных точек контура здания, сооружения или объекта незавершенного строительства на земельном участке» утвержденные Приказом №90 от 01.03.2016г. Средняя квадратическая погрешность местоположения характерных точек для земельных участков, отнесенных к землям населенных пунктов равна   0.1 м., величина такой погрешности не должна быть ниже значения точности определения координат характерных точек границ земельных участков. Выявлено несоответствие сведений ЕГРН о местоположении границ земельного участка 36:25:3100005:3 их фактическому местоположению. Несоответствие выражается общим смещением учтенных границ по отношению к фактическим по всему периметру земельного участка, что является признаком наличия реестровой ошибки при определении координат поворотных точек границ этого участка.
+Поэтому кадастровым инженером было принято решение в одном межевом плане провести уточнение земельного участка с кадастровым номером 36:25:3100003:79 и исправить реестровую ошибку в местоположении границ смежного земельного участка с кадастровым номером 36:25:3100005:3.
+
+3. При изучении данных выписки ЕГРН  №99/2017/26778406 от 01.09.2017 г. обнаружена ошибка в кадастровом номере 36:25:3100003:79, а именно земельный участок по адресу Воронежская обл, р-н Рамонский, с Сенное, ул Механизаторов, 2-а фактически расположен в кадастровом квартале №36:25:3100005, в связи с этим в межевом плане подготовленного в форме электронного документа в виде XML-документа в поле  &lt;CadastralBlock&gt;  указан кадастровый квартал №36:25:3100005, т.е. номер кадастрового квартала, в котором расположен земельный участок полностью в соответствии с приказом Росреестра от 10.07.2015 N П/367 (ред. от 06.04.2016) "Об организации работ по представлению в орган кадастрового учета заявления о кадастровом учете и необходимых для кадастрового учета документов в виде межевого плана земельного участка в форме электронного документа".
+
+4. Исправление реестровой ошибки не изменяет прохождения сложившихся (фактических) межевых границ земельного участка 36:25:3100005:3. Дополнительно к данному межевому плану (в приложении) была представлена схема на топографической основе с указанием фактических границ земельного участка 36:25:3100005:3 и границ того же земельного участка по данным ЕГРН.
+
+5. Также сообщаю что в границах земельного участка с кадастровым номером 36:25:3100005:3 фактически расположен объект капитального строительства (жилой дом) с кадастровым номером 36:25:3100005:80, принадлежащий на праве собственности Кочетову Вла-димиру Ивановичу согласно выписки из ЕГРН от 03.08.2017г. № 99/2017/24345559.
+
+6. Согласно статье 43 пункта 2 Федерального закона от 13.07.2015 № 218 ФЗ (ред. от 29.07.2017 г.) «О государственной регистрации недвижимости», если при государственном ка-дастровом учете в связи с уточнением местоположения части границ земельного участка, которая одновременно является общей (смежной) частью границ других земельных участков, и (или) изменением площади земельного участка требуется внесение изменений в сведения, содержащиеся в Едином государственном реестре недвижимости, о смежных с ним земельных участках, орган регистрации прав одновременно с осуществлением государственного кадастрового учета вносит соответствующие изменения в сведения, содержащиеся в Едином государственном реестре недвижимости, о местоположении границ (частей границ) и площади указанных смежных земельных участков. При этом представление дополнительных заявлений о государственном кадастровом учете изменений в сведениях, содержащихся в Едином государственном реестре недвижимости, в отношении указанных смежных земельных участков не требуется. В указанном случае местоположение границ земельных участков считается согласованным только при наличии в акте согласования местоположения границ личных подписей всех заинтересованных лиц или их представителей. Граница земельного участка с кадастровым номером 36:25:3100003:79 согласована с правообладателем смежного земельного участка с кадастровым номером 36:25:3100005:3.
+
+7. Согласно Федеральному закону от 24.07.2007 №221-ФЗ «О кадастровой деятельности» ст.39 п.1 Местоположение границ земельных участков подлежит в установленном настоящим Федеральным законом порядке обязательному согласованию (далее - согласование местоположения границ) с лицами, указанными в части 3 настоящей статьи (далее - заинтересованные лица), в случае, если в результате кадастровых работ уточнено местоположение границ земельного участка, в отношении которого выполнялись соответствующие кадастровые работы, или уточнено местоположение границ смежных с ним земельных участков, сведения о которых внесены в Единый государственный реестр недвижимости. Следовательно, с землями неразграниченной государственной собственности и с правообладателями смежных земельных участков, местоположение которых не уточнялось в процессе кадастровых работ согласования не требуется.
+
+8. В соответствии с приказом №921 от 08.12.2015г в реквизите "2" раздела "Исходные дан-ные" указываются сведения о государственной геодезической сети или опорной межевой сети, которые применялись при выполнении кадастровых работ: 
+1. Система координат; 
+2. Название пункта и тип знака геодезической сети; 
+3. Класс геодезической сети; 
+4. Координаты пунктов; 
+5. Сведения о состоянии наружного знака пункта. 
+В данном случае, из-за невозможности отобразить в составе XML "Сведения о состоянии наружного знака пункта, центра пункта и его марки", данная информация прописана в разделе «Заключение кадастрового инженера». № п/п  Название пункта и тип знака геодезической сети;  Класс геодезической сети;  Координаты, м; Сведения о состоянии на 08 августа 2017г.;  Х Y; наружного знака пункта; центра знака; марки  1. КТ-87 4кл. 560633.99 1307740.51 сохранился сохранился сохранился; 2. КТ-89 4кл.  560690.97 1307878.33 сохранился сохранился сохранился; 3. КТ-90 4кл.  560713.30 1307982.10 сохранился сохранился сохранился. При проведении геоде-зических работ использовалась выписка координат пунктов ОМС №239 от 31.07.2017г., полученная из Управления Федеральной службы государственной регистрации, кадастра и картографии по Воронежской области.
+
+ 9. Кадастровый инженер Наумова Ольга Александровна член Ассоциации Саморегулируемой организации «Объединение профессионалов кадастровой деятельности» (сокращенное наименование – Ассоциация СРО «ОПКД»), номер в государственном реестре саморегулируемых организаций №003 от 08.07.2016г., номер в реестре Ассоциации СРО «ОПКД» 0201, включен в реестр 10.02.2012 г.
+
+ 10. Кадастровые работы выполнены на основании договора № 18/КТ от 02.08.2017г.</Conclusion>
+<SchemeGeodesicPlotting Kind="01" Name="App\Схема геодезических построений.pdf"></SchemeGeodesicPlotting>
+<SchemeDisposition Kind="01" Name="App\Схема расположения земельных участков.pdf"></SchemeDisposition>
+<DiagramParcelsSubParcels Kind="01" Name="App\Чертеж земельных участков и их частей.pdf"></DiagramParcelsSubParcels>
+<AgreementDocument Kind="01" Name="App\Акты согласования .pdf"></AgreementDocument>
+<Appendix>
+<AppliedFiles>
+<NumberAppendix>1</NumberAppendix>
+<NameAppendix>Выписка координат пунктов ОМС №239 от 31.07.2017г.</NameAppendix>
+<AppliedFile Kind="01" Name="App\Выписка координат пунктов ОМС №239 от 31.07.2017г..pdf"></AppliedFile>
+</AppliedFiles>
+<AppliedFiles>
+<NumberAppendix>2</NumberAppendix>
+<NameAppendix>Схема расположения земельного участка с кадастровым номером 36:25:3100005:3 на топографической основе</NameAppendix>
+<AppliedFile Kind="01" Name="App\Схема расположения на топографической основе.pdf"></AppliedFile>
+</AppliedFiles>
+<AppliedFiles>
+<NumberAppendix>3</NumberAppendix>
+<NameAppendix>СОГЛАСИЕ НА ОБРАБОТКУ ПЕРСОНАЛЬНЫХ ДАННЫХ</NameAppendix>
+<AppliedFile Kind="01" Name="App\СОГЛАСИЕ НА ОБРАБОТКУ ПЕРСОНАЛЬНЫХ ДАННЫХ.pdf"></AppliedFile>
+</AppliedFiles>
+</Appendix>
+</MP>

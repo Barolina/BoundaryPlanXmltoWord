@@ -1,6 +1,5 @@
 """
-module:: xmlbasic
-Larisa <solow_larisa@mail.ru>
+    Сериализация  узлов xmk файла с коорлинатами
 """
 from utils import config as cnfg
 from utils.xsd import value_from_xsd

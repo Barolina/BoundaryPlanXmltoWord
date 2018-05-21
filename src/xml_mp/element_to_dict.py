@@ -1,5 +1,15 @@
 """
-  Модуль содержит классы, преобразующий  основные  блоки xml ( межевого плана ) в словар значений
+  Сериализция основных блоков мп - xmk
+  Основные блоки:
+  Титульный лист,
+  Исходные данные,
+  Средства об измерениях,
+  Сведения об обрузуемых зу и их частях,
+  Сведения об уточняемом учатске и частях,
+  Сведения об измененных учасках и их частях,
+  Единое землепользование,
+  Сведения о земельных участках, посредством которых обеспечивается доступ,
+  Заключение кадастрового инженера
 """
 from xml_mp.basic import *
 from utils.xsd import value_from_xsd
@@ -691,67 +701,3 @@ class XmlConclusion(XMLElemenBase):
            return {
                cnfg.CONCLUSION['name']: self.node.text
            }
-
-
-BINDER_FILE = {
-    'GeneralCadastralWorks': {
-        'tpl': 'title.docx',
-        'pos_doc': '1.',
-        'class': XmlTitleDict,
-        'clear': True,
-    },
-    'InputData': {
-        'tpl': "inputdata.docx",
-        'pos_doc': '2.',
-        'class': XmlInputDataDict,
-        'clear': True,
-    },
-    'Survey': {
-        'tpl': "survey.docx",
-        'pos_doc': '3.',
-        'class': XmlSurveyDict,
-        'clear': True,
-    },
-    'NewParcel': {
-        'tpl': "newparcel.docx",
-        'pos_doc': '4.',
-        'class': XmlNewParcel,
-        'clear': False,
-    },
-    'ExistParcel': {
-        'tpl': "existparcel.docx",
-        'pos_doc': '4.',
-        'class': XmlExistParcel,
-        'clear': False,
-    },
-    'SubParcels': {
-        'tpl': "subparcels.docx",
-        'pos_doc': '6.',
-        'class': XmlSubParcels,
-        'clear': False,
-    },
-    'ChangeParcel': {
-        'tpl': "changeparcel.docx",
-        'pos_doc': '5.',
-        'class': XmlChangeParcel,
-        'clear': False,
-    },
-    'SpecifyRelatedParcel': {
-        'tpl': 'existparcel.docx',
-        'pos_doc': '6.',
-        'class': XmlExistParcel,
-        'clear': False,
-    },
-    'FormParcels': {
-        'tpl': 'providing.docx',
-        'pos_doc': '7.',
-        'class': XmlNewParcelProviding,
-        'clear': True,
-    },
-    'Conclusion': {
-        'tpl': 'conclusion.docx',
-        'pos_doc': '8.',
-        'class': XmlConclusion,
-        'clear': True,
-    }
-}
