@@ -1,0 +1,337 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>main module &mdash; test_main 1.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="utils package" href="utils.html" />
+    <link rel="prev" title="src" href="modules.html" /> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> test_main
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">src</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">main module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="utils.html">utils package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="xml_mp.html">xml_mp package</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">test_main</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="modules.html">src</a> &raquo;</li>
+        
+      <li>main module</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/main.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-main">
+<span id="main-module"></span><h1>main module<a class="headerlink" href="#module-main" title="Permalink to this headline">¶</a></h1>
+<p>Parsing xml to WORD</p>
+<dl class="class">
+<dt id="main.MpXMlToWORd">
+<em class="property">class </em><code class="descclassname">main.</code><code class="descname">MpXMlToWORd</code><a class="reference internal" href="_modules/main.html#MpXMlToWORd"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#main.MpXMlToWORd" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>u’Преобразователь xml межевого  в ворд</p>
+<dl class="attribute">
+<dt id="main.MpXMlToWORd.CNST_FORMAT">
+<code class="descname">CNST_FORMAT</code><em class="property"> = 'docx'</em><a class="headerlink" href="#main.MpXMlToWORd.CNST_FORMAT" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="main.MpXMlToWORd.CNST_PATH_TPL">
+<code class="descname">CNST_PATH_TPL</code><em class="property"> = 'template/common/'</em><a class="headerlink" href="#main.MpXMlToWORd.CNST_PATH_TPL" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="main.MpXMlToWORd.close">
+<code class="descname">close</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/main.html#MpXMlToWORd.close"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#main.MpXMlToWORd.close" title="Permalink to this definition">¶</a></dt>
+<dd><blockquote>
+<div>удаление темповой директории</div></blockquote>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="main.MpXMlToWORd.combine_word_documents">
+<code class="descname">combine_word_documents</code><span class="sig-paren">(</span><em>result_path_file</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/main.html#MpXMlToWORd.combine_word_documents"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#main.MpXMlToWORd.combine_word_documents" title="Permalink to this definition">¶</a></dt>
+<dd><p>u’Собираем все файлы в единый документ
+:param input_files: u’iterable список файлов
+:return: result braid Docx</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="main.MpXMlToWORd.fast_iter_element">
+<code class="descname">fast_iter_element</code><span class="sig-paren">(</span><em>elem: object</em>, <em>func: object</em>, <em>args: object = []</em>, <em>kwargs: object = {}</em><span class="sig-paren">)</span> &#x2192; object<a class="reference internal" href="_modules/main.html#MpXMlToWORd.fast_iter_element"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#main.MpXMlToWORd.fast_iter_element" title="Permalink to this definition">¶</a></dt>
+<dd><p>the node  cleaning
+:param context: context
+:param func: callback - renderToTPL
+:param args: args
+:param kwargs: kwargs
+:return: None
+:rtype: XMLElemet</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="main.MpXMlToWORd.render_tpl">
+<code class="descname">render_tpl</code><span class="sig-paren">(</span><em>node</em>, <em>XMLClass</em>, <em>path_tpl</em>, <em>name_result</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/main.html#MpXMlToWORd.render_tpl"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#main.MpXMlToWORd.render_tpl" title="Permalink to this definition">¶</a></dt>
+<dd><blockquote>
+<div>u’Рендер шаблона</div></blockquote>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>node</strong> – u’узел- noda</li>
+<li><strong>XMLClass</strong> – u’класс отвечающий за парсинг данной ноды в dict (to_dict)</li>
+<li><strong>path_tpl</strong> – u’путь до template</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">word u’файл  с наименованием =  [Number - позиция word- элемента в файле]+ [Number - позиция node].docx</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="main.MpXMlToWORd.run">
+<code class="descname">run</code><span class="sig-paren">(</span><em>path_file</em>, <em>result_file</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/main.html#MpXMlToWORd.run"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#main.MpXMlToWORd.run" title="Permalink to this definition">¶</a></dt>
+<dd><blockquote>
+<div>run convert xml to  word</div></blockquote>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>path_file</strong> – sourse file xml</li>
+<li><strong>result_file</strong> – path file result</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="main.MpXMlToWORd.run_render_tpl">
+<code class="descname">run_render_tpl</code><span class="sig-paren">(</span><em>elem</em>, <em>xml_class_name</em>, <em>is_clean</em>, <em>pos_node</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/main.html#MpXMlToWORd.run_render_tpl"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#main.MpXMlToWORd.run_render_tpl" title="Permalink to this definition">¶</a></dt>
+<dd><p>Запуск парсинга определенного блока xml
+:param elem: node
+:param xml_class_name: class -&gt; retun dict
+:param is_clean: очищать  узел или там еще что то нужно
+:param pos_node: просто порядковый номер позици узла
+:return: docx</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="utils.html" class="btn btn-neutral float-right" title="utils package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="modules.html" class="btn btn-neutral" title="src" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, larisa.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'1.0',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
