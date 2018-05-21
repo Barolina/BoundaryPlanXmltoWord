@@ -88,7 +88,7 @@ class MpXMlToWORd:
         try:
             for event, elem in context:
                 i += 1
-                if elem.tag in cnfg.LIST_BLOCK_NODE and event == 'end':
+                if elem.tag in BINDER_FILE.keys()  and event == 'end':
                     if elem.tag == 'SubParcels' and event == 'end' and elem.getparent().tag != 'Package':
                         continue
                     self.run_render_tpl(elem, BINDER_FILE[elem.tag]['class'], BINDER_FILE[elem.tag]['clear'], i)
