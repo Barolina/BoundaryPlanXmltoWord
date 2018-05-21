@@ -25,7 +25,7 @@ logger = logging.getLogger('sLogger')
 
 class MpXMlToWORd:
     """
-        Преобразователь xml межевого  в ворд
+        u'Преобразователь xml межевого  в ворд
     """
     CNST_FORMAT = 'docx'
     CNST_PATH_TPL = 'template/common/'
@@ -99,7 +99,7 @@ class MpXMlToWORd:
 
     def __xml_block_to_docx(self, path):
         """
-            Формирование списка док. файлов  по блокам xml
+            u'Формирование списка док. файлов  по блокам xml
         :param path: путь до xml файла
         """
         # get an iterable
@@ -110,11 +110,11 @@ class MpXMlToWORd:
 
     def render_tpl(self,node, XMLClass, path_tpl, name_result):
         """
-            Рендер шаблона
-        :param node:  узел- noda
-        :param XMLClass: класс отвечающий за парсинг данной ноды в dict (to_dict)
-        :param path_tpl: путь до template
-        :return: word файл  с наименованием =  [Number - позиция word- элемента в файле]+ [Number - позиция node].docx
+            u'Рендер шаблона
+        :param node:  u'узел- noda
+        :param XMLClass: u'класс отвечающий за парсинг данной ноды в dict (to_dict)
+        :param path_tpl: u'путь до template
+        :return: word u'файл  с наименованием =  [Number - позиция word- элемента в файле]+ [Number - позиция node].docx
         """
         try:
             if len(node) > 0 or node.text:
@@ -129,7 +129,7 @@ class MpXMlToWORd:
 
     def __element_body_docx(self, path):
         """
-        :param path: получить блок ворд -файла
+        :param path: u'получить блок ворд -файла
         :return: element docx
         """
         doc = Document(path)
@@ -138,8 +138,8 @@ class MpXMlToWORd:
 
     def combine_word_documents(self, result_path_file):
         """
-        Собираем все файлы в единый документ
-        :param input_files: iterable список файлов
+        u'Собираем все файлы в единый документ
+        :param input_files: u'iterable список файлов
         :return: result braid Docx
         """
         files = sorted(os.listdir(self.tempfolder))
@@ -182,14 +182,14 @@ class MpXMlToWORd:
 
 if __name__ == '__main__':
     """
-        :param -i путь к xml файлу
-        :param -o путь к результуту 
+        u':param -i путь к xml файлу
+        u':param -o путь к результуту 
     """
     logger.info('START PARSING')
     parser = argparse.ArgumentParser()
 
-    parser.add_argument('-i', '--input', help='Путь к xml-файлу', type=str)
-    parser.add_argument('-o', '--output', help='Файл для получения реультата', type=str)
+    parser.add_argument('-i', '--input', help=u'Путь к xml-файлу', type=str)
+    parser.add_argument('-o', '--output', help=u'Файл для получения реультата', type=str)
     args = parser.parse_args()
     if not args.input:
         parser.print_help()
