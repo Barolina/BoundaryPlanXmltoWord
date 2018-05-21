@@ -182,7 +182,8 @@ class MpXMlToWORd:
 
 if __name__ == '__main__':
     """
-        поехали 
+        :param -i путь к xml файлу
+        :param -o путь к результуту 
     """
     logger.info('START PARSING')
     parser = argparse.ArgumentParser()
