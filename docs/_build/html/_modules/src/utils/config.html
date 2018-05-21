@@ -1,0 +1,498 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>src.utils.config &mdash; test_main 1.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> test_main
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../modules.html">src</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">test_main</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+        
+      <li>src.utils.config</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for src.utils.config</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Данный модуль содержит надор основных словарей, используемых при генерации и рендеринге word- шаблоны</span>
+
+<span class="sd">    :param attr: список  атрибутов используемых для генерации таблицы; \n\r</span>
+<span class="sd">    :param name: наименование элемента в шаблоне (н - необязательный);\n\r\</span>
+<span class="sd">    :param dict: список справочников, данного элемента, используемых для преобразования значений (key; value);\n\r</span>
+<span class="sd">    :param fields:  список остальных элементов используемых в шаблоне</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="c1"># =====================template title.docx==============================================================================</span>
+<span class="kn">from</span> <span class="nn">collections</span> <span class="k">import</span> <span class="n">namedtuple</span>
+
+<span class="n">TITLE</span> <span class="o">=</span> <span class="nb">type</span><span class="p">(</span><span class="s1">&#39;TITLE&#39;</span><span class="p">,</span> <span class="p">(),</span> <span class="p">{</span>
+    <span class="s1">&#39;attr&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;REASON&#39;</span><span class="p">,</span> <span class="s1">&#39;PURPOSE&#39;</span><span class="p">,</span> <span class="s1">&#39;CLIENT&#39;</span><span class="p">,</span> <span class="s1">&#39;FIO&#39;</span><span class="p">,</span> <span class="s1">&#39;NCERTIFICATE&#39;</span><span class="p">,</span> <span class="s1">&#39;TELEPHONE&#39;</span><span class="p">,</span> <span class="s1">&#39;ADDRESS&#39;</span><span class="p">,</span> <span class="s1">&#39;EMAIL&#39;</span><span class="p">,</span> <span class="s1">&#39;ORGANIZATION&#39;</span><span class="p">,</span> <span class="s1">&#39;DATA&#39;</span><span class="p">],</span>
+    <span class="s1">&#39;node&#39;</span><span class="p">:</span><span class="s1">&#39;GeneralCadastralWorks&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;tpl&#39;</span><span class="p">:</span> <span class="s1">&#39;title.docx&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;position_doc&#39;</span><span class="p">:</span> <span class="s1">&#39;1.&#39;</span><span class="p">,</span>
+<span class="p">})</span>
+<span class="sd">&quot;&quot;&quot;      </span>
+<span class="sd">TEMPLATE: title.docx \n\r</span>
+<span class="sd">Описание ключей заполнения титульного листа   &lt;br&gt;</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="n">SYSTEM_COORD</span> <span class="o">=</span> <span class="s1">&#39;system_coord&#39;</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Обозначение системы координат</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="c1"># ======================================================================================================================</span>
+
+<span class="n">GEODESIC_BASES</span> <span class="o">=</span> <span class="nb">type</span><span class="p">(</span><span class="s1">&#39;GEODESIC_BASES&#39;</span><span class="p">,</span> <span class="p">(),</span> <span class="p">{</span>
+    <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;GEODESIC_BASES&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;attr&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">,</span> <span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="s1">&#39;klass&#39;</span><span class="p">,</span> <span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">]</span>
+<span class="p">})</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">TEMPLATE: inputdata.docx \n\r</span>
+<span class="sd">Сведения о геодезической основе</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="n">INPUT_DATA</span> <span class="o">=</span> <span class="nb">type</span><span class="p">(</span><span class="s1">&#39;INPUT_DATA&#39;</span><span class="p">,</span> <span class="p">(),</span> <span class="p">{</span>
+    <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;INPUT_DATAS&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;attr&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">,</span> <span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="s1">&#39;note&#39;</span><span class="p">],</span>
+    <span class="s1">&#39;dict&#39;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">&#39;alldocuments&#39;</span><span class="p">:</span> <span class="s1">&#39;dAllDocuments_v02.xsd&#39;</span><span class="p">,</span>
+    <span class="p">},</span>
+    <span class="s1">&#39;node&#39;</span><span class="p">:</span> <span class="s1">&#39;InputData&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;tpl&#39;</span><span class="p">:</span> <span class="s1">&#39;inputdata.docx&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;position_doc&#39;</span><span class="p">:</span> <span class="s1">&#39;2.&#39;</span>
+<span class="p">})</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">TEMPLATE: inputdata.docx\n\r</span>
+<span class="sd">Реквизиты (копии) использованных документов и документов, на основании</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="n">MEANS_SURVEY</span> <span class="o">=</span> <span class="nb">type</span><span class="p">(</span><span class="s1">&#39;MEANS_SURVEY&#39;</span><span class="p">,</span> <span class="p">(),</span> <span class="p">{</span>
+    <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;MEANS_SURVEY&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;attr&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">,</span> <span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="s1">&#39;registration&#39;</span><span class="p">,</span> <span class="s1">&#39;certificateverification&#39;</span><span class="p">]</span>
+<span class="p">})</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">TEMPLATE: inputdata.docx\n\r</span>
+<span class="sd">Сведения о средствах измерений</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="n">OBJECTS_REALTY</span> <span class="o">=</span> <span class="nb">type</span><span class="p">(</span><span class="s1">&#39;OBJECTS_REALTY&#39;</span><span class="p">,</span> <span class="p">(),</span> <span class="p">{</span>
+    <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;OBJECTS_REALTY&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;attr&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">,</span> <span class="s1">&#39;cadastralnumber_parcel&#39;</span><span class="p">,</span> <span class="s1">&#39;cadastralnumbers&#39;</span><span class="p">]</span>
+<span class="p">})</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">TEMPLATE: inputdata.docx\n\r</span>
+<span class="sd">Сведения о наличии зданий, сооружений, объектов незавершенного строительства на исходных земельных участках</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="n">SURVEY</span> <span class="o">=</span> <span class="nb">type</span><span class="p">(</span><span class="s1">&#39;SURVEY&#39;</span><span class="p">,</span> <span class="p">(),</span> <span class="p">{</span>
+    <span class="s1">&#39;node&#39;</span><span class="p">:</span> <span class="s1">&#39;Survey&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;tpl&#39;</span><span class="p">:</span> <span class="s1">&#39;survey.docx&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;position_doc&#39;</span><span class="p">:</span> <span class="s1">&#39;3.&#39;</span>
+<span class="p">})</span>
+
+<span class="c1"># ======================================================================================================================</span>
+
+<span class="n">GEOPOINTS_OPRED</span> <span class="o">=</span> <span class="nb">type</span><span class="p">(</span><span class="s1">&#39;GEOPOINTS_OPRED&#39;</span><span class="p">,</span> <span class="p">(),</span> <span class="p">{</span>
+    <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;GEOPOINTS_OPRED&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;attr&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">,</span> <span class="s1">&#39;cadastralnumber&#39;</span><span class="p">,</span> <span class="s1">&#39;method&#39;</span><span class="p">],</span>
+    <span class="s1">&#39;dict&#39;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">&#39;geopointopred&#39;</span><span class="p">:</span> <span class="s1">&#39;dGeopointOpred_v01.xsd&#39;</span>
+    <span class="p">}</span>
+<span class="p">})</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">TEMPLATE: survey.docx\n\r</span>
+<span class="sd">Метод определения координат характерных точек границ земельных участков и их частей</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="n">TOCHN_GEOPOINTS_PARCELS</span> <span class="o">=</span> <span class="nb">type</span><span class="p">(</span><span class="s1">&#39;TOCHN_GEOPOINTS_PARCELS&#39;</span><span class="p">,</span> <span class="p">(),</span> <span class="p">{</span>
+    <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;TOCHN_GEOPOINTS_PARCELS&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;attr&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">,</span> <span class="s1">&#39;cadastralnumber&#39;</span><span class="p">,</span> <span class="s1">&#39;formula&#39;</span><span class="p">],</span>
+<span class="p">})</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">TEMPLATE: survey.docx\n\r</span>
+<span class="sd">Точность положения характерных точек границ земельных участков</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="n">TOCHN_AREA_PARCELS</span> <span class="o">=</span> <span class="nb">type</span><span class="p">(</span><span class="s1">&#39;TOCHN_AREA_PARCELS&#39;</span><span class="p">,</span> <span class="p">(),</span> <span class="p">{</span>
+    <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;TOCHN_AREA_PARCELS&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;attr&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">,</span> <span class="s1">&#39;cadastralnumber&#39;</span><span class="p">,</span> <span class="s1">&#39;area&#39;</span><span class="p">,</span> <span class="s1">&#39;formula&#39;</span><span class="p">]</span>
+<span class="p">})</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">TEMPLATE: survey.docx\n\r</span>
+<span class="sd">Точность определения площади земельных участков</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="c1"># ======================================================================================================================</span>
+
+<span class="n">ENTITY_SPATIAL</span> <span class="o">=</span> <span class="nb">type</span><span class="p">(</span><span class="s1">&#39;ENTITY_SPATIAL&#39;</span><span class="p">,</span> <span class="p">(),</span> <span class="p">{</span>
+    <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;ENTITY_SPATIAL&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;attr&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;contour&#39;</span><span class="p">,</span> <span class="s1">&#39;numGeopoint&#39;</span><span class="p">,</span> <span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="s1">&#39;deltaGeopoint&#39;</span><span class="p">,</span> <span class="s1">&#39;empty&#39;</span><span class="p">],</span>
+<span class="p">})</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd"> Описание местоположения границ  на образование</span>
+<span class="sd"> :param empty - свидетельствует о наличии пустой строки</span>
+<span class="sd"> :param contour  - свидетельствует о наличии строки контура</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="n">ENTITY_SPATIAL_EXIST</span> <span class="o">=</span> <span class="nb">type</span><span class="p">(</span><span class="s1">&#39;ENTITY_SPATIAL_EXIST&#39;</span><span class="p">,</span> <span class="p">(),</span> <span class="p">{</span>
+    <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;ENTITY_SPATIAL&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;attr&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;contour&#39;</span><span class="p">,</span><span class="s1">&#39;numGeopoint&#39;</span><span class="p">,</span> <span class="s1">&#39;oldX&#39;</span><span class="p">,</span> <span class="s1">&#39;oldY&#39;</span><span class="p">,</span><span class="s1">&#39;newX&#39;</span><span class="p">,</span><span class="s1">&#39;newY&#39;</span><span class="p">,</span> <span class="s1">&#39;delta&#39;</span><span class="p">,</span> <span class="s1">&#39;empty&#39;</span><span class="p">],</span>
+<span class="p">})</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd"> Описание местоположения границ на уточнение</span>
+<span class="sd"> :param empty - свидетельствует о наличии пустой строки</span>
+<span class="sd"> :param contour  - свидетельствует о наличии строки контура</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="n">BORDERS</span> <span class="o">=</span> <span class="nb">type</span><span class="p">(</span><span class="s1">&#39;BORDERS&#39;</span><span class="p">,</span> <span class="p">(),</span> <span class="p">{</span>
+    <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;BORDERS&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;attr&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;contour&#39;</span><span class="p">,</span><span class="s1">&#39;point1&#39;</span><span class="p">,</span> <span class="s1">&#39;point2&#39;</span><span class="p">,</span> <span class="s1">&#39;length&#39;</span><span class="p">,</span><span class="s1">&#39;empty&#39;</span><span class="p">]</span>
+<span class="p">})</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Описание частей границ (от точки до точки)</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="c1"># ======================================================================================================================</span>
+
+<span class="n">PARCEL_COMMON</span> <span class="o">=</span> <span class="nb">type</span><span class="p">(</span><span class="s1">&#39;PARCEL_COMMON&#39;</span><span class="p">,</span> <span class="p">(),</span> <span class="p">{</span>
+    <span class="s1">&#39;cadnum&#39;</span><span class="p">:</span> <span class="s1">&#39;cadastralnumber_parcel&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;zone&#39;</span><span class="p">:</span> <span class="s1">&#39;zona&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;address&#39;</span><span class="p">:</span> <span class="s1">&#39;address&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;location&#39;</span><span class="p">:</span> <span class="s1">&#39;location&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;location_note&#39;</span><span class="p">:</span> <span class="s1">&#39;location_note&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;category&#39;</span><span class="p">:</span> <span class="s1">&#39;category&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;utilization_landuse&#39;</span><span class="p">:</span> <span class="s1">&#39;utilization_landuse&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;area&#39;</span><span class="p">:</span> <span class="s1">&#39;area&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;min_area&#39;</span><span class="p">:</span> <span class="s1">&#39;min_area&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;max_area&#39;</span><span class="p">:</span> <span class="s1">&#39;max_area&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;note&#39;</span><span class="p">:</span> <span class="s1">&#39;note&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;prevcadastralnumber&#39;</span><span class="p">:</span> <span class="s1">&#39;prevcadastralnumber&#39;</span><span class="p">,</span>
+    <span class="c1"># for  existParcels</span>
+    <span class="s1">&#39;areaGKN&#39;</span><span class="p">:</span> <span class="s1">&#39;areaGKN&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;deltaArea&#39;</span><span class="p">:</span> <span class="s1">&#39;deltaArea&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;dict&#39;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">&#39;address_code&#39;</span><span class="p">:</span> <span class="s1">&#39;adresCod.xsd&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;categories&#39;</span><span class="p">:</span> <span class="s1">&#39;dCategories_v01.xsd&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;utilization&#39;</span><span class="p">:</span> <span class="s1">&#39;dUtilizations_v01.xsd&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;landuse&#39;</span><span class="p">:</span> <span class="s1">&#39;dAllowedUse_v01.xsd&#39;</span>
+    <span class="p">}</span>
+<span class="p">})</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Описание общих характеристик участка</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="n">RELATEDPARCELS</span> <span class="o">=</span> <span class="nb">type</span><span class="p">(</span><span class="s1">&#39;RELATEDPARCELS&#39;</span><span class="p">,</span> <span class="p">(),</span> <span class="p">{</span>
+    <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;RELATEDPARCELS&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;attr&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;point&#39;</span><span class="p">,</span> <span class="s1">&#39;cadastralnumber&#39;</span><span class="p">,</span> <span class="s1">&#39;right&#39;</span><span class="p">],</span>
+<span class="p">})</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Сведения о земельных участках, смежных с образуемым земельным участком</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="c1"># ======================================================================================================================</span>
+
+<span class="n">SUBPARCEL_ENTITY_SPATIAL</span> <span class="o">=</span> <span class="nb">type</span><span class="p">(</span><span class="s1">&#39;SUBPARCEL_ENTITY_SPATIAL&#39;</span><span class="p">,</span> <span class="p">(),</span> <span class="p">{</span>
+    <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;ENTITY_SPATIAL&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;attr&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;contour&#39;</span><span class="p">,</span> <span class="s1">&#39;numGeopoint&#39;</span><span class="p">,</span> <span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="s1">&#39;deltaGeopoint&#39;</span><span class="p">,</span> <span class="s1">&#39;empty&#39;</span><span class="p">],</span>
+<span class="p">})</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Описание шаблона коорлинат для  частей на образование</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="n">SUBPARCEL_ENTITY_SPATIAL_EXIST</span> <span class="o">=</span> <span class="nb">type</span><span class="p">(</span><span class="s1">&#39;SUBPARCEL_ENTITY_SPATIAL_EXIST&#39;</span><span class="p">,</span> <span class="p">(),</span> <span class="p">{</span>
+    <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;ENTITY_SPATIAL_EXIST&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;attr&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;contour&#39;</span><span class="p">,</span><span class="s1">&#39;numGeopoint&#39;</span><span class="p">,</span> <span class="s1">&#39;oldX&#39;</span><span class="p">,</span> <span class="s1">&#39;oldY&#39;</span><span class="p">,</span><span class="s1">&#39;newX&#39;</span><span class="p">,</span><span class="s1">&#39;newY&#39;</span><span class="p">,</span> <span class="s1">&#39;delta&#39;</span><span class="p">,</span> <span class="s1">&#39;empty&#39;</span><span class="p">],</span>
+<span class="p">})</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Описание шаблона координат для частей на уточнение</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+
+<span class="n">SUB_FULL_ORDINATE</span> <span class="o">=</span> <span class="nb">type</span><span class="p">(</span><span class="s1">&#39;SUB_FULL_ORDINATE&#39;</span><span class="p">,</span> <span class="p">(),</span> <span class="p">{</span>
+    <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;SUBPARCELS&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;attr&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;definition&#39;</span><span class="p">,</span> <span class="s1">&#39;ENTITY_SPATIAL&#39;</span><span class="p">]</span>
+<span class="p">})</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd"> Описание шаблона для образуемых частей </span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="n">SUB_EX_FULL_ORDINATE</span> <span class="o">=</span> <span class="nb">type</span><span class="p">(</span><span class="s1">&#39;SUB_EX_FULL_ORDINATE&#39;</span><span class="p">,</span> <span class="p">(),</span> <span class="p">{</span>
+    <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;EX_SUBPARCELS&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;attr&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;definition&#39;</span><span class="p">,</span> <span class="s1">&#39;ENTITY_SPATIAL&#39;</span><span class="p">]</span>
+<span class="p">})</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd"> Описание шаблона для уточняемых частей </span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+
+<span class="n">SUBPARCEL_GENERAL</span> <span class="o">=</span> <span class="nb">type</span><span class="p">(</span><span class="s1">&#39;SUBPARCEL_GENERAL&#39;</span><span class="p">,</span> <span class="p">(),</span> <span class="p">{</span>
+            <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;SUBPARCEL_GENERAL&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;attr&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">,</span> <span class="s1">&#39;cadnumber&#39;</span><span class="p">,</span> <span class="s1">&#39;area&#39;</span><span class="p">,</span> <span class="s1">&#39;delta&#39;</span><span class="p">,</span> <span class="s1">&#39;encumbrace&#39;</span><span class="p">],</span>
+            <span class="s1">&#39;dict&#39;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s1">&#39;encumbrace&#39;</span><span class="p">:</span> <span class="s1">&#39;dEncumbrances_v02.xsd&#39;</span><span class="p">,</span>
+            <span class="p">}</span>
+<span class="p">})</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd"> Словарь для определения общей информации части</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="n">SUBPARCEL_ROWS</span> <span class="o">=</span> <span class="nb">type</span><span class="p">(</span><span class="s1">&#39;SUBPARCEL_ROWS&#39;</span><span class="p">,</span> <span class="p">(),</span> <span class="p">{</span>
+    <span class="s1">&#39;cadnum&#39;</span><span class="p">:</span> <span class="s1">&#39;cadastralnumber&#39;</span><span class="p">,</span>
+<span class="p">})</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd"> Обозначение кадастрового номера части </span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="c1"># ======================================================================================================================</span>
+<span class="n">__PROVIDING</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;PROVIDINGCADASTRAL&#39;</span><span class="p">,</span> <span class="c1"># наименование  атрибута в шаблоне</span>
+    <span class="s1">&#39;attr&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">,</span> <span class="s1">&#39;cadastralnumber&#39;</span><span class="p">,</span> <span class="s1">&#39;note&#39;</span><span class="p">],</span> <span class="c1"># описание  атрибутов таблицы</span>
+<span class="p">}</span>
+<span class="n">PROVIDING</span> <span class="o">=</span> <span class="n">namedtuple</span><span class="p">(</span><span class="s1">&#39;PROVIDING&#39;</span><span class="p">,</span> <span class="n">__PROVIDING</span><span class="o">.</span><span class="n">keys</span><span class="p">())(</span><span class="o">**</span><span class="n">__PROVIDING</span><span class="p">)</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Сведения о земельных участках, посредством которых обеспечивается доступ</span>
+<span class="sd">:param наименование  данного атприбута в шаблоне </span>
+<span class="sd">:param attr: наименование колонок</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="c1"># ======================================================================================================================</span>
+
+<span class="n">CHANGEPARCELS</span> <span class="o">=</span> <span class="nb">type</span><span class="p">(</span><span class="s1">&#39;CHANGEPARCELS&#39;</span><span class="p">,</span> <span class="p">(),</span> <span class="p">{</span>
+    <span class="s1">&#39;cadnum&#39;</span><span class="p">:</span> <span class="s1">&#39;cadastralnumber_parcel&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;deleteEntyParcel&#39;</span><span class="p">:</span> <span class="s1">&#39;delete_entry_parcels&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;transformEntryParcel&#39;</span><span class="p">:</span> <span class="s1">&#39;transformation_entry_parcels&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;innerCadNum&#39;</span><span class="p">:</span> <span class="s1">&#39;inner_cadastral_number&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;note&#39;</span><span class="p">:</span> <span class="s1">&#39;note&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;dict&#39;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">&#39;address_code&#39;</span><span class="p">:</span> <span class="s1">&#39;adresCod.xsd&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;categories&#39;</span><span class="p">:</span> <span class="s1">&#39;dCategories_v01.xsd&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;utilization&#39;</span><span class="p">:</span> <span class="s1">&#39;dUtilizations_v01.xsd&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;landuse&#39;</span><span class="p">:</span> <span class="s1">&#39;dAllowedUse_v01.xsd&#39;</span>
+    <span class="p">},</span>
+<span class="p">})</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd"> Описание  словаря  описывающий  измеенный  участок</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="c1"># ======================================================================================================================</span>
+
+<span class="n">CONCLUSION</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;conclusion&#39;</span><span class="p">,</span>
+<span class="p">}</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Обозначение  заключения кад. инженера</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="c1"># ======================================================================================================================</span>
+
+<span class="n">TPL</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;&#39;</span><span class="p">]</span>
+<span class="n">PATH_XSD</span> <span class="o">=</span> <span class="s1">&#39;xsd&#39;</span>
+
+<span class="n">LIST_BLOCK_NODE</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="s1">&#39;GeneralCadastralWorks&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;InputData&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;Survey&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;NewParcel&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;ExistParcel&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;SubParcels&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;ChangeParcel&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;SpecifyRelatedParcel&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;FormParcels&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;Conclusion&#39;</span>
+<span class="p">)</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Список основных блоко xml для преобразования в word-tpl,</span>
+<span class="sd">наименования соответсвуют основым узлам MP-xml</span>
+<span class="sd">&quot;&quot;&quot;</span>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, larisa.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'1.0',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

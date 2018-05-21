@@ -1,0 +1,963 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>src.xml_mp.element_to_dict &mdash; test_main 1.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> test_main
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../modules.html">src</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">test_main</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+        
+      <li>src.xml_mp.element_to_dict</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for src.xml_mp.element_to_dict</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">  Модуль содержит классы, преобразующий  основные  блоки xml ( межевого плана ) в словар значений</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="kn">from</span> <span class="nn">xml_mp.basic</span> <span class="k">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">utils.xsd</span> <span class="k">import</span> <span class="n">value_from_xsd</span>
+<span class="kn">from</span> <span class="nn">datetime</span> <span class="k">import</span> <span class="n">datetime</span>
+<span class="kn">import</span> <span class="nn">logging</span>
+<span class="kn">from</span> <span class="nn">logging.config</span> <span class="k">import</span> <span class="n">fileConfig</span>
+<span class="c1"># fileConfig(&#39;loggers/logging_config.ini&#39;)</span>
+<span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">()</span>
+
+
+<div class="viewcode-block" id="XmlTitleDict"><a class="viewcode-back" href="../../../src.xml_mp.html#src.xml_mp.element_to_dict.XmlTitleDict">[docs]</a><span class="k">class</span> <span class="nc">XmlTitleDict</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Формированяи словаря для титульника</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        :param node: GeneralCadastralWorks</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">node</span> <span class="o">=</span> <span class="n">node</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">contractor</span> <span class="o">=</span> <span class="kc">None</span>
+
+    <span class="k">def</span> <span class="nf">__children_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        :param node: Contractor/child</span>
+<span class="sd">        :return: dict (node.tag : node.text)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">el</span> <span class="ow">in</span> <span class="n">node</span><span class="p">:</span>
+            <span class="n">res</span><span class="p">[</span><span class="n">el</span><span class="o">.</span><span class="n">tag</span><span class="p">]</span> <span class="o">=</span> <span class="n">el</span><span class="o">.</span><span class="n">text</span>
+        <span class="k">return</span> <span class="n">res</span>
+
+    <span class="k">def</span> <span class="nf">__contractor</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">contractor</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__children_dict</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">node</span><span class="o">.</span><span class="n">xpath</span><span class="p">(</span><span class="s1">&#39;Contractor/child::*&#39;</span><span class="p">))</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">contractor</span>
+
+    <span class="k">def</span> <span class="nf">__xml_reason_to_text</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">node</span><span class="o">.</span><span class="n">xpath</span><span class="p">(</span><span class="s1">&#39;Reason/text()&#39;</span><span class="p">))</span>
+
+    <span class="k">def</span> <span class="nf">__xml_purpose_to_text</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">node</span><span class="o">.</span><span class="n">xpath</span><span class="p">(</span><span class="s1">&#39;Purpose/text()&#39;</span><span class="p">))</span>
+
+    <span class="k">def</span> <span class="nf">__xml_client_to_text</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s1">&#39; &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">node</span><span class="o">.</span><span class="n">xpath</span><span class="p">(</span><span class="s1">&#39;Clients/*[1]/child::*/node()/text()&#39;</span><span class="p">))</span>
+
+    <span class="k">def</span> <span class="nf">__xml_contrsactor_fio_to_text</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__contractor</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">_</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">f</span><span class="s2">&quot;{_.get(&#39;FamilyName&#39;, &#39;&#39;)} &quot;</span> \
+                   <span class="n">f</span><span class="s2">&quot;{_.get(&#39;FirstName&#39;, &#39;&#39;)} &quot;</span> \
+                   <span class="n">f</span><span class="s2">&quot;{_.get(&#39;Patronymic&#39;, &#39;&#39;)}&quot;</span>
+        <span class="k">return</span> <span class="s1">&#39;&#39;</span>
+
+    <span class="k">def</span> <span class="nf">__xml_ncertificate_to_text</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__contractor</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">_</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">_</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;NCertificate&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="s1">&#39;&#39;</span>
+
+    <span class="k">def</span> <span class="nf">__xml_telefon_to_text</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__contractor</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">_</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">_</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;Telephone&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="s1">&#39;&#39;</span>
+
+    <span class="k">def</span> <span class="nf">__xml_email_to_text</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__contractor</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">_</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">_</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;Email&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="s1">&#39;&#39;</span>
+
+    <span class="k">def</span> <span class="nf">__xml_address_to_text</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__contractor</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">_</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">_</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;Address&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="s1">&#39;&#39;</span>
+
+    <span class="k">def</span> <span class="nf">__xml_organization_to_text</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s1">&#39; &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">node</span><span class="o">.</span><span class="n">xpath</span><span class="p">(</span><span class="s1">&#39;Contractor/Organization/node()/text()&#39;</span><span class="p">))</span>
+
+    <span class="k">def</span> <span class="nf">__xml_data_to_text</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">_dt</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="nb">dict</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">node</span><span class="o">.</span><span class="n">attrib</span><span class="p">)</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;DateCadastral&#39;</span><span class="p">),</span> <span class="s2">&quot;%Y-%m-</span><span class="si">%d</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">_dt</span><span class="p">:</span>
+            <span class="k">return</span>  <span class="n">f</span><span class="s2">&quot;&quot;&quot;{_dt:</span><span class="si">%d</span><span class="s2">.%m.%Y}&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="s1">&#39;&#39;</span>
+
+<div class="viewcode-block" id="XmlTitleDict.to_dict"><a class="viewcode-back" href="../../../src.xml_mp.html#src.xml_mp.element_to_dict.XmlTitleDict.to_dict">[docs]</a>    <span class="k">def</span> <span class="nf">to_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            Данный  метод  возвращает словарь значения для  заполнения  шаблона title.docx</span>
+<span class="sd">        :return: dict-&gt;cnfg.Title</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">value_title</span> <span class="o">=</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">__xml_reason_to_text</span><span class="p">(),</span> <span class="bp">self</span><span class="o">.</span><span class="n">__xml_purpose_to_text</span><span class="p">(),</span>
+                           <span class="bp">self</span><span class="o">.</span><span class="n">__xml_client_to_text</span><span class="p">(),</span> <span class="bp">self</span><span class="o">.</span><span class="n">__xml_contrsactor_fio_to_text</span><span class="p">(),</span>
+                           <span class="bp">self</span><span class="o">.</span><span class="n">__xml_ncertificate_to_text</span><span class="p">(),</span> <span class="bp">self</span><span class="o">.</span><span class="n">__xml_telefon_to_text</span><span class="p">(),</span> <span class="bp">self</span><span class="o">.</span><span class="n">__xml_address_to_text</span><span class="p">(),</span>
+                           <span class="bp">self</span><span class="o">.</span><span class="n">__xml_email_to_text</span><span class="p">(),</span> <span class="bp">self</span><span class="o">.</span><span class="n">__xml_organization_to_text</span><span class="p">(),</span> <span class="bp">self</span><span class="o">.</span><span class="n">__xml_data_to_text</span><span class="p">()]</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">cnfg</span><span class="o">.</span><span class="n">TITLE</span><span class="o">.</span><span class="n">attr</span><span class="p">,</span> <span class="n">value_title</span><span class="p">))</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="n">f</span><span class="s2">&quot;&quot;&quot; Ошибки при формировании титульника </span><span class="si">{e}</span><span class="s2"> &quot;&quot;&quot;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="n">f</span><span class="s2">&quot;&quot;&quot;Словарь титульного </span><span class="si">{result}</span><span class="s2">&quot;&quot;&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">result</span></div></div>
+
+
+<div class="viewcode-block" id="XmlSurveyDict"><a class="viewcode-back" href="../../../src.xml_mp.html#src.xml_mp.element_to_dict.XmlSurveyDict">[docs]</a><span class="k">class</span> <span class="nc">XmlSurveyDict</span><span class="p">(</span><span class="n">XMLElemenBase</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Формирование словаря для  Сведени о выполненных измерениях и расчетах</span>
+<span class="sd">        :param root: Survey</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">pathListGeopointsOpred</span> <span class="o">=</span> <span class="s1">&#39;GeopointsOpred/child::*&#39;</span>
+    <span class="n">pathTochAreaParcel</span> <span class="o">=</span> <span class="s1">&#39;TochnAreaParcels/child::*&#39;</span>
+    <span class="n">pathTochGeopoitsParcels</span> <span class="o">=</span> <span class="s1">&#39;TochnGeopointsParcels/child::*&#39;</span>
+
+    <span class="k">def</span> <span class="nf">__xml_geopoints_opred_to_list</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        :return: list (geopoint_opreds)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">el</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">node</span><span class="o">.</span><span class="n">xpath</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">pathListGeopointsOpred</span><span class="p">)</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">el</span><span class="p">):</span>
+                <span class="n">_method</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">_</span><span class="o">.</span><span class="n">xpath</span><span class="p">(</span><span class="s1">&#39;Methods/child::*[name()=&quot;GeopointOpred&quot;]/text()&#39;</span><span class="p">))</span>
+                <span class="n">method_val</span> <span class="o">=</span> <span class="n">value_from_xsd</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">cnfg</span><span class="o">.</span><span class="n">PATH_XSD</span><span class="p">,</span><span class="n">cnfg</span><span class="o">.</span><span class="n">GEOPOINTS_OPRED</span><span class="o">.</span><span class="n">dict</span><span class="p">[</span><span class="s1">&#39;geopointopred&#39;</span><span class="p">]]),</span><span class="n">_method</span><span class="p">)</span>
+                <span class="n">res</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="nb">str</span><span class="p">(</span><span class="n">index</span> <span class="o">+</span> <span class="mi">1</span><span class="p">),</span><span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">_</span><span class="o">.</span><span class="n">xpath</span><span class="p">(</span><span class="s1">&#39;CadastralNumberDefinition/text()&#39;</span><span class="p">)),</span> <span class="n">method_val</span><span class="p">])</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="n">f</span><span class="s2">&quot;Ошибка при разборе  </span><span class="si">{el}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">finally</span><span class="p">:</span>
+            <span class="n">el</span><span class="o">.</span><span class="n">clear</span>
+        <span class="k">return</span> <span class="n">res</span>
+
+    <span class="k">def</span> <span class="nf">__xml_toch_area_parcel_to_list</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">el</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">node</span><span class="o">.</span><span class="n">xpath</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">pathTochAreaParcel</span><span class="p">)</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">el</span><span class="p">):</span>
+                <span class="n">res</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="nb">str</span><span class="p">(</span><span class="n">index</span> <span class="o">+</span> <span class="mi">1</span><span class="p">),</span>
+                            <span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">_</span><span class="o">.</span><span class="n">xpath</span><span class="p">(</span><span class="s1">&#39;CadastralNumberDefinition/text()&#39;</span><span class="p">)),</span>
+                            <span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">_</span><span class="o">.</span><span class="n">xpath</span><span class="p">(</span><span class="s1">&#39;Area/Area/text()&#39;</span><span class="p">)),</span>
+                            <span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">_</span><span class="o">.</span><span class="n">xpath</span><span class="p">(</span><span class="s1">&#39;Formula/text()&#39;</span><span class="p">)),</span>
+                            <span class="p">])</span>
+        <span class="k">finally</span><span class="p">:</span>
+            <span class="n">el</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">res</span>
+
+    <span class="k">def</span> <span class="nf">__xml_toch_geopoints_parcel_to_list</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">el</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">node</span><span class="o">.</span><span class="n">xpath</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">pathTochGeopoitsParcels</span><span class="p">)</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">el</span><span class="p">):</span>
+                <span class="n">res</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="nb">str</span><span class="p">(</span><span class="n">index</span> <span class="o">+</span> <span class="mi">1</span><span class="p">),</span>
+                            <span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">_</span><span class="o">.</span><span class="n">xpath</span><span class="p">(</span><span class="s1">&#39;CadastralNumberDefinition/text()&#39;</span><span class="p">)),</span>
+                            <span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">_</span><span class="o">.</span><span class="n">xpath</span><span class="p">(</span><span class="s1">&#39;Formula/text()&#39;</span><span class="p">)),</span>
+                            <span class="p">])</span>
+        <span class="k">finally</span><span class="p">:</span>
+            <span class="n">el</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">res</span>
+
+<div class="viewcode-block" id="XmlSurveyDict.to_dict"><a class="viewcode-back" href="../../../src.xml_mp.html#src.xml_mp.element_to_dict.XmlSurveyDict.to_dict">[docs]</a>    <span class="k">def</span> <span class="nf">to_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">_res</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">_res</span> <span class="o">=</span> <span class="p">{</span>
+                <span class="n">cnfg</span><span class="o">.</span><span class="n">GEOPOINTS_OPRED</span><span class="o">.</span><span class="n">name</span><span class="p">:</span> <span class="n">StaticMethod</span><span class="o">.</span><span class="n">merge_array_list</span><span class="p">(</span><span class="n">cnfg</span><span class="o">.</span><span class="n">GEOPOINTS_OPRED</span><span class="o">.</span><span class="n">attr</span><span class="p">,</span>
+                                                                    <span class="bp">self</span><span class="o">.</span><span class="n">__xml_geopoints_opred_to_list</span><span class="p">()),</span>
+                <span class="n">cnfg</span><span class="o">.</span><span class="n">TOCHN_GEOPOINTS_PARCELS</span><span class="o">.</span><span class="n">name</span><span class="p">:</span> <span class="n">StaticMethod</span><span class="o">.</span><span class="n">merge_array_list</span><span class="p">(</span><span class="n">cnfg</span><span class="o">.</span><span class="n">TOCHN_GEOPOINTS_PARCELS</span><span class="o">.</span><span class="n">attr</span><span class="p">,</span>
+                                                                            <span class="bp">self</span><span class="o">.</span><span class="n">__xml_toch_geopoints_parcel_to_list</span><span class="p">()),</span>
+                <span class="n">cnfg</span><span class="o">.</span><span class="n">TOCHN_AREA_PARCELS</span><span class="o">.</span><span class="n">name</span><span class="p">:</span> <span class="n">StaticMethod</span><span class="o">.</span><span class="n">merge_array_list</span><span class="p">(</span><span class="n">cnfg</span><span class="o">.</span><span class="n">TOCHN_AREA_PARCELS</span><span class="o">.</span><span class="n">attr</span><span class="p">,</span>
+                                                                       <span class="bp">self</span><span class="o">.</span><span class="n">__xml_toch_area_parcel_to_list</span><span class="p">())</span>
+            <span class="p">}</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="n">f</span><span class="s2">&quot;&quot;&quot;Ошибка в формировании  словаря для средств измерений </span><span class="si">{e}</span><span class="s2">&quot;&quot;&quot;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="n">f</span><span class="s2">&quot;&quot;&quot;Словарь для средст измерений готов </span><span class="si">{_res}</span><span class="s2">&quot;&quot;&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">_res</span></div></div>
+
+
+<div class="viewcode-block" id="XmlInputDataDict"><a class="viewcode-back" href="../../../src.xml_mp.html#src.xml_mp.element_to_dict.XmlInputDataDict">[docs]</a><span class="k">class</span> <span class="nc">XmlInputDataDict</span><span class="p">(</span><span class="n">XMLElemenBase</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        формирование словаря Исхпдные данные</span>
+<span class="sd">        :param root == InputData</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">NAME</span> <span class="o">=</span> <span class="s1">&#39;Name&#39;</span>
+    <span class="n">NUMBER</span> <span class="o">=</span> <span class="s1">&#39;Number&#39;</span>
+    <span class="n">DATE</span> <span class="o">=</span> <span class="s1">&#39;Date&#39;</span>
+    <span class="n">pathListDocuments</span> <span class="o">=</span> <span class="s1">&#39;Documents/child::*&#39;</span>
+    <span class="n">pathGeodesicBses</span> <span class="o">=</span> <span class="s1">&#39;GeodesicBases/child::*&#39;</span>
+    <span class="n">pathMeansSurveys</span> <span class="o">=</span> <span class="s1">&#39;MeansSurvey/child::*&#39;</span>
+    <span class="n">pathObjectsRealty</span> <span class="o">=</span> <span class="s1">&#39;ObjectsRealty/child::*&#39;</span>
+    <span class="n">pathListSystemCood</span><span class="o">=</span> <span class="s1">&#39;../CoordSystems/child::*/@Name&#39;</span>
+
+    <span class="k">def</span> <span class="nf">__xml_sys_coord_to_text</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">node</span><span class="o">.</span><span class="n">xpath</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">pathListSystemCood</span><span class="p">))</span>
+
+    <span class="k">def</span> <span class="nf">__xml_documents_to_list</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">el</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">node</span><span class="o">.</span><span class="n">xpath</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">pathListDocuments</span><span class="p">)</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">el</span><span class="p">):</span>
+                <span class="n">_dt</span> <span class="o">=</span>  <span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">_</span><span class="o">.</span><span class="n">xpath</span><span class="p">(</span><span class="s1">&#39;Date/text()&#39;</span><span class="p">)),</span><span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1">&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%d</span><span class="s1">.%m.%Y&#39;</span><span class="p">)</span>
+                <span class="n">_tmp</span> <span class="o">=</span> <span class="n">f</span><span class="s2">&quot; № {&#39;&#39;.join(_.xpath(&#39;Number/text()&#39;))} от { _dt } г.&quot;</span>
+                <span class="n">_name</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">_</span><span class="o">.</span><span class="n">xpath</span><span class="p">(</span><span class="s1">&#39;Name/text()&#39;</span><span class="p">))</span>
+                <span class="k">if</span> <span class="ow">not</span> <span class="n">_name</span><span class="p">:</span>
+                    <span class="n">_name</span> <span class="o">=</span> <span class="n">StaticMethod</span><span class="o">.</span><span class="n">xml_key_to_text</span><span class="p">(</span><span class="n">_</span><span class="p">,</span> <span class="s1">&#39;CodeDocument/text()&#39;</span><span class="p">,</span> <span class="n">cnfg</span><span class="o">.</span><span class="n">INPUT_DATA</span><span class="o">.</span><span class="n">dict</span><span class="p">[</span><span class="s1">&#39;alldocuments&#39;</span><span class="p">])</span>
+                <span class="n">res</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="nb">str</span><span class="p">(</span><span class="n">index</span> <span class="o">+</span> <span class="mi">1</span><span class="p">),</span><span class="n">_name</span><span class="p">,</span><span class="n">_tmp</span><span class="p">])</span>
+        <span class="k">finally</span><span class="p">:</span>
+            <span class="n">el</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">res</span>
+
+    <span class="k">def</span> <span class="nf">__xml_geodesic_bases_to_list</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">el</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">node</span><span class="o">.</span><span class="n">xpath</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">pathGeodesicBses</span><span class="p">)</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">el</span><span class="p">):</span>
+                <span class="n">_tmp</span> <span class="o">=</span> <span class="n">f</span><span class="s2">&quot;{&#39;&#39;.join(_.xpath(&#39;PName/text()&#39;))} {&#39;&#39;.join(_.xpath(&#39;PKind/text()&#39;))}&quot;</span>
+                <span class="n">res</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="nb">str</span><span class="p">(</span><span class="n">index</span> <span class="o">+</span> <span class="mi">1</span><span class="p">),</span> <span class="n">_tmp</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">_</span><span class="o">.</span><span class="n">xpath</span><span class="p">(</span><span class="s1">&#39;PKlass/text()&#39;</span><span class="p">)),</span>
+                            <span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">_</span><span class="o">.</span><span class="n">xpath</span><span class="p">(</span><span class="s1">&#39;OrdX/text()&#39;</span><span class="p">)),</span>
+                            <span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">_</span><span class="o">.</span><span class="n">xpath</span><span class="p">(</span><span class="s1">&#39;OrdY/text()&#39;</span><span class="p">))])</span>
+        <span class="k">finally</span><span class="p">:</span>
+            <span class="n">el</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">res</span>
+
+    <span class="k">def</span> <span class="nf">__xml_means_surveys_to_list</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">el</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">node</span><span class="o">.</span><span class="n">xpath</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">pathMeansSurveys</span><span class="p">)</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">el</span><span class="p">):</span>
+                <span class="n">res</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="nb">str</span><span class="p">(</span><span class="n">index</span> <span class="o">+</span> <span class="mi">1</span><span class="p">),</span> <span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">_</span><span class="o">.</span><span class="n">xpath</span><span class="p">(</span><span class="s1">&#39;Name/text()&#39;</span><span class="p">)),</span>
+                            <span class="s1">&#39; &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">_</span><span class="o">.</span><span class="n">xpath</span><span class="p">(</span><span class="s1">&#39;Registration/child::*/text()&#39;</span><span class="p">)),</span>
+                            <span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">_</span><span class="o">.</span><span class="n">xpath</span><span class="p">(</span><span class="s1">&#39;CertificateVerification/text()&#39;</span><span class="p">))])</span>
+        <span class="k">finally</span><span class="p">:</span>
+            <span class="n">el</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">res</span>
+
+    <span class="k">def</span> <span class="nf">__xml_objects_realtys_to_list</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">el</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">node</span><span class="o">.</span><span class="n">xpath</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">pathObjectsRealty</span><span class="p">)</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="nb">list</span><span class="p">()</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">el</span><span class="p">):</span>
+                <span class="n">res</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="nb">str</span><span class="p">(</span><span class="n">index</span> <span class="o">+</span> <span class="mi">1</span><span class="p">),</span><span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">_</span><span class="o">.</span><span class="n">xpath</span><span class="p">(</span><span class="s1">&#39;CadastralNumberParcel/text()&#39;</span><span class="p">)),</span> <span class="s1">&#39;, &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">_</span><span class="o">.</span><span class="n">xpath</span><span class="p">(</span><span class="s1">&#39;InnerCadastralNumbers/child::*/text()&#39;</span><span class="p">))])</span>
+            <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="n">f</span><span class="s2">&quot;&quot;&quot;Сведения о наличии объектов недвижимости { res }&quot;&quot;&quot;</span><span class="p">)</span>
+        <span class="k">finally</span><span class="p">:</span>
+            <span class="n">el</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">res</span>
+
+<div class="viewcode-block" id="XmlInputDataDict.to_dict"><a class="viewcode-back" href="../../../src.xml_mp.html#src.xml_mp.element_to_dict.XmlInputDataDict.to_dict">[docs]</a>    <span class="k">def</span> <span class="nf">to_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">_res</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">_res</span> <span class="o">=</span> <span class="p">{</span><span class="n">cnfg</span><span class="o">.</span><span class="n">INPUT_DATA</span><span class="o">.</span><span class="n">name</span><span class="p">:</span> <span class="n">StaticMethod</span><span class="o">.</span><span class="n">merge_array_list</span><span class="p">(</span><span class="n">cnfg</span><span class="o">.</span><span class="n">INPUT_DATA</span><span class="o">.</span><span class="n">attr</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">__xml_documents_to_list</span><span class="p">()),</span>
+                    <span class="n">cnfg</span><span class="o">.</span><span class="n">SYSTEM_COORD</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">__xml_sys_coord_to_text</span><span class="p">(),</span>
+                    <span class="n">cnfg</span><span class="o">.</span><span class="n">GEODESIC_BASES</span><span class="o">.</span><span class="n">name</span><span class="p">:</span> <span class="n">StaticMethod</span><span class="o">.</span><span class="n">merge_array_list</span><span class="p">(</span><span class="n">cnfg</span><span class="o">.</span><span class="n">GEODESIC_BASES</span><span class="o">.</span><span class="n">attr</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">__xml_geodesic_bases_to_list</span><span class="p">()),</span>
+                    <span class="n">cnfg</span><span class="o">.</span><span class="n">MEANS_SURVEY</span><span class="o">.</span><span class="n">name</span><span class="p">:</span> <span class="n">StaticMethod</span><span class="o">.</span><span class="n">merge_array_list</span><span class="p">(</span><span class="n">cnfg</span><span class="o">.</span><span class="n">MEANS_SURVEY</span><span class="o">.</span><span class="n">attr</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">__xml_means_surveys_to_list</span><span class="p">()),</span>
+                    <span class="n">cnfg</span><span class="o">.</span><span class="n">OBJECTS_REALTY</span><span class="o">.</span><span class="n">name</span><span class="p">:</span> <span class="n">StaticMethod</span><span class="o">.</span><span class="n">merge_array_list</span><span class="p">(</span><span class="n">cnfg</span><span class="o">.</span><span class="n">OBJECTS_REALTY</span><span class="o">.</span><span class="n">attr</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">__xml_objects_realtys_to_list</span><span class="p">())}</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="n">f</span><span class="s2">&quot;&quot;&quot;Ошибка при формировании словаря Исходных данных </span><span class="si">{e}</span><span class="s2">&quot;&quot;&quot;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="n">f</span><span class="s2">&quot;&quot;&quot;Словарь для исходных данных готов </span><span class="si">{_res}</span><span class="s2">&quot;&quot;&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">_res</span></div></div>
+
+
+<div class="viewcode-block" id="XmlParcel"><a class="viewcode-back" href="../../../src.xml_mp.html#src.xml_mp.element_to_dict.XmlParcel">[docs]</a><span class="k">class</span> <span class="nc">XmlParcel</span><span class="p">(</span><span class="n">XMLElemenBase</span><span class="p">):</span>
+
+<div class="viewcode-block" id="XmlParcel.xml_cadnum_to_text"><a class="viewcode-back" href="../../../src.xml_mp.html#src.xml_mp.element_to_dict.XmlParcel.xml_cadnum_to_text">[docs]</a>    <span class="k">def</span> <span class="nf">xml_cadnum_to_text</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">node</span><span class="o">.</span><span class="n">xpath</span><span class="p">(</span><span class="s1">&#39;@Definition | @CadastralNumber | @NumberRecord&#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">_</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">_</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="k">return</span> <span class="s1">&#39;&#39;</span></div>
+
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        вспомогательный класс для  обработки  общих узлов участка</span>
+<span class="sd">        root  in [NewParcel, SubParcels, ExistParcel, ChangeParcel ... все все остальные узлы с похожей структурой]</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+<div class="viewcode-block" id="XmlParcel.xml_subparcels_to_dict"><a class="viewcode-back" href="../../../src.xml_mp.html#src.xml_mp.element_to_dict.XmlParcel.xml_subparcels_to_dict">[docs]</a>    <span class="k">def</span> <span class="nf">xml_subparcels_to_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        :return: Словарь для частей</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+        <span class="n">xml_node_subparcels</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">node</span><span class="o">.</span><span class="n">xpath</span><span class="p">(</span><span class="s1">&#39;SubParcels&#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">xml_node_subparcels</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">xml_node_subparcels</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">subparcels</span> <span class="o">=</span> <span class="n">XmlSubParcels</span><span class="p">(</span><span class="n">xml_node_subparcels</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+            <span class="n">res</span> <span class="o">=</span> <span class="n">subparcels</span><span class="o">.</span><span class="n">to_dict</span><span class="p">()</span>
+            <span class="k">del</span> <span class="n">subparcels</span>
+        <span class="k">return</span> <span class="n">res</span></div>
+
+<div class="viewcode-block" id="XmlParcel.xml_ordinates_to_dict"><a class="viewcode-back" href="../../../src.xml_mp.html#src.xml_mp.element_to_dict.XmlParcel.xml_ordinates_to_dict">[docs]</a>    <span class="k">def</span> <span class="nf">xml_ordinates_to_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        :return: Получить словарь коорлинат</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+        <span class="n">xml_ordinate</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">node</span><span class="o">.</span><span class="n">xpath</span><span class="p">(</span><span class="s1">&#39;Contours | EntitySpatial&#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">xml_ordinate</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">xml_ordinate</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">full_ord</span> <span class="o">=</span> <span class="n">XmlFullOrdinate</span><span class="p">(</span><span class="n">xml_ordinate</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">xml_cadnum_to_text</span><span class="p">())</span>
+
+            <span class="n">res</span> <span class="o">=</span> <span class="p">{</span><span class="n">cnfg</span><span class="o">.</span><span class="n">ENTITY_SPATIAL</span><span class="o">.</span><span class="n">name</span><span class="p">:</span> <span class="n">StaticMethod</span><span class="o">.</span><span class="n">merge_array_list</span><span class="p">(</span><span class="n">cnfg</span><span class="o">.</span><span class="n">ENTITY_SPATIAL</span><span class="o">.</span><span class="n">attr</span><span class="p">,</span>
+                                                                              <span class="n">full_ord</span><span class="o">.</span><span class="n">full_ordinate</span><span class="p">()),</span>
+                   <span class="n">cnfg</span><span class="o">.</span><span class="n">BORDERS</span><span class="o">.</span><span class="n">name</span><span class="p">:</span> <span class="n">StaticMethod</span><span class="o">.</span><span class="n">merge_array_list</span><span class="p">(</span><span class="n">cnfg</span><span class="o">.</span><span class="n">BORDERS</span><span class="o">.</span><span class="n">attr</span><span class="p">,</span> <span class="n">full_ord</span><span class="o">.</span><span class="n">full_borders</span><span class="p">()),</span>
+                  <span class="p">}</span>
+            <span class="k">del</span> <span class="n">full_ord</span>
+        <span class="k">return</span> <span class="n">res</span></div>
+
+    <span class="k">def</span> <span class="nf">__xml_owner_to_text</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            Преобразование правооблаталей</span>
+<span class="sd">        :param node:  OwnerNeighbours</span>
+<span class="sd">        :return:</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="n">node</span><span class="p">:</span>
+                <span class="n">rows</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">_</span><span class="o">.</span><span class="n">xpath</span><span class="p">(</span><span class="s1">&#39;child::NameRight/text()&#39;</span><span class="p">))</span>
+                <span class="n">rows</span> <span class="o">+=</span> <span class="n">f</span><span class="s2">&quot;&quot;&quot; {&#39;, &#39;.join(_.xpath(&#39;child::OwnerNeighbour/NameOwner/text()&#39;))}&quot;&quot;&quot;</span>
+                <span class="n">rows</span> <span class="o">+=</span> <span class="n">f</span><span class="s2">&quot;&quot;&quot; {&#39;, &#39;.join(_.xpath(&#39;child::OwnerNeighbour/ContactAddress/text()&#39;))}&quot;&quot;&quot;</span>
+                <span class="n">res</span> <span class="o">+=</span> <span class="n">f</span><span class="s2">&quot;&quot;&quot;{ rows }; &quot;&quot;&quot;</span>
+        <span class="k">finally</span><span class="p">:</span>
+            <span class="n">node</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">res</span>
+
+<div class="viewcode-block" id="XmlParcel.xml_related_parcel_to_list"><a class="viewcode-back" href="../../../src.xml_mp.html#src.xml_mp.element_to_dict.XmlParcel.xml_related_parcel_to_list">[docs]</a>    <span class="k">def</span> <span class="nf">xml_related_parcel_to_list</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        &#39;attr&#39;: [&#39;point&#39;, &#39;cadastralnumber&#39;, &#39;right&#39;]</span>
+<span class="sd">        :return: list сведений о смежниках участка</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">_node</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">node</span><span class="o">.</span><span class="n">xpath</span><span class="p">(</span><span class="s1">&#39;RelatedParcels/child::*&#39;</span><span class="p">)</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="n">_node</span><span class="p">:</span>
+                <span class="n">_rows</span> <span class="o">=</span> <span class="p">[]</span>
+                <span class="n">_rows</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">_</span><span class="o">.</span><span class="n">xpath</span><span class="p">(</span><span class="s1">&#39;Definition/text()&#39;</span><span class="p">)))</span>
+                <span class="n">_rows</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;, &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">_</span><span class="o">.</span><span class="n">xpath</span><span class="p">(</span><span class="s1">&#39;child::*/CadastralNumber/text()&#39;</span><span class="p">)))</span>
+                <span class="n">_rows</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__xml_owner_to_text</span><span class="p">(</span><span class="n">_</span><span class="o">.</span><span class="n">xpath</span><span class="p">(</span><span class="s1">&#39;child::*/OwnerNeighbours&#39;</span><span class="p">)))</span>
+                <span class="n">res</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">_rows</span><span class="p">)</span>
+        <span class="k">finally</span><span class="p">:</span>
+            <span class="n">_node</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">res</span></div></div>
+
+
+<div class="viewcode-block" id="XmlNewParcel"><a class="viewcode-back" href="../../../src.xml_mp.html#src.xml_mp.element_to_dict.XmlNewParcel">[docs]</a><span class="k">class</span> <span class="nc">XmlNewParcel</span><span class="p">(</span><span class="n">XmlParcel</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Преобразование участка на образование  в словарь</span>
+<span class="sd">        :param root = NewParcel</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">__full_addres</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            Форимрование адрема</span>
+<span class="sd">        :param node: Address</span>
+<span class="sd">        :return: text</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">region</span> <span class="o">=</span> <span class="nb">list</span><span class="p">()</span>
+        <span class="n">region</span> <span class="o">=</span> <span class="p">[</span><span class="n">StaticMethod</span><span class="o">.</span><span class="n">xml_key_to_text</span><span class="p">(</span><span class="n">node</span><span class="p">,</span><span class="s1">&#39;Region/text()&#39;</span><span class="p">,</span> <span class="n">cnfg</span><span class="o">.</span><span class="n">PARCEL_COMMON</span><span class="o">.</span><span class="n">dict</span><span class="p">[</span><span class="s1">&#39;address_code&#39;</span><span class="p">])]</span>
+        <span class="n">region</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">node</span><span class="o">.</span><span class="n">xpath</span><span class="p">(</span><span class="s1">&#39;District/@*&#39;</span><span class="p">)[::</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+        <span class="n">region</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">node</span><span class="o">.</span><span class="n">xpath</span><span class="p">(</span><span class="s1">&#39;City/@*&#39;</span><span class="p">)[::</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+        <span class="n">region</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">node</span><span class="o">.</span><span class="n">xpath</span><span class="p">(</span><span class="s1">&#39;UrbanDistrict/@*&#39;</span><span class="p">)[::</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+        <span class="n">region</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">node</span><span class="o">.</span><span class="n">xpath</span><span class="p">(</span><span class="s1">&#39;SovietVillage/@*&#39;</span><span class="p">)[::</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+        <span class="n">region</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">node</span><span class="o">.</span><span class="n">xpath</span><span class="p">(</span><span class="s1">&#39;Locality/@*&#39;</span><span class="p">)[::</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+        <span class="n">region</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">node</span><span class="o">.</span><span class="n">xpath</span><span class="p">(</span><span class="s1">&#39;Street/@*&#39;</span><span class="p">)[::</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+        <span class="n">region</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">node</span><span class="o">.</span><span class="n">xpath</span><span class="p">(</span><span class="s1">&#39;Level1/@*&#39;</span><span class="p">)[::</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+        <span class="n">region</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">node</span><span class="o">.</span><span class="n">xpath</span><span class="p">(</span><span class="s1">&#39;Level2/@*&#39;</span><span class="p">)[::</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+        <span class="n">region</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">node</span><span class="o">.</span><span class="n">xpath</span><span class="p">(</span><span class="s1">&#39;Apartment/@*&#39;</span><span class="p">)[::</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+        <span class="k">return</span> <span class="s1">&#39; &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">region</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">__full_utilization</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            Формирование utilization</span>
+<span class="sd">        :param node: Utilization</span>
+<span class="sd">        :return:</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">res</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+            <span class="k">if</span> <span class="s1">&#39;ByDoc&#39;</span> <span class="ow">in</span> <span class="n">node</span><span class="o">.</span><span class="n">attrib</span><span class="p">:</span>
+               <span class="n">res</span> <span class="o">=</span>  <span class="n">node</span><span class="o">.</span><span class="n">attrib</span><span class="p">[</span><span class="s1">&#39;ByDoc&#39;</span><span class="p">]</span>
+            <span class="k">elif</span> <span class="s1">&#39;Utilization&#39;</span> <span class="ow">in</span> <span class="n">node</span><span class="o">.</span><span class="n">attrib</span><span class="p">:</span>
+               <span class="n">res</span> <span class="o">=</span> <span class="n">StaticMethod</span><span class="o">.</span><span class="n">xml_key_to_text</span><span class="p">(</span><span class="n">node</span><span class="p">,</span> <span class="s1">&#39;@Utilization&#39;</span><span class="p">,</span> <span class="n">cnfg</span><span class="o">.</span><span class="n">PARCEL_COMMON</span><span class="o">.</span><span class="n">dict</span><span class="p">[</span><span class="s1">&#39;utilization&#39;</span><span class="p">])</span>
+            <span class="k">elif</span> <span class="s1">&#39;LandUse&#39;</span> <span class="ow">in</span> <span class="n">node</span><span class="o">.</span><span class="n">attrib</span><span class="p">:</span>
+               <span class="n">res</span> <span class="o">=</span> <span class="n">StaticMethod</span><span class="o">.</span><span class="n">xml_key_to_text</span><span class="p">(</span><span class="n">node</span><span class="p">,</span> <span class="s1">&#39;@LandUse&#39;</span><span class="p">,</span><span class="n">cnfg</span><span class="o">.</span><span class="n">PARCEL_COMMON</span><span class="o">.</span><span class="n">dict</span><span class="p">[</span><span class="s1">&#39;landuse&#39;</span><span class="p">])</span>
+        <span class="k">finally</span><span class="p">:</span>
+            <span class="n">node</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">res</span>
+
+<div class="viewcode-block" id="XmlNewParcel.full_area"><a class="viewcode-back" href="../../../src.xml_mp.html#src.xml_mp.element_to_dict.XmlNewParcel.full_area">[docs]</a>    <span class="k">def</span> <span class="nf">full_area</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            Преобразование площади</span>
+<span class="sd">        :param node: Area</span>
+<span class="sd">        :return: valua is the Area</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="n">f</span><span class="s2">&quot;&quot;&quot;{&#39;&#39;.join(node.xpath(&#39;Area/text()&#39;))}±{&#39;&#39;.join(node.xpath(&#39;Inaccuracy/text()&#39;))}&quot;&quot;&quot;</span>
+        <span class="n">node</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">result</span></div>
+
+<div class="viewcode-block" id="XmlNewParcel.full_contours_area"><a class="viewcode-back" href="../../../src.xml_mp.html#src.xml_mp.element_to_dict.XmlNewParcel.full_contours_area">[docs]</a>    <span class="k">def</span> <span class="nf">full_contours_area</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        :param node: node = Contours</span>
+<span class="sd">        :return:</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">_area</span> <span class="o">=</span> <span class="s1">&#39; &#39;</span>
+        <span class="c1"># if node and len(node) &gt; 0:</span>
+        <span class="c1">#     _xml_area = node[0].xpath(&quot;child::*/Area&quot;)</span>
+        <span class="k">if</span> <span class="n">node</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">node</span><span class="p">,</span><span class="mi">1</span><span class="p">):</span>
+                <span class="c1"># _xml_area = _.xpath(&#39;Area&#39;)</span>
+                <span class="n">_area</span> <span class="o">+=</span> <span class="n">f</span><span class="s2">&quot;&quot;&quot;(</span><span class="si">{index}</span><span class="s2">) {self.full_area(_)} &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">_area</span></div>
+
+    <span class="k">def</span> <span class="nf">__xml_general_info_to_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">dict_address</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+        <span class="n">xml_addrss</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">node</span><span class="o">.</span><span class="n">xpath</span><span class="p">(</span><span class="s1">&#39;Address&#39;</span><span class="p">)</span>
+        <span class="n">xml_category</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">node</span><span class="o">.</span><span class="n">xpath</span><span class="p">(</span><span class="s1">&#39;Category&#39;</span><span class="p">)</span>
+        <span class="n">xml_utilization</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">node</span><span class="o">.</span><span class="n">xpath</span><span class="p">(</span><span class="s1">&#39;Utilization | LandUse&#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">xml_addrss</span><span class="p">:</span>
+            <span class="n">addres</span><span class="o">=</span><span class="n">xml_addrss</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+            <span class="n">dict_address</span><span class="p">[</span><span class="s1">&#39;location_note&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">addres</span><span class="o">.</span><span class="n">xpath</span><span class="p">(</span><span class="s2">&quot;Other/text()&quot;</span><span class="p">))</span>
+            <span class="n">type_address</span> <span class="o">=</span> <span class="n">addres</span><span class="o">.</span><span class="n">xpath</span><span class="p">(</span><span class="s1">&#39;@AddressOrLocation&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+            <span class="n">text_address</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__full_addres</span><span class="p">(</span><span class="n">addres</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">type_address</span> <span class="o">==</span> <span class="s1">&#39;1&#39;</span><span class="p">:</span>
+                <span class="n">dict_address</span><span class="p">[</span><span class="n">cnfg</span><span class="o">.</span><span class="n">PARCEL_COMMON</span><span class="o">.</span><span class="n">address</span><span class="p">]</span> <span class="o">=</span> <span class="n">text_address</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">dict_address</span><span class="p">[</span><span class="s1">&#39;location&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">text_address</span>
+            <span class="n">xml_addrss</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">xml_category</span><span class="p">:</span>
+            <span class="n">dict_address</span><span class="p">[</span><span class="s1">&#39;category&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">StaticMethod</span><span class="o">.</span><span class="n">xml_key_to_text</span><span class="p">(</span><span class="n">xml_category</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="s1">&#39;@Category&#39;</span><span class="p">,</span>
+                                                               <span class="n">cnfg</span><span class="o">.</span><span class="n">PARCEL_COMMON</span><span class="o">.</span><span class="n">dict</span><span class="p">[</span><span class="s1">&#39;categories&#39;</span><span class="p">])</span>
+            <span class="n">xml_category</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">xml_utilization</span><span class="p">:</span>
+            <span class="n">dict_address</span><span class="p">[</span><span class="s1">&#39;utilization_landuse&#39;</span><span class="p">]</span> <span class="o">=</span>  <span class="bp">self</span><span class="o">.</span><span class="n">__full_utilization</span><span class="p">(</span><span class="n">xml_utilization</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+            <span class="n">xml_utilization</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+        <span class="n">xml_area</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">node</span><span class="o">.</span><span class="n">xpath</span><span class="p">(</span><span class="s1">&#39;Area&#39;</span><span class="p">)</span>
+        <span class="n">xml_area_contour</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">node</span><span class="o">.</span><span class="n">xpath</span><span class="p">(</span><span class="s1">&#39;Contours/child::*/child::Area&#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">xml_area</span><span class="p">:</span>
+            <span class="n">dict_address</span><span class="p">[</span><span class="s1">&#39;area&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">full_area</span><span class="p">(</span><span class="n">xml_area</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">full_contours_area</span><span class="p">(</span><span class="n">xml_area_contour</span><span class="p">)</span>
+        <span class="n">dict_address</span><span class="p">[</span><span class="s1">&#39;min_area&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">node</span><span class="o">.</span><span class="n">xpath</span><span class="p">(</span><span class="s1">&#39;MinArea/Area/text()&#39;</span><span class="p">))</span>
+        <span class="n">dict_address</span><span class="p">[</span><span class="s1">&#39;max_area&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">node</span><span class="o">.</span><span class="n">xpath</span><span class="p">(</span><span class="s1">&#39;MaxArea/Area/text()&#39;</span><span class="p">))</span>
+        <span class="n">dict_address</span><span class="p">[</span><span class="s1">&#39;note&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">node</span><span class="o">.</span><span class="n">xpath</span><span class="p">(</span><span class="s1">&#39;Note/text()&#39;</span><span class="p">))</span>
+        <span class="n">dict_address</span><span class="p">[</span><span class="s1">&#39;prevcadastralnumber&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">xml_object_realty_inner_cadastral_number_to_text</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">dict_address</span>
+
+<div class="viewcode-block" id="XmlNewParcel.xml_object_realty_inner_cadastral_number_to_text"><a class="viewcode-back" href="../../../src.xml_mp.html#src.xml_mp.element_to_dict.XmlNewParcel.xml_object_realty_inner_cadastral_number_to_text">[docs]</a>    <span class="k">def</span> <span class="nf">xml_object_realty_inner_cadastral_number_to_text</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s1">&#39;, &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">node</span><span class="o">.</span><span class="n">xpath</span><span class="p">(</span><span class="s1">&#39;ObjectRealty/InnerCadastralNumbers/child::*/text()&#39;</span><span class="p">))</span></div>
+
+
+<div class="viewcode-block" id="XmlNewParcel.to_dict"><a class="viewcode-back" href="../../../src.xml_mp.html#src.xml_mp.element_to_dict.XmlNewParcel.to_dict">[docs]</a>    <span class="k">def</span> <span class="nf">to_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="p">{</span><span class="n">cnfg</span><span class="o">.</span><span class="n">PARCEL_COMMON</span><span class="o">.</span><span class="n">cadnum</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">xml_cadnum_to_text</span><span class="p">(),</span>
+               <span class="n">cnfg</span><span class="o">.</span><span class="n">RELATEDPARCELS</span><span class="o">.</span><span class="n">name</span><span class="p">:</span> <span class="n">StaticMethod</span><span class="o">.</span><span class="n">merge_array_list</span><span class="p">(</span><span class="n">cnfg</span><span class="o">.</span><span class="n">RELATEDPARCELS</span><span class="o">.</span><span class="n">attr</span><span class="p">,</span>
+                                                                 <span class="bp">self</span><span class="o">.</span><span class="n">xml_related_parcel_to_list</span><span class="p">()),</span>
+              <span class="p">}</span>
+        <span class="n">res</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__xml_general_info_to_dict</span><span class="p">())</span>
+        <span class="n">res</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">xml_subparcels_to_dict</span><span class="p">())</span>
+        <span class="n">res</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">xml_ordinates_to_dict</span><span class="p">())</span>
+        <span class="k">return</span> <span class="n">res</span></div></div>
+
+
+<div class="viewcode-block" id="XmlNewParcelProviding"><a class="viewcode-back" href="../../../src.xml_mp.html#src.xml_mp.element_to_dict.XmlNewParcelProviding">[docs]</a><span class="k">class</span> <span class="nc">XmlNewParcelProviding</span><span class="p">(</span><span class="n">XmlNewParcel</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Сведения о участках посредством которых обеспечивается доступ</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">__get_context</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        :param node: ProvidingCadastralNumber</span>
+<span class="sd">        :return:</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">re</span> <span class="o">=</span> <span class="n">node</span><span class="o">.</span><span class="n">xpath</span><span class="p">(</span><span class="s1">&#39;child::*/text()&#39;</span><span class="p">)</span>
+        <span class="n">re</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">node</span><span class="o">.</span><span class="n">xpath</span><span class="p">(</span><span class="s1">&#39;child::*/child::*/text()&#39;</span><span class="p">))</span>
+        <span class="k">return</span> <span class="s1">&#39;, &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">re</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">__xml_providin_to_list</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">node</span><span class="o">.</span><span class="n">xpath</span><span class="p">(</span><span class="s1">&#39;//ProvidingPassCadastralNumbers&#39;</span><span class="p">)</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">el</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">_</span><span class="p">,</span><span class="mi">1</span><span class="p">):</span>
+                <span class="n">_def</span> <span class="o">=</span> <span class="n">el</span><span class="o">.</span><span class="n">getparent</span><span class="p">()</span><span class="o">.</span><span class="n">xpath</span><span class="p">(</span><span class="s1">&#39;@Definition&#39;</span><span class="p">)</span>
+                <span class="k">if</span> <span class="ow">not</span> <span class="n">_def</span><span class="p">:</span>
+                    <span class="n">_def</span> <span class="o">=</span> <span class="n">el</span><span class="o">.</span><span class="n">getparent</span><span class="p">()</span><span class="o">.</span><span class="n">xpath</span><span class="p">(</span><span class="s1">&#39;@NumberRecord&#39;</span><span class="p">)</span>
+                    <span class="k">if</span> <span class="ow">not</span> <span class="n">_def</span><span class="p">:</span>
+                        <span class="n">_def</span> <span class="o">=</span> <span class="n">el</span><span class="o">.</span><span class="n">getparent</span><span class="p">()</span><span class="o">.</span><span class="n">xpath</span><span class="p">(</span><span class="s1">&#39;@CadastralNumber&#39;</span><span class="p">)</span>
+                <span class="n">_definition</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">_def</span><span class="p">)</span>
+                <span class="n">res</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">),</span> <span class="n">_definition</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">__get_context</span><span class="p">(</span><span class="n">el</span><span class="p">)])</span>
+        <span class="k">finally</span><span class="p">:</span>
+            <span class="n">_</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">res</span>
+
+<div class="viewcode-block" id="XmlNewParcelProviding.to_dict"><a class="viewcode-back" href="../../../src.xml_mp.html#src.xml_mp.element_to_dict.XmlNewParcelProviding.to_dict">[docs]</a>    <span class="k">def</span> <span class="nf">to_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="p">{</span><span class="n">cnfg</span><span class="o">.</span><span class="n">PROVIDING</span><span class="o">.</span><span class="n">name</span><span class="p">:</span> <span class="n">StaticMethod</span><span class="o">.</span><span class="n">merge_array_list</span><span class="p">(</span><span class="n">cnfg</span><span class="o">.</span><span class="n">PROVIDING</span><span class="o">.</span><span class="n">attr</span><span class="p">,</span>
+                                                              <span class="bp">self</span><span class="o">.</span><span class="n">__xml_providin_to_list</span><span class="p">())</span>
+               <span class="p">}</span>
+        <span class="k">return</span> <span class="n">res</span></div></div>
+
+
+<div class="viewcode-block" id="XmlExistParcel"><a class="viewcode-back" href="../../../src.xml_mp.html#src.xml_mp.element_to_dict.XmlExistParcel">[docs]</a><span class="k">class</span> <span class="nc">XmlExistParcel</span><span class="p">(</span><span class="n">XmlNewParcel</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Фоомирования словаря значений для узлос  SpecifyRelatedParcel | ExistParcels</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">XmlExistParcel</span><span class="p">,</span><span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">node</span><span class="p">)</span>
+
+<div class="viewcode-block" id="XmlExistParcel.xml_cadnum_to_text"><a class="viewcode-back" href="../../../src.xml_mp.html#src.xml_mp.element_to_dict.XmlExistParcel.xml_cadnum_to_text">[docs]</a>    <span class="k">def</span> <span class="nf">xml_cadnum_to_text</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">number_record</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">node</span><span class="o">.</span><span class="n">xpath</span><span class="p">(</span><span class="s1">&#39;@NumberRecord&#39;</span><span class="p">))</span>
+        <span class="n">str_number_record</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+        <span class="k">if</span> <span class="n">number_record</span><span class="p">:</span>
+            <span class="n">str_number_record</span> <span class="o">=</span> <span class="n">f</span><span class="s2">&quot;&quot;&quot;(</span><span class="si">{number_record}</span><span class="s2">&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">f</span><span class="s2">&quot;&quot;&quot;{ &#39;&#39;.join(self.node.xpath(&#39;@CadastralNumber&#39;))} </span><span class="si">{str_number_record}</span><span class="s2">&quot;&quot;&quot;</span></div>
+
+    <span class="k">def</span> <span class="nf">__xml_delete_all_border_to_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">deleteAllBorder</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">node</span><span class="o">.</span><span class="n">xpath</span><span class="p">(</span><span class="s1">&#39;DeleteAllBorder&#39;</span><span class="p">)</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">deleteAllBorder</span><span class="p">:</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">_ord</span> <span class="o">=</span> <span class="n">Ordinatre</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">node</span><span class="p">,</span> <span class="n">CNST_EXISTPARCEL</span><span class="p">)</span>
+                <span class="n">res</span> <span class="o">=</span> <span class="p">{</span>
+                    <span class="n">cnfg</span><span class="o">.</span><span class="n">ENTITY_SPATIAL_EXIST</span><span class="o">.</span><span class="n">name</span><span class="p">:</span> <span class="n">StaticMethod</span><span class="o">.</span><span class="n">merge_array_list</span><span class="p">(</span><span class="n">cnfg</span><span class="o">.</span><span class="n">ENTITY_SPATIAL_EXIST</span><span class="o">.</span><span class="n">attr</span><span class="p">,</span>
+                                                                                     <span class="n">_ord</span><span class="o">.</span><span class="n">xml_exist_ordinate_to_list</span><span class="p">()),</span>
+                    <span class="n">cnfg</span><span class="o">.</span><span class="n">BORDERS</span><span class="o">.</span><span class="n">name</span><span class="p">:</span> <span class="p">[]</span>
+                <span class="p">}</span>
+            <span class="k">finally</span><span class="p">:</span>
+                <span class="n">deleteAllBorder</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">res</span>
+
+    <span class="k">def</span> <span class="nf">__xml_all_border_to_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">allborder</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">node</span><span class="o">.</span><span class="n">xpath</span><span class="p">(</span><span class="s1">&#39;AllBorder&#39;</span><span class="p">)</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">allborder</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">allborder</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">xmlfull</span> <span class="o">=</span> <span class="n">XmlFullOrdinate</span><span class="p">(</span><span class="n">allborder</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">xpath</span><span class="p">(</span><span class="s1">&#39;Contours | EntitySpatial&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">xml_cadnum_to_text</span><span class="p">())</span>
+                <span class="n">res</span> <span class="o">=</span> <span class="p">{</span><span class="n">cnfg</span><span class="o">.</span><span class="n">ENTITY_SPATIAL_EXIST</span><span class="o">.</span><span class="n">name</span><span class="p">:</span> <span class="n">StaticMethod</span><span class="o">.</span><span class="n">merge_array_list</span><span class="p">(</span><span class="n">cnfg</span><span class="o">.</span><span class="n">ENTITY_SPATIAL_EXIST</span><span class="o">.</span><span class="n">attr</span><span class="p">,</span>
+                                                                                  <span class="n">xmlfull</span><span class="o">.</span><span class="n">full_ordinate</span><span class="p">()),</span>
+                       <span class="n">cnfg</span><span class="o">.</span><span class="n">BORDERS</span><span class="o">.</span><span class="n">name</span><span class="p">:</span> <span class="n">StaticMethod</span><span class="o">.</span><span class="n">merge_array_list</span><span class="p">(</span><span class="n">cnfg</span><span class="o">.</span><span class="n">BORDERS</span><span class="o">.</span><span class="n">attr</span><span class="p">,</span>
+                                                                           <span class="n">xmlfull</span><span class="o">.</span><span class="n">full_borders</span><span class="p">()),</span>
+                       <span class="p">}</span>
+                <span class="k">del</span> <span class="n">xmlfull</span>
+            <span class="k">finally</span><span class="p">:</span>
+                <span class="n">allborder</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">res</span>
+
+    <span class="k">def</span> <span class="nf">__xml_change_border_to_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">changeborder</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">node</span><span class="o">.</span><span class="n">xpath</span><span class="p">(</span><span class="s1">&#39;ChangeBorder&#39;</span><span class="p">)</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">changeborder</span><span class="p">:</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">ordinate</span> <span class="o">=</span> <span class="n">Ordinatre</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">node</span><span class="p">,</span> <span class="n">CNST_EXISTPARCEL</span><span class="p">)</span>
+                <span class="n">res</span> <span class="o">=</span> <span class="p">{</span>
+                    <span class="n">cnfg</span><span class="o">.</span><span class="n">ENTITY_SPATIAL_EXIST</span><span class="o">.</span><span class="n">name</span><span class="p">:</span> <span class="n">StaticMethod</span><span class="o">.</span><span class="n">merge_array_list</span><span class="p">(</span><span class="n">cnfg</span><span class="o">.</span><span class="n">ENTITY_SPATIAL_EXIST</span><span class="o">.</span><span class="n">attr</span><span class="p">,</span>
+                                                                                     <span class="n">ordinate</span><span class="o">.</span><span class="n">xml_exist_ordinate_to_list</span><span class="p">()),</span>
+                    <span class="n">cnfg</span><span class="o">.</span><span class="n">BORDERS</span><span class="o">.</span><span class="n">name</span><span class="p">:</span> <span class="p">[]</span>
+                <span class="p">}</span>
+                <span class="k">del</span> <span class="n">ordinate</span>
+            <span class="k">finally</span><span class="p">:</span>
+                <span class="n">changeborder</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">res</span>
+
+    <span class="k">def</span> <span class="nf">__xml_contours_entity__to_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+        <span class="n">xml_ordinate</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">node</span><span class="o">.</span><span class="n">xpath</span><span class="p">(</span><span class="s1">&#39;Contours | EntitySpatial&#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">xml_ordinate</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">xml_ordinate</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">full_ord</span> <span class="o">=</span> <span class="n">XmlFullOrdinate</span><span class="p">(</span><span class="n">xml_ordinate</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">xml_cadnum_to_text</span><span class="p">())</span>
+
+            <span class="n">res</span> <span class="o">=</span> <span class="p">{</span><span class="n">cnfg</span><span class="o">.</span><span class="n">ENTITY_SPATIAL_EXIST</span><span class="o">.</span><span class="n">name</span><span class="p">:</span> <span class="n">StaticMethod</span><span class="o">.</span><span class="n">merge_array_list</span><span class="p">(</span><span class="n">cnfg</span><span class="o">.</span><span class="n">ENTITY_SPATIAL_EXIST</span><span class="o">.</span><span class="n">attr</span><span class="p">,</span>
+                                                                              <span class="n">full_ord</span><span class="o">.</span><span class="n">full_ordinate</span><span class="p">()),</span>
+                   <span class="n">cnfg</span><span class="o">.</span><span class="n">BORDERS</span><span class="o">.</span><span class="n">name</span><span class="p">:</span> <span class="n">StaticMethod</span><span class="o">.</span><span class="n">merge_array_list</span><span class="p">(</span><span class="n">cnfg</span><span class="o">.</span><span class="n">BORDERS</span><span class="o">.</span><span class="n">attr</span><span class="p">,</span> <span class="n">full_ord</span><span class="o">.</span><span class="n">full_borders</span><span class="p">()),</span>
+                   <span class="p">}</span>
+            <span class="k">del</span> <span class="n">full_ord</span>
+        <span class="k">return</span> <span class="n">res</span>
+
+    <span class="k">def</span> <span class="nf">__full_ordinate_to_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">node</span><span class="o">.</span><span class="n">xpath</span><span class="p">(</span><span class="s1">&#39;AllBorder&#39;</span><span class="p">):</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__xml_all_border_to_dict</span><span class="p">()</span>
+        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">node</span><span class="o">.</span><span class="n">xpath</span><span class="p">(</span><span class="s1">&#39;ChangeBorder&#39;</span><span class="p">):</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__xml_change_border_to_dict</span><span class="p">()</span>
+        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">node</span><span class="o">.</span><span class="n">xpath</span><span class="p">(</span><span class="s1">&#39;DeleteAllBorder&#39;</span><span class="p">):</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__xml_change_border_to_dict</span><span class="p">()</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__xml_contours_entity__to_dict</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">__xml_ordinate_borders_to_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="n">cnfg</span><span class="o">.</span><span class="n">RELATEDPARCELS</span><span class="o">.</span><span class="n">name</span><span class="p">:</span> <span class="n">StaticMethod</span><span class="o">.</span><span class="n">merge_array_list</span><span class="p">(</span><span class="n">cnfg</span><span class="o">.</span><span class="n">RELATEDPARCELS</span><span class="o">.</span><span class="n">attr</span><span class="p">,</span>
+                                                                <span class="bp">self</span><span class="o">.</span><span class="n">xml_related_parcel_to_list</span><span class="p">())</span>
+        <span class="p">}</span>
+        <span class="n">res</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__full_ordinate_to_dict</span><span class="p">())</span>
+        <span class="k">return</span> <span class="n">res</span>
+
+    <span class="k">def</span> <span class="nf">__xml_exist___general_info</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">res_dict</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+        <span class="n">xml_area</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">node</span><span class="o">.</span><span class="n">xpath</span><span class="p">(</span><span class="s1">&#39;Area&#39;</span><span class="p">)</span>
+        <span class="n">xml_area_contour</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">node</span><span class="o">.</span><span class="n">xpath</span><span class="p">(</span><span class="s1">&#39;Contours/child::*/child::Area&#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">xml_area</span><span class="p">:</span>
+            <span class="n">res_dict</span><span class="p">[</span><span class="n">cnfg</span><span class="o">.</span><span class="n">PARCEL_COMMON</span><span class="o">.</span><span class="n">area</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">full_area</span><span class="p">(</span><span class="n">xml_area</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">full_contours_area</span><span class="p">(</span><span class="n">xml_area_contour</span><span class="p">)</span>
+        <span class="n">area_gkn</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">node</span><span class="o">.</span><span class="n">xpath</span><span class="p">(</span><span class="s1">&#39;AreaInGKN/text()&#39;</span><span class="p">)</span>
+        <span class="k">if</span>  <span class="n">area_gkn</span><span class="p">:</span>
+            <span class="n">res_dict</span><span class="p">[</span><span class="n">cnfg</span><span class="o">.</span><span class="n">PARCEL_COMMON</span><span class="o">.</span><span class="n">areaGKN</span><span class="p">]</span><span class="o">=</span>  <span class="n">area_gkn</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">delta</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">node</span><span class="o">.</span><span class="n">xpath</span><span class="p">(</span><span class="s1">&#39;DeltaArea/text()&#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">delta</span><span class="p">:</span>
+            <span class="n">res_dict</span><span class="p">[</span><span class="n">cnfg</span><span class="o">.</span><span class="n">PARCEL_COMMON</span><span class="o">.</span><span class="n">deltaArea</span><span class="p">]</span><span class="o">=</span> <span class="n">delta</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">min_area</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">node</span><span class="o">.</span><span class="n">xpath</span><span class="p">(</span><span class="s1">&#39;MinArea&#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">min_area</span><span class="p">:</span>
+            <span class="n">res_dict</span><span class="p">[</span><span class="n">cnfg</span><span class="o">.</span><span class="n">PARCEL_COMMON</span><span class="o">.</span><span class="n">min_area</span><span class="p">]</span><span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">full_area</span><span class="p">(</span><span class="n">min_area</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+        <span class="n">max_area</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">node</span><span class="o">.</span><span class="n">xpath</span><span class="p">(</span><span class="s1">&#39;MaxArea&#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">max_area</span><span class="p">:</span>
+            <span class="n">res_dict</span><span class="p">[</span><span class="n">cnfg</span><span class="o">.</span><span class="n">PARCEL_COMMON</span><span class="o">.</span><span class="n">max_area</span><span class="p">]</span><span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">full_area</span><span class="p">(</span><span class="n">max_area</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+        <span class="n">res_dict</span><span class="p">[</span><span class="n">cnfg</span><span class="o">.</span><span class="n">PARCEL_COMMON</span><span class="o">.</span><span class="n">prevcadastralnumber</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">xml_object_realty_inner_cadastral_number_to_text</span><span class="p">()</span>
+        <span class="n">note</span><span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">node</span><span class="o">.</span><span class="n">xpath</span><span class="p">(</span><span class="s1">&#39;Note/text()&#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">note</span><span class="p">:</span>
+            <span class="n">res_dict</span><span class="p">[</span><span class="n">cnfg</span><span class="o">.</span><span class="n">PARCEL_COMMON</span><span class="o">.</span><span class="n">note</span><span class="p">]</span><span class="o">=</span> <span class="n">note</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="k">return</span>  <span class="n">res_dict</span>
+
+<div class="viewcode-block" id="XmlExistParcel.to_dict"><a class="viewcode-back" href="../../../src.xml_mp.html#src.xml_mp.element_to_dict.XmlExistParcel.to_dict">[docs]</a>    <span class="k">def</span> <span class="nf">to_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="p">{</span><span class="n">cnfg</span><span class="o">.</span><span class="n">PARCEL_COMMON</span><span class="o">.</span><span class="n">cadnum</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">xml_cadnum_to_text</span><span class="p">()}</span>
+        <span class="n">res</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__xml_exist___general_info</span><span class="p">())</span>
+        <span class="n">res</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__xml_ordinate_borders_to_dict</span><span class="p">())</span>
+        <span class="n">res</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">xml_subparcels_to_dict</span><span class="p">())</span>
+        <span class="k">return</span> <span class="n">res</span></div></div>
+
+
+<div class="viewcode-block" id="XmlSubParcels"><a class="viewcode-back" href="../../../src.xml_mp.html#src.xml_mp.element_to_dict.XmlSubParcels">[docs]</a><span class="k">class</span> <span class="nc">XmlSubParcels</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Формирования словаря значений для частей</span>
+<span class="sd">        node: SubParcels</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">XmlSubParcels</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">node</span> <span class="o">=</span> <span class="n">node</span>
+
+    <span class="k">def</span> <span class="nf">__del__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">node</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">__xml_sub_parcels_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">node</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">node</span><span class="o">.</span><span class="n">xpath</span><span class="p">(</span><span class="s1">&#39;child::*[name()=&quot;NewSubParcel&quot; or name()=&quot;ExistSubParcel&quot;]&#39;</span><span class="p">)</span>
+        <span class="n">entity_spatial</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">entity_spatial_ex</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">general</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">node</span><span class="p">):</span>
+                <span class="n">subParcel</span> <span class="o">=</span> <span class="n">ElementSubParcel</span><span class="p">(</span><span class="n">_</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">subParcel</span><span class="o">.</span><span class="n">type_ordinate</span> <span class="o">==</span> <span class="n">CNST_NEWPARCEL</span><span class="p">:</span>
+                     <span class="n">entity_spatial</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">subParcel</span><span class="o">.</span><span class="n">xml_new_dict</span><span class="p">())</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">entity_spatial_ex</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">subParcel</span><span class="o">.</span><span class="n">xml_ext_dict</span><span class="p">())</span>
+                <span class="n">general</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">subParcel</span><span class="o">.</span><span class="n">xml_general_dict</span><span class="p">(</span><span class="n">index</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span>
+                <span class="k">del</span> <span class="n">subParcel</span>
+        <span class="k">finally</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">node</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+        <span class="k">return</span> <span class="p">{</span><span class="n">cnfg</span><span class="o">.</span><span class="n">SUB_FULL_ORDINATE</span><span class="o">.</span><span class="n">name</span><span class="p">:</span>  <span class="n">entity_spatial</span><span class="p">,</span>
+                <span class="n">cnfg</span><span class="o">.</span><span class="n">SUB_EX_FULL_ORDINATE</span><span class="o">.</span><span class="n">name</span><span class="p">:</span> <span class="n">entity_spatial_ex</span><span class="p">,</span>
+                <span class="n">cnfg</span><span class="o">.</span><span class="n">SUBPARCEL_GENERAL</span><span class="o">.</span><span class="n">name</span><span class="p">:</span> <span class="n">general</span><span class="p">}</span>
+
+<div class="viewcode-block" id="XmlSubParcels.to_dict"><a class="viewcode-back" href="../../../src.xml_mp.html#src.xml_mp.element_to_dict.XmlSubParcels.to_dict">[docs]</a>    <span class="k">def</span> <span class="nf">to_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="p">{</span><span class="n">cnfg</span><span class="o">.</span><span class="n">SUBPARCEL_ROWS</span><span class="o">.</span><span class="n">cadnum</span><span class="p">:</span> <span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">node</span><span class="o">.</span><span class="n">xpath</span><span class="p">(</span><span class="s1">&#39;CadastralNumberParcel/text()&#39;</span><span class="p">)),</span>
+              <span class="p">}</span>
+        <span class="n">res</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__xml_sub_parcels_dict</span><span class="p">())</span>
+        <span class="k">return</span> <span class="n">res</span></div></div>
+
+
+<div class="viewcode-block" id="XmlChangeParcel"><a class="viewcode-back" href="../../../src.xml_mp.html#src.xml_mp.element_to_dict.XmlChangeParcel">[docs]</a><span class="k">class</span> <span class="nc">XmlChangeParcel</span><span class="p">(</span><span class="n">XmlNewParcel</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Формирования словаря данных для ChangeParcel(измененный участок)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">__xml_delete_entry_parcels</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+        <span class="n">_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">node</span><span class="o">.</span><span class="n">xpath</span><span class="p">(</span><span class="s1">&#39;DeleteEntryParcels/child::*/@*&#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">_</span><span class="p">:</span>
+            <span class="n">res</span> <span class="o">=</span> <span class="s1">&#39;, &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">_</span><span class="p">)</span>
+            <span class="n">_</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">res</span>
+
+    <span class="k">def</span> <span class="nf">_xml_transform_entry_parcels</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+        <span class="n">_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">node</span><span class="o">.</span><span class="n">xpath</span><span class="p">(</span><span class="s1">&#39;TransformationEntryParcels/child::*/@*&#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">_</span><span class="p">:</span>
+            <span class="n">res</span> <span class="o">=</span> <span class="s1">&#39;, &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">_</span><span class="p">)</span>
+            <span class="n">_</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">res</span>
+
+<div class="viewcode-block" id="XmlChangeParcel.to_dict"><a class="viewcode-back" href="../../../src.xml_mp.html#src.xml_mp.element_to_dict.XmlChangeParcel.to_dict">[docs]</a>    <span class="k">def</span> <span class="nf">to_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="p">{</span><span class="n">cnfg</span><span class="o">.</span><span class="n">CHANGEPARCELS</span><span class="o">.</span><span class="n">cadnum</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">xml_cadnum_to_text</span><span class="p">(),</span>
+               <span class="n">cnfg</span><span class="o">.</span><span class="n">CHANGEPARCELS</span><span class="o">.</span><span class="n">deleteEntyParcel</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">__xml_delete_entry_parcels</span><span class="p">(),</span>
+               <span class="n">cnfg</span><span class="o">.</span><span class="n">CHANGEPARCELS</span><span class="o">.</span><span class="n">transformEntryParcel</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_xml_transform_entry_parcels</span><span class="p">(),</span>
+               <span class="n">cnfg</span><span class="o">.</span><span class="n">CHANGEPARCELS</span><span class="o">.</span><span class="n">innerCadNum</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">xml_object_realty_inner_cadastral_number_to_text</span><span class="p">(),</span>
+               <span class="n">cnfg</span><span class="o">.</span><span class="n">CHANGEPARCELS</span><span class="o">.</span><span class="n">note</span><span class="p">:</span> <span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">node</span><span class="o">.</span><span class="n">xpath</span><span class="p">(</span><span class="s1">&#39;Note/text()&#39;</span><span class="p">)),</span>
+              <span class="p">}</span>
+        <span class="n">res</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">xml_subparcels_to_dict</span><span class="p">())</span>
+        <span class="k">return</span> <span class="n">res</span></div></div>
+
+
+<div class="viewcode-block" id="XmlConclusion"><a class="viewcode-back" href="../../../src.xml_mp.html#src.xml_mp.element_to_dict.XmlConclusion">[docs]</a><span class="k">class</span> <span class="nc">XmlConclusion</span><span class="p">(</span><span class="n">XMLElemenBase</span><span class="p">):</span>
+       <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            Чтоб не отходит от фрмата - )) - &gt; заключение кадастрового инженера</span>
+<span class="sd">       &quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="XmlConclusion.to_dict"><a class="viewcode-back" href="../../../src.xml_mp.html#src.xml_mp.element_to_dict.XmlConclusion.to_dict">[docs]</a>       <span class="k">def</span> <span class="nf">to_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+           <span class="k">return</span> <span class="p">{</span>
+               <span class="n">cnfg</span><span class="o">.</span><span class="n">CONCLUSION</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]:</span> <span class="bp">self</span><span class="o">.</span><span class="n">node</span><span class="o">.</span><span class="n">text</span>
+           <span class="p">}</span></div></div>
+
+
+<span class="n">BINDER_FILE</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;GeneralCadastralWorks&#39;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">&#39;tpl&#39;</span><span class="p">:</span> <span class="s1">&#39;title.docx&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;pos_doc&#39;</span><span class="p">:</span> <span class="s1">&#39;1.&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;class&#39;</span><span class="p">:</span> <span class="n">XmlTitleDict</span><span class="p">,</span>
+        <span class="s1">&#39;clear&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+    <span class="p">},</span>
+    <span class="s1">&#39;InputData&#39;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">&#39;tpl&#39;</span><span class="p">:</span> <span class="s2">&quot;inputdata.docx&quot;</span><span class="p">,</span>
+        <span class="s1">&#39;pos_doc&#39;</span><span class="p">:</span> <span class="s1">&#39;2.&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;class&#39;</span><span class="p">:</span> <span class="n">XmlInputDataDict</span><span class="p">,</span>
+        <span class="s1">&#39;clear&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+    <span class="p">},</span>
+    <span class="s1">&#39;Survey&#39;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">&#39;tpl&#39;</span><span class="p">:</span> <span class="s2">&quot;survey.docx&quot;</span><span class="p">,</span>
+        <span class="s1">&#39;pos_doc&#39;</span><span class="p">:</span> <span class="s1">&#39;3.&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;class&#39;</span><span class="p">:</span> <span class="n">XmlSurveyDict</span><span class="p">,</span>
+        <span class="s1">&#39;clear&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+    <span class="p">},</span>
+    <span class="s1">&#39;NewParcel&#39;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">&#39;tpl&#39;</span><span class="p">:</span> <span class="s2">&quot;newparcel.docx&quot;</span><span class="p">,</span>
+        <span class="s1">&#39;pos_doc&#39;</span><span class="p">:</span> <span class="s1">&#39;4.&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;class&#39;</span><span class="p">:</span> <span class="n">XmlNewParcel</span><span class="p">,</span>
+        <span class="s1">&#39;clear&#39;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
+    <span class="p">},</span>
+    <span class="s1">&#39;ExistParcel&#39;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">&#39;tpl&#39;</span><span class="p">:</span> <span class="s2">&quot;existparcel.docx&quot;</span><span class="p">,</span>
+        <span class="s1">&#39;pos_doc&#39;</span><span class="p">:</span> <span class="s1">&#39;4.&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;class&#39;</span><span class="p">:</span> <span class="n">XmlExistParcel</span><span class="p">,</span>
+        <span class="s1">&#39;clear&#39;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
+    <span class="p">},</span>
+    <span class="s1">&#39;SubParcels&#39;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">&#39;tpl&#39;</span><span class="p">:</span> <span class="s2">&quot;subparcels.docx&quot;</span><span class="p">,</span>
+        <span class="s1">&#39;pos_doc&#39;</span><span class="p">:</span> <span class="s1">&#39;6.&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;class&#39;</span><span class="p">:</span> <span class="n">XmlSubParcels</span><span class="p">,</span>
+        <span class="s1">&#39;clear&#39;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
+    <span class="p">},</span>
+    <span class="s1">&#39;ChangeParcel&#39;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">&#39;tpl&#39;</span><span class="p">:</span> <span class="s2">&quot;changeparcel.docx&quot;</span><span class="p">,</span>
+        <span class="s1">&#39;pos_doc&#39;</span><span class="p">:</span> <span class="s1">&#39;5.&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;class&#39;</span><span class="p">:</span> <span class="n">XmlChangeParcel</span><span class="p">,</span>
+        <span class="s1">&#39;clear&#39;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
+    <span class="p">},</span>
+    <span class="s1">&#39;SpecifyRelatedParcel&#39;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">&#39;tpl&#39;</span><span class="p">:</span> <span class="s1">&#39;existparcel.docx&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;pos_doc&#39;</span><span class="p">:</span> <span class="s1">&#39;6.&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;class&#39;</span><span class="p">:</span> <span class="n">XmlExistParcel</span><span class="p">,</span>
+        <span class="s1">&#39;clear&#39;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
+    <span class="p">},</span>
+    <span class="s1">&#39;FormParcels&#39;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">&#39;tpl&#39;</span><span class="p">:</span> <span class="s1">&#39;providing.docx&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;pos_doc&#39;</span><span class="p">:</span> <span class="s1">&#39;7.&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;class&#39;</span><span class="p">:</span> <span class="n">XmlNewParcelProviding</span><span class="p">,</span>
+        <span class="s1">&#39;clear&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+    <span class="p">},</span>
+    <span class="s1">&#39;Conclusion&#39;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">&#39;tpl&#39;</span><span class="p">:</span> <span class="s1">&#39;conclusion.docx&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;pos_doc&#39;</span><span class="p">:</span> <span class="s1">&#39;8.&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;class&#39;</span><span class="p">:</span> <span class="n">XmlConclusion</span><span class="p">,</span>
+        <span class="s1">&#39;clear&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, larisa.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'1.0',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
