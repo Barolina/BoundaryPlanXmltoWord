@@ -16,10 +16,10 @@ import os
 import logging.config
 
 # set up logging
-try:
-    logging.config.fileConfig("logging_config.ini")
-except:
-    pass
+# try:
+#     logging.config.fileConfig("logging_config.ini")
+# except:
+#     pass
 logger = logging.getLogger('sLogger')
 
 
