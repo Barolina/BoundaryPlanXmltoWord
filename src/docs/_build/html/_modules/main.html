@@ -170,7 +170,7 @@
 
 <div class="viewcode-block" id="MpXMlToWORd"><a class="viewcode-back" href="../main.html#main.MpXMlToWORd">[docs]</a><span class="k">class</span> <span class="nc">MpXMlToWORd</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Преобразователь xml межевого  в ворд</span>
+<span class="sd">        u&#39;Преобразователь xml межевого  в ворд</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">CNST_FORMAT</span> <span class="o">=</span> <span class="s1">&#39;docx&#39;</span>
     <span class="n">CNST_PATH_TPL</span> <span class="o">=</span> <span class="s1">&#39;template/common/&#39;</span>
@@ -244,7 +244,7 @@
 
     <span class="k">def</span> <span class="nf">__xml_block_to_docx</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">            Формирование списка док. файлов  по блокам xml</span>
+<span class="sd">            u&#39;Формирование списка док. файлов  по блокам xml</span>
 <span class="sd">        :param path: путь до xml файла</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="c1"># get an iterable</span>
@@ -255,11 +255,11 @@
 
 <div class="viewcode-block" id="MpXMlToWORd.render_tpl"><a class="viewcode-back" href="../main.html#main.MpXMlToWORd.render_tpl">[docs]</a>    <span class="k">def</span> <span class="nf">render_tpl</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">node</span><span class="p">,</span> <span class="n">XMLClass</span><span class="p">,</span> <span class="n">path_tpl</span><span class="p">,</span> <span class="n">name_result</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">            Рендер шаблона</span>
-<span class="sd">        :param node:  узел- noda</span>
-<span class="sd">        :param XMLClass: класс отвечающий за парсинг данной ноды в dict (to_dict)</span>
-<span class="sd">        :param path_tpl: путь до template</span>
-<span class="sd">        :return: word файл  с наименованием =  [Number - позиция word- элемента в файле]+ [Number - позиция node].docx</span>
+<span class="sd">            u&#39;Рендер шаблона</span>
+<span class="sd">        :param node:  u&#39;узел- noda</span>
+<span class="sd">        :param XMLClass: u&#39;класс отвечающий за парсинг данной ноды в dict (to_dict)</span>
+<span class="sd">        :param path_tpl: u&#39;путь до template</span>
+<span class="sd">        :return: word u&#39;файл  с наименованием =  [Number - позиция word- элемента в файле]+ [Number - позиция node].docx</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">try</span><span class="p">:</span>
             <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">node</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">node</span><span class="o">.</span><span class="n">text</span><span class="p">:</span>
@@ -274,7 +274,7 @@
 
     <span class="k">def</span> <span class="nf">__element_body_docx</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        :param path: получить блок ворд -файла</span>
+<span class="sd">        :param path: u&#39;получить блок ворд -файла</span>
 <span class="sd">        :return: element docx</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">doc</span> <span class="o">=</span> <span class="n">Document</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
@@ -283,8 +283,8 @@
 
 <div class="viewcode-block" id="MpXMlToWORd.combine_word_documents"><a class="viewcode-back" href="../main.html#main.MpXMlToWORd.combine_word_documents">[docs]</a>    <span class="k">def</span> <span class="nf">combine_word_documents</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">result_path_file</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Собираем все файлы в единый документ</span>
-<span class="sd">        :param input_files: iterable список файлов</span>
+<span class="sd">        u&#39;Собираем все файлы в единый документ</span>
+<span class="sd">        :param input_files: u&#39;iterable список файлов</span>
 <span class="sd">        :return: result braid Docx</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">files</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">tempfolder</span><span class="p">))</span>
@@ -327,14 +327,14 @@
 
 <span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        :param -i путь к xml файлу</span>
-<span class="sd">        :param -o путь к результуту </span>
+<span class="sd">        u&#39;:param -i путь к xml файлу</span>
+<span class="sd">        u&#39;:param -o путь к результуту </span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;START PARSING&#39;</span><span class="p">)</span>
     <span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">()</span>
 
-    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-i&#39;</span><span class="p">,</span> <span class="s1">&#39;--input&#39;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Путь к xml-файлу&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">str</span><span class="p">)</span>
-    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-o&#39;</span><span class="p">,</span> <span class="s1">&#39;--output&#39;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Файл для получения реультата&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">str</span><span class="p">)</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-i&#39;</span><span class="p">,</span> <span class="s1">&#39;--input&#39;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="sa">u</span><span class="s1">&#39;Путь к xml-файлу&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">str</span><span class="p">)</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-o&#39;</span><span class="p">,</span> <span class="s1">&#39;--output&#39;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="sa">u</span><span class="s1">&#39;Файл для получения реультата&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">str</span><span class="p">)</span>
     <span class="n">args</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
     <span class="k">if</span> <span class="ow">not</span> <span class="n">args</span><span class="o">.</span><span class="n">input</span><span class="p">:</span>
         <span class="n">parser</span><span class="o">.</span><span class="n">print_help</span><span class="p">()</span>
