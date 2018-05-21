@@ -171,16 +171,16 @@
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Базовый класс - определяющий структуру наследников</span>
 <span class="sd">        :param node - на вход узел дерева</span>
-<span class="sd">        :return  возвращает словарь данных (to_dict)</span>
+<span class="sd">        :return  json(object)</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">node</span> <span class="o">=</span> <span class="n">node</span>
 
 <div class="viewcode-block" id="XMLElemenBase.to_dict"><a class="viewcode-back" href="../../xml_mp.html#xml_mp.basic.XMLElemenBase.to_dict">[docs]</a>    <span class="k">def</span> <span class="nf">to_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">            Обязательный метод для  наследников</span>
-<span class="sd">            (( не обходим для  рендеринга tpl word)</span>
-<span class="sd">        :return: dict()</span>
+<span class="sd">            Return json - object, based on the dictionary in config</span>
+<span class="sd">            (данные метод реализован у всех наследников, необходимых для render шааболонов)</span>
+<span class="sd">        :return: json()</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">pass</span></div></div>
 
