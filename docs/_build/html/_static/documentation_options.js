@@ -1,7 +1,7 @@
 var DOCUMENTATION_OPTIONS = {
     URL_ROOT: '',
     VERSION: '1.0',
-    LANGUAGE: 'None',
+    LANGUAGE: 'ru',
     COLLAPSE_INDEX: false,
     FILE_SUFFIX: '.html',
     HAS_SOURCE: true,

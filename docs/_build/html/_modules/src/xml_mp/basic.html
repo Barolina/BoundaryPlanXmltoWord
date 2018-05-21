@@ -1,14 +1,14 @@
 
 
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<!--[if IE 8]><html class="no-js lt-ie9" lang="ru" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="ru" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>src.xml_mp.basic &mdash; test_main 1.0 documentation</title>
+  <title>src.xml_mp.basic &mdash; Документация test_main 1.0</title>
   
 
   
@@ -27,8 +27,8 @@
   
     <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
-    <link rel="index" title="Index" href="../../../genindex.html" />
-    <link rel="search" title="Search" href="../../../search.html" /> 
+    <link rel="index" title="Алфавитный указатель" href="../../../genindex.html" />
+    <link rel="search" title="Поиск" href="../../../search.html" /> 
 
   
   <script src="../../../_static/js/modernizr.min.js"></script>
@@ -125,7 +125,7 @@
     
       <li><a href="../../../index.html">Docs</a> &raquo;</li>
         
-          <li><a href="../../index.html">Module code</a> &raquo;</li>
+          <li><a href="../../index.html">Код модуля</a> &raquo;</li>
         
       <li>src.xml_mp.basic</li>
     
@@ -142,7 +142,7 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <h1>Source code for src.xml_mp.basic</h1><div class="highlight"><pre>
+  <h1>Исходный код src.xml_mp.basic</h1><div class="highlight"><pre>
 <span></span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">module:: xmlbasic</span>
 <span class="sd">Larisa &lt;solow_larisa@mail.ru&gt;</span>
@@ -167,7 +167,7 @@
 <span class="p">}</span>
 
 
-<div class="viewcode-block" id="XMLElemenBase"><a class="viewcode-back" href="../../../src.xml_mp.html#src.xml_mp.basic.XMLElemenBase">[docs]</a><span class="k">class</span> <span class="nc">XMLElemenBase</span><span class="p">:</span>
+<div class="viewcode-block" id="XMLElemenBase"><a class="viewcode-back" href="../../../src.xml_mp.html#src.xml_mp.basic.XMLElemenBase">[документация]</a><span class="k">class</span> <span class="nc">XMLElemenBase</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Базовый класс - определяющий структуру наследников</span>
 <span class="sd">        :param node - на вход узел дерева</span>
@@ -176,7 +176,7 @@
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">node</span> <span class="o">=</span> <span class="n">node</span>
 
-<div class="viewcode-block" id="XMLElemenBase.to_dict"><a class="viewcode-back" href="../../../src.xml_mp.html#src.xml_mp.basic.XMLElemenBase.to_dict">[docs]</a>    <span class="k">def</span> <span class="nf">to_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="XMLElemenBase.to_dict"><a class="viewcode-back" href="../../../src.xml_mp.html#src.xml_mp.basic.XMLElemenBase.to_dict">[документация]</a>    <span class="k">def</span> <span class="nf">to_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">            Return json - object, based on the dictionary in config</span>
 <span class="sd">            (данные метод реализован у всех наследников, необходимых для render шааболонов)</span>
@@ -185,11 +185,11 @@
         <span class="k">pass</span></div></div>
 
 
-<div class="viewcode-block" id="StaticMethod"><a class="viewcode-back" href="../../../src.xml_mp.html#src.xml_mp.basic.StaticMethod">[docs]</a><span class="k">class</span> <span class="nc">StaticMethod</span><span class="p">:</span>
+<div class="viewcode-block" id="StaticMethod"><a class="viewcode-back" href="../../../src.xml_mp.html#src.xml_mp.basic.StaticMethod">[документация]</a><span class="k">class</span> <span class="nc">StaticMethod</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Вспомогательный класс для работы  c node xml</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-<div class="viewcode-block" id="StaticMethod.type_ordinate"><a class="viewcode-back" href="../../../src.xml_mp.html#src.xml_mp.basic.StaticMethod.type_ordinate">[docs]</a>    <span class="nd">@staticmethod</span>
+<div class="viewcode-block" id="StaticMethod.type_ordinate"><a class="viewcode-back" href="../../../src.xml_mp.html#src.xml_mp.basic.StaticMethod.type_ordinate">[документация]</a>    <span class="nd">@staticmethod</span>
     <span class="k">def</span> <span class="nf">type_ordinate</span><span class="p">(</span><span class="n">node</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">            Определени типа  коорлинат - на  образование или на уточнение</span>
@@ -214,7 +214,7 @@
                 <span class="n">isExist</span> <span class="o">=</span> <span class="n">CNST_EXISTPARCEL</span> <span class="k">if</span> <span class="p">((</span><span class="n">isOrdinate</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">)</span> <span class="ow">or</span> <span class="n">isExistSubParcel</span><span class="p">)</span> <span class="k">else</span> <span class="n">CNST_NEWPARCEL</span>
         <span class="k">return</span> <span class="n">isExist</span></div>
 
-<div class="viewcode-block" id="StaticMethod.get_empty_tpl"><a class="viewcode-back" href="../../../src.xml_mp.html#src.xml_mp.basic.StaticMethod.get_empty_tpl">[docs]</a>    <span class="nd">@staticmethod</span>
+<div class="viewcode-block" id="StaticMethod.get_empty_tpl"><a class="viewcode-back" href="../../../src.xml_mp.html#src.xml_mp.basic.StaticMethod.get_empty_tpl">[документация]</a>    <span class="nd">@staticmethod</span>
     <span class="k">def</span> <span class="nf">get_empty_tpl</span><span class="p">(</span><span class="n">node</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        :param node: node</span>
@@ -225,7 +225,7 @@
             <span class="k">return</span> <span class="n">META_TPL_ORDINATE</span><span class="p">[</span><span class="n">name_type_ord</span><span class="p">]</span>
         <span class="k">return</span> <span class="kc">None</span></div>
 
-<div class="viewcode-block" id="StaticMethod.merge_array_list"><a class="viewcode-back" href="../../../src.xml_mp.html#src.xml_mp.basic.StaticMethod.merge_array_list">[docs]</a>    <span class="nd">@staticmethod</span>
+<div class="viewcode-block" id="StaticMethod.merge_array_list"><a class="viewcode-back" href="../../../src.xml_mp.html#src.xml_mp.basic.StaticMethod.merge_array_list">[документация]</a>    <span class="nd">@staticmethod</span>
     <span class="k">def</span> <span class="nf">merge_array_list</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">array_value</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">            преобразоание  списков ключей и массива значений в словарь</span>
@@ -242,7 +242,7 @@
                 <span class="n">res</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">dict</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">_</span><span class="p">)))</span>
         <span class="k">return</span> <span class="n">res</span></div>
 
-<div class="viewcode-block" id="StaticMethod.xml_key_to_text"><a class="viewcode-back" href="../../../src.xml_mp.html#src.xml_mp.basic.StaticMethod.xml_key_to_text">[docs]</a>    <span class="nd">@staticmethod</span>
+<div class="viewcode-block" id="StaticMethod.xml_key_to_text"><a class="viewcode-back" href="../../../src.xml_mp.html#src.xml_mp.basic.StaticMethod.xml_key_to_text">[документация]</a>    <span class="nd">@staticmethod</span>
     <span class="k">def</span> <span class="nf">xml_key_to_text</span><span class="p">(</span><span class="n">node</span><span class="p">,</span> <span class="n">path</span><span class="p">,</span> <span class="n">name_xsd</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">            получение знсачения ноды по ключу из справоника</span>
@@ -263,7 +263,7 @@
         <span class="k">return</span> <span class="n">res</span></div></div>
 
 
-<div class="viewcode-block" id="Ordinatre"><a class="viewcode-back" href="../../../src.xml_mp.html#src.xml_mp.basic.Ordinatre">[docs]</a><span class="k">class</span> <span class="nc">Ordinatre</span><span class="p">(</span><span class="nb">list</span><span class="p">):</span>
+<div class="viewcode-block" id="Ordinatre"><a class="viewcode-back" href="../../../src.xml_mp.html#src.xml_mp.basic.Ordinatre">[документация]</a><span class="k">class</span> <span class="nc">Ordinatre</span><span class="p">(</span><span class="nb">list</span><span class="p">):</span>
 
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">,</span> <span class="n">type_ordinate_ord</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
@@ -277,7 +277,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">node</span> <span class="o">=</span> <span class="n">node</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">type_ordinate_ord</span> <span class="o">=</span> <span class="n">type_ordinate_ord</span>
 
-<div class="viewcode-block" id="Ordinatre.xml_new_ordinate_to_list"><a class="viewcode-back" href="../../../src.xml_mp.html#src.xml_mp.basic.Ordinatre.xml_new_ordinate_to_list">[docs]</a>    <span class="k">def</span> <span class="nf">xml_new_ordinate_to_list</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="Ordinatre.xml_new_ordinate_to_list"><a class="viewcode-back" href="../../../src.xml_mp.html#src.xml_mp.basic.Ordinatre.xml_new_ordinate_to_list">[документация]</a>    <span class="k">def</span> <span class="nf">xml_new_ordinate_to_list</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">            Список координат внутренного контура на образование</span>
 <span class="sd">        :return: list ordinats</span>
@@ -296,7 +296,7 @@
                 <span class="k">del</span> <span class="n">_attrib</span>
         <span class="k">return</span> <span class="n">res</span></div>
 
-<div class="viewcode-block" id="Ordinatre.xml_exist_ordinate_to_list"><a class="viewcode-back" href="../../../src.xml_mp.html#src.xml_mp.basic.Ordinatre.xml_exist_ordinate_to_list">[docs]</a>    <span class="k">def</span> <span class="nf">xml_exist_ordinate_to_list</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="Ordinatre.xml_exist_ordinate_to_list"><a class="viewcode-back" href="../../../src.xml_mp.html#src.xml_mp.basic.Ordinatre.xml_exist_ordinate_to_list">[документация]</a>    <span class="k">def</span> <span class="nf">xml_exist_ordinate_to_list</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">            Список координат внутреннего конутра на уточнение</span>
 <span class="sd">        :return: list()</span>
@@ -326,13 +326,13 @@
             <span class="n">logging</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="n">f</span><span class="s2">&quot;&quot;&quot;Попытка получить  координаты, но они отсутсвуют по данному узлу </span><span class="si">{self.node}</span><span class="s2">&quot;&quot;&quot;</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">res</span></div>
 
-<div class="viewcode-block" id="Ordinatre.xml_to_list"><a class="viewcode-back" href="../../../src.xml_mp.html#src.xml_mp.basic.Ordinatre.xml_to_list">[docs]</a>    <span class="k">def</span> <span class="nf">xml_to_list</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="Ordinatre.xml_to_list"><a class="viewcode-back" href="../../../src.xml_mp.html#src.xml_mp.basic.Ordinatre.xml_to_list">[документация]</a>    <span class="k">def</span> <span class="nf">xml_to_list</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">type_ordinate_ord</span> <span class="o">==</span> <span class="n">CNST_EXISTPARCEL</span><span class="p">:</span>
             <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">xml_exist_ordinate_to_list</span><span class="p">()</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">xml_new_ordinate_to_list</span><span class="p">()</span></div></div>
 
 
-<div class="viewcode-block" id="EntitySpatial"><a class="viewcode-back" href="../../../src.xml_mp.html#src.xml_mp.basic.EntitySpatial">[docs]</a><span class="k">class</span> <span class="nc">EntitySpatial</span><span class="p">(</span><span class="nb">list</span><span class="p">):</span>
+<div class="viewcode-block" id="EntitySpatial"><a class="viewcode-back" href="../../../src.xml_mp.html#src.xml_mp.basic.EntitySpatial">[документация]</a><span class="k">class</span> <span class="nc">EntitySpatial</span><span class="p">(</span><span class="nb">list</span><span class="p">):</span>
 
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
@@ -347,7 +347,7 @@
     <span class="c1"># def __del__(self):</span>
     <span class="c1">#     self.node.clear()</span>
 
-<div class="viewcode-block" id="EntitySpatial.xml_to_list"><a class="viewcode-back" href="../../../src.xml_mp.html#src.xml_mp.basic.EntitySpatial.xml_to_list">[docs]</a>    <span class="k">def</span> <span class="nf">xml_to_list</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="EntitySpatial.xml_to_list"><a class="viewcode-back" href="../../../src.xml_mp.html#src.xml_mp.basic.EntitySpatial.xml_to_list">[документация]</a>    <span class="k">def</span> <span class="nf">xml_to_list</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">            :return: возвращает список  координат EntitySpatial</span>
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -371,7 +371,7 @@
         <span class="k">return</span> <span class="n">result</span></div></div>
 
 
-<div class="viewcode-block" id="Border"><a class="viewcode-back" href="../../../src.xml_mp.html#src.xml_mp.basic.Border">[docs]</a><span class="k">class</span> <span class="nc">Border</span><span class="p">(</span><span class="nb">list</span><span class="p">):</span>
+<div class="viewcode-block" id="Border"><a class="viewcode-back" href="../../../src.xml_mp.html#src.xml_mp.basic.Border">[документация]</a><span class="k">class</span> <span class="nc">Border</span><span class="p">(</span><span class="nb">list</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Get a list of  border the EntitySpatial</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -419,7 +419,7 @@
         <span class="n">border</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
         <span class="k">return</span> <span class="n">res</span>
 
-<div class="viewcode-block" id="Border.xml_to_list"><a class="viewcode-back" href="../../../src.xml_mp.html#src.xml_mp.basic.Border.xml_to_list">[docs]</a>    <span class="k">def</span> <span class="nf">xml_to_list</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="Border.xml_to_list"><a class="viewcode-back" href="../../../src.xml_mp.html#src.xml_mp.basic.Border.xml_to_list">[документация]</a>    <span class="k">def</span> <span class="nf">xml_to_list</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="n">pathEntitySpatial1</span> <span class="o">=</span> <span class="s1">&#39;child::SpatialElement&#39;</span>
         <span class="n">countSpatialElement</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">node</span><span class="o">.</span><span class="n">xpath</span><span class="p">(</span><span class="n">pathEntitySpatial1</span><span class="p">))</span>
         <span class="n">res</span> <span class="o">=</span> <span class="p">[]</span>
@@ -434,7 +434,7 @@
         <span class="k">return</span> <span class="n">res</span></div></div>
 
 
-<div class="viewcode-block" id="XmlFullOrdinate"><a class="viewcode-back" href="../../../src.xml_mp.html#src.xml_mp.basic.XmlFullOrdinate">[docs]</a><span class="k">class</span> <span class="nc">XmlFullOrdinate</span><span class="p">(</span><span class="nb">list</span><span class="p">):</span>
+<div class="viewcode-block" id="XmlFullOrdinate"><a class="viewcode-back" href="../../../src.xml_mp.html#src.xml_mp.basic.XmlFullOrdinate">[документация]</a><span class="k">class</span> <span class="nc">XmlFullOrdinate</span><span class="p">(</span><span class="nb">list</span><span class="p">):</span>
     <span class="n">CNST_NAME_CONTOURS</span> <span class="o">=</span> <span class="s1">&#39;Contours&#39;</span>
     <span class="n">CNST_NAME_ENTITY_SPATIAL</span> <span class="o">=</span> <span class="s1">&#39;EntitySpatial&#39;</span>
 
@@ -454,7 +454,7 @@
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">node</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">node</span><span class="o">.</span><span class="n">tag</span> <span class="o">!=</span> <span class="bp">self</span><span class="o">.</span><span class="n">CNST_NAME_CONTOURS</span> <span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">node</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
 
-<div class="viewcode-block" id="XmlFullOrdinate.full_ordinate"><a class="viewcode-back" href="../../../src.xml_mp.html#src.xml_mp.basic.XmlFullOrdinate.full_ordinate">[docs]</a>    <span class="k">def</span> <span class="nf">full_ordinate</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="XmlFullOrdinate.full_ordinate"><a class="viewcode-back" href="../../../src.xml_mp.html#src.xml_mp.basic.XmlFullOrdinate.full_ordinate">[документация]</a>    <span class="k">def</span> <span class="nf">full_ordinate</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="n">res</span> <span class="o">=</span> <span class="nb">list</span><span class="p">()</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">node</span><span class="o">.</span><span class="n">tag</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">CNST_NAME_CONTOURS</span><span class="p">:</span>
             <span class="n">contours</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">node</span><span class="o">.</span><span class="n">xpath</span><span class="p">(</span><span class="s1">&#39;child::*&#39;</span><span class="p">)</span>
@@ -480,7 +480,7 @@
                   <span class="c1"># ToDo очищать пок не будем на получить Borders</span>
         <span class="k">return</span> <span class="n">res</span></div>
 
-<div class="viewcode-block" id="XmlFullOrdinate.full_borders"><a class="viewcode-back" href="../../../src.xml_mp.html#src.xml_mp.basic.XmlFullOrdinate.full_borders">[docs]</a>    <span class="k">def</span> <span class="nf">full_borders</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="XmlFullOrdinate.full_borders"><a class="viewcode-back" href="../../../src.xml_mp.html#src.xml_mp.basic.XmlFullOrdinate.full_borders">[документация]</a>    <span class="k">def</span> <span class="nf">full_borders</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">                  get list all of borders</span>
 <span class="sd">              :param node: Contours</span>
@@ -507,7 +507,7 @@
         <span class="k">return</span> <span class="n">res</span></div></div>
 
 
-<div class="viewcode-block" id="ElementSubParcel"><a class="viewcode-back" href="../../../src.xml_mp.html#src.xml_mp.basic.ElementSubParcel">[docs]</a><span class="k">class</span> <span class="nc">ElementSubParcel</span><span class="p">:</span>
+<div class="viewcode-block" id="ElementSubParcel"><a class="viewcode-back" href="../../../src.xml_mp.html#src.xml_mp.basic.ElementSubParcel">[документация]</a><span class="k">class</span> <span class="nc">ElementSubParcel</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">       get inforamtion the dict - one SubParcel</span>
 <span class="sd">       {</span>
@@ -555,7 +555,7 @@
                                                     <span class="n">cnfg</span><span class="o">.</span><span class="n">SUBPARCEL_GENERAL</span><span class="o">.</span><span class="n">dict</span><span class="p">[</span><span class="s1">&#39;encumbrace&#39;</span><span class="p">]))</span>
         <span class="k">return</span> <span class="n">res</span>
 
-<div class="viewcode-block" id="ElementSubParcel.xml_new_dict"><a class="viewcode-back" href="../../../src.xml_mp.html#src.xml_mp.basic.ElementSubParcel.xml_new_dict">[docs]</a>    <span class="k">def</span> <span class="nf">xml_new_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="ElementSubParcel.xml_new_dict"><a class="viewcode-back" href="../../../src.xml_mp.html#src.xml_mp.basic.ElementSubParcel.xml_new_dict">[документация]</a>    <span class="k">def</span> <span class="nf">xml_new_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">try</span><span class="p">:</span>
            <span class="n">_ent</span> <span class="o">=</span> <span class="n">StaticMethod</span><span class="o">.</span><span class="n">merge_array_list</span><span class="p">(</span><span class="n">cnfg</span><span class="o">.</span><span class="n">SUBPARCEL_ENTITY_SPATIAL</span><span class="o">.</span><span class="n">attr</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">__entity_spatial</span><span class="p">())</span>
            <span class="n">res</span> <span class="o">=</span> <span class="nb">list</span><span class="p">()</span>
@@ -567,7 +567,7 @@
         <span class="k">except</span><span class="p">:</span>
             <span class="k">return</span> <span class="p">[]</span></div>
 
-<div class="viewcode-block" id="ElementSubParcel.xml_ext_dict"><a class="viewcode-back" href="../../../src.xml_mp.html#src.xml_mp.basic.ElementSubParcel.xml_ext_dict">[docs]</a>    <span class="k">def</span> <span class="nf">xml_ext_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="ElementSubParcel.xml_ext_dict"><a class="viewcode-back" href="../../../src.xml_mp.html#src.xml_mp.basic.ElementSubParcel.xml_ext_dict">[документация]</a>    <span class="k">def</span> <span class="nf">xml_ext_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">try</span><span class="p">:</span>
             <span class="n">_ent</span> <span class="o">=</span> <span class="n">StaticMethod</span><span class="o">.</span><span class="n">merge_array_list</span><span class="p">(</span><span class="n">cnfg</span><span class="o">.</span><span class="n">SUBPARCEL_ENTITY_SPATIAL_EXIST</span><span class="o">.</span><span class="n">attr</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">__entity_spatial</span><span class="p">())</span>
             <span class="n">res</span> <span class="o">=</span> <span class="nb">list</span><span class="p">()</span>
@@ -577,7 +577,7 @@
         <span class="k">except</span><span class="p">:</span>
             <span class="k">return</span> <span class="p">[]</span></div>
 
-<div class="viewcode-block" id="ElementSubParcel.xml_general_dict"><a class="viewcode-back" href="../../../src.xml_mp.html#src.xml_mp.basic.ElementSubParcel.xml_general_dict">[docs]</a>    <span class="k">def</span> <span class="nf">xml_general_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">position</span><span class="p">):</span>
+<div class="viewcode-block" id="ElementSubParcel.xml_general_dict"><a class="viewcode-back" href="../../../src.xml_mp.html#src.xml_mp.basic.ElementSubParcel.xml_general_dict">[документация]</a>    <span class="k">def</span> <span class="nf">xml_general_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">position</span><span class="p">):</span>
         <span class="k">return</span> <span class="nb">dict</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">cnfg</span><span class="o">.</span><span class="n">SUBPARCEL_GENERAL</span><span class="o">.</span><span class="n">attr</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">__general_info</span><span class="p">(</span><span class="n">position</span><span class="p">)))</span></div></div>
 
 
@@ -616,7 +616,7 @@
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../../',
             VERSION:'1.0',
-            LANGUAGE:'None',
+            LANGUAGE:'ru',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,
@@ -626,6 +626,7 @@
       <script type="text/javascript" src="../../../_static/jquery.js"></script>
       <script type="text/javascript" src="../../../_static/underscore.js"></script>
       <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../_static/translations.js"></script>
 
   
 

@@ -1,14 +1,14 @@
 
 
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<!--[if IE 8]><html class="no-js lt-ie9" lang="ru" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="ru" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>src.utils.xsd &mdash; test_main 1.0 documentation</title>
+  <title>src.utils.xsd &mdash; Документация test_main 1.0</title>
   
 
   
@@ -27,8 +27,8 @@
   
     <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
-    <link rel="index" title="Index" href="../../../genindex.html" />
-    <link rel="search" title="Search" href="../../../search.html" /> 
+    <link rel="index" title="Алфавитный указатель" href="../../../genindex.html" />
+    <link rel="search" title="Поиск" href="../../../search.html" /> 
 
   
   <script src="../../../_static/js/modernizr.min.js"></script>
@@ -125,7 +125,7 @@
     
       <li><a href="../../../index.html">Docs</a> &raquo;</li>
         
-          <li><a href="../../index.html">Module code</a> &raquo;</li>
+          <li><a href="../../index.html">Код модуля</a> &raquo;</li>
         
       <li>src.utils.xsd</li>
     
@@ -142,14 +142,14 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <h1>Source code for src.utils.xsd</h1><div class="highlight"><pre>
+  <h1>Исходный код src.utils.xsd</h1><div class="highlight"><pre>
 <span></span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">Модуль позволяющтй из xsd файла извлечь value по key</span>
 <span class="sd">&quot;&quot;&quot;</span>
 <span class="kn">from</span> <span class="nn">lxml</span> <span class="k">import</span> <span class="n">etree</span>
 
 
-<div class="viewcode-block" id="Schema"><a class="viewcode-back" href="../../../src.utils.html#src.utils.xsd.Schema">[docs]</a><span class="k">class</span> <span class="nc">Schema</span><span class="p">:</span>
+<div class="viewcode-block" id="Schema"><a class="viewcode-back" href="../../../src.utils.html#src.utils.xsd.Schema">[документация]</a><span class="k">class</span> <span class="nc">Schema</span><span class="p">:</span>
     <span class="n">SCHEMA_SPACE</span> <span class="o">=</span> <span class="s2">&quot;{http://www.w3.org/2001/XMLSchema}&quot;</span>
 
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">schemafile</span><span class="p">):</span>
@@ -158,25 +158,25 @@
     <span class="k">def</span> <span class="nf">__del__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">del</span> <span class="bp">self</span><span class="o">.</span><span class="n">root</span>
 
-<div class="viewcode-block" id="Schema.findall"><a class="viewcode-back" href="../../../src.utils.html#src.utils.xsd.Schema.findall">[docs]</a>    <span class="k">def</span> <span class="nf">findall</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="p">):</span>
+<div class="viewcode-block" id="Schema.findall"><a class="viewcode-back" href="../../../src.utils.html#src.utils.xsd.Schema.findall">[документация]</a>    <span class="k">def</span> <span class="nf">findall</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="p">):</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">root</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span> <span class="n">path</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;xs:&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">SCHEMA_SPACE</span><span class="p">))</span></div>
 
-<div class="viewcode-block" id="Schema.find"><a class="viewcode-back" href="../../../src.utils.html#src.utils.xsd.Schema.find">[docs]</a>    <span class="k">def</span> <span class="nf">find</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="p">):</span>
+<div class="viewcode-block" id="Schema.find"><a class="viewcode-back" href="../../../src.utils.html#src.utils.xsd.Schema.find">[документация]</a>    <span class="k">def</span> <span class="nf">find</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="p">):</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">root</span><span class="o">.</span><span class="n">find</span><span class="p">(</span> <span class="n">path</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;xs:&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">SCHEMA_SPACE</span><span class="p">))</span></div>
 
-<div class="viewcode-block" id="Schema.names_of"><a class="viewcode-back" href="../../../src.utils.html#src.utils.xsd.Schema.names_of">[docs]</a>    <span class="k">def</span> <span class="nf">names_of</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nodes</span><span class="p">):</span>
+<div class="viewcode-block" id="Schema.names_of"><a class="viewcode-back" href="../../../src.utils.html#src.utils.xsd.Schema.names_of">[документация]</a>    <span class="k">def</span> <span class="nf">names_of</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nodes</span><span class="p">):</span>
         <span class="k">return</span> <span class="p">[</span><span class="n">node</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;name&quot;</span><span class="p">)</span> <span class="k">for</span> <span class="n">node</span> <span class="ow">in</span> <span class="n">nodes</span><span class="p">]</span></div>
 
-<div class="viewcode-block" id="Schema.get_Types"><a class="viewcode-back" href="../../../src.utils.html#src.utils.xsd.Schema.get_Types">[docs]</a>    <span class="k">def</span> <span class="nf">get_Types</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">t_name</span><span class="p">):</span>
+<div class="viewcode-block" id="Schema.get_Types"><a class="viewcode-back" href="../../../src.utils.html#src.utils.xsd.Schema.get_Types">[документация]</a>    <span class="k">def</span> <span class="nf">get_Types</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">t_name</span><span class="p">):</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">names_of</span><span class="p">(</span> <span class="bp">self</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">t_name</span><span class="p">)</span> <span class="p">)</span></div>
 
-<div class="viewcode-block" id="Schema.get_simpleTypes"><a class="viewcode-back" href="../../../src.utils.html#src.utils.xsd.Schema.get_simpleTypes">[docs]</a>    <span class="k">def</span> <span class="nf">get_simpleTypes</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="Schema.get_simpleTypes"><a class="viewcode-back" href="../../../src.utils.html#src.utils.xsd.Schema.get_simpleTypes">[документация]</a>    <span class="k">def</span> <span class="nf">get_simpleTypes</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_Types</span><span class="p">(</span><span class="s2">&quot;xs:simpleType&quot;</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="Schema.get_complexTypes"><a class="viewcode-back" href="../../../src.utils.html#src.utils.xsd.Schema.get_complexTypes">[docs]</a>    <span class="k">def</span> <span class="nf">get_complexTypes</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="Schema.get_complexTypes"><a class="viewcode-back" href="../../../src.utils.html#src.utils.xsd.Schema.get_complexTypes">[документация]</a>    <span class="k">def</span> <span class="nf">get_complexTypes</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_Types</span><span class="p">(</span><span class="s2">&quot;xs:complexType&quot;</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="Schema.get_element_attributes"><a class="viewcode-back" href="../../../src.utils.html#src.utils.xsd.Schema.get_element_attributes">[docs]</a>    <span class="k">def</span> <span class="nf">get_element_attributes</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+<div class="viewcode-block" id="Schema.get_element_attributes"><a class="viewcode-back" href="../../../src.utils.html#src.utils.xsd.Schema.get_element_attributes">[документация]</a>    <span class="k">def</span> <span class="nf">get_element_attributes</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">            Получить значение аттрибута</span>
 <span class="sd">        :param name: xs:enumeration</span>
@@ -195,7 +195,7 @@
                 <span class="k">return</span> <span class="s1">&#39;&#39;</span></div></div>
 
 
-<div class="viewcode-block" id="value_from_xsd"><a class="viewcode-back" href="../../../src.utils.html#src.utils.xsd.value_from_xsd">[docs]</a><span class="k">def</span> <span class="nf">value_from_xsd</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
+<div class="viewcode-block" id="value_from_xsd"><a class="viewcode-back" href="../../../src.utils.html#src.utils.xsd.value_from_xsd">[документация]</a><span class="k">def</span> <span class="nf">value_from_xsd</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Получить значение ключа из xsd</span>
 <span class="sd">    :param path: путь к xsd</span>
@@ -242,7 +242,7 @@
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../../',
             VERSION:'1.0',
-            LANGUAGE:'None',
+            LANGUAGE:'ru',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,
@@ -252,6 +252,7 @@
       <script type="text/javascript" src="../../../_static/jquery.js"></script>
       <script type="text/javascript" src="../../../_static/underscore.js"></script>
       <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../_static/translations.js"></script>
 
   
 

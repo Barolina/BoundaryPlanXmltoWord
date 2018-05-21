@@ -1,14 +1,14 @@
 
 
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<!--[if IE 8]><html class="no-js lt-ie9" lang="ru" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="ru" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>src.xml_mp.element_to_dict &mdash; test_main 1.0 documentation</title>
+  <title>src.xml_mp.element_to_dict &mdash; Документация test_main 1.0</title>
   
 
   
@@ -27,8 +27,8 @@
   
     <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
-    <link rel="index" title="Index" href="../../../genindex.html" />
-    <link rel="search" title="Search" href="../../../search.html" /> 
+    <link rel="index" title="Алфавитный указатель" href="../../../genindex.html" />
+    <link rel="search" title="Поиск" href="../../../search.html" /> 
 
   
   <script src="../../../_static/js/modernizr.min.js"></script>
@@ -125,7 +125,7 @@
     
       <li><a href="../../../index.html">Docs</a> &raquo;</li>
         
-          <li><a href="../../index.html">Module code</a> &raquo;</li>
+          <li><a href="../../index.html">Код модуля</a> &raquo;</li>
         
       <li>src.xml_mp.element_to_dict</li>
     
@@ -142,7 +142,7 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <h1>Source code for src.xml_mp.element_to_dict</h1><div class="highlight"><pre>
+  <h1>Исходный код src.xml_mp.element_to_dict</h1><div class="highlight"><pre>
 <span></span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">  Модуль содержит классы, преобразующий  основные  блоки xml ( межевого плана ) в словар значений</span>
 <span class="sd">&quot;&quot;&quot;</span>
@@ -155,7 +155,7 @@
 <span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">()</span>
 
 
-<div class="viewcode-block" id="XmlTitleDict"><a class="viewcode-back" href="../../../src.xml_mp.html#src.xml_mp.element_to_dict.XmlTitleDict">[docs]</a><span class="k">class</span> <span class="nc">XmlTitleDict</span><span class="p">:</span>
+<div class="viewcode-block" id="XmlTitleDict"><a class="viewcode-back" href="../../../src.xml_mp.html#src.xml_mp.element_to_dict.XmlTitleDict">[документация]</a><span class="k">class</span> <span class="nc">XmlTitleDict</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Формированяи словаря для титульника</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -231,7 +231,7 @@
             <span class="k">return</span>  <span class="n">f</span><span class="s2">&quot;&quot;&quot;{_dt:</span><span class="si">%d</span><span class="s2">.%m.%Y}&quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="s1">&#39;&#39;</span>
 
-<div class="viewcode-block" id="XmlTitleDict.to_dict"><a class="viewcode-back" href="../../../src.xml_mp.html#src.xml_mp.element_to_dict.XmlTitleDict.to_dict">[docs]</a>    <span class="k">def</span> <span class="nf">to_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="XmlTitleDict.to_dict"><a class="viewcode-back" href="../../../src.xml_mp.html#src.xml_mp.element_to_dict.XmlTitleDict.to_dict">[документация]</a>    <span class="k">def</span> <span class="nf">to_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">            Данный  метод  возвращает словарь значения для  заполнения  шаблона title.docx</span>
 <span class="sd">        :return: dict-&gt;cnfg.Title</span>
@@ -250,7 +250,7 @@
         <span class="k">return</span> <span class="n">result</span></div></div>
 
 
-<div class="viewcode-block" id="XmlSurveyDict"><a class="viewcode-back" href="../../../src.xml_mp.html#src.xml_mp.element_to_dict.XmlSurveyDict">[docs]</a><span class="k">class</span> <span class="nc">XmlSurveyDict</span><span class="p">(</span><span class="n">XMLElemenBase</span><span class="p">):</span>
+<div class="viewcode-block" id="XmlSurveyDict"><a class="viewcode-back" href="../../../src.xml_mp.html#src.xml_mp.element_to_dict.XmlSurveyDict">[документация]</a><span class="k">class</span> <span class="nc">XmlSurveyDict</span><span class="p">(</span><span class="n">XMLElemenBase</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Формирование словаря для  Сведени о выполненных измерениях и расчетах</span>
 <span class="sd">        :param root: Survey</span>
@@ -303,7 +303,7 @@
             <span class="n">el</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
         <span class="k">return</span> <span class="n">res</span>
 
-<div class="viewcode-block" id="XmlSurveyDict.to_dict"><a class="viewcode-back" href="../../../src.xml_mp.html#src.xml_mp.element_to_dict.XmlSurveyDict.to_dict">[docs]</a>    <span class="k">def</span> <span class="nf">to_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="XmlSurveyDict.to_dict"><a class="viewcode-back" href="../../../src.xml_mp.html#src.xml_mp.element_to_dict.XmlSurveyDict.to_dict">[документация]</a>    <span class="k">def</span> <span class="nf">to_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="n">_res</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="k">try</span><span class="p">:</span>
             <span class="n">_res</span> <span class="o">=</span> <span class="p">{</span>
@@ -321,7 +321,7 @@
         <span class="k">return</span> <span class="n">_res</span></div></div>
 
 
-<div class="viewcode-block" id="XmlInputDataDict"><a class="viewcode-back" href="../../../src.xml_mp.html#src.xml_mp.element_to_dict.XmlInputDataDict">[docs]</a><span class="k">class</span> <span class="nc">XmlInputDataDict</span><span class="p">(</span><span class="n">XMLElemenBase</span><span class="p">):</span>
+<div class="viewcode-block" id="XmlInputDataDict"><a class="viewcode-back" href="../../../src.xml_mp.html#src.xml_mp.element_to_dict.XmlInputDataDict">[документация]</a><span class="k">class</span> <span class="nc">XmlInputDataDict</span><span class="p">(</span><span class="n">XMLElemenBase</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        формирование словаря Исхпдные данные</span>
 <span class="sd">        :param root == InputData</span>
@@ -389,7 +389,7 @@
             <span class="n">el</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
         <span class="k">return</span> <span class="n">res</span>
 
-<div class="viewcode-block" id="XmlInputDataDict.to_dict"><a class="viewcode-back" href="../../../src.xml_mp.html#src.xml_mp.element_to_dict.XmlInputDataDict.to_dict">[docs]</a>    <span class="k">def</span> <span class="nf">to_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="XmlInputDataDict.to_dict"><a class="viewcode-back" href="../../../src.xml_mp.html#src.xml_mp.element_to_dict.XmlInputDataDict.to_dict">[документация]</a>    <span class="k">def</span> <span class="nf">to_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="n">_res</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="k">try</span><span class="p">:</span>
             <span class="n">_res</span> <span class="o">=</span> <span class="p">{</span><span class="n">cnfg</span><span class="o">.</span><span class="n">INPUT_DATA</span><span class="o">.</span><span class="n">name</span><span class="p">:</span> <span class="n">StaticMethod</span><span class="o">.</span><span class="n">merge_array_list</span><span class="p">(</span><span class="n">cnfg</span><span class="o">.</span><span class="n">INPUT_DATA</span><span class="o">.</span><span class="n">attr</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">__xml_documents_to_list</span><span class="p">()),</span>
@@ -404,9 +404,9 @@
         <span class="k">return</span> <span class="n">_res</span></div></div>
 
 
-<div class="viewcode-block" id="XmlParcel"><a class="viewcode-back" href="../../../src.xml_mp.html#src.xml_mp.element_to_dict.XmlParcel">[docs]</a><span class="k">class</span> <span class="nc">XmlParcel</span><span class="p">(</span><span class="n">XMLElemenBase</span><span class="p">):</span>
+<div class="viewcode-block" id="XmlParcel"><a class="viewcode-back" href="../../../src.xml_mp.html#src.xml_mp.element_to_dict.XmlParcel">[документация]</a><span class="k">class</span> <span class="nc">XmlParcel</span><span class="p">(</span><span class="n">XMLElemenBase</span><span class="p">):</span>
 
-<div class="viewcode-block" id="XmlParcel.xml_cadnum_to_text"><a class="viewcode-back" href="../../../src.xml_mp.html#src.xml_mp.element_to_dict.XmlParcel.xml_cadnum_to_text">[docs]</a>    <span class="k">def</span> <span class="nf">xml_cadnum_to_text</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="XmlParcel.xml_cadnum_to_text"><a class="viewcode-back" href="../../../src.xml_mp.html#src.xml_mp.element_to_dict.XmlParcel.xml_cadnum_to_text">[документация]</a>    <span class="k">def</span> <span class="nf">xml_cadnum_to_text</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="n">_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">node</span><span class="o">.</span><span class="n">xpath</span><span class="p">(</span><span class="s1">&#39;@Definition | @CadastralNumber | @NumberRecord&#39;</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">_</span><span class="p">:</span>
             <span class="k">return</span> <span class="n">_</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
@@ -416,7 +416,7 @@
 <span class="sd">        вспомогательный класс для  обработки  общих узлов участка</span>
 <span class="sd">        root  in [NewParcel, SubParcels, ExistParcel, ChangeParcel ... все все остальные узлы с похожей структурой]</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-<div class="viewcode-block" id="XmlParcel.xml_subparcels_to_dict"><a class="viewcode-back" href="../../../src.xml_mp.html#src.xml_mp.element_to_dict.XmlParcel.xml_subparcels_to_dict">[docs]</a>    <span class="k">def</span> <span class="nf">xml_subparcels_to_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="XmlParcel.xml_subparcels_to_dict"><a class="viewcode-back" href="../../../src.xml_mp.html#src.xml_mp.element_to_dict.XmlParcel.xml_subparcels_to_dict">[документация]</a>    <span class="k">def</span> <span class="nf">xml_subparcels_to_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        :return: Словарь для частей</span>
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -428,7 +428,7 @@
             <span class="k">del</span> <span class="n">subparcels</span>
         <span class="k">return</span> <span class="n">res</span></div>
 
-<div class="viewcode-block" id="XmlParcel.xml_ordinates_to_dict"><a class="viewcode-back" href="../../../src.xml_mp.html#src.xml_mp.element_to_dict.XmlParcel.xml_ordinates_to_dict">[docs]</a>    <span class="k">def</span> <span class="nf">xml_ordinates_to_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="XmlParcel.xml_ordinates_to_dict"><a class="viewcode-back" href="../../../src.xml_mp.html#src.xml_mp.element_to_dict.XmlParcel.xml_ordinates_to_dict">[документация]</a>    <span class="k">def</span> <span class="nf">xml_ordinates_to_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        :return: Получить словарь коорлинат</span>
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -461,7 +461,7 @@
             <span class="n">node</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
         <span class="k">return</span> <span class="n">res</span>
 
-<div class="viewcode-block" id="XmlParcel.xml_related_parcel_to_list"><a class="viewcode-back" href="../../../src.xml_mp.html#src.xml_mp.element_to_dict.XmlParcel.xml_related_parcel_to_list">[docs]</a>    <span class="k">def</span> <span class="nf">xml_related_parcel_to_list</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="XmlParcel.xml_related_parcel_to_list"><a class="viewcode-back" href="../../../src.xml_mp.html#src.xml_mp.element_to_dict.XmlParcel.xml_related_parcel_to_list">[документация]</a>    <span class="k">def</span> <span class="nf">xml_related_parcel_to_list</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        &#39;attr&#39;: [&#39;point&#39;, &#39;cadastralnumber&#39;, &#39;right&#39;]</span>
 <span class="sd">        :return: list сведений о смежниках участка</span>
@@ -480,7 +480,7 @@
         <span class="k">return</span> <span class="n">res</span></div></div>
 
 
-<div class="viewcode-block" id="XmlNewParcel"><a class="viewcode-back" href="../../../src.xml_mp.html#src.xml_mp.element_to_dict.XmlNewParcel">[docs]</a><span class="k">class</span> <span class="nc">XmlNewParcel</span><span class="p">(</span><span class="n">XmlParcel</span><span class="p">):</span>
+<div class="viewcode-block" id="XmlNewParcel"><a class="viewcode-back" href="../../../src.xml_mp.html#src.xml_mp.element_to_dict.XmlNewParcel">[документация]</a><span class="k">class</span> <span class="nc">XmlNewParcel</span><span class="p">(</span><span class="n">XmlParcel</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Преобразование участка на образование  в словарь</span>
 <span class="sd">        :param root = NewParcel</span>
@@ -523,7 +523,7 @@
             <span class="n">node</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
         <span class="k">return</span> <span class="n">res</span>
 
-<div class="viewcode-block" id="XmlNewParcel.full_area"><a class="viewcode-back" href="../../../src.xml_mp.html#src.xml_mp.element_to_dict.XmlNewParcel.full_area">[docs]</a>    <span class="k">def</span> <span class="nf">full_area</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">):</span>
+<div class="viewcode-block" id="XmlNewParcel.full_area"><a class="viewcode-back" href="../../../src.xml_mp.html#src.xml_mp.element_to_dict.XmlNewParcel.full_area">[документация]</a>    <span class="k">def</span> <span class="nf">full_area</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">            Преобразование площади</span>
 <span class="sd">        :param node: Area</span>
@@ -533,7 +533,7 @@
         <span class="n">node</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
         <span class="k">return</span> <span class="n">result</span></div>
 
-<div class="viewcode-block" id="XmlNewParcel.full_contours_area"><a class="viewcode-back" href="../../../src.xml_mp.html#src.xml_mp.element_to_dict.XmlNewParcel.full_contours_area">[docs]</a>    <span class="k">def</span> <span class="nf">full_contours_area</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">):</span>
+<div class="viewcode-block" id="XmlNewParcel.full_contours_area"><a class="viewcode-back" href="../../../src.xml_mp.html#src.xml_mp.element_to_dict.XmlNewParcel.full_contours_area">[документация]</a>    <span class="k">def</span> <span class="nf">full_contours_area</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        :param node: node = Contours</span>
 <span class="sd">        :return:</span>
@@ -579,11 +579,11 @@
         <span class="n">dict_address</span><span class="p">[</span><span class="s1">&#39;prevcadastralnumber&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">xml_object_realty_inner_cadastral_number_to_text</span><span class="p">()</span>
         <span class="k">return</span> <span class="n">dict_address</span>
 
-<div class="viewcode-block" id="XmlNewParcel.xml_object_realty_inner_cadastral_number_to_text"><a class="viewcode-back" href="../../../src.xml_mp.html#src.xml_mp.element_to_dict.XmlNewParcel.xml_object_realty_inner_cadastral_number_to_text">[docs]</a>    <span class="k">def</span> <span class="nf">xml_object_realty_inner_cadastral_number_to_text</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="XmlNewParcel.xml_object_realty_inner_cadastral_number_to_text"><a class="viewcode-back" href="../../../src.xml_mp.html#src.xml_mp.element_to_dict.XmlNewParcel.xml_object_realty_inner_cadastral_number_to_text">[документация]</a>    <span class="k">def</span> <span class="nf">xml_object_realty_inner_cadastral_number_to_text</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="s1">&#39;, &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">node</span><span class="o">.</span><span class="n">xpath</span><span class="p">(</span><span class="s1">&#39;ObjectRealty/InnerCadastralNumbers/child::*/text()&#39;</span><span class="p">))</span></div>
 
 
-<div class="viewcode-block" id="XmlNewParcel.to_dict"><a class="viewcode-back" href="../../../src.xml_mp.html#src.xml_mp.element_to_dict.XmlNewParcel.to_dict">[docs]</a>    <span class="k">def</span> <span class="nf">to_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="XmlNewParcel.to_dict"><a class="viewcode-back" href="../../../src.xml_mp.html#src.xml_mp.element_to_dict.XmlNewParcel.to_dict">[документация]</a>    <span class="k">def</span> <span class="nf">to_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="n">res</span> <span class="o">=</span> <span class="p">{</span><span class="n">cnfg</span><span class="o">.</span><span class="n">PARCEL_COMMON</span><span class="o">.</span><span class="n">cadnum</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">xml_cadnum_to_text</span><span class="p">(),</span>
                <span class="n">cnfg</span><span class="o">.</span><span class="n">RELATEDPARCELS</span><span class="o">.</span><span class="n">name</span><span class="p">:</span> <span class="n">StaticMethod</span><span class="o">.</span><span class="n">merge_array_list</span><span class="p">(</span><span class="n">cnfg</span><span class="o">.</span><span class="n">RELATEDPARCELS</span><span class="o">.</span><span class="n">attr</span><span class="p">,</span>
                                                                  <span class="bp">self</span><span class="o">.</span><span class="n">xml_related_parcel_to_list</span><span class="p">()),</span>
@@ -594,7 +594,7 @@
         <span class="k">return</span> <span class="n">res</span></div></div>
 
 
-<div class="viewcode-block" id="XmlNewParcelProviding"><a class="viewcode-back" href="../../../src.xml_mp.html#src.xml_mp.element_to_dict.XmlNewParcelProviding">[docs]</a><span class="k">class</span> <span class="nc">XmlNewParcelProviding</span><span class="p">(</span><span class="n">XmlNewParcel</span><span class="p">):</span>
+<div class="viewcode-block" id="XmlNewParcelProviding"><a class="viewcode-back" href="../../../src.xml_mp.html#src.xml_mp.element_to_dict.XmlNewParcelProviding">[документация]</a><span class="k">class</span> <span class="nc">XmlNewParcelProviding</span><span class="p">(</span><span class="n">XmlNewParcel</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Сведения о участках посредством которых обеспечивается доступ</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -624,14 +624,14 @@
             <span class="n">_</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
         <span class="k">return</span> <span class="n">res</span>
 
-<div class="viewcode-block" id="XmlNewParcelProviding.to_dict"><a class="viewcode-back" href="../../../src.xml_mp.html#src.xml_mp.element_to_dict.XmlNewParcelProviding.to_dict">[docs]</a>    <span class="k">def</span> <span class="nf">to_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="XmlNewParcelProviding.to_dict"><a class="viewcode-back" href="../../../src.xml_mp.html#src.xml_mp.element_to_dict.XmlNewParcelProviding.to_dict">[документация]</a>    <span class="k">def</span> <span class="nf">to_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="n">res</span> <span class="o">=</span> <span class="p">{</span><span class="n">cnfg</span><span class="o">.</span><span class="n">PROVIDING</span><span class="o">.</span><span class="n">name</span><span class="p">:</span> <span class="n">StaticMethod</span><span class="o">.</span><span class="n">merge_array_list</span><span class="p">(</span><span class="n">cnfg</span><span class="o">.</span><span class="n">PROVIDING</span><span class="o">.</span><span class="n">attr</span><span class="p">,</span>
                                                               <span class="bp">self</span><span class="o">.</span><span class="n">__xml_providin_to_list</span><span class="p">())</span>
                <span class="p">}</span>
         <span class="k">return</span> <span class="n">res</span></div></div>
 
 
-<div class="viewcode-block" id="XmlExistParcel"><a class="viewcode-back" href="../../../src.xml_mp.html#src.xml_mp.element_to_dict.XmlExistParcel">[docs]</a><span class="k">class</span> <span class="nc">XmlExistParcel</span><span class="p">(</span><span class="n">XmlNewParcel</span><span class="p">):</span>
+<div class="viewcode-block" id="XmlExistParcel"><a class="viewcode-back" href="../../../src.xml_mp.html#src.xml_mp.element_to_dict.XmlExistParcel">[документация]</a><span class="k">class</span> <span class="nc">XmlExistParcel</span><span class="p">(</span><span class="n">XmlNewParcel</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Фоомирования словаря значений для узлос  SpecifyRelatedParcel | ExistParcels</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -639,7 +639,7 @@
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">(</span><span class="n">XmlExistParcel</span><span class="p">,</span><span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">node</span><span class="p">)</span>
 
-<div class="viewcode-block" id="XmlExistParcel.xml_cadnum_to_text"><a class="viewcode-back" href="../../../src.xml_mp.html#src.xml_mp.element_to_dict.XmlExistParcel.xml_cadnum_to_text">[docs]</a>    <span class="k">def</span> <span class="nf">xml_cadnum_to_text</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="XmlExistParcel.xml_cadnum_to_text"><a class="viewcode-back" href="../../../src.xml_mp.html#src.xml_mp.element_to_dict.XmlExistParcel.xml_cadnum_to_text">[документация]</a>    <span class="k">def</span> <span class="nf">xml_cadnum_to_text</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="n">number_record</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">node</span><span class="o">.</span><span class="n">xpath</span><span class="p">(</span><span class="s1">&#39;@NumberRecord&#39;</span><span class="p">))</span>
         <span class="n">str_number_record</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
         <span class="k">if</span> <span class="n">number_record</span><span class="p">:</span>
@@ -748,7 +748,7 @@
             <span class="n">res_dict</span><span class="p">[</span><span class="n">cnfg</span><span class="o">.</span><span class="n">PARCEL_COMMON</span><span class="o">.</span><span class="n">note</span><span class="p">]</span><span class="o">=</span> <span class="n">note</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
         <span class="k">return</span>  <span class="n">res_dict</span>
 
-<div class="viewcode-block" id="XmlExistParcel.to_dict"><a class="viewcode-back" href="../../../src.xml_mp.html#src.xml_mp.element_to_dict.XmlExistParcel.to_dict">[docs]</a>    <span class="k">def</span> <span class="nf">to_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="XmlExistParcel.to_dict"><a class="viewcode-back" href="../../../src.xml_mp.html#src.xml_mp.element_to_dict.XmlExistParcel.to_dict">[документация]</a>    <span class="k">def</span> <span class="nf">to_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="n">res</span> <span class="o">=</span> <span class="p">{</span><span class="n">cnfg</span><span class="o">.</span><span class="n">PARCEL_COMMON</span><span class="o">.</span><span class="n">cadnum</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">xml_cadnum_to_text</span><span class="p">()}</span>
         <span class="n">res</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__xml_exist___general_info</span><span class="p">())</span>
         <span class="n">res</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__xml_ordinate_borders_to_dict</span><span class="p">())</span>
@@ -756,7 +756,7 @@
         <span class="k">return</span> <span class="n">res</span></div></div>
 
 
-<div class="viewcode-block" id="XmlSubParcels"><a class="viewcode-back" href="../../../src.xml_mp.html#src.xml_mp.element_to_dict.XmlSubParcels">[docs]</a><span class="k">class</span> <span class="nc">XmlSubParcels</span><span class="p">:</span>
+<div class="viewcode-block" id="XmlSubParcels"><a class="viewcode-back" href="../../../src.xml_mp.html#src.xml_mp.element_to_dict.XmlSubParcels">[документация]</a><span class="k">class</span> <span class="nc">XmlSubParcels</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Формирования словаря значений для частей</span>
 <span class="sd">        node: SubParcels</span>
@@ -788,14 +788,14 @@
                 <span class="n">cnfg</span><span class="o">.</span><span class="n">SUB_EX_FULL_ORDINATE</span><span class="o">.</span><span class="n">name</span><span class="p">:</span> <span class="n">entity_spatial_ex</span><span class="p">,</span>
                 <span class="n">cnfg</span><span class="o">.</span><span class="n">SUBPARCEL_GENERAL</span><span class="o">.</span><span class="n">name</span><span class="p">:</span> <span class="n">general</span><span class="p">}</span>
 
-<div class="viewcode-block" id="XmlSubParcels.to_dict"><a class="viewcode-back" href="../../../src.xml_mp.html#src.xml_mp.element_to_dict.XmlSubParcels.to_dict">[docs]</a>    <span class="k">def</span> <span class="nf">to_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="XmlSubParcels.to_dict"><a class="viewcode-back" href="../../../src.xml_mp.html#src.xml_mp.element_to_dict.XmlSubParcels.to_dict">[документация]</a>    <span class="k">def</span> <span class="nf">to_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="n">res</span> <span class="o">=</span> <span class="p">{</span><span class="n">cnfg</span><span class="o">.</span><span class="n">SUBPARCEL_ROWS</span><span class="o">.</span><span class="n">cadnum</span><span class="p">:</span> <span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">node</span><span class="o">.</span><span class="n">xpath</span><span class="p">(</span><span class="s1">&#39;CadastralNumberParcel/text()&#39;</span><span class="p">)),</span>
               <span class="p">}</span>
         <span class="n">res</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__xml_sub_parcels_dict</span><span class="p">())</span>
         <span class="k">return</span> <span class="n">res</span></div></div>
 
 
-<div class="viewcode-block" id="XmlChangeParcel"><a class="viewcode-back" href="../../../src.xml_mp.html#src.xml_mp.element_to_dict.XmlChangeParcel">[docs]</a><span class="k">class</span> <span class="nc">XmlChangeParcel</span><span class="p">(</span><span class="n">XmlNewParcel</span><span class="p">):</span>
+<div class="viewcode-block" id="XmlChangeParcel"><a class="viewcode-back" href="../../../src.xml_mp.html#src.xml_mp.element_to_dict.XmlChangeParcel">[документация]</a><span class="k">class</span> <span class="nc">XmlChangeParcel</span><span class="p">(</span><span class="n">XmlNewParcel</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Формирования словаря данных для ChangeParcel(измененный участок)</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -816,7 +816,7 @@
             <span class="n">_</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
         <span class="k">return</span> <span class="n">res</span>
 
-<div class="viewcode-block" id="XmlChangeParcel.to_dict"><a class="viewcode-back" href="../../../src.xml_mp.html#src.xml_mp.element_to_dict.XmlChangeParcel.to_dict">[docs]</a>    <span class="k">def</span> <span class="nf">to_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="XmlChangeParcel.to_dict"><a class="viewcode-back" href="../../../src.xml_mp.html#src.xml_mp.element_to_dict.XmlChangeParcel.to_dict">[документация]</a>    <span class="k">def</span> <span class="nf">to_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="n">res</span> <span class="o">=</span> <span class="p">{</span><span class="n">cnfg</span><span class="o">.</span><span class="n">CHANGEPARCELS</span><span class="o">.</span><span class="n">cadnum</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">xml_cadnum_to_text</span><span class="p">(),</span>
                <span class="n">cnfg</span><span class="o">.</span><span class="n">CHANGEPARCELS</span><span class="o">.</span><span class="n">deleteEntyParcel</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">__xml_delete_entry_parcels</span><span class="p">(),</span>
                <span class="n">cnfg</span><span class="o">.</span><span class="n">CHANGEPARCELS</span><span class="o">.</span><span class="n">transformEntryParcel</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_xml_transform_entry_parcels</span><span class="p">(),</span>
@@ -827,12 +827,12 @@
         <span class="k">return</span> <span class="n">res</span></div></div>
 
 
-<div class="viewcode-block" id="XmlConclusion"><a class="viewcode-back" href="../../../src.xml_mp.html#src.xml_mp.element_to_dict.XmlConclusion">[docs]</a><span class="k">class</span> <span class="nc">XmlConclusion</span><span class="p">(</span><span class="n">XMLElemenBase</span><span class="p">):</span>
+<div class="viewcode-block" id="XmlConclusion"><a class="viewcode-back" href="../../../src.xml_mp.html#src.xml_mp.element_to_dict.XmlConclusion">[документация]</a><span class="k">class</span> <span class="nc">XmlConclusion</span><span class="p">(</span><span class="n">XMLElemenBase</span><span class="p">):</span>
        <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">            Чтоб не отходит от фрмата - )) - &gt; заключение кадастрового инженера</span>
 <span class="sd">       &quot;&quot;&quot;</span>
 
-<div class="viewcode-block" id="XmlConclusion.to_dict"><a class="viewcode-back" href="../../../src.xml_mp.html#src.xml_mp.element_to_dict.XmlConclusion.to_dict">[docs]</a>       <span class="k">def</span> <span class="nf">to_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="XmlConclusion.to_dict"><a class="viewcode-back" href="../../../src.xml_mp.html#src.xml_mp.element_to_dict.XmlConclusion.to_dict">[документация]</a>       <span class="k">def</span> <span class="nf">to_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
            <span class="k">return</span> <span class="p">{</span>
                <span class="n">cnfg</span><span class="o">.</span><span class="n">CONCLUSION</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]:</span> <span class="bp">self</span><span class="o">.</span><span class="n">node</span><span class="o">.</span><span class="n">text</span>
            <span class="p">}</span></div></div>
@@ -935,7 +935,7 @@
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../../',
             VERSION:'1.0',
-            LANGUAGE:'None',
+            LANGUAGE:'ru',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,
@@ -945,6 +945,7 @@
       <script type="text/javascript" src="../../../_static/jquery.js"></script>
       <script type="text/javascript" src="../../../_static/underscore.js"></script>
       <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../_static/translations.js"></script>
 
   
 
