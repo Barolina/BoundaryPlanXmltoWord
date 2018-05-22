@@ -131,6 +131,14 @@ class Ordinatre(list):
         self.node = node
         self.type_ordinate_ord = type_ordinate_ord
 
+    def __round_number(self, node, attr):
+        x = node.get(attr, None)
+        if x:
+            x = round(float(x), 3)
+        else:
+            x = '-'
+        return x
+
     def xml_new_ordinate_to_list(self):
         """
             Список координат внутренного контура на образование
@@ -143,8 +151,8 @@ class Ordinatre(list):
                 _attrib = dict(_.attrib)
                 number = _attrib.get('PointPref', '') + _attrib.get('NumGeopoint', '')
                 res.append(
-                    ['', number, _attrib.get('X', '-'), _attrib.get('Y', '-'),
-                     _attrib.get('DeltaGeopoint', '-')])
+                    ['', number, self.__round_number(_attrib, 'X'), self.__round_number(_attrib, 'Y'),
+                     self.__round_number(_attrib, 'DeltaGeopoint')])
                 logging.info(f""" del {_attrib}""")
 
                 del _attrib
@@ -168,12 +176,10 @@ class Ordinatre(list):
                 if newOrdinate:
                     _attrib = dict(newOrdinate[0].attrib)
                     number = _attrib.get('PointPref', '') + _attrib.get('NumGeopoint', '')
-                    xNew, yNew, delata = _attrib.get('X', '-'), _attrib.get('Y', '-'), _attrib.get(
-                        'DeltaGeopoint',
-                        '-')
+                    xNew, yNew, delata = self.__round_number(_attrib, 'X'), self.__round_number(_attrib, 'Y'), self.__round_number(_attrib, 'DeltaGeopoint')
                 if oldOrdinate:
                     _attrib = dict(oldOrdinate[0].attrib)
-                    xOld, yOld = _attrib.get('X', '-'), _attrib.get('Y', '-')
+                    xOld, yOld = self.__round_number(_attrib, 'X'), self.__round_number(_attrib, 'Y')
 
                 res.append(['', number, xOld, yOld, xNew, yNew, delata])
         else:

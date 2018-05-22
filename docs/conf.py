@@ -158,3 +158,8 @@ html_theme_options = {
     'includehidden': True,
     'titles_only': False
 }
+import mock
+
+MOCK_MODULES = ['lxml', 'docxtpl']
+for mod_name in MOCK_MODULES:
+    sys.modules[mod_name] = mock.Mock()

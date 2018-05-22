@@ -93,7 +93,7 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#submodules">Submodules</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#module-src.main">src.main module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#src-main-module">src.main module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#module-src">Module contents</a></li>
 </ul>
 </li>
@@ -173,9 +173,9 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="src.serialization.html">src.serialization package</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="src.serialization.html#submodules">Submodules</a></li>
-<li class="toctree-l2"><a class="reference internal" href="src.serialization.html#module-src.serialization.basic">src.serialization.basic module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="src.serialization.html#module-src.serialization.element_to_dict">src.serialization.element_to_dict module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="src.serialization.html#module-src.serialization.settings_tpl">src.serialization.settings_tpl module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="src.serialization.html#src-serialization-basic-module">src.serialization.basic module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="src.serialization.html#src-serialization-element-to-dict-module">src.serialization.element_to_dict module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="src.serialization.html#src-serialization-settings-tpl-module">src.serialization.settings_tpl module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="src.serialization.html#module-src.serialization">Module contents</a></li>
 </ul>
 </li>
@@ -192,105 +192,8 @@
 <div class="section" id="submodules">
 <h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
 </div>
-<div class="section" id="module-src.main">
-<span id="src-main-module"></span><h2>src.main module<a class="headerlink" href="#module-src.main" title="Permalink to this headline">¶</a></h2>
-<p>Parsing xml to WORD</p>
-<dl class="class">
-<dt id="src.main.MpXMlToWORd">
-<em class="property">class </em><code class="descclassname">src.main.</code><code class="descname">MpXMlToWORd</code><a class="headerlink" href="#src.main.MpXMlToWORd" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<p>Преобразователь xml межевого  в печатный вид (word)</p>
-<dl class="attribute">
-<dt id="src.main.MpXMlToWORd.CNST_FORMAT">
-<code class="descname">CNST_FORMAT</code><em class="property"> = 'docx'</em><a class="headerlink" href="#src.main.MpXMlToWORd.CNST_FORMAT" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="src.main.MpXMlToWORd.CNST_PATH_TPL">
-<code class="descname">CNST_PATH_TPL</code><em class="property"> = 'template/common/'</em><a class="headerlink" href="#src.main.MpXMlToWORd.CNST_PATH_TPL" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="src.main.MpXMlToWORd.close">
-<code class="descname">close</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#src.main.MpXMlToWORd.close" title="Permalink to this definition">¶</a></dt>
-<dd><p>удаление темповой директории</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="src.main.MpXMlToWORd.combine_word_documents">
-<code class="descname">combine_word_documents</code><span class="sig-paren">(</span><em>result_path_file</em><span class="sig-paren">)</span><a class="headerlink" href="#src.main.MpXMlToWORd.combine_word_documents" title="Permalink to this definition">¶</a></dt>
-<dd><p>Собираем все файлы в единый документ
-:param input_files: iterable список файлов
-:return: result braid Docx</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="src.main.MpXMlToWORd.fast_iter_element">
-<code class="descname">fast_iter_element</code><span class="sig-paren">(</span><em>elem: object</em>, <em>func: object</em>, <em>args: object = []</em>, <em>kwargs: object = {}</em><span class="sig-paren">)</span> &#x2192; object<a class="headerlink" href="#src.main.MpXMlToWORd.fast_iter_element" title="Permalink to this definition">¶</a></dt>
-<dd><p>the node  cleaning
-:param context: context
-:param func: callback - renderToTPL
-:param args: args
-:param kwargs: kwargs
-:return: None
-:rtype: XMLElemet</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="src.main.MpXMlToWORd.render_tpl">
-<code class="descname">render_tpl</code><span class="sig-paren">(</span><em>node</em>, <em>XMLClass</em>, <em>path_tpl</em>, <em>name_result</em><span class="sig-paren">)</span><a class="headerlink" href="#src.main.MpXMlToWORd.render_tpl" title="Permalink to this definition">¶</a></dt>
-<dd><blockquote>
-<div>Рендер шаблона</div></blockquote>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>node</strong> – узел- noda</li>
-<li><strong>XMLClass</strong> – класс отвечающий за парсинг данной ноды в dict (to_dict)</li>
-<li><strong>path_tpl</strong> – путь до template</li>
-</ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">word файл  с наименованием =  [Number - позиция word- элемента в файле]+ [Number - позиция node].docx</p>
-</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="src.main.MpXMlToWORd.run">
-<code class="descname">run</code><span class="sig-paren">(</span><em>path_file</em>, <em>result_file</em><span class="sig-paren">)</span><a class="headerlink" href="#src.main.MpXMlToWORd.run" title="Permalink to this definition">¶</a></dt>
-<dd><blockquote>
-<div>run convert xml to  word</div></blockquote>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>path_file</strong> – sourse file xml</li>
-<li><strong>result_file</strong> – path file result</li>
-</ul>
-</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="src.main.MpXMlToWORd.run_render_tpl_node">
-<code class="descname">run_render_tpl_node</code><span class="sig-paren">(</span><em>elem</em>, <em>xml_class_name</em>, <em>is_clean</em>, <em>pos_node</em><span class="sig-paren">)</span><a class="headerlink" href="#src.main.MpXMlToWORd.run_render_tpl_node" title="Permalink to this definition">¶</a></dt>
-<dd><p>Запуск парсинга определенного блока xml
-:param elem: node
-:param xml_class_name: class -&gt; retun dict
-:param is_clean: очищать  узел или там еще что то нужно
-:param pos_node: просто порядковый номер позици узла
-:return: docx</p>
-</dd></dl>
-
-</dd></dl>
-
+<div class="section" id="src-main-module">
+<h2>src.main module<a class="headerlink" href="#src-main-module" title="Permalink to this headline">¶</a></h2>
 </div>
 <div class="section" id="module-src">
 <span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-src" title="Permalink to this headline">¶</a></h2>
