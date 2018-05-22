@@ -1,4 +1,4 @@
-from xml_mp.element_to_dict import *
+from serialization.element_to_dict import *
 """
     Настройка для генерации результирующего файла.
     Все блоки(разделы) печатного варианта мп, должны следовать в определенном порядке

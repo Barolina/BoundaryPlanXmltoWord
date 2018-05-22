@@ -183,3 +183,30 @@
 2018-05-22 01:23:31,296 - sLogger - INFO - START COMBINE WORDS
 2018-05-22 01:23:31,466 - sLogger - INFO - END
 2018-05-22 01:23:31,473 - sLogger - INFO - The file path = C:\Users\kitte_000\Documents\MP_TO_WORD\MP_to_Word.git\TEST\7\7.xml -> parsing done! 
+2018-05-22 09:20:46,892 - sLogger - INFO - START PARSING
+2018-05-22 09:20:47,212 - sLogger - INFO - Parsing <Element ExistParcel at 0x1bf67946fc8>  done -> result 4.313
+2018-05-22 09:20:47,515 - sLogger - INFO - Parsing <Element SpecifyRelatedParcel at 0x1bf6793ad08>  done -> result 6.749
+2018-05-22 09:20:48,544 - sLogger - INFO - Parsing <Element SpecifyRelatedParcel at 0x1bf678e8188>  done -> result 6.9365
+2018-05-22 09:20:48,836 - sLogger - INFO - Parsing <Element ExistEZParcels at 0x1bf678d94c8>  done -> result 7.9425
+2018-05-22 09:20:49,213 - sLogger - INFO - Parsing <Element ExistEZEntryParcel at 0x1bf678f7ac8>  done -> result 8.10024
+2018-05-22 09:20:49,563 - sLogger - INFO - Parsing <Element ExistEZEntryParcel at 0x1bf678c3e88>  done -> result 8.10622
+2018-05-22 09:20:49,655 - sLogger - INFO - Parsing <Element GeneralCadastralWorks at 0x1bf679b5808>  done -> result 1.10665
+2018-05-22 09:20:49,750 - sLogger - INFO - Parsing <Element InputData at 0x1bf678d4a88>  done -> result 2.10785
+2018-05-22 09:20:49,844 - sLogger - INFO - Parsing <Element Survey at 0x1bf678c3a48>  done -> result 3.10819
+2018-05-22 09:20:49,871 - sLogger - INFO - Parsing <Element Conclusion at 0x1bf678d5648>  done -> result 99.10821
+2018-05-22 09:20:49,871 - sLogger - INFO - START COMBINE WORDS
+2018-05-22 09:21:22,593 - sLogger - INFO - END
+2018-05-22 09:21:22,610 - sLogger - INFO - The file path = D:\projects\MP_to_WORD\TEST\17\17.xml -> parsing done! 
+2018-05-22 09:23:39,028 - sLogger - INFO - START PARSING
+2018-05-22 09:23:39,331 - sLogger - INFO - Parsing <Element ExistParcel at 0x22c03a35088>  done -> result 4.317
+2018-05-22 09:23:39,656 - sLogger - INFO - Parsing <Element SpecifyRelatedParcel at 0x22c03245d88>  done -> result 6.753
+2018-05-22 09:23:40,695 - sLogger - INFO - Parsing <Element SpecifyRelatedParcel at 0x22c03a46388>  done -> result 6.9369
+2018-05-22 09:23:40,961 - sLogger - INFO - Parsing <Element ExistEZParcels at 0x22c03a3c788>  done -> result 7.9387
+2018-05-22 09:23:41,280 - sLogger - INFO - Parsing <Element ExistEZEntryParcel at 0x22c03a6b248>  done -> result 8.9986
+2018-05-22 09:23:41,331 - sLogger - INFO - Parsing <Element GeneralCadastralWorks at 0x22c0428a6c8>  done -> result 1.10029
+2018-05-22 09:23:41,417 - sLogger - INFO - Parsing <Element InputData at 0x22c042846c8>  done -> result 2.10149
+2018-05-22 09:23:41,508 - sLogger - INFO - Parsing <Element Survey at 0x22c04276508>  done -> result 3.10183
+2018-05-22 09:23:41,549 - sLogger - INFO - Parsing <Element Conclusion at 0x22c03a3df08>  done -> result 99.10185
+2018-05-22 09:23:41,550 - sLogger - INFO - START COMBINE WORDS
+2018-05-22 09:24:13,843 - sLogger - INFO - END
+2018-05-22 09:24:13,856 - sLogger - INFO - The file path = D:\projects\MP_to_WORD\TEST\17\17.xml -> parsing done! 

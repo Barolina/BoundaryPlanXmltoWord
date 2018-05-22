@@ -305,7 +305,7 @@ class XmlFullOrdinate(list):
     def __del__(self):
         logging.info(f""" del {self.node}""")
         """ Контуры содержать ProvidingPassCadastralNumbers которые необходимы потом для разбора """
-        if self.node is not None and self.node.tag != self.CNST_NAME_CONTOURS :
+        if self.node is not None and self.node.tag != self.CNST_NAME_CONTOURS:
             self.node.clear()
 
     def full_ordinate(self):

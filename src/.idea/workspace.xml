@@ -16,45 +16,61 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file leaf-file-name="basic.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/xml_mp/basic.py">
+        <entry file="file://$PROJECT_DIR$/serialization/basic.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1258">
-              <caret line="434" column="84" lean-forward="true" selection-start-line="434" selection-start-column="84" selection-end-line="434" selection-end-column="84" />
-              <folding>
-                <element signature="e#56#88#0" expanded="true" />
-                <element signature="e#1088#3750#0" />
-                <element signature="e#3781#6611#0" />
-                <element signature="e#6646#8043#0" />
-                <element signature="e#8070#10708#0" />
-                <element signature="e#11204#11452#0" />
-                <element signature="e#11491#12743#0" />
-                <element signature="e#12781#13839#0" />
-                <element signature="e#13870#16274#0" />
-              </folding>
+            <state>
+              <caret line="287" selection-start-line="287" selection-end-line="288" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="main.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="main.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-344">
-              <caret line="159" column="59" lean-forward="true" selection-start-line="159" selection-start-column="59" selection-end-line="159" selection-end-column="59" />
+            <state relative-caret-position="204">
+              <caret line="12" column="37" selection-start-line="12" selection-start-column="37" selection-end-line="12" selection-end-column="37" />
               <folding>
-                <element signature="e#32#47#0" expanded="true" />
+                <element signature="e#32#46#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="conf.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="conf.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/../docs/conf.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="139">
-              <caret line="11" column="42" selection-start-line="11" selection-start-column="42" selection-end-line="11" selection-end-column="42" />
+            <state relative-caret-position="714">
+              <caret line="160" column="1" selection-start-line="160" selection-start-column="1" selection-end-line="160" selection-end-column="1" />
               <folding>
-                <element signature="e#16#25#0" expanded="true" />
+                <element signature="e#664#673#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="conf (copy).py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../docs/conf (copy).py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="323">
+              <caret line="164" lean-forward="true" selection-start-line="164" selection-end-line="180" selection-end-column="1" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.rst" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../docs/index.rst">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="204">
+              <caret line="12" column="10" lean-forward="true" selection-start-line="12" selection-start-column="10" selection-end-line="12" selection-end-column="10" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="config.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/utils/config.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="701">
+              <caret line="255" column="3" lean-forward="true" selection-start-line="255" selection-start-column="3" selection-end-line="255" selection-end-column="3" />
             </state>
           </provider>
         </entry>
@@ -62,7 +78,7 @@
       <file leaf-file-name="xsd.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/utils/xsd.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
+            <state relative-caret-position="1054">
               <caret line="62" column="10" selection-start-line="62" selection-start-column="10" selection-end-line="62" selection-end-column="10" />
             </state>
           </provider>
@@ -71,36 +87,25 @@
       <file leaf-file-name="logging_config.ini" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/logging_config.ini">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="282">
+            <state relative-caret-position="629">
               <caret line="37" column="8" selection-start-line="37" selection-start-column="8" selection-end-line="37" selection-end-column="8" />
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="element_to_dict.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/xml_mp/element_to_dict.py">
+        <entry file="file://$PROJECT_DIR$/serialization/element_to_dict.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="202">
+            <state relative-caret-position="6868">
               <caret line="408" selection-start-line="408" selection-end-line="408" />
-              <folding>
-                <element signature="e#351#3337#0" />
-                <element signature="e#3380#6342#0" />
-                <element signature="e#6388#9922#0" />
-                <element signature="e#9962#12692#0" />
-                <element signature="e#17433#18614#0" />
-                <element signature="e#18657#24117#0" />
-                <element signature="e#24145#25461#0" />
-                <element signature="e#25505#26558#0" />
-                <element signature="e#26604#26813#0" />
-              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="settings_tpl.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/xml_mp/settings_tpl.py">
+        <entry file="file://$PROJECT_DIR$/serialization/settings_tpl.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="242">
+            <state relative-caret-position="1360">
               <caret line="80" column="22" selection-start-line="80" selection-start-column="22" selection-end-line="80" selection-end-column="22" />
             </state>
           </provider>
@@ -187,15 +192,15 @@
         <option value="$PROJECT_DIR$/docs/source/conf.py" />
         <option value="$PROJECT_DIR$/../docs/source/conf.py" />
         <option value="$PROJECT_DIR$/../docs/source/index.rst" />
-        <option value="$PROJECT_DIR$/../../../test_sphinx/new_project/documentation/source/index.rst" />
-        <option value="$PROJECT_DIR$/../../../test_sphinx/new_project/documentation/source/conf.py" />
-        <option value="$PROJECT_DIR$/../../../test_sphinx/new_project/test.py" />
-        <option value="$PROJECT_DIR$/../../../test_sphinx/new_project/core/xml_to_dict.py" />
-        <option value="$PROJECT_DIR$/../../../test_sphinx/new_project/core/xmlbasic.py" />
-        <option value="$PROJECT_DIR$/../../../test_sphinx/new_project/main.py" />
+        <option value="D:/test_sphinx/new_project/documentation/source/index.rst" />
+        <option value="D:/test_sphinx/new_project/documentation/source/conf.py" />
+        <option value="D:/test_sphinx/new_project/test.py" />
+        <option value="D:/test_sphinx/new_project/core/xml_to_dict.py" />
+        <option value="D:/test_sphinx/new_project/core/xmlbasic.py" />
+        <option value="D:/test_sphinx/new_project/main.py" />
         <option value="$PROJECT_DIR$/core/__init__.py" />
-        <option value="$PROJECT_DIR$/../../../test_sphinx/new_project/docs/index.rst" />
-        <option value="$PROJECT_DIR$/../../../test_sphinx/new_project/docs/conf.py" />
+        <option value="D:/test_sphinx/new_project/docs/index.rst" />
+        <option value="D:/test_sphinx/new_project/docs/conf.py" />
         <option value="$PROJECT_DIR$/core/xmlbasic.py" />
         <option value="$PROJECT_DIR$/config.py" />
         <option value="$PROJECT_DIR$/core/xml_to_dict.py" />
@@ -208,14 +213,14 @@
         <option value="$PROJECT_DIR$/docs/main.rst" />
         <option value="$PROJECT_DIR$/docs/index.rst" />
         <option value="$PROJECT_DIR$/docs/conf.py" />
-        <option value="$PROJECT_DIR$/../docs/conf.py" />
         <option value="$PROJECT_DIR$/xml_mp/element_to_dict.py" />
-        <option value="$PROJECT_DIR$/xml_mp/basic.py" />
         <option value="$PROJECT_DIR$/utils/xsd.py" />
         <option value="$PROJECT_DIR$/utils/config.py" />
-        <option value="$PROJECT_DIR$/main.py" />
-        <option value="$PROJECT_DIR$/main.py" />
         <option value="$PROJECT_DIR$/xml_mp/settings_tpl.py" />
+        <option value="$PROJECT_DIR$/xml_mp/basic.py" />
+        <option value="$PROJECT_DIR$/main.py" />
+        <option value="$PROJECT_DIR$/main.py" />
+        <option value="$PROJECT_DIR$/../docs/conf.py" />
       </list>
     </option>
   </component>
@@ -229,17 +234,16 @@
     <packageJsonPaths />
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="262" />
-    <option name="y" value="68" />
-    <option name="width" value="1380" />
-    <option name="height" value="657" />
+    <option name="x" value="261" />
+    <option name="y" value="67" />
+    <option name="width" value="1381" />
+    <option name="height" value="658" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -250,17 +254,18 @@
             <path>
               <item name="src" type="b2602c69:ProjectViewProjectNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="utils" type="462c0819:PsiDirectoryNode" />
+              <item name="serialization" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="src" type="b2602c69:ProjectViewProjectNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="xml_mp" type="462c0819:PsiDirectoryNode" />
+              <item name="utils" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -344,7 +349,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="784" extended-state="6" />
+    <frame x="-8" y="-8" width="1691" height="917" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -352,24 +357,25 @@
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Python Console" order="7" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.2647059" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.2647059" />
       <window_info anchor="bottom" id="Terminal" order="7" weight="0.34055728" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.19288956" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.19283582" />
+      <window_info anchor="bottom" id="YouTrack" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="3" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32946146" />
       <window_info anchor="right" id="SciView" order="3" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49973017" weight="0.45820433" />
-      <window_info anchor="bottom" id="Concurrent Activities Diagram" order="8" weight="0.32946146" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Coverage" order="3" side_tool="true" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="right" id="Coverage" order="3" side_tool="true" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32946146" />
+      <window_info anchor="bottom" id="Concurrent Activities Diagram" order="8" weight="0.32946146" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -382,18 +388,18 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/xml_mp/basic.py</url>
+          <url>file://$PROJECT_DIR$/serialization/basic.py</url>
           <line>319</line>
           <option name="timeStamp" value="44" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/xml_mp/element_to_dict.py</url>
+          <url>file://$PROJECT_DIR$/serialization/element_to_dict.py</url>
           <line>684</line>
           <option name="timeStamp" value="47" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/main.py</url>
-          <line>149</line>
+          <line>150</line>
           <option name="timeStamp" value="51" />
         </line-breakpoint>
       </breakpoints>
@@ -462,14 +468,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/xml_mp/element_to_dict.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="7866">
-          <caret line="414" selection-start-line="414" selection-end-line="414" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../env/lib/python3.6/site-packages/jinja2/environment.py" />
     <entry file="file://$PROJECT_DIR$/utils/config.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3933">
@@ -484,7 +482,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/xml_mp/basic.py">
+    <entry file="file://$PROJECT_DIR$/serialization/basic.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3345">
           <caret line="223" column="21" lean-forward="true" selection-start-line="223" selection-start-column="21" selection-end-line="223" selection-end-column="21" />
@@ -497,18 +495,18 @@
     <entry file="file://$PROJECT_DIR$/docs/source/index.rst" />
     <entry file="file://$PROJECT_DIR$/docs/source/conf.py" />
     <entry file="file://$PROJECT_DIR$/Makefile" />
-    <entry file="file://$PROJECT_DIR$/../../../test_sphinx/new_project/documentation/source/conf.py" />
-    <entry file="file://$PROJECT_DIR$/../../../test_sphinx/new_project/documentation/source/index.rst" />
-    <entry file="file://$PROJECT_DIR$/../../../test_sphinx/new_project/documentation/modules.rst" />
-    <entry file="file://$PROJECT_DIR$/../../../test_sphinx/new_project/documentation/test.rst" />
-    <entry file="file://$PROJECT_DIR$/../../../test_sphinx/new_project/test.py" />
-    <entry file="file://$PROJECT_DIR$/../../../test_sphinx/new_project/core/xml_to_dict.py" />
-    <entry file="file://$PROJECT_DIR$/../../../test_sphinx/new_project/core/xmlbasic.py" />
-    <entry file="file://$PROJECT_DIR$/../../../test_sphinx/new_project/main.py" />
-    <entry file="file://$PROJECT_DIR$/../../../test_sphinx/new_project/docs/index.rst" />
+    <entry file="file://D:/test_sphinx/new_project/documentation/source/conf.py" />
+    <entry file="file://D:/test_sphinx/new_project/documentation/source/index.rst" />
+    <entry file="file://D:/test_sphinx/new_project/documentation/modules.rst" />
+    <entry file="file://D:/test_sphinx/new_project/documentation/test.rst" />
+    <entry file="file://D:/test_sphinx/new_project/test.py" />
+    <entry file="file://D:/test_sphinx/new_project/core/xml_to_dict.py" />
+    <entry file="file://D:/test_sphinx/new_project/core/xmlbasic.py" />
+    <entry file="file://D:/test_sphinx/new_project/main.py" />
+    <entry file="file://D:/test_sphinx/new_project/docs/index.rst" />
     <entry file="file://$PROJECT_DIR$/../docs/source/index.rst" />
     <entry file="file://$PROJECT_DIR$/../docs/source/conf.py" />
-    <entry file="file://$PROJECT_DIR$/../../../test_sphinx/new_project/docs/conf.py" />
+    <entry file="file://D:/test_sphinx/new_project/docs/conf.py" />
     <entry file="file://$PROJECT_DIR$/docs/config.rst" />
     <entry file="file://$PROJECT_DIR$/docs/core.rst" />
     <entry file="file://$APPLICATION_HOME_DIR$/helpers/typeshed/stdlib/3/builtins.pyi">
@@ -544,86 +542,78 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/xml_mp/basic.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1258">
-          <caret line="434" column="84" lean-forward="true" selection-start-line="434" selection-start-column="84" selection-end-line="434" selection-end-column="84" />
-          <folding>
-            <element signature="e#56#88#0" expanded="true" />
-            <element signature="e#1088#3750#0" />
-            <element signature="e#3781#6611#0" />
-            <element signature="e#6646#8043#0" />
-            <element signature="e#8070#10708#0" />
-            <element signature="e#11204#11452#0" />
-            <element signature="e#11491#12743#0" />
-            <element signature="e#12781#13839#0" />
-            <element signature="e#13870#16274#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/utils/xsd.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="62" column="10" selection-start-line="62" selection-start-column="10" selection-end-line="62" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/logging_config.ini">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="282">
+        <state relative-caret-position="629">
           <caret line="37" column="8" selection-start-line="37" selection-start-column="8" selection-end-line="37" selection-end-column="8" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/utils/config.py">
+    <entry file="file://$PROJECT_DIR$/serialization/element_to_dict.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="599">
-          <caret line="255" column="3" lean-forward="true" selection-start-line="255" selection-start-column="3" selection-end-line="255" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../docs/conf.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="139">
-          <caret line="11" column="42" selection-start-line="11" selection-start-column="42" selection-end-line="11" selection-end-column="42" />
-          <folding>
-            <element signature="e#16#25#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/xml_mp/element_to_dict.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="202">
+        <state relative-caret-position="6868">
           <caret line="408" selection-start-line="408" selection-end-line="408" />
-          <folding>
-            <element signature="e#351#3337#0" />
-            <element signature="e#3380#6342#0" />
-            <element signature="e#6388#9922#0" />
-            <element signature="e#9962#12692#0" />
-            <element signature="e#17433#18614#0" />
-            <element signature="e#18657#24117#0" />
-            <element signature="e#24145#25461#0" />
-            <element signature="e#25505#26558#0" />
-            <element signature="e#26604#26813#0" />
-          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/xml_mp/settings_tpl.py">
+    <entry file="file://$PROJECT_DIR$/serialization/settings_tpl.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="242">
+        <state relative-caret-position="1360">
           <caret line="80" column="22" selection-start-line="80" selection-start-column="22" selection-end-line="80" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/serialization/basic.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret line="287" selection-start-line="287" selection-end-line="288" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-344">
-          <caret line="159" column="59" lean-forward="true" selection-start-line="159" selection-start-column="59" selection-end-line="159" selection-end-column="59" />
+        <state relative-caret-position="204">
+          <caret line="12" column="37" selection-start-line="12" selection-start-column="37" selection-end-line="12" selection-end-column="37" />
           <folding>
-            <element signature="e#32#47#0" expanded="true" />
+            <element signature="e#32#46#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utils/config.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="701">
+          <caret line="255" column="3" lean-forward="true" selection-start-line="255" selection-start-column="3" selection-end-line="255" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utils/xsd.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1054">
+          <caret line="62" column="10" selection-start-line="62" selection-start-column="10" selection-end-line="62" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../docs/index.rst">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" column="10" lean-forward="true" selection-start-line="12" selection-start-column="10" selection-end-line="12" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../docs/conf (copy).py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="164" lean-forward="true" selection-start-line="164" selection-end-line="180" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../docs/conf.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="714">
+          <caret line="160" column="1" selection-start-line="160" selection-start-column="1" selection-end-line="160" selection-end-column="1" />
+          <folding>
+            <element signature="e#664#673#0" expanded="true" />
           </folding>
         </state>
       </provider>

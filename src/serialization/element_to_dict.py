@@ -11,7 +11,7 @@
   Сведения о земельных участках, посредством которых обеспечивается доступ,
   Заключение кадастрового инженера
 """
-from xml_mp.basic import *
+from serialization.basic import *
 from utils.xsd import value_from_xsd
 from datetime import datetime
 import logging

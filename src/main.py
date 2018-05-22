@@ -1,6 +1,7 @@
 """
     Parsing xml to WORD
 """
+import os, sys
 import argparse
 import shutil
 import tempfile
@@ -9,19 +10,19 @@ from contextlib import closing
 from lxml import etree
 from docxtpl import DocxTemplate
 from lxml.etree import iterparse
-
-from xml_mp.element_to_dict import *
+sys.path.insert(0, os.path.abspath('./serialization/'))
+from serialization.element_to_dict import *
 from docx import Document
-import os
+
 import logging.config
 
 # set up logging
-from xml_mp.settings_tpl import BINDER_FILE
+from serialization.settings_tpl import BINDER_FILE
 
-try:
-    logging.config.fileConfig("logging_config.ini")
-except:
-    pass
+# try:
+#     logging.config.fileConfig("logging_config.ini")
+# except:
+#     pass
 logger = logging.getLogger('sLogger')
 
 
@@ -168,9 +169,9 @@ class MpXMlToWORd:
         :param result_file:  path file result
         :return:
         """
-        generat.__xml_block_to_docx(path_file)
+        self.__xml_block_to_docx(path_file)
         logger.info('START COMBINE WORDS')
-        generat.combine_word_documents(result_file)
+        self.combine_word_documents(result_file)
         logger.info('END')
 
 
