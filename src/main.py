@@ -40,7 +40,7 @@ class MpXMlToWORd:
     def close(self):
         """
             удаление темповой директории
-        :return:
+
         """
         if os.path.exists(self.tempfolder):
             shutil.rmtree(self.tempfolder)
@@ -67,10 +67,12 @@ class MpXMlToWORd:
     def render_tpl(self, node, XMLClass, path_tpl, name_result):
         """
             Рендер шаблона
+
         :param node:  узел- noda
         :param XMLClass: класс отвечающий за парсинг данной ноды в dict (to_dict)
         :param path_tpl: путь до template
         :return: word файл  с наименованием =  [Number - позиция word- элемента в файле]+ [Number - позиция node].docx
+
         """
         try:
             if len(node) > 0 or node.text:
@@ -165,9 +167,9 @@ class MpXMlToWORd:
     def run(self, path_file, result_file):
         """
             run convert xml to  word
+
         :param path_file:  sourse file xml
         :param result_file:  path file result
-        :return:
         """
         self.__xml_block_to_docx(path_file)
         logger.info('START COMBINE WORDS')
