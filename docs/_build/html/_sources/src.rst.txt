@@ -6,8 +6,8 @@ Subpackages
 
 .. toctree::
 
+    src.serialization
     src.utils
-    src.xml_mp
 
 Submodules
 ----------

@@ -1,0 +1,2429 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<MP NameSoftware="OfficeCI" VersionSoftware="0.1" Version="06" GUID="02B942B5-B884-40C0-8079-915445BB8841" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<Package>
+<FormParcels Method="3">
+<NewParcel Definition="69:10:0000000:37:ЗУ1">
+<CadastralBlock>69:10:0000000</CadastralBlock>
+<PrevCadastralNumbers>
+<CadastralNumber>69:10:0000000:37</CadastralNumber>
+</PrevCadastralNumbers>
+<ProvidingPassCadastralNumbers>
+<Other>земли(земельные участки) общего пользования</Other>
+</ProvidingPassCadastralNumbers>
+<Area>
+<Area>67652</Area>
+<Unit>055</Unit>
+<Inaccuracy>91</Inaccuracy>
+</Area>
+<Address AddressOrLocation="1">
+<OKATO>28220000000</OKATO>
+<KLADR>6900100000000</KLADR>
+<Region>69</Region>
+<District Name="Калининский" Type="р-н"></District>
+<Other>Тверская область, Калининский район, Никулинское с/п, автодорога Тверь - Рябеево - Красново - Прудище</Other>
+</Address>
+<Category Category="003002000000"></Category>
+<Utilization ByDoc="земельные участки(территории) общего пользования"></Utilization>
+<EntitySpatial EntSys="l37529B7E-4DC7-4BB5-9D51-14FEACB22109l">
+<SpatialElement>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="287802.24" Y="2258458.62" NumGeopoint="1" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="287790.11" Y="2258464.63" NumGeopoint="4" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="287790.6" Y="2258465.97" NumGeopoint="3" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="287803.33" Y="2258460.89" NumGeopoint="2" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="287802.24" Y="2258458.62" NumGeopoint="1" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+</SpatialElement>
+<SpatialElement>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288289.4" Y="2259466.05" NumGeopoint="5" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288293.16" Y="2259475.09" NumGeopoint="6" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288302.39" Y="2259497.57" NumGeopoint="7" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288307.86" Y="2259510.93" NumGeopoint="8" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288311.66" Y="2259520.66" NumGeopoint="9" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288344.04" Y="2259598.14" NumGeopoint="10" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288561.22" Y="2260009.06" NumGeopoint="11" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288548.5" Y="2260020.14" NumGeopoint="12" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288534.2" Y="2259989.84" NumGeopoint="13" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288440.62" Y="2259818.77" NumGeopoint="14" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288381.08" Y="2259712.77" NumGeopoint="15" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288346.64" Y="2259648.15" NumGeopoint="16" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288325.17" Y="2259606.18" NumGeopoint="17" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288293.16" Y="2259529.6" NumGeopoint="18" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288263.05" Y="2259449.65" NumGeopoint="19" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288250.63" Y="2259424.45" NumGeopoint="20" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288247" Y="2259415.95" NumGeopoint="21" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288242.01" Y="2259404.52" NumGeopoint="22" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288239.04" Y="2259397.62" NumGeopoint="23" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288234.97" Y="2259387.93" NumGeopoint="24" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288242.51" Y="2259364.3" NumGeopoint="25" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288242.29" Y="2259356.6" NumGeopoint="26" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288251.67" Y="2259376.03" NumGeopoint="27" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288257.43" Y="2259389.76" NumGeopoint="28" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288260.37" Y="2259396.59" NumGeopoint="29" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288265.38" Y="2259408.05" NumGeopoint="30" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288270.35" Y="2259419.67" NumGeopoint="31" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288273.18" Y="2259426.6" NumGeopoint="32" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288277.82" Y="2259437.84" NumGeopoint="33" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288283.7" Y="2259452.31" NumGeopoint="34" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288289.4" Y="2259466.05" NumGeopoint="5" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+</SpatialElement>
+<SpatialElement>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288841.86" Y="2261809.94" NumGeopoint="35" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288833.7" Y="2261875.18" NumGeopoint="36" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288829.91" Y="2261902.87" NumGeopoint="37" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288822.78" Y="2261940.61" NumGeopoint="38" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288816.62" Y="2261958.61" NumGeopoint="39" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288812.16" Y="2261971.73" NumGeopoint="40" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288797.45" Y="2261997.19" NumGeopoint="41" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288797.1" Y="2261997.61" NumGeopoint="42" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288780.76" Y="2261986.33" NumGeopoint="43" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288786.25" Y="2261980.28" NumGeopoint="44" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288791.3" Y="2261972.24" NumGeopoint="45" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288794.58" Y="2261966.57" NumGeopoint="46" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288798.41" Y="2261955.43" NumGeopoint="47" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288802.48" Y="2261943.28" NumGeopoint="48" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288805.58" Y="2261933.35" NumGeopoint="49" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288805.78" Y="2261932.15" NumGeopoint="50" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288815.59" Y="2261921.43" NumGeopoint="51" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288822.02" Y="2261807.85" NumGeopoint="52" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288841.86" Y="2261809.94" NumGeopoint="35" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+</SpatialElement>
+<SpatialElement>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288745.85" Y="2262057.86" NumGeopoint="53" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288728.51" Y="2262077.78" NumGeopoint="54" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288718.58" Y="2262090.24" NumGeopoint="55" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288717.46" Y="2262091.93" NumGeopoint="56" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288713.34" Y="2262096.82" NumGeopoint="57" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288706.54" Y="2262106.63" NumGeopoint="58" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288703.53" Y="2262111.18" NumGeopoint="59" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288694.85" Y="2262125.57" NumGeopoint="60" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288688.91" Y="2262138.54" NumGeopoint="61" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288687.05" Y="2262142.81" NumGeopoint="62" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288679.95" Y="2262160.39" NumGeopoint="63" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288674.04" Y="2262177.37" NumGeopoint="64" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288666.35" Y="2262203.85" NumGeopoint="65" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288664.84" Y="2262212.2" NumGeopoint="66" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288663.6" Y="2262219.62" NumGeopoint="67" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288662.76" Y="2262231.11" NumGeopoint="68" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288662.48" Y="2262243.78" NumGeopoint="69" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288663.18" Y="2262256.72" NumGeopoint="70" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288664.42" Y="2262267.69" NumGeopoint="71" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288666.58" Y="2262284.14" NumGeopoint="72" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288679.12" Y="2262366.33" NumGeopoint="73" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288686.4" Y="2262422.76" NumGeopoint="74" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288688.34" Y="2262443.79" NumGeopoint="75" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288690.7" Y="2262476.03" NumGeopoint="76" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288691.7" Y="2262491.83" NumGeopoint="77" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288693.1" Y="2262513.95" NumGeopoint="78" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288696.5" Y="2262572.89" NumGeopoint="79" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288697.19" Y="2262601.78" NumGeopoint="80" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288696.89" Y="2262610.49" NumGeopoint="81" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288695.53" Y="2262622.31" NumGeopoint="82" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288693.49" Y="2262633.55" NumGeopoint="83" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288691.65" Y="2262641.31" NumGeopoint="84" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288688.41" Y="2262654.93" NumGeopoint="85" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288683.9" Y="2262672.11" NumGeopoint="86" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288676.62" Y="2262695.94" NumGeopoint="87" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288674.21" Y="2262702.67" NumGeopoint="88" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288670.4" Y="2262709.76" NumGeopoint="89" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288665.53" Y="2262718.75" NumGeopoint="90" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288663.81" Y="2262723.17" NumGeopoint="91" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288653.37" Y="2262757.15" NumGeopoint="92" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288650.93" Y="2262764.75" NumGeopoint="93" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288648.51" Y="2262772.89" NumGeopoint="94" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288646.63" Y="2262779.2" NumGeopoint="95" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288643.37" Y="2262788.84" NumGeopoint="96" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288641.29" Y="2262801.28" NumGeopoint="97" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288640.44" Y="2262806.88" NumGeopoint="98" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288639.33" Y="2262820.84" NumGeopoint="99" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288638.98" Y="2262825.62" NumGeopoint="100" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288637.89" Y="2262838.78" NumGeopoint="101" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288637.83" Y="2262845.13" NumGeopoint="102" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288636.24" Y="2262870.15" NumGeopoint="103" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288636.19" Y="2262897.78" NumGeopoint="104" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288636.49" Y="2262905.18" NumGeopoint="105" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288637.85" Y="2262933.26" NumGeopoint="106" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288640.68" Y="2262995.46" NumGeopoint="107" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288641.93" Y="2263040.22" NumGeopoint="108" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288645.76" Y="2263070.19" NumGeopoint="109" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288648.95" Y="2263132.13" NumGeopoint="110" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288650.2" Y="2263161.79" NumGeopoint="111" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288650.33" Y="2263167.78" NumGeopoint="112" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288652.79" Y="2263209.05" NumGeopoint="113" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288653.19" Y="2263217.06" NumGeopoint="114" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288653.93" Y="2263234.58" NumGeopoint="115" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288654.62" Y="2263256.39" NumGeopoint="116" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288657.92" Y="2263349.48" NumGeopoint="117" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288658.79" Y="2263374.91" NumGeopoint="118" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288659.07" Y="2263389.54" NumGeopoint="119" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288661.04" Y="2263422.49" NumGeopoint="120" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288664.49" Y="2263482.34" NumGeopoint="121" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288666.39" Y="2263526.32" NumGeopoint="122" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288666.91" Y="2263537.2" NumGeopoint="123" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288667.02" Y="2263548.83" NumGeopoint="124" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288667.9" Y="2263571.13" NumGeopoint="125" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288668.48" Y="2263584.75" NumGeopoint="126" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288670.78" Y="2263618.82" NumGeopoint="127" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288671.72" Y="2263636.71" NumGeopoint="128" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288672.62" Y="2263660.46" NumGeopoint="129" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288672.83" Y="2263671.14" NumGeopoint="130" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288673.54" Y="2263684.9" NumGeopoint="131" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288673.67" Y="2263698.64" NumGeopoint="132" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288673.89" Y="2263704.84" NumGeopoint="133" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288674.7" Y="2263738.85" NumGeopoint="134" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288675.9" Y="2263765.8" NumGeopoint="135" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288678.31" Y="2263807.63" NumGeopoint="136" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288679.08" Y="2263827.79" NumGeopoint="137" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288679.26" Y="2263844.84" NumGeopoint="138" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288680.23" Y="2263865.04" NumGeopoint="139" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288682.23" Y="2263908.56" NumGeopoint="140" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288683.7" Y="2263939.82" NumGeopoint="141" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288685.65" Y="2263977.23" NumGeopoint="142" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288695.05" Y="2264019.91" NumGeopoint="143" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288703.23" Y="2264054.96" NumGeopoint="144" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288696.3" Y="2264055.4" NumGeopoint="145" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288729.5" Y="2264182.32" NumGeopoint="146" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288746.38" Y="2264269.01" NumGeopoint="147" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288747.64" Y="2264331.39" NumGeopoint="148" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288756.54" Y="2264484.66" NumGeopoint="149" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288765.57" Y="2264659.08" NumGeopoint="150" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288765.3" Y="2264720.61" NumGeopoint="151" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288772.78" Y="2264740.91" NumGeopoint="152" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288774.02" Y="2264772.93" NumGeopoint="153" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288775.7" Y="2264800.1" NumGeopoint="154" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288783.49" Y="2264858.38" NumGeopoint="155" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288788.82" Y="2264906.35" NumGeopoint="156" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288803.65" Y="2265005.71" NumGeopoint="157" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288807.98" Y="2265033.64" NumGeopoint="158" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288787.68" Y="2265030.19" NumGeopoint="159" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288783.87" Y="2265008.69" NumGeopoint="160" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288768.98" Y="2264908.92" NumGeopoint="161" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288763.62" Y="2264860.69" NumGeopoint="162" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288755.78" Y="2264802.03" NumGeopoint="163" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288754.05" Y="2264773.97" NumGeopoint="164" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288752.81" Y="2264741.9" NumGeopoint="165" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288747.29" Y="2264658.24" NumGeopoint="166" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288746.42" Y="2264615.42" NumGeopoint="167" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288745.88" Y="2264600.12" NumGeopoint="168" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288745.35" Y="2264587.3" NumGeopoint="169" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288744.61" Y="2264557.77" NumGeopoint="170" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288742.95" Y="2264529.82" NumGeopoint="171" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288742.02" Y="2264509.08" NumGeopoint="172" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288741.31" Y="2264493.54" NumGeopoint="173" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288740.56" Y="2264475.1" NumGeopoint="174" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288739.94" Y="2264465.96" NumGeopoint="175" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288739.58" Y="2264461.15" NumGeopoint="176" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288738.16" Y="2264435.53" NumGeopoint="177" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288737.71" Y="2264434.24" NumGeopoint="178" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288735.33" Y="2264429.22" NumGeopoint="179" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288733.74" Y="2264425.86" NumGeopoint="180" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288732.81" Y="2264422.58" NumGeopoint="181" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288732.53" Y="2264420.14" NumGeopoint="182" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288732.6" Y="2264418.03" NumGeopoint="183" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288732.96" Y="2264415.64" NumGeopoint="184" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288735.67" Y="2264407.68" NumGeopoint="185" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288736.86" Y="2264404.48" NumGeopoint="186" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288736.64" Y="2264400.21" NumGeopoint="187" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288736.02" Y="2264390.32" NumGeopoint="188" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288734.97" Y="2264371.48" NumGeopoint="189" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288734.31" Y="2264349.65" NumGeopoint="190" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288732.93" Y="2264322.09" NumGeopoint="191" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288733.19" Y="2264312.69" NumGeopoint="192" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288732.47" Y="2264299.8" NumGeopoint="193" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288731.05" Y="2264280.37" NumGeopoint="194" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288730.52" Y="2264273.59" NumGeopoint="195" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288729.35" Y="2264258.23" NumGeopoint="196" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288729.06" Y="2264255.12" NumGeopoint="197" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288727.62" Y="2264243.9" NumGeopoint="198" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288726.66" Y="2264236.71" NumGeopoint="199" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288724.89" Y="2264226.32" NumGeopoint="200" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288723.16" Y="2264217.87" NumGeopoint="201" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288719.45" Y="2264201.3" NumGeopoint="202" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288715.96" Y="2264186.53" NumGeopoint="203" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288715.05" Y="2264183.06" NumGeopoint="204" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288710.37" Y="2264162.47" NumGeopoint="205" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288695.67" Y="2264068.43" NumGeopoint="206" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288686.4" Y="2264065.32" NumGeopoint="207" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288683.56" Y="2264053.16" NumGeopoint="208" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288679.57" Y="2264036.1" NumGeopoint="209" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288661.33" Y="2263602.03" NumGeopoint="210" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288650.27" Y="2263594.15" NumGeopoint="211" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288646.41" Y="2263527.25" NumGeopoint="212" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288644.51" Y="2263483.27" NumGeopoint="213" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288641.08" Y="2263423.68" NumGeopoint="214" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288639.08" Y="2263390.23" NumGeopoint="215" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288638.79" Y="2263375.37" NumGeopoint="216" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288637.94" Y="2263350.18" NumGeopoint="217" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288634.64" Y="2263257.08" NumGeopoint="218" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288633.95" Y="2263235.37" NumGeopoint="219" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288633.21" Y="2263218.02" NumGeopoint="220" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288632.81" Y="2263210.1" NumGeopoint="221" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288630.34" Y="2263168.46" NumGeopoint="222" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288630.2" Y="2263162.33" NumGeopoint="223" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288628.97" Y="2263133.11" NumGeopoint="224" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288625.79" Y="2263071.24" NumGeopoint="225" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288623.59" Y="2263032.99" NumGeopoint="226" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288621.14" Y="2262988.21" NumGeopoint="227" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288620.02" Y="2262961.38" NumGeopoint="228" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288619.02" Y="2262935.77" NumGeopoint="229" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288618.65" Y="2262924.15" NumGeopoint="230" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288618.07" Y="2262911.9" NumGeopoint="231" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288617.89" Y="2262907.45" NumGeopoint="232" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288617.35" Y="2262892.21" NumGeopoint="233" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288617.2" Y="2262887.35" NumGeopoint="234" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288616.86" Y="2262870.27" NumGeopoint="235" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288617.05" Y="2262863.99" NumGeopoint="236" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288617.41" Y="2262854.16" NumGeopoint="237" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288617.61" Y="2262843.18" NumGeopoint="238" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288618.02" Y="2262836.06" NumGeopoint="239" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288619.04" Y="2262824.1" NumGeopoint="240" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288619.39" Y="2262819.29" NumGeopoint="241" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288620.07" Y="2262806.94" NumGeopoint="242" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288638.38" Y="2262739.58" NumGeopoint="243" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288639.27" Y="2262736.94" NumGeopoint="244" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288645.23" Y="2262722.56" NumGeopoint="245" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288649.02" Y="2262713.35" NumGeopoint="246" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288651.94" Y="2262705.96" NumGeopoint="247" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288657.42" Y="2262690.73" NumGeopoint="248" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288662.09" Y="2262675.7" NumGeopoint="249" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288670.91" Y="2262644.43" NumGeopoint="250" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288675.25" Y="2262624.1" NumGeopoint="251" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288677.1" Y="2262613.25" NumGeopoint="252" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288677.73" Y="2262595.68" NumGeopoint="253" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288677.4" Y="2262580.74" NumGeopoint="254" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288676.6" Y="2262560.41" NumGeopoint="255" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288675.51" Y="2262546.22" NumGeopoint="256" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288674.1" Y="2262524.51" NumGeopoint="257" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288672.13" Y="2262492.45" NumGeopoint="258" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288671" Y="2262477.45" NumGeopoint="259" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288668.97" Y="2262450.19" NumGeopoint="260" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288667.24" Y="2262431.5" NumGeopoint="261" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288666.39" Y="2262421.28" NumGeopoint="262" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288665.33" Y="2262410.44" NumGeopoint="263" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288642.52" Y="2262245.47" NumGeopoint="264" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288643.17" Y="2262240.5" NumGeopoint="265" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288644.47" Y="2262220.5" NumGeopoint="266" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288645.48" Y="2262212.37" NumGeopoint="267" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288649.59" Y="2262191.92" NumGeopoint="268" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288651.06" Y="2262186.14" NumGeopoint="269" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288655.46" Y="2262170.88" NumGeopoint="270" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288658.97" Y="2262160.7" NumGeopoint="271" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288661.08" Y="2262153.72" NumGeopoint="272" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288668.62" Y="2262135.05" NumGeopoint="273" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288670.61" Y="2262130.47" NumGeopoint="274" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288677.15" Y="2262116.18" NumGeopoint="275" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288686.64" Y="2262100.47" NumGeopoint="276" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288690.04" Y="2262095.32" NumGeopoint="277" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288697.32" Y="2262084.82" NumGeopoint="278" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288702.48" Y="2262078.52" NumGeopoint="279" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288710.83" Y="2262068.34" NumGeopoint="280" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288717.67" Y="2262060.99" NumGeopoint="281" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288720.01" Y="2262058.29" NumGeopoint="282" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288730.69" Y="2262044.3" NumGeopoint="283" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="288745.85" Y="2262057.86" NumGeopoint="53" DeltaGeopoint="0.1" PointPref="н"></Ordinate>
+</SpelementUnit>
+</SpatialElement>
+<Borders>
+<Border Spatial="1" Point1="1" Point2="2">
+<Edge>
+<Length>13.54</Length>
+</Edge>
+</Border>
+<Border Spatial="1" Point1="2" Point2="3">
+<Edge>
+<Length>1.43</Length>
+</Edge>
+</Border>
+<Border Spatial="1" Point1="3" Point2="4">
+<Edge>
+<Length>13.71</Length>
+</Edge>
+</Border>
+<Border Spatial="1" Point1="4" Point2="5">
+<Edge>
+<Length>2.52</Length>
+</Edge>
+</Border>
+<Border Spatial="1" Point1="5" Point2="1">
+<Edge>
+<Length>13.54</Length>
+</Edge>
+</Border>
+<Border Spatial="2" Point1="1" Point2="2">
+<Edge>
+<Length>9.79</Length>
+</Edge>
+</Border>
+<Border Spatial="2" Point1="2" Point2="3">
+<Edge>
+<Length>24.3</Length>
+</Edge>
+</Border>
+<Border Spatial="2" Point1="3" Point2="4">
+<Edge>
+<Length>14.44</Length>
+</Edge>
+</Border>
+<Border Spatial="2" Point1="4" Point2="5">
+<Edge>
+<Length>10.45</Length>
+</Edge>
+</Border>
+<Border Spatial="2" Point1="5" Point2="6">
+<Edge>
+<Length>83.97</Length>
+</Edge>
+</Border>
+<Border Spatial="2" Point1="6" Point2="7">
+<Edge>
+<Length>464.78</Length>
+</Edge>
+</Border>
+<Border Spatial="2" Point1="7" Point2="8">
+<Edge>
+<Length>16.87</Length>
+</Edge>
+</Border>
+<Border Spatial="2" Point1="8" Point2="9">
+<Edge>
+<Length>33.5</Length>
+</Edge>
+</Border>
+<Border Spatial="2" Point1="9" Point2="10">
+<Edge>
+<Length>194.99</Length>
+</Edge>
+</Border>
+<Border Spatial="2" Point1="10" Point2="11">
+<Edge>
+<Length>121.58</Length>
+</Edge>
+</Border>
+<Border Spatial="2" Point1="11" Point2="12">
+<Edge>
+<Length>73.22</Length>
+</Edge>
+</Border>
+<Border Spatial="2" Point1="12" Point2="13">
+<Edge>
+<Length>47.14</Length>
+</Edge>
+</Border>
+<Border Spatial="2" Point1="13" Point2="14">
+<Edge>
+<Length>83</Length>
+</Edge>
+</Border>
+<Border Spatial="2" Point1="14" Point2="15">
+<Edge>
+<Length>85.43</Length>
+</Edge>
+</Border>
+<Border Spatial="2" Point1="15" Point2="16">
+<Edge>
+<Length>28.09</Length>
+</Edge>
+</Border>
+<Border Spatial="2" Point1="16" Point2="17">
+<Edge>
+<Length>9.24</Length>
+</Edge>
+</Border>
+<Border Spatial="2" Point1="17" Point2="18">
+<Edge>
+<Length>12.47</Length>
+</Edge>
+</Border>
+<Border Spatial="2" Point1="18" Point2="19">
+<Edge>
+<Length>7.51</Length>
+</Edge>
+</Border>
+<Border Spatial="2" Point1="19" Point2="20">
+<Edge>
+<Length>10.51</Length>
+</Edge>
+</Border>
+<Border Spatial="2" Point1="20" Point2="21">
+<Edge>
+<Length>24.8</Length>
+</Edge>
+</Border>
+<Border Spatial="2" Point1="21" Point2="22">
+<Edge>
+<Length>7.7</Length>
+</Edge>
+</Border>
+<Border Spatial="2" Point1="22" Point2="23">
+<Edge>
+<Length>21.58</Length>
+</Edge>
+</Border>
+<Border Spatial="2" Point1="23" Point2="24">
+<Edge>
+<Length>14.89</Length>
+</Edge>
+</Border>
+<Border Spatial="2" Point1="24" Point2="25">
+<Edge>
+<Length>7.44</Length>
+</Edge>
+</Border>
+<Border Spatial="2" Point1="25" Point2="26">
+<Edge>
+<Length>12.51</Length>
+</Edge>
+</Border>
+<Border Spatial="2" Point1="26" Point2="27">
+<Edge>
+<Length>12.64</Length>
+</Edge>
+</Border>
+<Border Spatial="2" Point1="27" Point2="28">
+<Edge>
+<Length>7.49</Length>
+</Edge>
+</Border>
+<Border Spatial="2" Point1="28" Point2="29">
+<Edge>
+<Length>12.16</Length>
+</Edge>
+</Border>
+<Border Spatial="2" Point1="29" Point2="30">
+<Edge>
+<Length>15.62</Length>
+</Edge>
+</Border>
+<Border Spatial="2" Point1="30" Point2="31">
+<Edge>
+<Length>14.88</Length>
+</Edge>
+</Border>
+<Border Spatial="2" Point1="31" Point2="1">
+<Edge>
+<Length>9.79</Length>
+</Edge>
+</Border>
+<Border Spatial="3" Point1="1" Point2="2">
+<Edge>
+<Length>65.75</Length>
+</Edge>
+</Border>
+<Border Spatial="3" Point1="2" Point2="3">
+<Edge>
+<Length>27.95</Length>
+</Edge>
+</Border>
+<Border Spatial="3" Point1="3" Point2="4">
+<Edge>
+<Length>38.41</Length>
+</Edge>
+</Border>
+<Border Spatial="3" Point1="4" Point2="5">
+<Edge>
+<Length>19.02</Length>
+</Edge>
+</Border>
+<Border Spatial="3" Point1="5" Point2="6">
+<Edge>
+<Length>13.86</Length>
+</Edge>
+</Border>
+<Border Spatial="3" Point1="6" Point2="7">
+<Edge>
+<Length>29.4</Length>
+</Edge>
+</Border>
+<Border Spatial="3" Point1="7" Point2="8">
+<Edge>
+<Length>0.55</Length>
+</Edge>
+</Border>
+<Border Spatial="3" Point1="8" Point2="9">
+<Edge>
+<Length>19.86</Length>
+</Edge>
+</Border>
+<Border Spatial="3" Point1="9" Point2="10">
+<Edge>
+<Length>8.17</Length>
+</Edge>
+</Border>
+<Border Spatial="3" Point1="10" Point2="11">
+<Edge>
+<Length>9.49</Length>
+</Edge>
+</Border>
+<Border Spatial="3" Point1="11" Point2="12">
+<Edge>
+<Length>6.55</Length>
+</Edge>
+</Border>
+<Border Spatial="3" Point1="12" Point2="13">
+<Edge>
+<Length>11.78</Length>
+</Edge>
+</Border>
+<Border Spatial="3" Point1="13" Point2="14">
+<Edge>
+<Length>12.81</Length>
+</Edge>
+</Border>
+<Border Spatial="3" Point1="14" Point2="15">
+<Edge>
+<Length>10.4</Length>
+</Edge>
+</Border>
+<Border Spatial="3" Point1="15" Point2="16">
+<Edge>
+<Length>1.22</Length>
+</Edge>
+</Border>
+<Border Spatial="3" Point1="16" Point2="17">
+<Edge>
+<Length>14.53</Length>
+</Edge>
+</Border>
+<Border Spatial="3" Point1="17" Point2="18">
+<Edge>
+<Length>113.76</Length>
+</Edge>
+</Border>
+<Border Spatial="3" Point1="18" Point2="19">
+<Edge>
+<Length>19.95</Length>
+</Edge>
+</Border>
+<Border Spatial="3" Point1="19" Point2="1">
+<Edge>
+<Length>65.75</Length>
+</Edge>
+</Border>
+<Border Spatial="4" Point1="1" Point2="2">
+<Edge>
+<Length>26.41</Length>
+</Edge>
+</Border>
+<Border Spatial="4" Point1="2" Point2="3">
+<Edge>
+<Length>15.93</Length>
+</Edge>
+</Border>
+<Border Spatial="4" Point1="3" Point2="4">
+<Edge>
+<Length>2.03</Length>
+</Edge>
+</Border>
+<Border Spatial="4" Point1="4" Point2="5">
+<Edge>
+<Length>6.39</Length>
+</Edge>
+</Border>
+<Border Spatial="4" Point1="5" Point2="6">
+<Edge>
+<Length>11.94</Length>
+</Edge>
+</Border>
+<Border Spatial="4" Point1="6" Point2="7">
+<Edge>
+<Length>5.46</Length>
+</Edge>
+</Border>
+<Border Spatial="4" Point1="7" Point2="8">
+<Edge>
+<Length>16.81</Length>
+</Edge>
+</Border>
+<Border Spatial="4" Point1="8" Point2="9">
+<Edge>
+<Length>14.27</Length>
+</Edge>
+</Border>
+<Border Spatial="4" Point1="9" Point2="10">
+<Edge>
+<Length>4.66</Length>
+</Edge>
+</Border>
+<Border Spatial="4" Point1="10" Point2="11">
+<Edge>
+<Length>18.96</Length>
+</Edge>
+</Border>
+<Border Spatial="4" Point1="11" Point2="12">
+<Edge>
+<Length>17.98</Length>
+</Edge>
+</Border>
+<Border Spatial="4" Point1="12" Point2="13">
+<Edge>
+<Length>27.57</Length>
+</Edge>
+</Border>
+<Border Spatial="4" Point1="13" Point2="14">
+<Edge>
+<Length>8.49</Length>
+</Edge>
+</Border>
+<Border Spatial="4" Point1="14" Point2="15">
+<Edge>
+<Length>7.52</Length>
+</Edge>
+</Border>
+<Border Spatial="4" Point1="15" Point2="16">
+<Edge>
+<Length>11.52</Length>
+</Edge>
+</Border>
+<Border Spatial="4" Point1="16" Point2="17">
+<Edge>
+<Length>12.67</Length>
+</Edge>
+</Border>
+<Border Spatial="4" Point1="17" Point2="18">
+<Edge>
+<Length>12.96</Length>
+</Edge>
+</Border>
+<Border Spatial="4" Point1="18" Point2="19">
+<Edge>
+<Length>11.04</Length>
+</Edge>
+</Border>
+<Border Spatial="4" Point1="19" Point2="20">
+<Edge>
+<Length>16.59</Length>
+</Edge>
+</Border>
+<Border Spatial="4" Point1="20" Point2="21">
+<Edge>
+<Length>83.14</Length>
+</Edge>
+</Border>
+<Border Spatial="4" Point1="21" Point2="22">
+<Edge>
+<Length>56.9</Length>
+</Edge>
+</Border>
+<Border Spatial="4" Point1="22" Point2="23">
+<Edge>
+<Length>21.12</Length>
+</Edge>
+</Border>
+<Border Spatial="4" Point1="23" Point2="24">
+<Edge>
+<Length>32.33</Length>
+</Edge>
+</Border>
+<Border Spatial="4" Point1="24" Point2="25">
+<Edge>
+<Length>15.83</Length>
+</Edge>
+</Border>
+<Border Spatial="4" Point1="25" Point2="26">
+<Edge>
+<Length>22.16</Length>
+</Edge>
+</Border>
+<Border Spatial="4" Point1="26" Point2="27">
+<Edge>
+<Length>59.04</Length>
+</Edge>
+</Border>
+<Border Spatial="4" Point1="27" Point2="28">
+<Edge>
+<Length>28.9</Length>
+</Edge>
+</Border>
+<Border Spatial="4" Point1="28" Point2="29">
+<Edge>
+<Length>8.72</Length>
+</Edge>
+</Border>
+<Border Spatial="4" Point1="29" Point2="30">
+<Edge>
+<Length>11.9</Length>
+</Edge>
+</Border>
+<Border Spatial="4" Point1="30" Point2="31">
+<Edge>
+<Length>11.42</Length>
+</Edge>
+</Border>
+<Border Spatial="4" Point1="31" Point2="32">
+<Edge>
+<Length>7.98</Length>
+</Edge>
+</Border>
+<Border Spatial="4" Point1="32" Point2="33">
+<Edge>
+<Length>14</Length>
+</Edge>
+</Border>
+<Border Spatial="4" Point1="33" Point2="34">
+<Edge>
+<Length>17.76</Length>
+</Edge>
+</Border>
+<Border Spatial="4" Point1="34" Point2="35">
+<Edge>
+<Length>24.92</Length>
+</Edge>
+</Border>
+<Border Spatial="4" Point1="35" Point2="36">
+<Edge>
+<Length>7.15</Length>
+</Edge>
+</Border>
+<Border Spatial="4" Point1="36" Point2="37">
+<Edge>
+<Length>8.05</Length>
+</Edge>
+</Border>
+<Border Spatial="4" Point1="37" Point2="38">
+<Edge>
+<Length>10.22</Length>
+</Edge>
+</Border>
+<Border Spatial="4" Point1="38" Point2="39">
+<Edge>
+<Length>4.74</Length>
+</Edge>
+</Border>
+<Border Spatial="4" Point1="39" Point2="40">
+<Edge>
+<Length>35.55</Length>
+</Edge>
+</Border>
+<Border Spatial="4" Point1="40" Point2="41">
+<Edge>
+<Length>7.98</Length>
+</Edge>
+</Border>
+<Border Spatial="4" Point1="41" Point2="42">
+<Edge>
+<Length>8.49</Length>
+</Edge>
+</Border>
+<Border Spatial="4" Point1="42" Point2="43">
+<Edge>
+<Length>6.58</Length>
+</Edge>
+</Border>
+<Border Spatial="4" Point1="43" Point2="44">
+<Edge>
+<Length>10.18</Length>
+</Edge>
+</Border>
+<Border Spatial="4" Point1="44" Point2="45">
+<Edge>
+<Length>12.61</Length>
+</Edge>
+</Border>
+<Border Spatial="4" Point1="45" Point2="46">
+<Edge>
+<Length>5.66</Length>
+</Edge>
+</Border>
+<Border Spatial="4" Point1="46" Point2="47">
+<Edge>
+<Length>14</Length>
+</Edge>
+</Border>
+<Border Spatial="4" Point1="47" Point2="48">
+<Edge>
+<Length>4.79</Length>
+</Edge>
+</Border>
+<Border Spatial="4" Point1="48" Point2="49">
+<Edge>
+<Length>13.21</Length>
+</Edge>
+</Border>
+<Border Spatial="4" Point1="49" Point2="50">
+<Edge>
+<Length>6.35</Length>
+</Edge>
+</Border>
+<Border Spatial="4" Point1="50" Point2="51">
+<Edge>
+<Length>25.07</Length>
+</Edge>
+</Border>
+<Border Spatial="4" Point1="51" Point2="52">
+<Edge>
+<Length>27.63</Length>
+</Edge>
+</Border>
+<Border Spatial="4" Point1="52" Point2="53">
+<Edge>
+<Length>7.41</Length>
+</Edge>
+</Border>
+<Border Spatial="4" Point1="53" Point2="54">
+<Edge>
+<Length>28.11</Length>
+</Edge>
+</Border>
+<Border Spatial="4" Point1="54" Point2="55">
+<Edge>
+<Length>62.26</Length>
+</Edge>
+</Border>
+<Border Spatial="4" Point1="55" Point2="56">
+<Edge>
+<Length>44.78</Length>
+</Edge>
+</Border>
+<Border Spatial="4" Point1="56" Point2="57">
+<Edge>
+<Length>30.21</Length>
+</Edge>
+</Border>
+<Border Spatial="4" Point1="57" Point2="58">
+<Edge>
+<Length>62.02</Length>
+</Edge>
+</Border>
+<Border Spatial="4" Point1="58" Point2="59">
+<Edge>
+<Length>29.69</Length>
+</Edge>
+</Border>
+<Border Spatial="4" Point1="59" Point2="60">
+<Edge>
+<Length>5.99</Length>
+</Edge>
+</Border>
+<Border Spatial="4" Point1="60" Point2="61">
+<Edge>
+<Length>41.34</Length>
+</Edge>
+</Border>
+<Border Spatial="4" Point1="61" Point2="62">
+<Edge>
+<Length>8.02</Length>
+</Edge>
+</Border>
+<Border Spatial="4" Point1="62" Point2="63">
+<Edge>
+<Length>17.54</Length>
+</Edge>
+</Border>
+<Border Spatial="4" Point1="63" Point2="64">
+<Edge>
+<Length>21.82</Length>
+</Edge>
+</Border>
+<Border Spatial="4" Point1="64" Point2="65">
+<Edge>
+<Length>93.15</Length>
+</Edge>
+</Border>
+<Border Spatial="4" Point1="65" Point2="66">
+<Edge>
+<Length>25.44</Length>
+</Edge>
+</Border>
+<Border Spatial="4" Point1="66" Point2="67">
+<Edge>
+<Length>14.63</Length>
+</Edge>
+</Border>
+<Border Spatial="4" Point1="67" Point2="68">
+<Edge>
+<Length>33.01</Length>
+</Edge>
+</Border>
+<Border Spatial="4" Point1="68" Point2="69">
+<Edge>
+<Length>59.95</Length>
+</Edge>
+</Border>
+<Border Spatial="4" Point1="69" Point2="70">
+<Edge>
+<Length>44.02</Length>
+</Edge>
+</Border>
+<Border Spatial="4" Point1="70" Point2="71">
+<Edge>
+<Length>10.89</Length>
+</Edge>
+</Border>
+<Border Spatial="4" Point1="71" Point2="72">
+<Edge>
+<Length>11.63</Length>
+</Edge>
+</Border>
+<Border Spatial="4" Point1="72" Point2="73">
+<Edge>
+<Length>22.32</Length>
+</Edge>
+</Border>
+<Border Spatial="4" Point1="73" Point2="74">
+<Edge>
+<Length>13.63</Length>
+</Edge>
+</Border>
+<Border Spatial="4" Point1="74" Point2="75">
+<Edge>
+<Length>34.15</Length>
+</Edge>
+</Border>
+<Border Spatial="4" Point1="75" Point2="76">
+<Edge>
+<Length>17.91</Length>
+</Edge>
+</Border>
+<Border Spatial="4" Point1="76" Point2="77">
+<Edge>
+<Length>23.77</Length>
+</Edge>
+</Border>
+<Border Spatial="4" Point1="77" Point2="78">
+<Edge>
+<Length>10.68</Length>
+</Edge>
+</Border>
+<Border Spatial="4" Point1="78" Point2="79">
+<Edge>
+<Length>13.78</Length>
+</Edge>
+</Border>
+<Border Spatial="4" Point1="79" Point2="80">
+<Edge>
+<Length>13.74</Length>
+</Edge>
+</Border>
+<Border Spatial="4" Point1="80" Point2="81">
+<Edge>
+<Length>6.2</Length>
+</Edge>
+</Border>
+<Border Spatial="4" Point1="81" Point2="82">
+<Edge>
+<Length>34.02</Length>
+</Edge>
+</Border>
+<Border Spatial="4" Point1="82" Point2="83">
+<Edge>
+<Length>26.98</Length>
+</Edge>
+</Border>
+<Border Spatial="4" Point1="83" Point2="84">
+<Edge>
+<Length>41.9</Length>
+</Edge>
+</Border>
+<Border Spatial="4" Point1="84" Point2="85">
+<Edge>
+<Length>20.17</Length>
+</Edge>
+</Border>
+<Border Spatial="4" Point1="85" Point2="86">
+<Edge>
+<Length>17.05</Length>
+</Edge>
+</Border>
+<Border Spatial="4" Point1="86" Point2="87">
+<Edge>
+<Length>20.22</Length>
+</Edge>
+</Border>
+<Border Spatial="4" Point1="87" Point2="88">
+<Edge>
+<Length>43.57</Length>
+</Edge>
+</Border>
+<Border Spatial="4" Point1="88" Point2="89">
+<Edge>
+<Length>31.29</Length>
+</Edge>
+</Border>
+<Border Spatial="4" Point1="89" Point2="90">
+<Edge>
+<Length>37.46</Length>
+</Edge>
+</Border>
+<Border Spatial="4" Point1="90" Point2="91">
+<Edge>
+<Length>43.7</Length>
+</Edge>
+</Border>
+<Border Spatial="4" Point1="91" Point2="92">
+<Edge>
+<Length>35.99</Length>
+</Edge>
+</Border>
+<Border Spatial="4" Point1="92" Point2="93">
+<Edge>
+<Length>6.94</Length>
+</Edge>
+</Border>
+<Border Spatial="4" Point1="93" Point2="94">
+<Edge>
+<Length>131.19</Length>
+</Edge>
+</Border>
+<Border Spatial="4" Point1="94" Point2="95">
+<Edge>
+<Length>88.32</Length>
+</Edge>
+</Border>
+<Border Spatial="4" Point1="95" Point2="96">
+<Edge>
+<Length>62.39</Length>
+</Edge>
+</Border>
+<Border Spatial="4" Point1="96" Point2="97">
+<Edge>
+<Length>153.53</Length>
+</Edge>
+</Border>
+<Border Spatial="4" Point1="97" Point2="98">
+<Edge>
+<Length>174.65</Length>
+</Edge>
+</Border>
+<Border Spatial="4" Point1="98" Point2="99">
+<Edge>
+<Length>61.53</Length>
+</Edge>
+</Border>
+<Border Spatial="4" Point1="99" Point2="100">
+<Edge>
+<Length>21.63</Length>
+</Edge>
+</Border>
+<Border Spatial="4" Point1="100" Point2="101">
+<Edge>
+<Length>32.04</Length>
+</Edge>
+</Border>
+<Border Spatial="4" Point1="101" Point2="102">
+<Edge>
+<Length>27.22</Length>
+</Edge>
+</Border>
+<Border Spatial="4" Point1="102" Point2="103">
+<Edge>
+<Length>58.8</Length>
+</Edge>
+</Border>
+<Border Spatial="4" Point1="103" Point2="104">
+<Edge>
+<Length>48.27</Length>
+</Edge>
+</Border>
+<Border Spatial="4" Point1="104" Point2="105">
+<Edge>
+<Length>100.46</Length>
+</Edge>
+</Border>
+<Border Spatial="4" Point1="105" Point2="106">
+<Edge>
+<Length>28.26</Length>
+</Edge>
+</Border>
+<Border Spatial="4" Point1="106" Point2="107">
+<Edge>
+<Length>20.59</Length>
+</Edge>
+</Border>
+<Border Spatial="4" Point1="107" Point2="108">
+<Edge>
+<Length>21.83</Length>
+</Edge>
+</Border>
+<Border Spatial="4" Point1="108" Point2="109">
+<Edge>
+<Length>100.87</Length>
+</Edge>
+</Border>
+<Border Spatial="4" Point1="109" Point2="110">
+<Edge>
+<Length>48.53</Length>
+</Edge>
+</Border>
+<Border Spatial="4" Point1="110" Point2="111">
+<Edge>
+<Length>59.18</Length>
+</Edge>
+</Border>
+<Border Spatial="4" Point1="111" Point2="112">
+<Edge>
+<Length>28.11</Length>
+</Edge>
+</Border>
+<Border Spatial="4" Point1="112" Point2="113">
+<Edge>
+<Length>32.09</Length>
+</Edge>
+</Border>
+<Border Spatial="4" Point1="113" Point2="114">
+<Edge>
+<Length>83.84</Length>
+</Edge>
+</Border>
+<Border Spatial="4" Point1="114" Point2="115">
+<Edge>
+<Length>42.83</Length>
+</Edge>
+</Border>
+<Border Spatial="4" Point1="115" Point2="116">
+<Edge>
+<Length>15.31</Length>
+</Edge>
+</Border>
+<Border Spatial="4" Point1="116" Point2="117">
+<Edge>
+<Length>12.83</Length>
+</Edge>
+</Border>
+<Border Spatial="4" Point1="117" Point2="118">
+<Edge>
+<Length>29.54</Length>
+</Edge>
+</Border>
+<Border Spatial="4" Point1="118" Point2="119">
+<Edge>
+<Length>28</Length>
+</Edge>
+</Border>
+<Border Spatial="4" Point1="119" Point2="120">
+<Edge>
+<Length>20.76</Length>
+</Edge>
+</Border>
+<Border Spatial="4" Point1="120" Point2="121">
+<Edge>
+<Length>15.56</Length>
+</Edge>
+</Border>
+<Border Spatial="4" Point1="121" Point2="122">
+<Edge>
+<Length>18.46</Length>
+</Edge>
+</Border>
+<Border Spatial="4" Point1="122" Point2="123">
+<Edge>
+<Length>9.16</Length>
+</Edge>
+</Border>
+<Border Spatial="4" Point1="123" Point2="124">
+<Edge>
+<Length>4.82</Length>
+</Edge>
+</Border>
+<Border Spatial="4" Point1="124" Point2="125">
+<Edge>
+<Length>25.66</Length>
+</Edge>
+</Border>
+<Border Spatial="4" Point1="125" Point2="126">
+<Edge>
+<Length>1.37</Length>
+</Edge>
+</Border>
+<Border Spatial="4" Point1="126" Point2="127">
+<Edge>
+<Length>5.56</Length>
+</Edge>
+</Border>
+<Border Spatial="4" Point1="127" Point2="128">
+<Edge>
+<Length>3.72</Length>
+</Edge>
+</Border>
+<Border Spatial="4" Point1="128" Point2="129">
+<Edge>
+<Length>3.41</Length>
+</Edge>
+</Border>
+<Border Spatial="4" Point1="129" Point2="130">
+<Edge>
+<Length>2.46</Length>
+</Edge>
+</Border>
+<Border Spatial="4" Point1="130" Point2="131">
+<Edge>
+<Length>2.11</Length>
+</Edge>
+</Border>
+<Border Spatial="4" Point1="131" Point2="132">
+<Edge>
+<Length>2.42</Length>
+</Edge>
+</Border>
+<Border Spatial="4" Point1="132" Point2="133">
+<Edge>
+<Length>8.41</Length>
+</Edge>
+</Border>
+<Border Spatial="4" Point1="133" Point2="134">
+<Edge>
+<Length>3.41</Length>
+</Edge>
+</Border>
+<Border Spatial="4" Point1="134" Point2="135">
+<Edge>
+<Length>4.28</Length>
+</Edge>
+</Border>
+<Border Spatial="4" Point1="135" Point2="136">
+<Edge>
+<Length>9.91</Length>
+</Edge>
+</Border>
+<Border Spatial="4" Point1="136" Point2="137">
+<Edge>
+<Length>18.87</Length>
+</Edge>
+</Border>
+<Border Spatial="4" Point1="137" Point2="138">
+<Edge>
+<Length>21.84</Length>
+</Edge>
+</Border>
+<Border Spatial="4" Point1="138" Point2="139">
+<Edge>
+<Length>27.59</Length>
+</Edge>
+</Border>
+<Border Spatial="4" Point1="139" Point2="140">
+<Edge>
+<Length>9.4</Length>
+</Edge>
+</Border>
+<Border Spatial="4" Point1="140" Point2="141">
+<Edge>
+<Length>12.91</Length>
+</Edge>
+</Border>
+<Border Spatial="4" Point1="141" Point2="142">
+<Edge>
+<Length>19.48</Length>
+</Edge>
+</Border>
+<Border Spatial="4" Point1="142" Point2="143">
+<Edge>
+<Length>6.8</Length>
+</Edge>
+</Border>
+<Border Spatial="4" Point1="143" Point2="144">
+<Edge>
+<Length>15.4</Length>
+</Edge>
+</Border>
+<Border Spatial="4" Point1="144" Point2="145">
+<Edge>
+<Length>3.12</Length>
+</Edge>
+</Border>
+<Border Spatial="4" Point1="145" Point2="146">
+<Edge>
+<Length>11.31</Length>
+</Edge>
+</Border>
+<Border Spatial="4" Point1="146" Point2="147">
+<Edge>
+<Length>7.25</Length>
+</Edge>
+</Border>
+<Border Spatial="4" Point1="147" Point2="148">
+<Edge>
+<Length>10.54</Length>
+</Edge>
+</Border>
+<Border Spatial="4" Point1="148" Point2="149">
+<Edge>
+<Length>8.63</Length>
+</Edge>
+</Border>
+<Border Spatial="4" Point1="149" Point2="150">
+<Edge>
+<Length>16.98</Length>
+</Edge>
+</Border>
+<Border Spatial="4" Point1="150" Point2="151">
+<Edge>
+<Length>15.18</Length>
+</Edge>
+</Border>
+<Border Spatial="4" Point1="151" Point2="152">
+<Edge>
+<Length>3.59</Length>
+</Edge>
+</Border>
+<Border Spatial="4" Point1="152" Point2="153">
+<Edge>
+<Length>21.12</Length>
+</Edge>
+</Border>
+<Border Spatial="4" Point1="153" Point2="154">
+<Edge>
+<Length>95.18</Length>
+</Edge>
+</Border>
+<Border Spatial="4" Point1="154" Point2="155">
+<Edge>
+<Length>9.78</Length>
+</Edge>
+</Border>
+<Border Spatial="4" Point1="155" Point2="156">
+<Edge>
+<Length>12.49</Length>
+</Edge>
+</Border>
+<Border Spatial="4" Point1="156" Point2="157">
+<Edge>
+<Length>17.52</Length>
+</Edge>
+</Border>
+<Border Spatial="4" Point1="157" Point2="158">
+<Edge>
+<Length>434.45</Length>
+</Edge>
+</Border>
+<Border Spatial="4" Point1="158" Point2="159">
+<Edge>
+<Length>13.58</Length>
+</Edge>
+</Border>
+<Border Spatial="4" Point1="159" Point2="160">
+<Edge>
+<Length>67.01</Length>
+</Edge>
+</Border>
+<Border Spatial="4" Point1="160" Point2="161">
+<Edge>
+<Length>44.02</Length>
+</Edge>
+</Border>
+<Border Spatial="4" Point1="161" Point2="162">
+<Edge>
+<Length>59.69</Length>
+</Edge>
+</Border>
+<Border Spatial="4" Point1="162" Point2="163">
+<Edge>
+<Length>33.51</Length>
+</Edge>
+</Border>
+<Border Spatial="4" Point1="163" Point2="164">
+<Edge>
+<Length>14.86</Length>
+</Edge>
+</Border>
+<Border Spatial="4" Point1="164" Point2="165">
+<Edge>
+<Length>25.2</Length>
+</Edge>
+</Border>
+<Border Spatial="4" Point1="165" Point2="166">
+<Edge>
+<Length>93.16</Length>
+</Edge>
+</Border>
+<Border Spatial="4" Point1="166" Point2="167">
+<Edge>
+<Length>21.72</Length>
+</Edge>
+</Border>
+<Border Spatial="4" Point1="167" Point2="168">
+<Edge>
+<Length>17.37</Length>
+</Edge>
+</Border>
+<Border Spatial="4" Point1="168" Point2="169">
+<Edge>
+<Length>7.93</Length>
+</Edge>
+</Border>
+<Border Spatial="4" Point1="169" Point2="170">
+<Edge>
+<Length>41.71</Length>
+</Edge>
+</Border>
+<Border Spatial="4" Point1="170" Point2="171">
+<Edge>
+<Length>6.13</Length>
+</Edge>
+</Border>
+<Border Spatial="4" Point1="171" Point2="172">
+<Edge>
+<Length>29.25</Length>
+</Edge>
+</Border>
+<Border Spatial="4" Point1="172" Point2="173">
+<Edge>
+<Length>61.95</Length>
+</Edge>
+</Border>
+<Border Spatial="4" Point1="173" Point2="174">
+<Edge>
+<Length>38.31</Length>
+</Edge>
+</Border>
+<Border Spatial="4" Point1="174" Point2="175">
+<Edge>
+<Length>44.85</Length>
+</Edge>
+</Border>
+<Border Spatial="4" Point1="175" Point2="176">
+<Edge>
+<Length>26.85</Length>
+</Edge>
+</Border>
+<Border Spatial="4" Point1="176" Point2="177">
+<Edge>
+<Length>25.63</Length>
+</Edge>
+</Border>
+<Border Spatial="4" Point1="177" Point2="178">
+<Edge>
+<Length>11.63</Length>
+</Edge>
+</Border>
+<Border Spatial="4" Point1="178" Point2="179">
+<Edge>
+<Length>12.26</Length>
+</Edge>
+</Border>
+<Border Spatial="4" Point1="179" Point2="180">
+<Edge>
+<Length>4.45</Length>
+</Edge>
+</Border>
+<Border Spatial="4" Point1="180" Point2="181">
+<Edge>
+<Length>15.25</Length>
+</Edge>
+</Border>
+<Border Spatial="4" Point1="181" Point2="182">
+<Edge>
+<Length>4.86</Length>
+</Edge>
+</Border>
+<Border Spatial="4" Point1="182" Point2="183">
+<Edge>
+<Length>17.08</Length>
+</Edge>
+</Border>
+<Border Spatial="4" Point1="183" Point2="184">
+<Edge>
+<Length>6.28</Length>
+</Edge>
+</Border>
+<Border Spatial="4" Point1="184" Point2="185">
+<Edge>
+<Length>9.84</Length>
+</Edge>
+</Border>
+<Border Spatial="4" Point1="185" Point2="186">
+<Edge>
+<Length>10.98</Length>
+</Edge>
+</Border>
+<Border Spatial="4" Point1="186" Point2="187">
+<Edge>
+<Length>7.13</Length>
+</Edge>
+</Border>
+<Border Spatial="4" Point1="187" Point2="188">
+<Edge>
+<Length>12</Length>
+</Edge>
+</Border>
+<Border Spatial="4" Point1="188" Point2="189">
+<Edge>
+<Length>4.82</Length>
+</Edge>
+</Border>
+<Border Spatial="4" Point1="189" Point2="190">
+<Edge>
+<Length>12.37</Length>
+</Edge>
+</Border>
+<Border Spatial="4" Point1="190" Point2="191">
+<Edge>
+<Length>69.8</Length>
+</Edge>
+</Border>
+<Border Spatial="4" Point1="191" Point2="192">
+<Edge>
+<Length>2.79</Length>
+</Edge>
+</Border>
+<Border Spatial="4" Point1="192" Point2="193">
+<Edge>
+<Length>15.57</Length>
+</Edge>
+</Border>
+<Border Spatial="4" Point1="193" Point2="194">
+<Edge>
+<Length>9.96</Length>
+</Edge>
+</Border>
+<Border Spatial="4" Point1="194" Point2="195">
+<Edge>
+<Length>7.95</Length>
+</Edge>
+</Border>
+<Border Spatial="4" Point1="195" Point2="196">
+<Edge>
+<Length>16.19</Length>
+</Edge>
+</Border>
+<Border Spatial="4" Point1="196" Point2="197">
+<Edge>
+<Length>15.74</Length>
+</Edge>
+</Border>
+<Border Spatial="4" Point1="197" Point2="198">
+<Edge>
+<Length>32.49</Length>
+</Edge>
+</Border>
+<Border Spatial="4" Point1="198" Point2="199">
+<Edge>
+<Length>20.79</Length>
+</Edge>
+</Border>
+<Border Spatial="4" Point1="199" Point2="200">
+<Edge>
+<Length>11.01</Length>
+</Edge>
+</Border>
+<Border Spatial="4" Point1="200" Point2="201">
+<Edge>
+<Length>17.58</Length>
+</Edge>
+</Border>
+<Border Spatial="4" Point1="201" Point2="202">
+<Edge>
+<Length>14.94</Length>
+</Edge>
+</Border>
+<Border Spatial="4" Point1="202" Point2="203">
+<Edge>
+<Length>20.35</Length>
+</Edge>
+</Border>
+<Border Spatial="4" Point1="203" Point2="204">
+<Edge>
+<Length>14.23</Length>
+</Edge>
+</Border>
+<Border Spatial="4" Point1="204" Point2="205">
+<Edge>
+<Length>21.76</Length>
+</Edge>
+</Border>
+<Border Spatial="4" Point1="205" Point2="206">
+<Edge>
+<Length>32.12</Length>
+</Edge>
+</Border>
+<Border Spatial="4" Point1="206" Point2="207">
+<Edge>
+<Length>15.04</Length>
+</Edge>
+</Border>
+<Border Spatial="4" Point1="207" Point2="208">
+<Edge>
+<Length>27.34</Length>
+</Edge>
+</Border>
+<Border Spatial="4" Point1="208" Point2="209">
+<Edge>
+<Length>18.77</Length>
+</Edge>
+</Border>
+<Border Spatial="4" Point1="209" Point2="210">
+<Edge>
+<Length>10.26</Length>
+</Edge>
+</Border>
+<Border Spatial="4" Point1="210" Point2="211">
+<Edge>
+<Length>10.89</Length>
+</Edge>
+</Border>
+<Border Spatial="4" Point1="211" Point2="212">
+<Edge>
+<Length>166.54</Length>
+</Edge>
+</Border>
+<Border Spatial="4" Point1="212" Point2="213">
+<Edge>
+<Length>5.01</Length>
+</Edge>
+</Border>
+<Border Spatial="4" Point1="213" Point2="214">
+<Edge>
+<Length>20.04</Length>
+</Edge>
+</Border>
+<Border Spatial="4" Point1="214" Point2="215">
+<Edge>
+<Length>8.19</Length>
+</Edge>
+</Border>
+<Border Spatial="4" Point1="215" Point2="216">
+<Edge>
+<Length>20.86</Length>
+</Edge>
+</Border>
+<Border Spatial="4" Point1="216" Point2="217">
+<Edge>
+<Length>5.96</Length>
+</Edge>
+</Border>
+<Border Spatial="4" Point1="217" Point2="218">
+<Edge>
+<Length>15.88</Length>
+</Edge>
+</Border>
+<Border Spatial="4" Point1="218" Point2="219">
+<Edge>
+<Length>10.77</Length>
+</Edge>
+</Border>
+<Border Spatial="4" Point1="219" Point2="220">
+<Edge>
+<Length>7.29</Length>
+</Edge>
+</Border>
+<Border Spatial="4" Point1="220" Point2="221">
+<Edge>
+<Length>20.14</Length>
+</Edge>
+</Border>
+<Border Spatial="4" Point1="221" Point2="222">
+<Edge>
+<Length>4.99</Length>
+</Edge>
+</Border>
+<Border Spatial="4" Point1="222" Point2="223">
+<Edge>
+<Length>15.72</Length>
+</Edge>
+</Border>
+<Border Spatial="4" Point1="223" Point2="224">
+<Edge>
+<Length>18.35</Length>
+</Edge>
+</Border>
+<Border Spatial="4" Point1="224" Point2="225">
+<Edge>
+<Length>6.17</Length>
+</Edge>
+</Border>
+<Border Spatial="4" Point1="225" Point2="226">
+<Edge>
+<Length>12.78</Length>
+</Edge>
+</Border>
+<Border Spatial="4" Point1="226" Point2="227">
+<Edge>
+<Length>8.14</Length>
+</Edge>
+</Border>
+<Border Spatial="4" Point1="227" Point2="228">
+<Edge>
+<Length>13.17</Length>
+</Edge>
+</Border>
+<Border Spatial="4" Point1="228" Point2="229">
+<Edge>
+<Length>10.04</Length>
+</Edge>
+</Border>
+<Border Spatial="4" Point1="229" Point2="230">
+<Edge>
+<Length>3.57</Length>
+</Edge>
+</Border>
+<Border Spatial="4" Point1="230" Point2="231">
+<Edge>
+<Length>17.6</Length>
+</Edge>
+</Border>
+<Border Spatial="4" Point1="231" Point2="232">
+<Edge>
+<Length>20.34</Length>
+</Edge>
+</Border>
+<Border Spatial="4" Point1="232" Point2="1">
+<Edge>
+<Length>26.41</Length>
+</Edge>
+</Border>
+</Borders>
+</EntitySpatial>
+</NewParcel>
+</FormParcels>
+</Package>
+<GeneralCadastralWorks DateCadastral="2018-04-10">
+<Contractor>
+<FamilyName>Иванникова</FamilyName>
+<FirstName>Олеся</FirstName>
+<Patronymic>Геннадьевна</Patronymic>
+<NCertificate>36-13-514</NCertificate>
+<Telephone>8-952-559-56-18</Telephone>
+<Address>394005, г. Воронеж, ул. Владимира Невского, д.85б, кв.16</Address>
+<Email>lesy1484@mail.ru</Email>
+<Organization>
+<Name>ООО НПП "Компьютерные технологии"</Name>
+<AddressOrganization>г. Воронеж, ул. Ф. Энгельса, д.5</AddressOrganization>
+</Organization>
+</Contractor>
+<Reason>образованием земельного участка путем раздела земельного участка с кадастровым номером 69:10:0000000:37 с сохранением исходного земельного участка в измененных границах</Reason>
+<Clients>
+<Client>
+<Organization>
+<Name>Государственное казенное учреждение Тверской области "Дирекция территориального дорожного фонда Тверской области"</Name>
+<INN>6905009018</INN>
+<OGRN>1026900546925</OGRN>
+</Organization>
+</Client>
+</Clients>
+</GeneralCadastralWorks>
+<CoordSystems>
+<CoordSystem Name="МСК-69, 2 зона" CsId="l37529B7E-4DC7-4BB5-9D51-14FEACB22109l"></CoordSystem>
+</CoordSystems>
+<InputData>
+<Documents>
+<Document>
+<CodeDocument>558401089900</CodeDocument>
+<Name>Выписка из ЕГРАД</Name>
+<Number>2010-11645</Number>
+<Date>2010-11-29</Date>
+<AppliedFile Kind="01" Name="App\02 Выписки из ЕГРАД на дороги от ФДА Калиниский район.pdf"></AppliedFile>
+</Document>
+</Documents>
+<GeodesicBases>
+<GeodesicBase>
+<PName>Савватьево</PName>
+<PKind>пирамида</PKind>
+<PKlass>3 класс</PKlass>
+<OrdX>286808.86</OrdX>
+<OrdY>2288041.39</OrdY>
+</GeodesicBase>
+<GeodesicBase>
+<PName>Труново</PName>
+<PKind>пирамида</PKind>
+<PKlass>3 класс</PKlass>
+<OrdX>273088.41</OrdX>
+<OrdY>2288412.12</OrdY>
+</GeodesicBase>
+<GeodesicBase>
+<PName>Чуприяново</PName>
+<PKind>пирамида</PKind>
+<PKlass>1 класс</PKlass>
+<OrdX>277072.6</OrdX>
+<OrdY>2284458.76</OrdY>
+</GeodesicBase>
+</GeodesicBases>
+</InputData>
+<Survey>
+<GeopointsOpred>
+<GeopointOpred>
+<CadastralNumberDefinition>69:10:0000000:37:ЗУ1</CadastralNumberDefinition>
+<Methods>
+<GeopointOpred>692005000000</GeopointOpred>
+</Methods>
+</GeopointOpred>
+</GeopointsOpred>
+<TochnGeopointsParcels>
+<TochnGeopointsParcel>
+<CadastralNumberDefinition>:ЗУ1</CadastralNumberDefinition>
+<Formula>Mt = 0.1</Formula>
+</TochnGeopointsParcel>
+</TochnGeopointsParcels>
+<TochnAreaParcels>
+<TochnAreaParcel>
+<CadastralNumberDefinition>:ЗУ1(1)</CadastralNumberDefinition>
+<Formula>∆Р=3.5mt√p=3.5*0.1*√67652=91</Formula>
+<Area>
+<Area>67652</Area>
+<Unit>055</Unit>
+</Area>
+</TochnAreaParcel>
+</TochnAreaParcels>
+</Survey>
+<SchemeGeodesicPlotting Kind="01" Name="App\ГП_45.pdf"></SchemeGeodesicPlotting>
+<SchemeDisposition Kind="01" Name="App\Схема_45.pdf"></SchemeDisposition>
+<DiagramParcelsSubParcels Kind="01" Name="App\Чертеж_45.pdf"></DiagramParcelsSubParcels>
+</MP>

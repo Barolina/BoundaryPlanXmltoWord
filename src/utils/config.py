@@ -1,5 +1,6 @@
 """
-    u'Данный модуль содержит надор основных словарей, используемых при генерации и рендеринге word- шаблоны
+    u'Данный модуль содержит набор основных словарей, используемых при генерации и рендеринге word- шаблоны
+    (Описание каркасов для сериализации в json основных блоков xml файла)
     :param attr: список  атрибутов используемых для генерации таблицы; \n\r
     :param name: наименование элемента в шаблоне (н - необязательный);\n\r\
     :param dict: список справочников, данного элемента, используемых для преобразования значений (key; value);\n\r
@@ -11,9 +12,7 @@ from collections import namedtuple
 
 TITLE = type('TITLE', (), {
     'attr': ['REASON', 'PURPOSE', 'CLIENT', 'FIO', 'NCERTIFICATE', 'TELEPHONE', 'ADDRESS', 'EMAIL', 'ORGANIZATION', 'DATA'],
-    'node':'GeneralCadastralWorks',
-    'tpl': 'title.docx',
-    'position_doc': '1.',
+    'node': 'GeneralCadastralWorks',
 })
 """      
 TEMPLATE: title.docx \n\r
@@ -42,9 +41,6 @@ INPUT_DATA = type('INPUT_DATA', (), {
     'dict': {
         'alldocuments': 'dAllDocuments_v02.xsd',
     },
-    'node': 'InputData',
-    'tpl': 'inputdata.docx',
-    'position_doc': '2.'
 })
 """
 TEMPLATE: inputdata.docx\n\r
@@ -273,18 +269,6 @@ CONCLUSION = {
 TPL = ['']
 PATH_XSD = 'xsd'
 
-LIST_BLOCK_NODE = (
-    'GeneralCadastralWorks',
-    'InputData',
-    'Survey',
-    'NewParcel',
-    'ExistParcel',
-    'SubParcels',
-    'ChangeParcel',
-    'SpecifyRelatedParcel',
-    'FormParcels',
-    'Conclusion'
-)
 """
 Список основных блоко xml для преобразования в word-tpl,
 наименования соответсвуют основым узлам MP-xml

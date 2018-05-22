@@ -1,0 +1,911 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>src.serialization package &mdash; examplecode 0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="src.utils package" href="src.utils.html" />
+    <link rel="prev" title="src package" href="src.html" /> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> examplecode
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">MP_to_Word</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="src.html">src package</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="src.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="#">src.serialization package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="src.utils.html">src.utils package</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="src.html#submodules">Submodules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="src.html#module-src.main">src.main module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="src.html#module-src">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">examplecode</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="modules.html">MP_to_Word</a> &raquo;</li>
+        
+          <li><a href="src.html">src package</a> &raquo;</li>
+        
+      <li>src.serialization package</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/src.serialization.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="src-serialization-package">
+<h1>src.serialization package<a class="headerlink" href="#src-serialization-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-src.serialization.basic">
+<span id="src-serialization-basic-module"></span><h2>src.serialization.basic module<a class="headerlink" href="#module-src.serialization.basic" title="Permalink to this headline">¶</a></h2>
+<p>Сериализация  узлов xmk файла с коорлинатами</p>
+<dl class="class">
+<dt id="src.serialization.basic.Border">
+<em class="property">class </em><code class="descclassname">src.serialization.basic.</code><code class="descname">Border</code><span class="sig-paren">(</span><em>node</em><span class="sig-paren">)</span><a class="headerlink" href="#src.serialization.basic.Border" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></p>
+<p>Get a list of  border the EntitySpatial</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>node</strong> – the EntitySpatial</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="src.serialization.basic.Border.xml_to_list">
+<code class="descname">xml_to_list</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#src.serialization.basic.Border.xml_to_list" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="src.serialization.basic.ElementSubParcel">
+<em class="property">class </em><code class="descclassname">src.serialization.basic.</code><code class="descname">ElementSubParcel</code><span class="sig-paren">(</span><em>node</em><span class="sig-paren">)</span><a class="headerlink" href="#src.serialization.basic.ElementSubParcel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>get inforamtion the dict - one SubParcel
+{</p>
+<blockquote>
+<div>‘defiition’: ‘чзу1’,
+‘entity_spatial’ : list(),
+‘type_ordinate’ : newparcel | existparcel</div></blockquote>
+<p>}</p>
+<dl class="attribute">
+<dt id="src.serialization.basic.ElementSubParcel.type_ordinate">
+<code class="descname">type_ordinate</code><a class="headerlink" href="#src.serialization.basic.ElementSubParcel.type_ordinate" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="src.serialization.basic.ElementSubParcel.xml_ext_dict">
+<code class="descname">xml_ext_dict</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#src.serialization.basic.ElementSubParcel.xml_ext_dict" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="src.serialization.basic.ElementSubParcel.xml_general_dict">
+<code class="descname">xml_general_dict</code><span class="sig-paren">(</span><em>position</em><span class="sig-paren">)</span><a class="headerlink" href="#src.serialization.basic.ElementSubParcel.xml_general_dict" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="src.serialization.basic.ElementSubParcel.xml_new_dict">
+<code class="descname">xml_new_dict</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#src.serialization.basic.ElementSubParcel.xml_new_dict" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="src.serialization.basic.EntitySpatial">
+<em class="property">class </em><code class="descclassname">src.serialization.basic.</code><code class="descname">EntitySpatial</code><span class="sig-paren">(</span><em>node</em><span class="sig-paren">)</span><a class="headerlink" href="#src.serialization.basic.EntitySpatial" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></p>
+<p>Get  a list of ordinates the EntitySpatial
+Получить список координат EntitySpatial
+:param node this EntitySpatial
+:return list ordinats EntitySpatial</p>
+<dl class="method">
+<dt id="src.serialization.basic.EntitySpatial.xml_to_list">
+<code class="descname">xml_to_list</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#src.serialization.basic.EntitySpatial.xml_to_list" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">возвращает список  координат EntitySpatial</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="src.serialization.basic.Ordinatre">
+<em class="property">class </em><code class="descclassname">src.serialization.basic.</code><code class="descname">Ordinatre</code><span class="sig-paren">(</span><em>node</em>, <em>type_ordinate_ord</em><span class="sig-paren">)</span><a class="headerlink" href="#src.serialization.basic.Ordinatre" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></p>
+<p>Get a list of coorinates the  inner contour(SpatialElement)
+Получить список коорлинат внутреннего контура
+:param node: SpatialElement
+:param type_ordinate_ord: тип коорлинат уточнение или образовние
+(лучше передать, так как не имеет смылса высчитавать тип в каждом внутреннем контуре)</p>
+<dl class="method">
+<dt id="src.serialization.basic.Ordinatre.xml_exist_ordinate_to_list">
+<code class="descname">xml_exist_ordinate_to_list</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#src.serialization.basic.Ordinatre.xml_exist_ordinate_to_list" title="Permalink to this definition">¶</a></dt>
+<dd><blockquote>
+<div>Список координат внутреннего конутра на уточнение</div></blockquote>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">list()</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="src.serialization.basic.Ordinatre.xml_new_ordinate_to_list">
+<code class="descname">xml_new_ordinate_to_list</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#src.serialization.basic.Ordinatre.xml_new_ordinate_to_list" title="Permalink to this definition">¶</a></dt>
+<dd><blockquote>
+<div>Список координат внутренного контура на образование</div></blockquote>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">list ordinats</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="src.serialization.basic.Ordinatre.xml_to_list">
+<code class="descname">xml_to_list</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#src.serialization.basic.Ordinatre.xml_to_list" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="src.serialization.basic.StaticMethod">
+<em class="property">class </em><code class="descclassname">src.serialization.basic.</code><code class="descname">StaticMethod</code><a class="headerlink" href="#src.serialization.basic.StaticMethod" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Вспомогательный класс для работы  c node xml</p>
+<dl class="staticmethod">
+<dt id="src.serialization.basic.StaticMethod.get_empty_tpl">
+<em class="property">static </em><code class="descname">get_empty_tpl</code><span class="sig-paren">(</span><em>node</em><span class="sig-paren">)</span><a class="headerlink" href="#src.serialization.basic.StaticMethod.get_empty_tpl" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>node</strong> – node</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Return empty tpl rows  for word, depends on Type Ordinate</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="staticmethod">
+<dt id="src.serialization.basic.StaticMethod.merge_array_list">
+<em class="property">static </em><code class="descname">merge_array_list</code><span class="sig-paren">(</span><em>key</em>, <em>array_value</em><span class="sig-paren">)</span><a class="headerlink" href="#src.serialization.basic.StaticMethod.merge_array_list" title="Permalink to this definition">¶</a></dt>
+<dd><blockquote>
+<div>преобразоание  списков ключей и массива значений в словарь</div></blockquote>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>key</strong> – ключи словаря</li>
+<li><strong>array_value</strong> – массив значений</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><dl class="docutils">
+<dt>[</dt>
+<dd><p class="first last">{ ‘id’: 1, ‘name’: ‘ЗУ1’},
+{ ‘id’: 1, ‘name’: ‘ЗУ1’},</p>
+</dd>
+</dl>
+<p>]</p>
+</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="staticmethod">
+<dt id="src.serialization.basic.StaticMethod.type_ordinate">
+<em class="property">static </em><code class="descname">type_ordinate</code><span class="sig-paren">(</span><em>node</em><span class="sig-paren">)</span><a class="headerlink" href="#src.serialization.basic.StaticMethod.type_ordinate" title="Permalink to this definition">¶</a></dt>
+<dd><blockquote>
+<div>Определени типа  коорлинат - на  образование или на уточнение</div></blockquote>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>node</strong> – </td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="staticmethod">
+<dt id="src.serialization.basic.StaticMethod.xml_key_to_text">
+<em class="property">static </em><code class="descname">xml_key_to_text</code><span class="sig-paren">(</span><em>node</em>, <em>path</em>, <em>name_xsd</em><span class="sig-paren">)</span><a class="headerlink" href="#src.serialization.basic.StaticMethod.xml_key_to_text" title="Permalink to this definition">¶</a></dt>
+<dd><blockquote>
+<div>получение знсачения ноды по ключу из справоника</div></blockquote>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>node</strong> – узел - где ищем</li>
+<li><strong>path</strong> – парсер - что(как) ищем</li>
+<li><strong>name_xsd</strong> – наименование сравочнка</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">text</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="src.serialization.basic.XMLElemenBase">
+<em class="property">class </em><code class="descclassname">src.serialization.basic.</code><code class="descname">XMLElemenBase</code><span class="sig-paren">(</span><em>node</em><span class="sig-paren">)</span><a class="headerlink" href="#src.serialization.basic.XMLElemenBase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Базовый класс - определяющий структуру наследников
+:param node - на вход узел дерева
+:return  json(object)</p>
+<dl class="method">
+<dt id="src.serialization.basic.XMLElemenBase.to_dict">
+<code class="descname">to_dict</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#src.serialization.basic.XMLElemenBase.to_dict" title="Permalink to this definition">¶</a></dt>
+<dd><blockquote>
+<div>Return json - object, based on the dictionary in config
+(данные метод реализован у всех наследников, необходимых для render шааболонов)</div></blockquote>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">json()</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="src.serialization.basic.XmlFullOrdinate">
+<em class="property">class </em><code class="descclassname">src.serialization.basic.</code><code class="descname">XmlFullOrdinate</code><span class="sig-paren">(</span><em>node</em>, <em>definition</em><span class="sig-paren">)</span><a class="headerlink" href="#src.serialization.basic.XmlFullOrdinate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></p>
+<blockquote>
+<div>Get full ordinate and full borders</div></blockquote>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>node</strong> – Contours or EntitySpatial</td>
+</tr>
+</tbody>
+</table>
+<p>:parma definition  this CadastralNumber  or Definition ot NumberRecoed</p>
+<dl class="attribute">
+<dt id="src.serialization.basic.XmlFullOrdinate.CNST_NAME_CONTOURS">
+<code class="descname">CNST_NAME_CONTOURS</code><em class="property"> = 'Contours'</em><a class="headerlink" href="#src.serialization.basic.XmlFullOrdinate.CNST_NAME_CONTOURS" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="src.serialization.basic.XmlFullOrdinate.CNST_NAME_ENTITY_SPATIAL">
+<code class="descname">CNST_NAME_ENTITY_SPATIAL</code><em class="property"> = 'EntitySpatial'</em><a class="headerlink" href="#src.serialization.basic.XmlFullOrdinate.CNST_NAME_ENTITY_SPATIAL" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="src.serialization.basic.XmlFullOrdinate.full_borders">
+<code class="descname">full_borders</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#src.serialization.basic.XmlFullOrdinate.full_borders" title="Permalink to this definition">¶</a></dt>
+<dd><blockquote>
+<div>get list all of borders</div></blockquote>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>node</strong> – Contours</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="src.serialization.basic.XmlFullOrdinate.full_ordinate">
+<code class="descname">full_ordinate</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#src.serialization.basic.XmlFullOrdinate.full_ordinate" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-src.serialization.element_to_dict">
+<span id="src-serialization-element-to-dict-module"></span><h2>src.serialization.element_to_dict module<a class="headerlink" href="#module-src.serialization.element_to_dict" title="Permalink to this headline">¶</a></h2>
+<p>Сериализция основных блоков мп - xmk
+Основные блоки:
+Титульный лист,
+Исходные данные,
+Средства об измерениях,
+Сведения об обрузуемых зу и их частях,
+Сведения об уточняемом учатске и частях,
+Сведения об измененных учасках и их частях,
+Единое землепользование,
+Сведения о земельных участках, посредством которых обеспечивается доступ,
+Заключение кадастрового инженера</p>
+<dl class="class">
+<dt id="src.serialization.element_to_dict.XmlChangeParcel">
+<em class="property">class </em><code class="descclassname">src.serialization.element_to_dict.</code><code class="descname">XmlChangeParcel</code><span class="sig-paren">(</span><em>node</em><span class="sig-paren">)</span><a class="headerlink" href="#src.serialization.element_to_dict.XmlChangeParcel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#src.serialization.element_to_dict.XmlNewParcel" title="src.serialization.element_to_dict.XmlNewParcel"><code class="xref py py-class docutils literal notranslate"><span class="pre">src.serialization.element_to_dict.XmlNewParcel</span></code></a></p>
+<p>Формирования словаря данных для ChangeParcel(измененный участок)</p>
+<dl class="method">
+<dt id="src.serialization.element_to_dict.XmlChangeParcel.to_dict">
+<code class="descname">to_dict</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#src.serialization.element_to_dict.XmlChangeParcel.to_dict" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Return json - object, based on the dictionary in config</dt>
+<dd>(данные метод реализован у всех наследников, необходимых для render шааболонов)</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">json()</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="src.serialization.element_to_dict.XmlConclusion">
+<em class="property">class </em><code class="descclassname">src.serialization.element_to_dict.</code><code class="descname">XmlConclusion</code><span class="sig-paren">(</span><em>node</em><span class="sig-paren">)</span><a class="headerlink" href="#src.serialization.element_to_dict.XmlConclusion" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">serialization.basic.XMLElemenBase</span></code></p>
+<p>Чтоб не отходит от фрмата - )) - &gt; заключение кадастрового инженера</p>
+<dl class="method">
+<dt id="src.serialization.element_to_dict.XmlConclusion.to_dict">
+<code class="descname">to_dict</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#src.serialization.element_to_dict.XmlConclusion.to_dict" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Return json - object, based on the dictionary in config</dt>
+<dd>(данные метод реализован у всех наследников, необходимых для render шааболонов)</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">json()</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="src.serialization.element_to_dict.XmlExistParcel">
+<em class="property">class </em><code class="descclassname">src.serialization.element_to_dict.</code><code class="descname">XmlExistParcel</code><span class="sig-paren">(</span><em>node</em><span class="sig-paren">)</span><a class="headerlink" href="#src.serialization.element_to_dict.XmlExistParcel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#src.serialization.element_to_dict.XmlNewParcel" title="src.serialization.element_to_dict.XmlNewParcel"><code class="xref py py-class docutils literal notranslate"><span class="pre">src.serialization.element_to_dict.XmlNewParcel</span></code></a></p>
+<p>Фоомирования словаря значений для узлос  SpecifyRelatedParcel | ExistParcels</p>
+<dl class="method">
+<dt id="src.serialization.element_to_dict.XmlExistParcel.to_dict">
+<code class="descname">to_dict</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#src.serialization.element_to_dict.XmlExistParcel.to_dict" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Return json - object, based on the dictionary in config</dt>
+<dd>(данные метод реализован у всех наследников, необходимых для render шааболонов)</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">json()</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="src.serialization.element_to_dict.XmlExistParcel.xml_cadnum_to_text">
+<code class="descname">xml_cadnum_to_text</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#src.serialization.element_to_dict.XmlExistParcel.xml_cadnum_to_text" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="src.serialization.element_to_dict.XmlInputDataDict">
+<em class="property">class </em><code class="descclassname">src.serialization.element_to_dict.</code><code class="descname">XmlInputDataDict</code><span class="sig-paren">(</span><em>node</em><span class="sig-paren">)</span><a class="headerlink" href="#src.serialization.element_to_dict.XmlInputDataDict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">serialization.basic.XMLElemenBase</span></code></p>
+<p>формирование словаря Исхпдные данные
+:param root == InputData</p>
+<dl class="attribute">
+<dt id="src.serialization.element_to_dict.XmlInputDataDict.DATE">
+<code class="descname">DATE</code><em class="property"> = 'Date'</em><a class="headerlink" href="#src.serialization.element_to_dict.XmlInputDataDict.DATE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="src.serialization.element_to_dict.XmlInputDataDict.NAME">
+<code class="descname">NAME</code><em class="property"> = 'Name'</em><a class="headerlink" href="#src.serialization.element_to_dict.XmlInputDataDict.NAME" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="src.serialization.element_to_dict.XmlInputDataDict.NUMBER">
+<code class="descname">NUMBER</code><em class="property"> = 'Number'</em><a class="headerlink" href="#src.serialization.element_to_dict.XmlInputDataDict.NUMBER" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="src.serialization.element_to_dict.XmlInputDataDict.pathGeodesicBses">
+<code class="descname">pathGeodesicBses</code><em class="property"> = 'GeodesicBases/child::*'</em><a class="headerlink" href="#src.serialization.element_to_dict.XmlInputDataDict.pathGeodesicBses" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="src.serialization.element_to_dict.XmlInputDataDict.pathListDocuments">
+<code class="descname">pathListDocuments</code><em class="property"> = 'Documents/child::*'</em><a class="headerlink" href="#src.serialization.element_to_dict.XmlInputDataDict.pathListDocuments" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="src.serialization.element_to_dict.XmlInputDataDict.pathListSystemCood">
+<code class="descname">pathListSystemCood</code><em class="property"> = '../CoordSystems/child::*/&#64;Name'</em><a class="headerlink" href="#src.serialization.element_to_dict.XmlInputDataDict.pathListSystemCood" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="src.serialization.element_to_dict.XmlInputDataDict.pathMeansSurveys">
+<code class="descname">pathMeansSurveys</code><em class="property"> = 'MeansSurvey/child::*'</em><a class="headerlink" href="#src.serialization.element_to_dict.XmlInputDataDict.pathMeansSurveys" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="src.serialization.element_to_dict.XmlInputDataDict.pathObjectsRealty">
+<code class="descname">pathObjectsRealty</code><em class="property"> = 'ObjectsRealty/child::*'</em><a class="headerlink" href="#src.serialization.element_to_dict.XmlInputDataDict.pathObjectsRealty" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="src.serialization.element_to_dict.XmlInputDataDict.to_dict">
+<code class="descname">to_dict</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#src.serialization.element_to_dict.XmlInputDataDict.to_dict" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Return json - object, based on the dictionary in config</dt>
+<dd>(данные метод реализован у всех наследников, необходимых для render шааболонов)</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">json()</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="src.serialization.element_to_dict.XmlNewParcel">
+<em class="property">class </em><code class="descclassname">src.serialization.element_to_dict.</code><code class="descname">XmlNewParcel</code><span class="sig-paren">(</span><em>node</em><span class="sig-paren">)</span><a class="headerlink" href="#src.serialization.element_to_dict.XmlNewParcel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#src.serialization.element_to_dict.XmlParcel" title="src.serialization.element_to_dict.XmlParcel"><code class="xref py py-class docutils literal notranslate"><span class="pre">src.serialization.element_to_dict.XmlParcel</span></code></a></p>
+<p>Преобразование участка на образование  в словарь
+:param root = NewParcel</p>
+<dl class="method">
+<dt id="src.serialization.element_to_dict.XmlNewParcel.full_area">
+<code class="descname">full_area</code><span class="sig-paren">(</span><em>node</em><span class="sig-paren">)</span><a class="headerlink" href="#src.serialization.element_to_dict.XmlNewParcel.full_area" title="Permalink to this definition">¶</a></dt>
+<dd><blockquote>
+<div>Преобразование площади</div></blockquote>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>node</strong> – Area</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">valua is the Area</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="src.serialization.element_to_dict.XmlNewParcel.full_contours_area">
+<code class="descname">full_contours_area</code><span class="sig-paren">(</span><em>node</em><span class="sig-paren">)</span><a class="headerlink" href="#src.serialization.element_to_dict.XmlNewParcel.full_contours_area" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>node</strong> – node = Contours</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="src.serialization.element_to_dict.XmlNewParcel.to_dict">
+<code class="descname">to_dict</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#src.serialization.element_to_dict.XmlNewParcel.to_dict" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Return json - object, based on the dictionary in config</dt>
+<dd>(данные метод реализован у всех наследников, необходимых для render шааболонов)</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">json()</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="src.serialization.element_to_dict.XmlNewParcel.xml_object_realty_inner_cadastral_number_to_text">
+<code class="descname">xml_object_realty_inner_cadastral_number_to_text</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#src.serialization.element_to_dict.XmlNewParcel.xml_object_realty_inner_cadastral_number_to_text" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="src.serialization.element_to_dict.XmlNewParcelProviding">
+<em class="property">class </em><code class="descclassname">src.serialization.element_to_dict.</code><code class="descname">XmlNewParcelProviding</code><span class="sig-paren">(</span><em>node</em><span class="sig-paren">)</span><a class="headerlink" href="#src.serialization.element_to_dict.XmlNewParcelProviding" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#src.serialization.element_to_dict.XmlNewParcel" title="src.serialization.element_to_dict.XmlNewParcel"><code class="xref py py-class docutils literal notranslate"><span class="pre">src.serialization.element_to_dict.XmlNewParcel</span></code></a></p>
+<p>Сведения о участках посредством которых обеспечивается доступ</p>
+<dl class="method">
+<dt id="src.serialization.element_to_dict.XmlNewParcelProviding.to_dict">
+<code class="descname">to_dict</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#src.serialization.element_to_dict.XmlNewParcelProviding.to_dict" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Return json - object, based on the dictionary in config</dt>
+<dd>(данные метод реализован у всех наследников, необходимых для render шааболонов)</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">json()</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="src.serialization.element_to_dict.XmlParcel">
+<em class="property">class </em><code class="descclassname">src.serialization.element_to_dict.</code><code class="descname">XmlParcel</code><span class="sig-paren">(</span><em>node</em><span class="sig-paren">)</span><a class="headerlink" href="#src.serialization.element_to_dict.XmlParcel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">serialization.basic.XMLElemenBase</span></code></p>
+<dl class="method">
+<dt id="src.serialization.element_to_dict.XmlParcel.xml_cadnum_to_text">
+<code class="descname">xml_cadnum_to_text</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#src.serialization.element_to_dict.XmlParcel.xml_cadnum_to_text" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="src.serialization.element_to_dict.XmlParcel.xml_ordinates_to_dict">
+<code class="descname">xml_ordinates_to_dict</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#src.serialization.element_to_dict.XmlParcel.xml_ordinates_to_dict" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Получить словарь коорлинат</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="src.serialization.element_to_dict.XmlParcel.xml_related_parcel_to_list">
+<code class="descname">xml_related_parcel_to_list</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#src.serialization.element_to_dict.XmlParcel.xml_related_parcel_to_list" title="Permalink to this definition">¶</a></dt>
+<dd><p>‘attr’: [‘point’, ‘cadastralnumber’, ‘right’]
+:return: list сведений о смежниках участка</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="src.serialization.element_to_dict.XmlParcel.xml_subparcels_to_dict">
+<code class="descname">xml_subparcels_to_dict</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#src.serialization.element_to_dict.XmlParcel.xml_subparcels_to_dict" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Словарь для частей</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="src.serialization.element_to_dict.XmlSubParcels">
+<em class="property">class </em><code class="descclassname">src.serialization.element_to_dict.</code><code class="descname">XmlSubParcels</code><span class="sig-paren">(</span><em>node</em><span class="sig-paren">)</span><a class="headerlink" href="#src.serialization.element_to_dict.XmlSubParcels" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Формирования словаря значений для частей
+node: SubParcels</p>
+<dl class="method">
+<dt id="src.serialization.element_to_dict.XmlSubParcels.to_dict">
+<code class="descname">to_dict</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#src.serialization.element_to_dict.XmlSubParcels.to_dict" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="src.serialization.element_to_dict.XmlSurveyDict">
+<em class="property">class </em><code class="descclassname">src.serialization.element_to_dict.</code><code class="descname">XmlSurveyDict</code><span class="sig-paren">(</span><em>node</em><span class="sig-paren">)</span><a class="headerlink" href="#src.serialization.element_to_dict.XmlSurveyDict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">serialization.basic.XMLElemenBase</span></code></p>
+<p>Формирование словаря для  Сведени о выполненных измерениях и расчетах
+:param root: Survey</p>
+<dl class="attribute">
+<dt id="src.serialization.element_to_dict.XmlSurveyDict.pathListGeopointsOpred">
+<code class="descname">pathListGeopointsOpred</code><em class="property"> = 'GeopointsOpred/child::*'</em><a class="headerlink" href="#src.serialization.element_to_dict.XmlSurveyDict.pathListGeopointsOpred" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="src.serialization.element_to_dict.XmlSurveyDict.pathTochAreaParcel">
+<code class="descname">pathTochAreaParcel</code><em class="property"> = 'TochnAreaParcels/child::*'</em><a class="headerlink" href="#src.serialization.element_to_dict.XmlSurveyDict.pathTochAreaParcel" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="src.serialization.element_to_dict.XmlSurveyDict.pathTochGeopoitsParcels">
+<code class="descname">pathTochGeopoitsParcels</code><em class="property"> = 'TochnGeopointsParcels/child::*'</em><a class="headerlink" href="#src.serialization.element_to_dict.XmlSurveyDict.pathTochGeopoitsParcels" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="src.serialization.element_to_dict.XmlSurveyDict.to_dict">
+<code class="descname">to_dict</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#src.serialization.element_to_dict.XmlSurveyDict.to_dict" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Return json - object, based on the dictionary in config</dt>
+<dd>(данные метод реализован у всех наследников, необходимых для render шааболонов)</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">json()</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="src.serialization.element_to_dict.XmlTitleDict">
+<em class="property">class </em><code class="descclassname">src.serialization.element_to_dict.</code><code class="descname">XmlTitleDict</code><span class="sig-paren">(</span><em>node</em><span class="sig-paren">)</span><a class="headerlink" href="#src.serialization.element_to_dict.XmlTitleDict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Формированяи словаря для титульника</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>node</strong> – GeneralCadastralWorks</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="src.serialization.element_to_dict.XmlTitleDict.to_dict">
+<code class="descname">to_dict</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#src.serialization.element_to_dict.XmlTitleDict.to_dict" title="Permalink to this definition">¶</a></dt>
+<dd><blockquote>
+<div>Данный  метод  возвращает словарь значения для  заполнения  шаблона title.docx</div></blockquote>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">dict-&gt;cnfg.Title</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-src.serialization.settings_tpl">
+<span id="src-serialization-settings-tpl-module"></span><h2>src.serialization.settings_tpl module<a class="headerlink" href="#module-src.serialization.settings_tpl" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-src.serialization">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-src.serialization" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="src.utils.html" class="btn btn-neutral float-right" title="src.utils package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="src.html" class="btn btn-neutral" title="src package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, Tim.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'0.1',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,191 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<MP Version="06" NameSoftware="ТехноКад-Экспресс" VersionSoftware="2.19.30418.1" GUID="9a7edb6e-1f8e-4055-9755-c36d0c2079ca">
+  <Package>
+    <SubParcels>
+      <CadastralNumberParcel>53:20:0701301:18</CadastralNumberParcel>
+      <NewSubParcel Definition="53:20:0701301:18/чзу1">
+        <Area>
+          <Area>48</Area>
+          <Unit>055</Unit>
+          <Inaccuracy>8</Inaccuracy>
+        </Area>
+        <Encumbrance>
+          <Name>Часть образуется в целях установления сервитута в пользу ПАО "ФСК ЕЭС", часть опоры ЛЭП 750 кВ Калининская АЭС-Ленинградская</Name>
+          <Type>022001002000</Type>
+        </Encumbrance>
+        <EntitySpatial EntSys="Id5ff02542-a88b-458f-86b6-d673e6114c0c">
+          <SpatialElement>
+            <SpelementUnit TypeUnit="Точка">
+              <Ordinate NumGeopoint="1" PointPref="н" X="624078.35" Y="2184723.18" DeltaGeopoint="0.5" />
+            </SpelementUnit>
+            <SpelementUnit TypeUnit="Точка">
+              <Ordinate NumGeopoint="3" PointPref="н" X="624064.31" Y="2184724.51" DeltaGeopoint="0.5" />
+            </SpelementUnit>
+            <SpelementUnit TypeUnit="Точка">
+              <Ordinate NumGeopoint="2" PointPref="н" X="624074.21" Y="2184730.36" DeltaGeopoint="0.5" />
+            </SpelementUnit>
+            <SpelementUnit TypeUnit="Точка">
+              <Ordinate NumGeopoint="1" PointPref="н" X="624078.35" Y="2184723.18" DeltaGeopoint="0.5" />
+            </SpelementUnit>
+          </SpatialElement>
+        </EntitySpatial>
+      </NewSubParcel>
+      <NewSubParcel Definition="53:20:0701301:18/чзу2">
+        <Area>
+          <Area>48</Area>
+          <Unit>055</Unit>
+          <Inaccuracy>8</Inaccuracy>
+        </Area>
+        <Encumbrance>
+          <Name>Часть образуется в целях установления сервитута в пользу ПАО "ФСК ЕЭС", часть опоры ЛЭП 750 кВ Калининская АЭС-Ленинградская</Name>
+          <Type>022001002000</Type>
+        </Encumbrance>
+        <EntitySpatial EntSys="Id5ff02542-a88b-458f-86b6-d673e6114c0c">
+          <SpatialElement>
+            <SpelementUnit TypeUnit="Точка">
+              <Ordinate NumGeopoint="1" PointPref="н" X="624078.35" Y="2184723.18" DeltaGeopoint="0.5" />
+            </SpelementUnit>
+            <SpelementUnit TypeUnit="Точка">
+              <Ordinate NumGeopoint="3" PointPref="н" X="624064.31" Y="2184724.51" DeltaGeopoint="0.5" />
+            </SpelementUnit>
+            <SpelementUnit TypeUnit="Точка">
+              <Ordinate NumGeopoint="2" PointPref="н" X="624074.21" Y="2184730.36" DeltaGeopoint="0.5" />
+            </SpelementUnit>
+            <SpelementUnit TypeUnit="Точка">
+              <Ordinate NumGeopoint="1" PointPref="н" X="624078.35" Y="2184723.18" DeltaGeopoint="0.5" />
+            </SpelementUnit>
+          </SpatialElement>
+        </EntitySpatial>
+      </NewSubParcel>
+      <ExistSubParcel NumberRecord="22">
+        <Area>
+          <Area>484</Area>
+          <Unit>055</Unit>
+          <Inaccuracy>8</Inaccuracy>
+        </Area>
+        <Encumbrance>
+          <Name>Часть образуется в целях установления сервитута в пользу ПАО "ФСК ЕЭС", часть опоры ЛЭП 750 кВ Калининская АЭС-Ленинградская</Name>
+          <Type>022002000000</Type>
+        </Encumbrance>
+        <EntitySpatial EntSys="Id5ff02542-a88b-458f-86b6-d673e6114c0c">
+          <SpatialElement>
+            <SpelementUnit TypeUnit="Точка">
+              <Ordinate NumGeopoint="1" PointPref="н" X="624078.35" Y="2184723.18" DeltaGeopoint="0.5" />
+            </SpelementUnit>
+            <SpelementUnit TypeUnit="Точка">
+              <Ordinate NumGeopoint="3" PointPref="н" X="624064.31" Y="2184724.51" DeltaGeopoint="0.5" />
+            </SpelementUnit>
+            <SpelementUnit TypeUnit="Точка">
+              <Ordinate NumGeopoint="2" PointPref="н" X="624074.21" Y="2184730.36" DeltaGeopoint="0.5" />
+            </SpelementUnit>
+            <SpelementUnit TypeUnit="Точка">
+              <Ordinate NumGeopoint="1" PointPref="н" X="624078.35" Y="2184723.18" DeltaGeopoint="0.5" />
+            </SpelementUnit>
+          </SpatialElement>
+        </EntitySpatial>
+      </ExistSubParcel>
+    </SubParcels>
+  </Package>
+  <GeneralCadastralWorks DateCadastral="2018-01-23">
+    <Contractor>
+      <FamilyName>Поляков</FamilyName>
+      <FirstName>Павел</FirstName>
+      <Patronymic>Владимирович</Patronymic>
+      <NCertificate>53-15-243</NCertificate>
+      <Telephone>8(960)113-31-19</Telephone>
+      <Address>Курская обл., Касторенский район, с. Семеновка, ул. Молодежная д. 19, кв.1</Address>
+      <Email>polaykovpavel@yandex.ru</Email>
+      <Organization>
+        <Name>ООО НПП «КОМПЬЮТЕРНЫЕ ТЕХНОЛОГИИ»</Name>
+        <AddressOrganization>394000, г. Воронеж, ул. Ф. Энгельса 5</AddressOrganization>
+      </Organization>
+    </Contractor>
+    <Reason>образованием части земельного участка с кадастровым номером 53:20:0701301:18, расположенного Новгородская область, р-н Чудовский, Чудовское лесничество, Спасско-Полистское участковое лесничество, лесные кварталы №207, 220, 235, 236, 252, 253, 269, 270, 271, 283, 284, 285</Reason>
+    <Clients>
+      <Client>
+        <Governance>
+          <Name>Общество с ограниченной ответсвенностью строительно-производственное компания "Зеленый Город"</Name>
+          <INN>7811136816</INN>
+          <OGRN>1037825036567</OGRN>
+        </Governance>
+      </Client>
+    </Clients>
+  </GeneralCadastralWorks>
+  <CoordSystems>
+    <CoordSystem CsId="Id5ff02542-a88b-458f-86b6-d673e6114c0c" Name="МСК-53 (зона 2)" />
+  </CoordSystems>
+  <InputData>
+    <Documents>
+      <Document>
+        <CodeDocument>558214010000</CodeDocument>
+        <Name>Кадастровая выписка о земельном участке</Name>
+        <Number>99/2017/28965719</Number>
+        <Date>2017-09-22</Date>
+      </Document>
+      <Document>
+        <CodeDocument>008002008000</CodeDocument>
+        <Name>Схема образования части земельного участка</Name>
+        <Number>б/н</Number>
+        <Date>2017-09-21</Date>
+      </Document>
+      <Document>
+        <CodeDocument>008002008000</CodeDocument>
+        <Name>Картографический материал с зарамочным оформлением масштаба 1:10000 (инв. №3-О/751 от 19.05.2017г.)</Name>
+        <Number>2018/44</Number>
+        <Date>2018-01-22</Date>
+        <IssueOrgan>Управление Росреестра по Новгородской области. Заместитель начальника отдела землеустройства Грозина Т.А.</IssueOrgan>
+      </Document>
+    </Documents>
+    <SubParcels>
+      <SubParcel>
+        <CadastralNumberParcel>53:20:0701301:18</CadastralNumberParcel>
+        <NumberRecord>22</NumberRecord>
+      </SubParcel>
+    </SubParcels>
+  </InputData>
+  <Survey>
+    <GeopointsOpred>
+      <GeopointOpred>
+        <CadastralNumberDefinition>53:20:0701301:18/чзу1</CadastralNumberDefinition>
+        <Methods>
+          <GeopointOpred>692006000000</GeopointOpred>
+        </Methods>
+      </GeopointOpred>
+      <GeopointOpred>
+        <CadastralNumberDefinition>53:20:0701301:18/чзу2</CadastralNumberDefinition>
+        <Methods>
+          <GeopointOpred>692006000000</GeopointOpred>
+        </Methods>
+      </GeopointOpred>
+      <GeopointOpred>
+        <CadastralNumberDefinition>53:20:0701301:18/22</CadastralNumberDefinition>
+        <Methods>
+          <GeopointOpred>692006000000</GeopointOpred>
+        </Methods>
+      </GeopointOpred>
+    </GeopointsOpred>
+  </Survey>
+  <Conclusion>1. Образуемая часть земельного участка 53:20:0701301:18 занимается частью опоры ЛЭП 750кВ Калининская АЭС-Ленинградская, эксплуатируемой ПАО «ФСК ЕЭС», расположенной в границах постоянного отвода федеральной автомобильной дороги Москва-Санкт-Петербург (СПАД). Земельный участок 53:20:0701301:18 находится в аренде на 49 лет у Государственной компании «Российские автомобильные дороги». 
+Согласно ст. 38 Федерального закона от 17.07.2009г. №145-ФЗ «О государственной компании "Российские автомобильные дороги"», в целях прокладки и переустройства инженерных коммуникаций в границах полос отвода и придорожных полос автомобильных дорог Государственной компании устанавливаются сервитуты. 
+Таким образом, целью образования части земельного участка 53:20:0701301:18 является установление сервитута на часть земельного участка полосы отвода автодороги, занимаемый частью опоры ЛЭП. Документом-основанием для образования части земельного участка является предоставленная Заказчиком схема образования части земельного участка, согласованная ГК «Автодор» и ПАО «ФСК ЕЭС», приложенная к настоящему межевому плану. 
+Соглашение сервитута будет заключено между ГК «Автодор» и ПАО «ФСК ЕЭС» после формирования части и проведения оценки по определению платы за сервитут. Срок действия сервитута на данный момент не определен, в связи с этим кадастровый учет проводится без одновременной регистрации прав.
+В соответсвии с пп.11 п. 5 ст. 14 ФЗ 218 Государственный кадастровый учет осуществляется без одновременной государственной регистрации прав исключительно в случаях, если он осуществляется: в отношении части земельного участка, находящегося в государственной или муниципальной собственности, которая образуется в целях установления применительно к ней сервитута. 
+2.Межевой план подготовлен Кадастровым инженером Поляковым Павлом Владимировичем, являющейся членом Ассоциации Саморегулируемой организации «Объединение профессионалов кадастровой деятельности» (сокращенное наименование – Ассоциация СРО «ОПКД») (уникальный реестровый номер кадастрового инженера в реестре членов Ассоциации СРО «ОПКД» № 1944). Сведения о СРО КИ: Ассоциация Саморегулируемой организации «Объединение профессионалов кадастровой деятельности» (сокращенное наименование – Ассоциация СРО «ОПКД») содержатся в государственном реестре СРО КИ (уникальный номер реестровой записи от 08.07.2016 г. № 003).
+4. № регистрации в государственном реестре лиц, осуществляющих кадастровую деятельность: 34626.
+5. Страховой номер индивидуального лицевого счета в системе обязательного пенсионного страхования Российской Федерации (СНИЛС): 133-227-044 15. 
+6. Заказчиком работ является ООО Строительно-производственная компания «Зеленый город». Договор субподряда № КТ/09-13 от 27.09.2013г.  Межевой план подготовил кадастровый инженер Поляков Павел Владимирович, являющийся членом СРО КИ  (уникальный реестровый номер кадастрового
+            инженера в реестре членов СРО КИ N 234).
+            Сведения о СРО КИ  содержатся в
+            государственном реестре СРО КИ (уникальный номер реестровой записи от "04" марта 2018 г.  N 234).
+          </Conclusion>
+  <SchemeGeodesicPlotting Kind="01" Name="ca2553f7-a706-4a79-8eb5-a0188d853b92\Выписки из ЕГРАД.pdf" />
+  <SchemeDisposition Kind="01" Name="ca2553f7-a706-4a79-8eb5-a0188d853b92\гп.pdf" />
+  <DiagramParcelsSubParcels Kind="01" Name="ca2553f7-a706-4a79-8eb5-a0188d853b92\чертеж.pdf" />
+  <Appendix>
+    <AppliedFiles>
+      <NumberAppendix>1</NumberAppendix>
+      <NameAppendix>Схема образования части земельного участка</NameAppendix>
+      <AppliedFile Kind="01" Name="ca2553f7-a706-4a79-8eb5-a0188d853b92\гп.pdf" />
+    </AppliedFiles>
+  </Appendix>
+</MP>
