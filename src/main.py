@@ -1,23 +1,27 @@
 """
     Parsing xml to WORD
 """
-import os, sys
-import argparse
-import shutil
-import tempfile
-from builtins import enumerate
-from contextlib import closing
-from lxml import etree
-from docxtpl import DocxTemplate
-from lxml.etree import iterparse
-sys.path.insert(0, os.path.abspath('./serialization/'))
-from serialization.element_to_dict import *
-from docx import Document
+try:
+    import os, sys
+    import argparse
+    import shutil
+    import tempfile
+    from builtins import enumerate
+    from contextlib import closing
+    from lxml import etree
+    from docxtpl import DocxTemplate
+    from lxml.etree import iterparse
+    sys.path.insert(0, os.path.abspath('./serialization/'))
+    from serialization.element_to_dict import *
+    from docx import Document
 
-import logging.config
+    import logging.config
 
-# set up logging
-from serialization.settings_tpl import BINDER_FILE
+    # set up logging
+    from serialization.settings_tpl import BINDER_FILE
+
+except:
+    pass
 
 # try:
 #     logging.config.fileConfig("logging_config.ini")
