@@ -140,7 +140,7 @@ latex_documents = [
     (master_doc, 'examplecode.tex', u'examplecode Documentation',
      u'Tim', 'manual'),
 ]
-autoclass_content = 'both'
+# autoclass_content = 'both'
 html_theme = 'sphinx_rtd_theme'
 
 # -- Extension configuration -------------------------------------------------
