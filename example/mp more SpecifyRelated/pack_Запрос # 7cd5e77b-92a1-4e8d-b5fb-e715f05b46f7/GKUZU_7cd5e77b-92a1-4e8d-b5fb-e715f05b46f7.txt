@@ -1,3 +1,0 @@
-Проверка подписей
-
-1) Файл GKUZU_7cd5e77b-92a1-4e8d-b5fb-e715f05b46f7.zip\GKUZU_7cd5e77b-92a1-4e8d-b5fb-e715f05b46f7.xml: файл не подписан
