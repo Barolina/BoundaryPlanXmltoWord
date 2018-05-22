@@ -134,7 +134,7 @@ class Ordinatre(list):
     def __round_number(self, node, attr):
         x = node.get(attr, None)
         if x:
-            x = round(float(x), 3)
+            x = '{:.2f}'.format(float(x))
         else:
             x = '-'
         return x
