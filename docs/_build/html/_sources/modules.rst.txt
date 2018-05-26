@@ -1,7 +1,9 @@
-MP_to_Word
+testsphinx
 ==========
 
 .. toctree::
    :maxdepth: 4
 
-   src
+   main
+   serialization
+   utils

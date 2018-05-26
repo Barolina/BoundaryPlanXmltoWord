@@ -1,0 +1,2122 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<MP NameSoftware="OfficeCI" VersionSoftware="0.1" Version="06" GUID="223A9B5D-27F4-4CA3-9123-92B23BCFF88B" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<Package>
+<FormParcels Method="5">
+<NewParcel Definition=":ЗУ1">
+<CadastralBlock>36:22:0000000</CadastralBlock>
+<ProvidingPassCadastralNumbers>
+<Other>Охранная зона объекта недвижимости сооружение - линия электропередач ВЛ-35 кВ Петропавловка-Березняги-Н.Лиман-Монастырщина </Other>
+</ProvidingPassCadastralNumbers>
+<ObjectRealty>
+<InnerCadastralNumbers>
+<CadastralNumber>36:22:0000000:2201</CadastralNumber>
+</InnerCadastralNumbers>
+</ObjectRealty>
+<Area>
+<Area>401</Area>
+<Unit>055</Unit>
+<Inaccuracy>93</Inaccuracy>
+</Area>
+<Address AddressOrLocation="0">
+<OKATO>20237000000</OKATO>
+<KLADR>3602300000000</KLADR>
+<Region>36</Region>
+<District Name="Петропавловский" Type="р-н"></District>
+<Other>Петропавловское сельское поселение, ВЛ-35 кВ Петропавловка - Березняги - Н.Лиман - Монастырщина</Other>
+</Address>
+<Category Category="003003000000">
+<DocCategory>
+<CodeDocument>558401020000</CodeDocument>
+<Name>Постановление Администрации Петропавловский муниципального района Воронежской области</Name>
+<Number>245</Number>
+<Date>2018-05-04</Date>
+</DocCategory>
+</Category>
+<LandUse LandUse="214003001000"></LandUse>
+<Contours>
+<NewContour Definition="1">
+<Area>
+<Area>5.5</Area>
+<Unit>055</Unit>
+<Inaccuracy>2</Inaccuracy>
+</Area>
+<EntitySpatial EntSys="l6CF93676-410F-49B2-8F0A-A8D13717158Bl">
+<SpatialElement>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="340152.19" Y="2207693.3" NumGeopoint="1" DeltaGeopoint="0.5" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="340149.87" Y="2207693.64" NumGeopoint="4" DeltaGeopoint="0.5" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="340150.21" Y="2207695.96" NumGeopoint="3" DeltaGeopoint="0.5" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="340152.53" Y="2207695.62" NumGeopoint="2" DeltaGeopoint="0.5" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="340152.19" Y="2207693.3" NumGeopoint="1" DeltaGeopoint="0.5" PointPref="н"></Ordinate>
+</SpelementUnit>
+</SpatialElement>
+<Borders>
+<Border Spatial="1" Point1="1" Point2="2">
+<Edge>
+<Length>2.34</Length>
+</Edge>
+</Border>
+<Border Spatial="1" Point1="2" Point2="3">
+<Edge>
+<Length>2.34</Length>
+</Edge>
+</Border>
+<Border Spatial="1" Point1="3" Point2="4">
+<Edge>
+<Length>2.34</Length>
+</Edge>
+</Border>
+<Border Spatial="1" Point1="4" Point2="5">
+<Edge>
+<Length>2.34</Length>
+</Edge>
+</Border>
+<Border Spatial="1" Point1="5" Point2="1">
+<Edge>
+<Length>2.34</Length>
+</Edge>
+</Border>
+</Borders>
+</EntitySpatial>
+</NewContour>
+<NewContour Definition="2">
+<Area>
+<Area>5.5</Area>
+<Unit>055</Unit>
+<Inaccuracy>2</Inaccuracy>
+</Area>
+<EntitySpatial EntSys="l6CF93676-410F-49B2-8F0A-A8D13717158Bl">
+<SpatialElement>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="340172.37" Y="2207829.28" NumGeopoint="5" DeltaGeopoint="0.5" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="340170.05" Y="2207829.62" NumGeopoint="8" DeltaGeopoint="0.5" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="340170.39" Y="2207831.94" NumGeopoint="7" DeltaGeopoint="0.5" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="340172.71" Y="2207831.6" NumGeopoint="6" DeltaGeopoint="0.5" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="340172.37" Y="2207829.28" NumGeopoint="5" DeltaGeopoint="0.5" PointPref="н"></Ordinate>
+</SpelementUnit>
+</SpatialElement>
+<Borders>
+<Border Spatial="1" Point1="1" Point2="2">
+<Edge>
+<Length>2.34</Length>
+</Edge>
+</Border>
+<Border Spatial="1" Point1="2" Point2="3">
+<Edge>
+<Length>2.34</Length>
+</Edge>
+</Border>
+<Border Spatial="1" Point1="3" Point2="4">
+<Edge>
+<Length>2.34</Length>
+</Edge>
+</Border>
+<Border Spatial="1" Point1="4" Point2="5">
+<Edge>
+<Length>2.34</Length>
+</Edge>
+</Border>
+<Border Spatial="1" Point1="5" Point2="1">
+<Edge>
+<Length>2.34</Length>
+</Edge>
+</Border>
+</Borders>
+</EntitySpatial>
+</NewContour>
+<NewContour Definition="3">
+<Area>
+<Area>39.64</Area>
+<Unit>055</Unit>
+<Inaccuracy>6</Inaccuracy>
+</Area>
+<EntitySpatial EntSys="l6CF93676-410F-49B2-8F0A-A8D13717158Bl">
+<SpatialElement>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="340194.84" Y="2207958.92" NumGeopoint="9" DeltaGeopoint="0.5" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="340189.2" Y="2207956.12" NumGeopoint="12" DeltaGeopoint="0.5" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="340186.41" Y="2207961.77" NumGeopoint="11" DeltaGeopoint="0.5" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="340192.05" Y="2207964.56" NumGeopoint="10" DeltaGeopoint="0.5" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="340194.84" Y="2207958.92" NumGeopoint="9" DeltaGeopoint="0.5" PointPref="н"></Ordinate>
+</SpelementUnit>
+</SpatialElement>
+<Borders>
+<Border Spatial="1" Point1="1" Point2="2">
+<Edge>
+<Length>6.3</Length>
+</Edge>
+</Border>
+<Border Spatial="1" Point1="2" Point2="3">
+<Edge>
+<Length>6.3</Length>
+</Edge>
+</Border>
+<Border Spatial="1" Point1="3" Point2="4">
+<Edge>
+<Length>6.29</Length>
+</Edge>
+</Border>
+<Border Spatial="1" Point1="4" Point2="5">
+<Edge>
+<Length>6.29</Length>
+</Edge>
+</Border>
+<Border Spatial="1" Point1="5" Point2="1">
+<Edge>
+<Length>6.3</Length>
+</Edge>
+</Border>
+</Borders>
+</EntitySpatial>
+</NewContour>
+<NewContour Definition="4">
+<Area>
+<Area>5.5</Area>
+<Unit>055</Unit>
+<Inaccuracy>2</Inaccuracy>
+</Area>
+<EntitySpatial EntSys="l6CF93676-410F-49B2-8F0A-A8D13717158Bl">
+<SpatialElement>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="340004.97" Y="2208035.03" NumGeopoint="13" DeltaGeopoint="0.5" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="340002.8" Y="2208035.92" NumGeopoint="16" DeltaGeopoint="0.5" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="340003.69" Y="2208038.09" NumGeopoint="15" DeltaGeopoint="0.5" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="340005.86" Y="2208037.2" NumGeopoint="14" DeltaGeopoint="0.5" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="340004.97" Y="2208035.03" NumGeopoint="13" DeltaGeopoint="0.5" PointPref="н"></Ordinate>
+</SpelementUnit>
+</SpatialElement>
+<Borders>
+<Border Spatial="1" Point1="1" Point2="2">
+<Edge>
+<Length>2.35</Length>
+</Edge>
+</Border>
+<Border Spatial="1" Point1="2" Point2="3">
+<Edge>
+<Length>2.35</Length>
+</Edge>
+</Border>
+<Border Spatial="1" Point1="3" Point2="4">
+<Edge>
+<Length>2.35</Length>
+</Edge>
+</Border>
+<Border Spatial="1" Point1="4" Point2="5">
+<Edge>
+<Length>2.35</Length>
+</Edge>
+</Border>
+<Border Spatial="1" Point1="5" Point2="1">
+<Edge>
+<Length>2.35</Length>
+</Edge>
+</Border>
+</Borders>
+</EntitySpatial>
+</NewContour>
+<NewContour Definition="5">
+<Area>
+<Area>5.5</Area>
+<Unit>055</Unit>
+<Inaccuracy>2</Inaccuracy>
+</Area>
+<EntitySpatial EntSys="l6CF93676-410F-49B2-8F0A-A8D13717158Bl">
+<SpatialElement>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="339828.47" Y="2208107.83" NumGeopoint="17" DeltaGeopoint="0.5" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="339826.3" Y="2208108.72" NumGeopoint="20" DeltaGeopoint="0.5" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="339827.19" Y="2208110.89" NumGeopoint="19" DeltaGeopoint="0.5" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="339829.36" Y="2208110" NumGeopoint="18" DeltaGeopoint="0.5" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="339828.47" Y="2208107.83" NumGeopoint="17" DeltaGeopoint="0.5" PointPref="н"></Ordinate>
+</SpelementUnit>
+</SpatialElement>
+<Borders>
+<Border Spatial="1" Point1="1" Point2="2">
+<Edge>
+<Length>2.35</Length>
+</Edge>
+</Border>
+<Border Spatial="1" Point1="2" Point2="3">
+<Edge>
+<Length>2.35</Length>
+</Edge>
+</Border>
+<Border Spatial="1" Point1="3" Point2="4">
+<Edge>
+<Length>2.35</Length>
+</Edge>
+</Border>
+<Border Spatial="1" Point1="4" Point2="5">
+<Edge>
+<Length>2.35</Length>
+</Edge>
+</Border>
+<Border Spatial="1" Point1="5" Point2="1">
+<Edge>
+<Length>2.35</Length>
+</Edge>
+</Border>
+</Borders>
+</EntitySpatial>
+</NewContour>
+<NewContour Definition="6">
+<Area>
+<Area>39.6</Area>
+<Unit>055</Unit>
+<Inaccuracy>6</Inaccuracy>
+</Area>
+<EntitySpatial EntSys="l6CF93676-410F-49B2-8F0A-A8D13717158Bl">
+<SpatialElement>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="339484.81" Y="2208248.09" NumGeopoint="21" DeltaGeopoint="0.5" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="339479.07" Y="2208250.67" NumGeopoint="24" DeltaGeopoint="0.5" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="339481.65" Y="2208256.41" NumGeopoint="23" DeltaGeopoint="0.5" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="339487.39" Y="2208253.83" NumGeopoint="22" DeltaGeopoint="0.5" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="339484.81" Y="2208248.09" NumGeopoint="21" DeltaGeopoint="0.5" PointPref="н"></Ordinate>
+</SpelementUnit>
+</SpatialElement>
+<Borders>
+<Border Spatial="1" Point1="1" Point2="2">
+<Edge>
+<Length>6.29</Length>
+</Edge>
+</Border>
+<Border Spatial="1" Point1="2" Point2="3">
+<Edge>
+<Length>6.29</Length>
+</Edge>
+</Border>
+<Border Spatial="1" Point1="3" Point2="4">
+<Edge>
+<Length>6.29</Length>
+</Edge>
+</Border>
+<Border Spatial="1" Point1="4" Point2="5">
+<Edge>
+<Length>6.29</Length>
+</Edge>
+</Border>
+<Border Spatial="1" Point1="5" Point2="1">
+<Edge>
+<Length>6.29</Length>
+</Edge>
+</Border>
+</Borders>
+</EntitySpatial>
+</NewContour>
+<NewContour Definition="7">
+<Area>
+<Area>5.5</Area>
+<Unit>055</Unit>
+<Inaccuracy>2</Inaccuracy>
+</Area>
+<EntitySpatial EntSys="l6CF93676-410F-49B2-8F0A-A8D13717158Bl">
+<SpatialElement>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="339313.18" Y="2208295.77" NumGeopoint="25" DeltaGeopoint="0.5" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="339310.91" Y="2208296.36" NumGeopoint="28" DeltaGeopoint="0.5" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="339311.5" Y="2208298.63" NumGeopoint="27" DeltaGeopoint="0.5" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="339313.77" Y="2208298.04" NumGeopoint="26" DeltaGeopoint="0.5" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="339313.18" Y="2208295.77" NumGeopoint="25" DeltaGeopoint="0.5" PointPref="н"></Ordinate>
+</SpelementUnit>
+</SpatialElement>
+<Borders>
+<Border Spatial="1" Point1="1" Point2="2">
+<Edge>
+<Length>2.35</Length>
+</Edge>
+</Border>
+<Border Spatial="1" Point1="2" Point2="3">
+<Edge>
+<Length>2.35</Length>
+</Edge>
+</Border>
+<Border Spatial="1" Point1="3" Point2="4">
+<Edge>
+<Length>2.35</Length>
+</Edge>
+</Border>
+<Border Spatial="1" Point1="4" Point2="5">
+<Edge>
+<Length>2.35</Length>
+</Edge>
+</Border>
+<Border Spatial="1" Point1="5" Point2="1">
+<Edge>
+<Length>2.35</Length>
+</Edge>
+</Border>
+</Borders>
+</EntitySpatial>
+</NewContour>
+<NewContour Definition="8">
+<Area>
+<Area>5.5</Area>
+<Unit>055</Unit>
+<Inaccuracy>2</Inaccuracy>
+</Area>
+<EntitySpatial EntSys="l6CF93676-410F-49B2-8F0A-A8D13717158Bl">
+<SpatialElement>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="339148.17" Y="2208338.83" NumGeopoint="29" DeltaGeopoint="0.5" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="339145.9" Y="2208339.42" NumGeopoint="32" DeltaGeopoint="0.5" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="339146.49" Y="2208341.69" NumGeopoint="31" DeltaGeopoint="0.5" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="339148.76" Y="2208341.1" NumGeopoint="30" DeltaGeopoint="0.5" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="339148.17" Y="2208338.83" NumGeopoint="29" DeltaGeopoint="0.5" PointPref="н"></Ordinate>
+</SpelementUnit>
+</SpatialElement>
+<Borders>
+<Border Spatial="1" Point1="1" Point2="2">
+<Edge>
+<Length>2.35</Length>
+</Edge>
+</Border>
+<Border Spatial="1" Point1="2" Point2="3">
+<Edge>
+<Length>2.35</Length>
+</Edge>
+</Border>
+<Border Spatial="1" Point1="3" Point2="4">
+<Edge>
+<Length>2.35</Length>
+</Edge>
+</Border>
+<Border Spatial="1" Point1="4" Point2="5">
+<Edge>
+<Length>2.35</Length>
+</Edge>
+</Border>
+<Border Spatial="1" Point1="5" Point2="1">
+<Edge>
+<Length>2.35</Length>
+</Edge>
+</Border>
+</Borders>
+</EntitySpatial>
+</NewContour>
+<NewContour Definition="9">
+<Area>
+<Area>5.5</Area>
+<Unit>055</Unit>
+<Inaccuracy>2</Inaccuracy>
+</Area>
+<EntitySpatial EntSys="l6CF93676-410F-49B2-8F0A-A8D13717158Bl">
+<SpatialElement>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="339060.95" Y="2208361.82" NumGeopoint="33" DeltaGeopoint="0.5" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="339058.68" Y="2208362.41" NumGeopoint="36" DeltaGeopoint="0.5" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="339059.27" Y="2208364.68" NumGeopoint="35" DeltaGeopoint="0.5" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="339061.54" Y="2208364.09" NumGeopoint="34" DeltaGeopoint="0.5" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="339060.95" Y="2208361.82" NumGeopoint="33" DeltaGeopoint="0.5" PointPref="н"></Ordinate>
+</SpelementUnit>
+</SpatialElement>
+<Borders>
+<Border Spatial="1" Point1="1" Point2="2">
+<Edge>
+<Length>2.35</Length>
+</Edge>
+</Border>
+<Border Spatial="1" Point1="2" Point2="3">
+<Edge>
+<Length>2.35</Length>
+</Edge>
+</Border>
+<Border Spatial="1" Point1="3" Point2="4">
+<Edge>
+<Length>2.35</Length>
+</Edge>
+</Border>
+<Border Spatial="1" Point1="4" Point2="5">
+<Edge>
+<Length>2.35</Length>
+</Edge>
+</Border>
+<Border Spatial="1" Point1="5" Point2="1">
+<Edge>
+<Length>2.35</Length>
+</Edge>
+</Border>
+</Borders>
+</EntitySpatial>
+</NewContour>
+<NewContour Definition="10">
+<Area>
+<Area>5.5</Area>
+<Unit>055</Unit>
+<Inaccuracy>2</Inaccuracy>
+</Area>
+<EntitySpatial EntSys="l6CF93676-410F-49B2-8F0A-A8D13717158Bl">
+<SpatialElement>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="338847.87" Y="2208417.97" NumGeopoint="37" DeltaGeopoint="0.5" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="338845.6" Y="2208418.56" NumGeopoint="40" DeltaGeopoint="0.5" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="338846.19" Y="2208420.83" NumGeopoint="39" DeltaGeopoint="0.5" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="338848.46" Y="2208420.24" NumGeopoint="38" DeltaGeopoint="0.5" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="338847.87" Y="2208417.97" NumGeopoint="37" DeltaGeopoint="0.5" PointPref="н"></Ordinate>
+</SpelementUnit>
+</SpatialElement>
+<Borders>
+<Border Spatial="1" Point1="1" Point2="2">
+<Edge>
+<Length>2.35</Length>
+</Edge>
+</Border>
+<Border Spatial="1" Point1="2" Point2="3">
+<Edge>
+<Length>2.35</Length>
+</Edge>
+</Border>
+<Border Spatial="1" Point1="3" Point2="4">
+<Edge>
+<Length>2.35</Length>
+</Edge>
+</Border>
+<Border Spatial="1" Point1="4" Point2="5">
+<Edge>
+<Length>2.35</Length>
+</Edge>
+</Border>
+<Border Spatial="1" Point1="5" Point2="1">
+<Edge>
+<Length>2.35</Length>
+</Edge>
+</Border>
+</Borders>
+</EntitySpatial>
+</NewContour>
+<NewContour Definition="11">
+<Area>
+<Area>5.5</Area>
+<Unit>055</Unit>
+<Inaccuracy>2</Inaccuracy>
+</Area>
+<EntitySpatial EntSys="l6CF93676-410F-49B2-8F0A-A8D13717158Bl">
+<SpatialElement>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="338611.15" Y="2208480.07" NumGeopoint="41" DeltaGeopoint="0.5" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="338608.88" Y="2208480.66" NumGeopoint="44" DeltaGeopoint="0.5" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="338609.47" Y="2208482.93" NumGeopoint="43" DeltaGeopoint="0.5" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="338611.74" Y="2208482.34" NumGeopoint="42" DeltaGeopoint="0.5" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="338611.15" Y="2208480.07" NumGeopoint="41" DeltaGeopoint="0.5" PointPref="н"></Ordinate>
+</SpelementUnit>
+</SpatialElement>
+<Borders>
+<Border Spatial="1" Point1="1" Point2="2">
+<Edge>
+<Length>2.35</Length>
+</Edge>
+</Border>
+<Border Spatial="1" Point1="2" Point2="3">
+<Edge>
+<Length>2.35</Length>
+</Edge>
+</Border>
+<Border Spatial="1" Point1="3" Point2="4">
+<Edge>
+<Length>2.35</Length>
+</Edge>
+</Border>
+<Border Spatial="1" Point1="4" Point2="5">
+<Edge>
+<Length>2.35</Length>
+</Edge>
+</Border>
+<Border Spatial="1" Point1="5" Point2="1">
+<Edge>
+<Length>2.35</Length>
+</Edge>
+</Border>
+</Borders>
+</EntitySpatial>
+</NewContour>
+<NewContour Definition="12">
+<Area>
+<Area>39.72</Area>
+<Unit>055</Unit>
+<Inaccuracy>6</Inaccuracy>
+</Area>
+<EntitySpatial EntSys="l6CF93676-410F-49B2-8F0A-A8D13717158Bl">
+<SpatialElement>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="338482.63" Y="2208511.22" NumGeopoint="45" DeltaGeopoint="0.5" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="338477.52" Y="2208514.9" NumGeopoint="48" DeltaGeopoint="0.5" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="338481.18" Y="2208520.02" NumGeopoint="47" DeltaGeopoint="0.5" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="338486.31" Y="2208516.34" NumGeopoint="46" DeltaGeopoint="0.5" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="338482.63" Y="2208511.22" NumGeopoint="45" DeltaGeopoint="0.5" PointPref="н"></Ordinate>
+</SpelementUnit>
+</SpatialElement>
+<Borders>
+<Border Spatial="1" Point1="1" Point2="2">
+<Edge>
+<Length>6.3</Length>
+</Edge>
+</Border>
+<Border Spatial="1" Point1="2" Point2="3">
+<Edge>
+<Length>6.29</Length>
+</Edge>
+</Border>
+<Border Spatial="1" Point1="3" Point2="4">
+<Edge>
+<Length>6.31</Length>
+</Edge>
+</Border>
+<Border Spatial="1" Point1="4" Point2="5">
+<Edge>
+<Length>6.31</Length>
+</Edge>
+</Border>
+<Border Spatial="1" Point1="5" Point2="1">
+<Edge>
+<Length>6.3</Length>
+</Edge>
+</Border>
+</Borders>
+</EntitySpatial>
+</NewContour>
+<NewContour Definition="13">
+<Area>
+<Area>5.52</Area>
+<Unit>055</Unit>
+<Inaccuracy>2</Inaccuracy>
+</Area>
+<EntitySpatial EntSys="l6CF93676-410F-49B2-8F0A-A8D13717158Bl">
+<SpatialElement>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="338322.63" Y="2208638.37" NumGeopoint="49" DeltaGeopoint="0.5" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="338320.78" Y="2208639.82" NumGeopoint="52" DeltaGeopoint="0.5" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="338322.23" Y="2208641.67" NumGeopoint="51" DeltaGeopoint="0.5" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="338324.08" Y="2208640.22" NumGeopoint="50" DeltaGeopoint="0.5" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="338322.63" Y="2208638.37" NumGeopoint="49" DeltaGeopoint="0.5" PointPref="н"></Ordinate>
+</SpelementUnit>
+</SpatialElement>
+<Borders>
+<Border Spatial="1" Point1="1" Point2="2">
+<Edge>
+<Length>2.35</Length>
+</Edge>
+</Border>
+<Border Spatial="1" Point1="2" Point2="3">
+<Edge>
+<Length>2.35</Length>
+</Edge>
+</Border>
+<Border Spatial="1" Point1="3" Point2="4">
+<Edge>
+<Length>2.35</Length>
+</Edge>
+</Border>
+<Border Spatial="1" Point1="4" Point2="5">
+<Edge>
+<Length>2.35</Length>
+</Edge>
+</Border>
+<Border Spatial="1" Point1="5" Point2="1">
+<Edge>
+<Length>2.35</Length>
+</Edge>
+</Border>
+</Borders>
+</EntitySpatial>
+</NewContour>
+<NewContour Definition="14">
+<Area>
+<Area>5.53</Area>
+<Unit>055</Unit>
+<Inaccuracy>2</Inaccuracy>
+</Area>
+<EntitySpatial EntSys="l6CF93676-410F-49B2-8F0A-A8D13717158Bl">
+<SpatialElement>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="338221.71" Y="2208717.09" NumGeopoint="53" DeltaGeopoint="0.5" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="338219.86" Y="2208718.54" NumGeopoint="56" DeltaGeopoint="0.5" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="338221.31" Y="2208720.39" NumGeopoint="55" DeltaGeopoint="0.5" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="338223.16" Y="2208718.94" NumGeopoint="54" DeltaGeopoint="0.5" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="338221.71" Y="2208717.09" NumGeopoint="53" DeltaGeopoint="0.5" PointPref="н"></Ordinate>
+</SpelementUnit>
+</SpatialElement>
+<Borders>
+<Border Spatial="1" Point1="1" Point2="2">
+<Edge>
+<Length>2.35</Length>
+</Edge>
+</Border>
+<Border Spatial="1" Point1="2" Point2="3">
+<Edge>
+<Length>2.35</Length>
+</Edge>
+</Border>
+<Border Spatial="1" Point1="3" Point2="4">
+<Edge>
+<Length>2.35</Length>
+</Edge>
+</Border>
+<Border Spatial="1" Point1="4" Point2="5">
+<Edge>
+<Length>2.35</Length>
+</Edge>
+</Border>
+<Border Spatial="1" Point1="5" Point2="1">
+<Edge>
+<Length>2.35</Length>
+</Edge>
+</Border>
+</Borders>
+</EntitySpatial>
+</NewContour>
+<NewContour Definition="15">
+<Area>
+<Area>5.52</Area>
+<Unit>055</Unit>
+<Inaccuracy>2</Inaccuracy>
+</Area>
+<EntitySpatial EntSys="l6CF93676-410F-49B2-8F0A-A8D13717158Bl">
+<SpatialElement>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="338049.16" Y="2208851.68" NumGeopoint="57" DeltaGeopoint="0.5" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="338047.31" Y="2208853.13" NumGeopoint="60" DeltaGeopoint="0.5" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="338048.76" Y="2208854.98" NumGeopoint="59" DeltaGeopoint="0.5" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="338050.61" Y="2208853.53" NumGeopoint="58" DeltaGeopoint="0.5" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="338049.16" Y="2208851.68" NumGeopoint="57" DeltaGeopoint="0.5" PointPref="н"></Ordinate>
+</SpelementUnit>
+</SpatialElement>
+<Borders>
+<Border Spatial="1" Point1="1" Point2="2">
+<Edge>
+<Length>2.35</Length>
+</Edge>
+</Border>
+<Border Spatial="1" Point1="2" Point2="3">
+<Edge>
+<Length>2.35</Length>
+</Edge>
+</Border>
+<Border Spatial="1" Point1="3" Point2="4">
+<Edge>
+<Length>2.35</Length>
+</Edge>
+</Border>
+<Border Spatial="1" Point1="4" Point2="5">
+<Edge>
+<Length>2.35</Length>
+</Edge>
+</Border>
+<Border Spatial="1" Point1="5" Point2="1">
+<Edge>
+<Length>2.35</Length>
+</Edge>
+</Border>
+</Borders>
+</EntitySpatial>
+</NewContour>
+<NewContour Definition="16">
+<Area>
+<Area>5.52</Area>
+<Unit>055</Unit>
+<Inaccuracy>2</Inaccuracy>
+</Area>
+<EntitySpatial EntSys="l6CF93676-410F-49B2-8F0A-A8D13717158Bl">
+<SpatialElement>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="337909.85" Y="2208961.25" NumGeopoint="61" DeltaGeopoint="0.5" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="337908" Y="2208962.7" NumGeopoint="64" DeltaGeopoint="0.5" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="337909.45" Y="2208964.55" NumGeopoint="63" DeltaGeopoint="0.5" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="337911.3" Y="2208963.1" NumGeopoint="62" DeltaGeopoint="0.5" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="337909.85" Y="2208961.25" NumGeopoint="61" DeltaGeopoint="0.5" PointPref="н"></Ordinate>
+</SpelementUnit>
+</SpatialElement>
+<Borders>
+<Border Spatial="1" Point1="1" Point2="2">
+<Edge>
+<Length>2.35</Length>
+</Edge>
+</Border>
+<Border Spatial="1" Point1="2" Point2="3">
+<Edge>
+<Length>2.35</Length>
+</Edge>
+</Border>
+<Border Spatial="1" Point1="3" Point2="4">
+<Edge>
+<Length>2.35</Length>
+</Edge>
+</Border>
+<Border Spatial="1" Point1="4" Point2="5">
+<Edge>
+<Length>2.35</Length>
+</Edge>
+</Border>
+<Border Spatial="1" Point1="5" Point2="1">
+<Edge>
+<Length>2.35</Length>
+</Edge>
+</Border>
+</Borders>
+</EntitySpatial>
+</NewContour>
+<NewContour Definition="17">
+<Area>
+<Area>5.52</Area>
+<Unit>055</Unit>
+<Inaccuracy>2</Inaccuracy>
+</Area>
+<EntitySpatial EntSys="l6CF93676-410F-49B2-8F0A-A8D13717158Bl">
+<SpatialElement>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="337796.8" Y="2209050.53" NumGeopoint="65" DeltaGeopoint="0.5" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="337794.96" Y="2209051.99" NumGeopoint="68" DeltaGeopoint="0.5" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="337796.42" Y="2209053.83" NumGeopoint="67" DeltaGeopoint="0.5" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="337798.26" Y="2209052.37" NumGeopoint="66" DeltaGeopoint="0.5" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="337796.8" Y="2209050.53" NumGeopoint="65" DeltaGeopoint="0.5" PointPref="н"></Ordinate>
+</SpelementUnit>
+</SpatialElement>
+<Borders>
+<Border Spatial="1" Point1="1" Point2="2">
+<Edge>
+<Length>2.35</Length>
+</Edge>
+</Border>
+<Border Spatial="1" Point1="2" Point2="3">
+<Edge>
+<Length>2.35</Length>
+</Edge>
+</Border>
+<Border Spatial="1" Point1="3" Point2="4">
+<Edge>
+<Length>2.35</Length>
+</Edge>
+</Border>
+<Border Spatial="1" Point1="4" Point2="5">
+<Edge>
+<Length>2.35</Length>
+</Edge>
+</Border>
+<Border Spatial="1" Point1="5" Point2="1">
+<Edge>
+<Length>2.35</Length>
+</Edge>
+</Border>
+</Borders>
+</EntitySpatial>
+</NewContour>
+<NewContour Definition="18">
+<Area>
+<Area>39.63</Area>
+<Unit>055</Unit>
+<Inaccuracy>6</Inaccuracy>
+</Area>
+<EntitySpatial EntSys="l6CF93676-410F-49B2-8F0A-A8D13717158Bl">
+<SpatialElement>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="337669.06" Y="2209148.56" NumGeopoint="69" DeltaGeopoint="0.5" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="337662.78" Y="2209149.04" NumGeopoint="72" DeltaGeopoint="0.5" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="337663.25" Y="2209155.31" NumGeopoint="71" DeltaGeopoint="0.5" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="337669.53" Y="2209154.84" NumGeopoint="70" DeltaGeopoint="0.5" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="337669.06" Y="2209148.56" NumGeopoint="69" DeltaGeopoint="0.5" PointPref="н"></Ordinate>
+</SpelementUnit>
+</SpatialElement>
+<Borders>
+<Border Spatial="1" Point1="1" Point2="2">
+<Edge>
+<Length>6.3</Length>
+</Edge>
+</Border>
+<Border Spatial="1" Point1="2" Point2="3">
+<Edge>
+<Length>6.29</Length>
+</Edge>
+</Border>
+<Border Spatial="1" Point1="3" Point2="4">
+<Edge>
+<Length>6.3</Length>
+</Edge>
+</Border>
+<Border Spatial="1" Point1="4" Point2="5">
+<Edge>
+<Length>6.3</Length>
+</Edge>
+</Border>
+<Border Spatial="1" Point1="5" Point2="1">
+<Edge>
+<Length>6.3</Length>
+</Edge>
+</Border>
+</Borders>
+</EntitySpatial>
+</NewContour>
+<NewContour Definition="19">
+<Area>
+<Area>5.48</Area>
+<Unit>055</Unit>
+<Inaccuracy>2</Inaccuracy>
+</Area>
+<EntitySpatial EntSys="l6CF93676-410F-49B2-8F0A-A8D13717158Bl">
+<SpatialElement>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="337466.23" Y="2209131.09" NumGeopoint="73" DeltaGeopoint="0.5" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="337463.9" Y="2209130.86" NumGeopoint="76" DeltaGeopoint="0.5" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="337463.67" Y="2209133.19" NumGeopoint="75" DeltaGeopoint="0.5" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="337466" Y="2209133.42" NumGeopoint="74" DeltaGeopoint="0.5" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="337466.23" Y="2209131.09" NumGeopoint="73" DeltaGeopoint="0.5" PointPref="н"></Ordinate>
+</SpelementUnit>
+</SpatialElement>
+<Borders>
+<Border Spatial="1" Point1="1" Point2="2">
+<Edge>
+<Length>2.34</Length>
+</Edge>
+</Border>
+<Border Spatial="1" Point1="2" Point2="3">
+<Edge>
+<Length>2.34</Length>
+</Edge>
+</Border>
+<Border Spatial="1" Point1="3" Point2="4">
+<Edge>
+<Length>2.34</Length>
+</Edge>
+</Border>
+<Border Spatial="1" Point1="4" Point2="5">
+<Edge>
+<Length>2.34</Length>
+</Edge>
+</Border>
+<Border Spatial="1" Point1="5" Point2="1">
+<Edge>
+<Length>2.34</Length>
+</Edge>
+</Border>
+</Borders>
+</EntitySpatial>
+</NewContour>
+<NewContour Definition="20">
+<Area>
+<Area>39.74</Area>
+<Unit>055</Unit>
+<Inaccuracy>6</Inaccuracy>
+</Area>
+<EntitySpatial EntSys="l6CF93676-410F-49B2-8F0A-A8D13717158Bl">
+<SpatialElement>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="337305.47" Y="2209112.2" NumGeopoint="77" DeltaGeopoint="0.5" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="337299.56" Y="2209114.42" NumGeopoint="80" DeltaGeopoint="0.5" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="337301.79" Y="2209120.32" NumGeopoint="79" DeltaGeopoint="0.5" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="337307.68" Y="2209118.1" NumGeopoint="78" DeltaGeopoint="0.5" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="337305.47" Y="2209112.2" NumGeopoint="77" DeltaGeopoint="0.5" PointPref="н"></Ordinate>
+</SpelementUnit>
+</SpatialElement>
+<Borders>
+<Border Spatial="1" Point1="1" Point2="2">
+<Edge>
+<Length>6.31</Length>
+</Edge>
+</Border>
+<Border Spatial="1" Point1="2" Point2="3">
+<Edge>
+<Length>6.31</Length>
+</Edge>
+</Border>
+<Border Spatial="1" Point1="3" Point2="4">
+<Edge>
+<Length>6.29</Length>
+</Edge>
+</Border>
+<Border Spatial="1" Point1="4" Point2="5">
+<Edge>
+<Length>6.3</Length>
+</Edge>
+</Border>
+<Border Spatial="1" Point1="5" Point2="1">
+<Edge>
+<Length>6.31</Length>
+</Edge>
+</Border>
+</Borders>
+</EntitySpatial>
+</NewContour>
+<NewContour Definition="21">
+<Area>
+<Area>5.51</Area>
+<Unit>055</Unit>
+<Inaccuracy>2</Inaccuracy>
+</Area>
+<EntitySpatial EntSys="l6CF93676-410F-49B2-8F0A-A8D13717158Bl">
+<SpatialElement>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="337214.52" Y="2209201.2" NumGeopoint="81" DeltaGeopoint="0.5" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="337212.84" Y="2209202.84" NumGeopoint="84" DeltaGeopoint="0.5" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="337214.48" Y="2209204.52" NumGeopoint="83" DeltaGeopoint="0.5" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="337216.16" Y="2209202.88" NumGeopoint="82" DeltaGeopoint="0.5" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="337214.52" Y="2209201.2" NumGeopoint="81" DeltaGeopoint="0.5" PointPref="н"></Ordinate>
+</SpelementUnit>
+</SpatialElement>
+<Borders>
+<Border Spatial="1" Point1="1" Point2="2">
+<Edge>
+<Length>2.35</Length>
+</Edge>
+</Border>
+<Border Spatial="1" Point1="2" Point2="3">
+<Edge>
+<Length>2.35</Length>
+</Edge>
+</Border>
+<Border Spatial="1" Point1="3" Point2="4">
+<Edge>
+<Length>2.35</Length>
+</Edge>
+</Border>
+<Border Spatial="1" Point1="4" Point2="5">
+<Edge>
+<Length>2.35</Length>
+</Edge>
+</Border>
+<Border Spatial="1" Point1="5" Point2="1">
+<Edge>
+<Length>2.35</Length>
+</Edge>
+</Border>
+</Borders>
+</EntitySpatial>
+</NewContour>
+<NewContour Definition="22">
+<Area>
+<Area>5.51</Area>
+<Unit>055</Unit>
+<Inaccuracy>2</Inaccuracy>
+</Area>
+<EntitySpatial EntSys="l6CF93676-410F-49B2-8F0A-A8D13717158Bl">
+<SpatialElement>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="337123.72" Y="2209289.42" NumGeopoint="85" DeltaGeopoint="0.5" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="337122.04" Y="2209291.06" NumGeopoint="88" DeltaGeopoint="0.5" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="337123.68" Y="2209292.74" NumGeopoint="87" DeltaGeopoint="0.5" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="337125.36" Y="2209291.1" NumGeopoint="86" DeltaGeopoint="0.5" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="337123.72" Y="2209289.42" NumGeopoint="85" DeltaGeopoint="0.5" PointPref="н"></Ordinate>
+</SpelementUnit>
+</SpatialElement>
+<Borders>
+<Border Spatial="1" Point1="1" Point2="2">
+<Edge>
+<Length>2.35</Length>
+</Edge>
+</Border>
+<Border Spatial="1" Point1="2" Point2="3">
+<Edge>
+<Length>2.35</Length>
+</Edge>
+</Border>
+<Border Spatial="1" Point1="3" Point2="4">
+<Edge>
+<Length>2.35</Length>
+</Edge>
+</Border>
+<Border Spatial="1" Point1="4" Point2="5">
+<Edge>
+<Length>2.35</Length>
+</Edge>
+</Border>
+<Border Spatial="1" Point1="5" Point2="1">
+<Edge>
+<Length>2.35</Length>
+</Edge>
+</Border>
+</Borders>
+</EntitySpatial>
+</NewContour>
+<NewContour Definition="23">
+<Area>
+<Area>5.51</Area>
+<Unit>055</Unit>
+<Inaccuracy>2</Inaccuracy>
+</Area>
+<EntitySpatial EntSys="l6CF93676-410F-49B2-8F0A-A8D13717158Bl">
+<SpatialElement>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="337044.73" Y="2209366.18" NumGeopoint="89" DeltaGeopoint="0.5" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="337043.05" Y="2209367.82" NumGeopoint="92" DeltaGeopoint="0.5" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="337044.69" Y="2209369.5" NumGeopoint="91" DeltaGeopoint="0.5" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="337046.37" Y="2209367.86" NumGeopoint="90" DeltaGeopoint="0.5" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="337044.73" Y="2209366.18" NumGeopoint="89" DeltaGeopoint="0.5" PointPref="н"></Ordinate>
+</SpelementUnit>
+</SpatialElement>
+<Borders>
+<Border Spatial="1" Point1="1" Point2="2">
+<Edge>
+<Length>2.35</Length>
+</Edge>
+</Border>
+<Border Spatial="1" Point1="2" Point2="3">
+<Edge>
+<Length>2.35</Length>
+</Edge>
+</Border>
+<Border Spatial="1" Point1="3" Point2="4">
+<Edge>
+<Length>2.35</Length>
+</Edge>
+</Border>
+<Border Spatial="1" Point1="4" Point2="5">
+<Edge>
+<Length>2.35</Length>
+</Edge>
+</Border>
+<Border Spatial="1" Point1="5" Point2="1">
+<Edge>
+<Length>2.35</Length>
+</Edge>
+</Border>
+</Borders>
+</EntitySpatial>
+</NewContour>
+<NewContour Definition="24">
+<Area>
+<Area>5.51</Area>
+<Unit>055</Unit>
+<Inaccuracy>2</Inaccuracy>
+</Area>
+<EntitySpatial EntSys="l6CF93676-410F-49B2-8F0A-A8D13717158Bl">
+<SpatialElement>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="336983.29" Y="2209425.87" NumGeopoint="93" DeltaGeopoint="0.5" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="336981.61" Y="2209427.51" NumGeopoint="96" DeltaGeopoint="0.5" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="336983.25" Y="2209429.19" NumGeopoint="95" DeltaGeopoint="0.5" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="336984.93" Y="2209427.55" NumGeopoint="94" DeltaGeopoint="0.5" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="336983.29" Y="2209425.87" NumGeopoint="93" DeltaGeopoint="0.5" PointPref="н"></Ordinate>
+</SpelementUnit>
+</SpatialElement>
+<Borders>
+<Border Spatial="1" Point1="1" Point2="2">
+<Edge>
+<Length>2.35</Length>
+</Edge>
+</Border>
+<Border Spatial="1" Point1="2" Point2="3">
+<Edge>
+<Length>2.35</Length>
+</Edge>
+</Border>
+<Border Spatial="1" Point1="3" Point2="4">
+<Edge>
+<Length>2.35</Length>
+</Edge>
+</Border>
+<Border Spatial="1" Point1="4" Point2="5">
+<Edge>
+<Length>2.35</Length>
+</Edge>
+</Border>
+<Border Spatial="1" Point1="5" Point2="1">
+<Edge>
+<Length>2.35</Length>
+</Edge>
+</Border>
+</Borders>
+</EntitySpatial>
+</NewContour>
+<NewContour Definition="25">
+<Area>
+<Area>5.51</Area>
+<Unit>055</Unit>
+<Inaccuracy>2</Inaccuracy>
+</Area>
+<EntitySpatial EntSys="l6CF93676-410F-49B2-8F0A-A8D13717158Bl">
+<SpatialElement>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="336868.03" Y="2209538.95" NumGeopoint="97" DeltaGeopoint="0.5" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="336866.35" Y="2209540.59" NumGeopoint="100" DeltaGeopoint="0.5" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="336867.99" Y="2209542.27" NumGeopoint="99" DeltaGeopoint="0.5" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="336869.67" Y="2209540.63" NumGeopoint="98" DeltaGeopoint="0.5" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="336868.03" Y="2209538.95" NumGeopoint="97" DeltaGeopoint="0.5" PointPref="н"></Ordinate>
+</SpelementUnit>
+</SpatialElement>
+<Borders>
+<Border Spatial="1" Point1="1" Point2="2">
+<Edge>
+<Length>2.35</Length>
+</Edge>
+</Border>
+<Border Spatial="1" Point1="2" Point2="3">
+<Edge>
+<Length>2.35</Length>
+</Edge>
+</Border>
+<Border Spatial="1" Point1="3" Point2="4">
+<Edge>
+<Length>2.35</Length>
+</Edge>
+</Border>
+<Border Spatial="1" Point1="4" Point2="5">
+<Edge>
+<Length>2.35</Length>
+</Edge>
+</Border>
+<Border Spatial="1" Point1="5" Point2="1">
+<Edge>
+<Length>2.35</Length>
+</Edge>
+</Border>
+</Borders>
+</EntitySpatial>
+</NewContour>
+<NewContour Definition="26">
+<Area>
+<Area>5.51</Area>
+<Unit>055</Unit>
+<Inaccuracy>2</Inaccuracy>
+</Area>
+<EntitySpatial EntSys="l6CF93676-410F-49B2-8F0A-A8D13717158Bl">
+<SpatialElement>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="336759.88" Y="2209644.41" NumGeopoint="101" DeltaGeopoint="0.5" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="336758.2" Y="2209646.05" NumGeopoint="104" DeltaGeopoint="0.5" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="336759.84" Y="2209647.73" NumGeopoint="103" DeltaGeopoint="0.5" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="336761.52" Y="2209646.09" NumGeopoint="102" DeltaGeopoint="0.5" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="336759.88" Y="2209644.41" NumGeopoint="101" DeltaGeopoint="0.5" PointPref="н"></Ordinate>
+</SpelementUnit>
+</SpatialElement>
+<Borders>
+<Border Spatial="1" Point1="1" Point2="2">
+<Edge>
+<Length>2.35</Length>
+</Edge>
+</Border>
+<Border Spatial="1" Point1="2" Point2="3">
+<Edge>
+<Length>2.35</Length>
+</Edge>
+</Border>
+<Border Spatial="1" Point1="3" Point2="4">
+<Edge>
+<Length>2.35</Length>
+</Edge>
+</Border>
+<Border Spatial="1" Point1="4" Point2="5">
+<Edge>
+<Length>2.35</Length>
+</Edge>
+</Border>
+<Border Spatial="1" Point1="5" Point2="1">
+<Edge>
+<Length>2.35</Length>
+</Edge>
+</Border>
+</Borders>
+</EntitySpatial>
+</NewContour>
+<NewContour Definition="27">
+<Area>
+<Area>5.51</Area>
+<Unit>055</Unit>
+<Inaccuracy>2</Inaccuracy>
+</Area>
+<EntitySpatial EntSys="l6CF93676-410F-49B2-8F0A-A8D13717158Bl">
+<SpatialElement>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="336676.9" Y="2209725.02" NumGeopoint="105" DeltaGeopoint="0.5" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="336675.22" Y="2209726.66" NumGeopoint="108" DeltaGeopoint="0.5" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="336676.86" Y="2209728.34" NumGeopoint="107" DeltaGeopoint="0.5" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="336678.54" Y="2209726.7" NumGeopoint="106" DeltaGeopoint="0.5" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="336676.9" Y="2209725.02" NumGeopoint="105" DeltaGeopoint="0.5" PointPref="н"></Ordinate>
+</SpelementUnit>
+</SpatialElement>
+<Borders>
+<Border Spatial="1" Point1="1" Point2="2">
+<Edge>
+<Length>2.35</Length>
+</Edge>
+</Border>
+<Border Spatial="1" Point1="2" Point2="3">
+<Edge>
+<Length>2.35</Length>
+</Edge>
+</Border>
+<Border Spatial="1" Point1="3" Point2="4">
+<Edge>
+<Length>2.35</Length>
+</Edge>
+</Border>
+<Border Spatial="1" Point1="4" Point2="5">
+<Edge>
+<Length>2.35</Length>
+</Edge>
+</Border>
+<Border Spatial="1" Point1="5" Point2="1">
+<Edge>
+<Length>2.35</Length>
+</Edge>
+</Border>
+</Borders>
+</EntitySpatial>
+</NewContour>
+<NewContour Definition="28">
+<Area>
+<Area>22.01</Area>
+<Unit>055</Unit>
+<Inaccuracy>6</Inaccuracy>
+</Area>
+<EntitySpatial EntSys="l6CF93676-410F-49B2-8F0A-A8D13717158Bl">
+<SpatialElement>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="336547.77" Y="2209845.07" NumGeopoint="109" DeltaGeopoint="0.5" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="336545.82" Y="2209846.99" NumGeopoint="112" DeltaGeopoint="0.5" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="336548.29" Y="2209849.5" NumGeopoint="134" DeltaGeopoint="0.5" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="336551.46" Y="2209852.72" NumGeopoint="111" DeltaGeopoint="0.5" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="336553.41" Y="2209850.8" NumGeopoint="110" DeltaGeopoint="0.5" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="336550.42" Y="2209847.76" NumGeopoint="133" DeltaGeopoint="0.5" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="336547.77" Y="2209845.07" NumGeopoint="109" DeltaGeopoint="0.5" PointPref="н"></Ordinate>
+</SpelementUnit>
+</SpatialElement>
+<Borders>
+<Border Spatial="1" Point1="1" Point2="2">
+<Edge>
+<Length>2.74</Length>
+</Edge>
+</Border>
+<Border Spatial="1" Point1="2" Point2="3">
+<Edge>
+<Length>3.52</Length>
+</Edge>
+</Border>
+<Border Spatial="1" Point1="3" Point2="4">
+<Edge>
+<Length>4.52</Length>
+</Edge>
+</Border>
+<Border Spatial="1" Point1="4" Point2="5">
+<Edge>
+<Length>2.74</Length>
+</Edge>
+</Border>
+<Border Spatial="1" Point1="5" Point2="6">
+<Edge>
+<Length>4.26</Length>
+</Edge>
+</Border>
+<Border Spatial="1" Point1="6" Point2="7">
+<Edge>
+<Length>3.78</Length>
+</Edge>
+</Border>
+<Border Spatial="1" Point1="7" Point2="1">
+<Edge>
+<Length>2.74</Length>
+</Edge>
+</Border>
+</Borders>
+</EntitySpatial>
+</NewContour>
+<NewContour Definition="29">
+<Area>
+<Area>5.49</Area>
+<Unit>055</Unit>
+<Inaccuracy>2</Inaccuracy>
+</Area>
+<EntitySpatial EntSys="l6CF93676-410F-49B2-8F0A-A8D13717158Bl">
+<SpatialElement>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="336507.57" Y="2209901.35" NumGeopoint="113" DeltaGeopoint="0.5" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="336505.77" Y="2209899.85" NumGeopoint="116" DeltaGeopoint="0.5" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="336504.27" Y="2209901.65" NumGeopoint="115" DeltaGeopoint="0.5" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="336506.07" Y="2209903.15" NumGeopoint="114" DeltaGeopoint="0.5" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="336507.57" Y="2209901.35" NumGeopoint="113" DeltaGeopoint="0.5" PointPref="н"></Ordinate>
+</SpelementUnit>
+</SpatialElement>
+<Borders>
+<Border Spatial="1" Point1="1" Point2="2">
+<Edge>
+<Length>2.34</Length>
+</Edge>
+</Border>
+<Border Spatial="1" Point1="2" Point2="3">
+<Edge>
+<Length>2.34</Length>
+</Edge>
+</Border>
+<Border Spatial="1" Point1="3" Point2="4">
+<Edge>
+<Length>2.34</Length>
+</Edge>
+</Border>
+<Border Spatial="1" Point1="4" Point2="5">
+<Edge>
+<Length>2.34</Length>
+</Edge>
+</Border>
+<Border Spatial="1" Point1="5" Point2="1">
+<Edge>
+<Length>2.34</Length>
+</Edge>
+</Border>
+</Borders>
+</EntitySpatial>
+</NewContour>
+<NewContour Definition="30">
+<Area>
+<Area>5.48</Area>
+<Unit>055</Unit>
+<Inaccuracy>2</Inaccuracy>
+</Area>
+<EntitySpatial EntSys="l6CF93676-410F-49B2-8F0A-A8D13717158Bl">
+<SpatialElement>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="336393.27" Y="2210034.94" NumGeopoint="117" DeltaGeopoint="0.5" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="336391.49" Y="2210033.42" NumGeopoint="120" DeltaGeopoint="0.5" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="336389.97" Y="2210035.2" NumGeopoint="119" DeltaGeopoint="0.5" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="336391.75" Y="2210036.72" NumGeopoint="118" DeltaGeopoint="0.5" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="336393.27" Y="2210034.94" NumGeopoint="117" DeltaGeopoint="0.5" PointPref="н"></Ordinate>
+</SpelementUnit>
+</SpatialElement>
+<Borders>
+<Border Spatial="1" Point1="1" Point2="2">
+<Edge>
+<Length>2.34</Length>
+</Edge>
+</Border>
+<Border Spatial="1" Point1="2" Point2="3">
+<Edge>
+<Length>2.34</Length>
+</Edge>
+</Border>
+<Border Spatial="1" Point1="3" Point2="4">
+<Edge>
+<Length>2.34</Length>
+</Edge>
+</Border>
+<Border Spatial="1" Point1="4" Point2="5">
+<Edge>
+<Length>2.34</Length>
+</Edge>
+</Border>
+<Border Spatial="1" Point1="5" Point2="1">
+<Edge>
+<Length>2.34</Length>
+</Edge>
+</Border>
+</Borders>
+</EntitySpatial>
+</NewContour>
+<NewContour Definition="31">
+<Area>
+<Area>5.47</Area>
+<Unit>055</Unit>
+<Inaccuracy>2</Inaccuracy>
+</Area>
+<EntitySpatial EntSys="l6CF93676-410F-49B2-8F0A-A8D13717158Bl">
+<SpatialElement>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="336279.98" Y="2210166.62" NumGeopoint="121" DeltaGeopoint="0.5" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="336278.21" Y="2210165.09" NumGeopoint="124" DeltaGeopoint="0.5" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="336276.68" Y="2210166.86" NumGeopoint="123" DeltaGeopoint="0.5" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="336278.45" Y="2210168.39" NumGeopoint="122" DeltaGeopoint="0.5" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="336279.98" Y="2210166.62" NumGeopoint="121" DeltaGeopoint="0.5" PointPref="н"></Ordinate>
+</SpelementUnit>
+</SpatialElement>
+<Borders>
+<Border Spatial="1" Point1="1" Point2="2">
+<Edge>
+<Length>2.34</Length>
+</Edge>
+</Border>
+<Border Spatial="1" Point1="2" Point2="3">
+<Edge>
+<Length>2.34</Length>
+</Edge>
+</Border>
+<Border Spatial="1" Point1="3" Point2="4">
+<Edge>
+<Length>2.34</Length>
+</Edge>
+</Border>
+<Border Spatial="1" Point1="4" Point2="5">
+<Edge>
+<Length>2.34</Length>
+</Edge>
+</Border>
+<Border Spatial="1" Point1="5" Point2="1">
+<Edge>
+<Length>2.34</Length>
+</Edge>
+</Border>
+</Borders>
+</EntitySpatial>
+</NewContour>
+<NewContour Definition="32">
+<Area>
+<Area>37.14</Area>
+<Unit>055</Unit>
+<Inaccuracy>6</Inaccuracy>
+</Area>
+<EntitySpatial EntSys="l6CF93676-410F-49B2-8F0A-A8D13717158Bl">
+<SpatialElement>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="336168.72" Y="2210293.54" NumGeopoint="125" DeltaGeopoint="0.5" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="336162.8" Y="2210294.94" NumGeopoint="128" DeltaGeopoint="0.5" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="336164.2" Y="2210300.87" NumGeopoint="127" DeltaGeopoint="0.5" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="336170.14" Y="2210299.47" NumGeopoint="126" DeltaGeopoint="0.5" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="336168.72" Y="2210293.54" NumGeopoint="125" DeltaGeopoint="0.5" PointPref="н"></Ordinate>
+</SpelementUnit>
+</SpatialElement>
+<Borders>
+<Border Spatial="1" Point1="1" Point2="2">
+<Edge>
+<Length>6.08</Length>
+</Edge>
+</Border>
+<Border Spatial="1" Point1="2" Point2="3">
+<Edge>
+<Length>6.09</Length>
+</Edge>
+</Border>
+<Border Spatial="1" Point1="3" Point2="4">
+<Edge>
+<Length>6.1</Length>
+</Edge>
+</Border>
+<Border Spatial="1" Point1="4" Point2="5">
+<Edge>
+<Length>6.1</Length>
+</Edge>
+</Border>
+<Border Spatial="1" Point1="5" Point2="1">
+<Edge>
+<Length>6.08</Length>
+</Edge>
+</Border>
+</Borders>
+</EntitySpatial>
+</NewContour>
+<NewContour Definition="33">
+<Area>
+<Area>5.52</Area>
+<Unit>055</Unit>
+<Inaccuracy>2</Inaccuracy>
+</Area>
+<EntitySpatial EntSys="l6CF93676-410F-49B2-8F0A-A8D13717158Bl">
+<SpatialElement>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="336086.5" Y="2210474.34" NumGeopoint="129" DeltaGeopoint="0.5" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="336084.37" Y="2210473.35" NumGeopoint="132" DeltaGeopoint="0.5" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="336083.38" Y="2210475.48" NumGeopoint="131" DeltaGeopoint="0.5" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="336085.51" Y="2210476.47" NumGeopoint="130" DeltaGeopoint="0.5" PointPref="н"></Ordinate>
+</SpelementUnit>
+<SpelementUnit TypeUnit="Точка">
+<Ordinate X="336086.5" Y="2210474.34" NumGeopoint="129" DeltaGeopoint="0.5" PointPref="н"></Ordinate>
+</SpelementUnit>
+</SpatialElement>
+<Borders>
+<Border Spatial="1" Point1="1" Point2="2">
+<Edge>
+<Length>2.35</Length>
+</Edge>
+</Border>
+<Border Spatial="1" Point1="2" Point2="3">
+<Edge>
+<Length>2.35</Length>
+</Edge>
+</Border>
+<Border Spatial="1" Point1="3" Point2="4">
+<Edge>
+<Length>2.35</Length>
+</Edge>
+</Border>
+<Border Spatial="1" Point1="4" Point2="5">
+<Edge>
+<Length>2.35</Length>
+</Edge>
+</Border>
+<Border Spatial="1" Point1="5" Point2="1">
+<Edge>
+<Length>2.35</Length>
+</Edge>
+</Border>
+</Borders>
+</EntitySpatial>
+</NewContour>
+</Contours>
+<MinArea>
+<Area>401</Area>
+<Unit>055</Unit>
+</MinArea>
+<MaxArea>
+<Area>401</Area>
+<Unit>055</Unit>
+</MaxArea>
+<RelatedParcels>
+<ParcelNeighbours>
+<Definition>н85-н85, н89-н89, н93-н93, н97-н97, н101-н101</Definition>
+<ParcelNeighbour>
+<CadastralNumber>36:22:3200010:51</CadastralNumber>
+<OwnerNeighbours>
+<NameRight>собственность</NameRight>
+<OwnerNeighbour>
+<NameOwner>Воронежская область. Департамент имущественных и земельных отношений Воронежской области.</NameOwner>
+<ContactAddress>г. Воронеж, пл. Ленина, д.  12</ContactAddress>
+</OwnerNeighbour>
+</OwnerNeighbours>
+</ParcelNeighbour>
+</ParcelNeighbours>
+<ParcelNeighbours>
+<Definition> н105-н105, н133-н134</Definition>
+<ParcelNeighbour>
+<CadastralNumber>36:22:3200010:51</CadastralNumber>
+<OwnerNeighbours>
+<NameRight>собственность</NameRight>
+<OwnerNeighbour>
+<NameOwner>Воронежская область. Департамент имущественных и земельных отношений Воронежской области.</NameOwner>
+<ContactAddress>г. Воронеж, пл. Ленина, д.  12</ContactAddress>
+</OwnerNeighbour>
+</OwnerNeighbours>
+</ParcelNeighbour>
+</ParcelNeighbours>
+</RelatedParcels>
+</NewParcel>
+<SpecifyRelatedParcel CadastralNumber="36:22:3200010:51">
+<ChangeBorder TypeUnit="Точка">
+<OldOrdinate X="336399.12" Y="2209971.33"></OldOrdinate>
+<NewOrdinate X="336399.12" Y="2209971.33" NumGeopoint="15" DeltaGeopoint="2.5"></NewOrdinate>
+</ChangeBorder>
+<ChangeBorder TypeUnit="Точка">
+<NewOrdinate X="336548.29" Y="2209849.5" NumGeopoint="134" DeltaGeopoint="0.5" PointPref="н"></NewOrdinate>
+</ChangeBorder>
+<ChangeBorder TypeUnit="Точка">
+<NewOrdinate X="336545.82" Y="2209846.99" NumGeopoint="112" DeltaGeopoint="0.5" PointPref="н"></NewOrdinate>
+</ChangeBorder>
+<ChangeBorder TypeUnit="Точка">
+<NewOrdinate X="336547.77" Y="2209845.07" NumGeopoint="109" DeltaGeopoint="0.5" PointPref="н"></NewOrdinate>
+</ChangeBorder>
+<ChangeBorder TypeUnit="Точка">
+<NewOrdinate X="336550.42" Y="2209847.76" NumGeopoint="133" DeltaGeopoint="0.5" PointPref="н"></NewOrdinate>
+</ChangeBorder>
+<ChangeBorder TypeUnit="Точка">
+<OldOrdinate X="336616.3" Y="2209793.96"></OldOrdinate>
+<NewOrdinate X="336616.3" Y="2209793.96" NumGeopoint="14" DeltaGeopoint="2.5"></NewOrdinate>
+</ChangeBorder>
+</SpecifyRelatedParcel>
+<SpecifyRelatedParcel CadastralNumber="36:22:3200010:51">
+<ChangeBorder TypeUnit="Точка">
+<NewOrdinate X="337123.72" Y="2209289.42" NumGeopoint="85" DeltaGeopoint="0.5" PointPref="н"></NewOrdinate>
+</ChangeBorder>
+<ChangeBorder TypeUnit="Точка">
+<NewOrdinate X="337125.36" Y="2209291.1" NumGeopoint="86" DeltaGeopoint="0.5" PointPref="н"></NewOrdinate>
+</ChangeBorder>
+<ChangeBorder TypeUnit="Точка">
+<NewOrdinate X="337123.68" Y="2209292.74" NumGeopoint="87" DeltaGeopoint="0.5" PointPref="н"></NewOrdinate>
+</ChangeBorder>
+<ChangeBorder TypeUnit="Точка">
+<NewOrdinate X="337122.04" Y="2209291.06" NumGeopoint="88" DeltaGeopoint="0.5" PointPref="н"></NewOrdinate>
+</ChangeBorder>
+</SpecifyRelatedParcel>
+<SpecifyRelatedParcel CadastralNumber="36:22:3200010:51">
+<ChangeBorder TypeUnit="Точка">
+<NewOrdinate X="337044.73" Y="2209366.18" NumGeopoint="89" DeltaGeopoint="0.5" PointPref="н"></NewOrdinate>
+</ChangeBorder>
+<ChangeBorder TypeUnit="Точка">
+<NewOrdinate X="337046.37" Y="2209367.86" NumGeopoint="90" DeltaGeopoint="0.5" PointPref="н"></NewOrdinate>
+</ChangeBorder>
+<ChangeBorder TypeUnit="Точка">
+<NewOrdinate X="337044.69" Y="2209369.5" NumGeopoint="91" DeltaGeopoint="0.5" PointPref="н"></NewOrdinate>
+</ChangeBorder>
+<ChangeBorder TypeUnit="Точка">
+<NewOrdinate X="337043.05" Y="2209367.82" NumGeopoint="92" DeltaGeopoint="0.5" PointPref="н"></NewOrdinate>
+</ChangeBorder>
+</SpecifyRelatedParcel>
+<SpecifyRelatedParcel CadastralNumber="36:22:3200010:51">
+<ChangeBorder TypeUnit="Точка">
+<NewOrdinate X="336983.29" Y="2209425.87" NumGeopoint="93" DeltaGeopoint="0.5" PointPref="н"></NewOrdinate>
+</ChangeBorder>
+<ChangeBorder TypeUnit="Точка">
+<NewOrdinate X="336984.93" Y="2209427.55" NumGeopoint="94" DeltaGeopoint="0.5" PointPref="н"></NewOrdinate>
+</ChangeBorder>
+<ChangeBorder TypeUnit="Точка">
+<NewOrdinate X="336983.25" Y="2209429.19" NumGeopoint="95" DeltaGeopoint="0.5" PointPref="н"></NewOrdinate>
+</ChangeBorder>
+<ChangeBorder TypeUnit="Точка">
+<NewOrdinate X="336981.61" Y="2209427.51" NumGeopoint="96" DeltaGeopoint="0.5" PointPref="н"></NewOrdinate>
+</ChangeBorder>
+</SpecifyRelatedParcel>
+<SpecifyRelatedParcel CadastralNumber="36:22:3200010:51">
+<ChangeBorder TypeUnit="Точка">
+<NewOrdinate X="336868.03" Y="2209538.95" NumGeopoint="97" DeltaGeopoint="0.5" PointPref="н"></NewOrdinate>
+</ChangeBorder>
+<ChangeBorder TypeUnit="Точка">
+<NewOrdinate X="336869.67" Y="2209540.63" NumGeopoint="98" DeltaGeopoint="0.5" PointPref="н"></NewOrdinate>
+</ChangeBorder>
+<ChangeBorder TypeUnit="Точка">
+<NewOrdinate X="336867.99" Y="2209542.27" NumGeopoint="99" DeltaGeopoint="0.5" PointPref="н"></NewOrdinate>
+</ChangeBorder>
+<ChangeBorder TypeUnit="Точка">
+<NewOrdinate X="336866.35" Y="2209540.59" NumGeopoint="100" DeltaGeopoint="0.5" PointPref="н"></NewOrdinate>
+</ChangeBorder>
+</SpecifyRelatedParcel>
+<SpecifyRelatedParcel CadastralNumber="36:22:3200010:51">
+<ChangeBorder TypeUnit="Точка">
+<NewOrdinate X="336759.88" Y="2209644.41" NumGeopoint="101" DeltaGeopoint="0.5" PointPref="н"></NewOrdinate>
+</ChangeBorder>
+<ChangeBorder TypeUnit="Точка">
+<NewOrdinate X="336761.52" Y="2209646.09" NumGeopoint="102" DeltaGeopoint="0.5" PointPref="н"></NewOrdinate>
+</ChangeBorder>
+<ChangeBorder TypeUnit="Точка">
+<NewOrdinate X="336759.84" Y="2209647.73" NumGeopoint="103" DeltaGeopoint="0.5" PointPref="н"></NewOrdinate>
+</ChangeBorder>
+<ChangeBorder TypeUnit="Точка">
+<NewOrdinate X="336758.2" Y="2209646.05" NumGeopoint="104" DeltaGeopoint="0.5" PointPref="н"></NewOrdinate>
+</ChangeBorder>
+</SpecifyRelatedParcel>
+<SpecifyRelatedParcel CadastralNumber="36:22:3200010:51">
+<ChangeBorder TypeUnit="Точка">
+<NewOrdinate X="336676.9" Y="2209725.02" NumGeopoint="105" DeltaGeopoint="0.5" PointPref="н"></NewOrdinate>
+</ChangeBorder>
+<ChangeBorder TypeUnit="Точка">
+<NewOrdinate X="336678.54" Y="2209726.7" NumGeopoint="106" DeltaGeopoint="0.5" PointPref="н"></NewOrdinate>
+</ChangeBorder>
+<ChangeBorder TypeUnit="Точка">
+<NewOrdinate X="336676.86" Y="2209728.34" NumGeopoint="107" DeltaGeopoint="0.5" PointPref="н"></NewOrdinate>
+</ChangeBorder>
+<ChangeBorder TypeUnit="Точка">
+<NewOrdinate X="336675.22" Y="2209726.66" NumGeopoint="108" DeltaGeopoint="0.5" PointPref="н"></NewOrdinate>
+</ChangeBorder>
+</SpecifyRelatedParcel>
+</FormParcels>
+</Package>
+<GeneralCadastralWorks DateCadastral="2018-05-22">
+<Contractor>
+<FamilyName>Науменко</FamilyName>
+<FirstName>Анна</FirstName>
+<Patronymic>Ивановна</Patronymic>
+<NCertificate>36-11-384</NCertificate>
+<Telephone>8(473) 255-53-72, 8-920-422-18-60</Telephone>
+<Address>394000, г. Воронеж, ул. Фридриха Энгельса, д. 5</Address>
+<Email>naumenkanjutis@mail.ru</Email>
+<Organization>
+<Name>ООО НПП «Компьютерные технологии»</Name>
+<AddressOrganization>394000, г. Воронеж, ул. Фридриха Энгельса, д. 5</AddressOrganization>
+</Organization>
+</Contractor>
+<Reason>образованием земельного участка (33 контура) из земель, находящихся в государственной или муниципальной собственности, расположенного: Воронежская область, Петропавловский район, Петропавловское сельское поселение, ВЛ-35 кВ Петропавловка - Березняги - Н.Лиман - Монастырщина</Reason>
+<Clients>
+<Client>
+<Organization>
+<Name>Публичное акционерное общество «Межрегиональная распределительная сетевая компания Центра»</Name>
+<INN>6901067107</INN>
+<OGRN>1046900099498</OGRN>
+</Organization>
+</Client>
+</Clients>
+</GeneralCadastralWorks>
+<CoordSystems>
+<CoordSystem Name="СК Кадастрового округа (зона 2)" CsId="l6CF93676-410F-49B2-8F0A-A8D13717158Bl"></CoordSystem>
+</CoordSystems>
+<InputData>
+<Documents>
+<Document>
+<CodeDocument>558217000000</CodeDocument>
+<Number>36/исх/17-338223</Number>
+<Date>2017-05-04</Date>
+</Document>
+<Document>
+<CodeDocument>558217000000</CodeDocument>
+<Number>36/исх/17-330337</Number>
+<Date>2017-05-02</Date>
+</Document>
+<Document>
+<CodeDocument>558299000000</CodeDocument>
+<Name>Выписка из Единого государственного реестра недвижимости</Name>
+<Number>99/2018/91885936</Number>
+<Date>2018-04-07</Date>
+</Document>
+<Document>
+<CodeDocument>558401020000</CodeDocument>
+<Name>Постановление Администрации Петропавловского муниципального района Воронежской области</Name>
+<Number>245</Number>
+<Date>2018-05-04</Date>
+<AppliedFile Kind="01" Name="App\1_П_245 от 04_05_18_вл 22_cп Петропавловское.pdf"></AppliedFile>
+</Document>
+<Document>
+<CodeDocument>558254150000</CodeDocument>
+<Name>Схема расположения земельных участков на кадастровом плане территории</Name>
+<Number>б/н</Number>
+<Date>2018-05-04</Date>
+<Desc>Утверждена Постановление Администрации Петропавловского муниципального района Воронежской области от 04.05.2018 №245</Desc>
+<AppliedFile Kind="01" Name="App\3_Схема КПТ_вл 22_cп Петропавловское.pdf"></AppliedFile>
+</Document>
+<Document>
+<CodeDocument>558256000000</CodeDocument>
+<Name>Каталог координат ОМС, предоставленный письмом  Управления Росреестра по Воронежской области</Name>
+<Number>250</Number>
+<Date>2017-08-04</Date>
+</Document>
+<Document>
+<CodeDocument>558299000000</CodeDocument>
+<Name>Документы технического учета объекта недвижимости</Name>
+<Number>23139</Number>
+<Date>2003-04-17</Date>
+<AppliedFile Kind="01" Name="App\тех паспорт на ВЛ.pdf"></AppliedFile>
+</Document>
+<Document>
+<CodeDocument>558299000000</CodeDocument>
+<Name>Письмо Управления лесного хозяйства Воронежской области</Name>
+<Number>64-11/2217</Number>
+<Date>2018-04-27</Date>
+<AppliedFile Kind="01" Name="App\2_от УЛХ от 27_04_18_вл 22_cп Петропавловское.pdf"></AppliedFile>
+</Document>
+<Document>
+<CodeDocument>558217000000</CodeDocument>
+<Number>36/исх/17-330453</Number>
+<Date>2017-05-02</Date>
+</Document>
+<Document>
+<CodeDocument>558217000000</CodeDocument>
+<Number>36/исх/17-331061</Number>
+<Date>2017-05-02</Date>
+</Document>
+</Documents>
+<GeodesicBases>
+<GeodesicBase>
+<PName>КТ-213</PName>
+<PKind>ОМС</PKind>
+<PKlass>ОМС-1</PKlass>
+<OrdX>320254.03</OrdX>
+<OrdY>2181127.22</OrdY>
+</GeodesicBase>
+<GeodesicBase>
+<PName>КТ-215</PName>
+<PKind>ОМС</PKind>
+<PKlass>ОМС-1</PKlass>
+<OrdX>321341.99</OrdX>
+<OrdY>2183376.27</OrdY>
+</GeodesicBase>
+<GeodesicBase>
+<PName>КТ-218</PName>
+<PKind>ОМС</PKind>
+<PKlass>ОМС-1</PKlass>
+<OrdX>321620</OrdX>
+<OrdY>2183991.2</OrdY>
+</GeodesicBase>
+</GeodesicBases>
+<MeansSurvey>
+<MeanSurvey>
+<Name>GNSS - приемник спутниковый геодезический двухчастотный Trimble R8 GNSS №33967-07 </Name>
+<Registration>
+<Number>45148-10</Number>
+<Duration>до 10.01.2019 г.</Duration>
+</Registration>
+<CertificateVerification>№ 017959</CertificateVerification>
+</MeanSurvey>
+</MeansSurvey>
+</InputData>
+<Survey>
+<GeopointsOpred>
+<GeopointOpred>
+<CadastralNumberDefinition>:ЗУ1</CadastralNumberDefinition>
+<Methods>
+<GeopointOpred>692005000000</GeopointOpred>
+</Methods>
+</GeopointOpred>
+</GeopointsOpred>
+<TochnGeopointsParcels>
+<TochnGeopointsParcel>
+<CadastralNumberDefinition>:ЗУ1</CadastralNumberDefinition>
+<Formula>Mt = 0.5</Formula>
+</TochnGeopointsParcel>
+</TochnGeopointsParcels>
+<TochnAreaParcels>
+<TochnAreaParcel>
+<CadastralNumberDefinition>:ЗУ1</CadastralNumberDefinition>
+<Formula>∆Р =Σ∆Pi=Σ2Mt* sqrt(Pi)*sqrt((1+sqr(K))/(2K))=93 (из-за большого количества контуров земельного участка формула с подставленными значениями приведена в разделе "Заключение кадастрового инженера")</Formula>
+<Area>
+<Area>401</Area>
+<Unit>055</Unit>
+</Area>
+</TochnAreaParcel>
+</TochnAreaParcels>
+</Survey>
+<Conclusion>В связи с тем, что в составе  "Заключения кадастрового инженера" присутствуют таблицы, которые не могут быть представлены в текстовом редакторе формата *.xml, то "Заключение кадастрового инженера" в виде электронного файла формата *.pdf  представлено в составе раздела "Приложения".</Conclusion>
+<SchemeGeodesicPlotting Kind="01" Name="App\Схема геодезических построений.pdf"></SchemeGeodesicPlotting>
+<SchemeDisposition Kind="01" Name="App\Схема расположения земельного участка.pdf"></SchemeDisposition>
+<DiagramParcelsSubParcels Kind="01" Name="App\Чертеж земельных участков и их частей.pdf"></DiagramParcelsSubParcels>
+<AgreementDocument Kind="01" Name="App\АКТ СОГЛАСОВАНИЯ МЕСТОПОЛОЖЕНИЯ ГРАНИЦ.pdf"></AgreementDocument>
+<Appendix>
+<AppliedFiles>
+<NumberAppendix>1</NumberAppendix>
+<NameAppendix>Исходные данные межевого плана</NameAppendix>
+<AppliedFile Kind="01" Name="App\Исходные данные.pdf"></AppliedFile>
+</AppliedFiles>
+<AppliedFiles>
+<NumberAppendix>2</NumberAppendix>
+<NameAppendix>Заключение кадастрового инженера</NameAppendix>
+<AppliedFile Kind="01" Name="App\Заключение кадастрового инженера.pdf"></AppliedFile>
+</AppliedFiles>
+<AppliedFiles>
+<NumberAppendix>3</NumberAppendix>
+<NameAppendix>Доверенность</NameAppendix>
+<AppliedFile Kind="01" Name="App\Доверенность Мананкова.pdf"></AppliedFile>
+</AppliedFiles>
+</Appendix>
+</MP>

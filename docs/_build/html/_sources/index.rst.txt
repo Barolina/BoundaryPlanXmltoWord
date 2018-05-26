@@ -1,14 +1,14 @@
-.. test_main documentation master file, created by
-   sphinx-quickstart on Fri May 11 15:54:46 2018.
+.. Mp_to_Word documentation master file, created by
+   sphinx-quickstart on Tue May 22 23:14:27 2018.
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Print xml_mp to word
-=====================================
+Mp_to_Word's преобразование межевого плана (xml) в печатный вид (docx)
+======================================
 
 .. toctree::
-   :maxdepth: 4
-   :caption: Contents:
+   :maxdepth: 2
+   :caption: MP_to_WORD:
 
    modules
 

@@ -1,0 +1,346 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="ru" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="ru" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>test &mdash; Документация Mp_to_Word 1</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Алфавитный указатель" href="../genindex.html" />
+    <link rel="search" title="Поиск" href="../search.html" /> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Mp_to_Word
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">MP_to_WORD:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../modules.html">testsphinx</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Mp_to_Word</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">Код модуля</a> &raquo;</li>
+        
+      <li>test</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Исходный код test</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Summa chisel</span>
+<span class="sd">    Сумма чисел</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+
+<div class="viewcode-block" id="sum"><a class="viewcode-back" href="../test.html#test.sum">[документация]</a><span class="k">def</span> <span class="nf">sum</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        sum two nubers</span>
+
+<span class="sd">    :param a: numbers</span>
+<span class="sd">    :param b: numbers</span>
+<span class="sd">    :return: number</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">a</span><span class="o">+</span><span class="n">b</span></div>
+
+
+
+<span class="n">CNST_NEWPARCEL</span> <span class="o">=</span> <span class="s1">&#39;newparcel&#39;</span>
+<span class="n">CNST_EXISTPARCEL</span> <span class="o">=</span> <span class="s1">&#39;existparcel&#39;</span>
+<span class="n">CNST_UNDEFINE</span> <span class="o">=</span> <span class="s1">&#39;undefine&#39;</span>
+
+<span class="n">META_TPL_ORDINATE</span> <span class="o">=</span> <span class="p">{</span>  <span class="c1"># шаблон для пребразвоания в вордовском tpl</span>
+    <span class="n">CNST_EXISTPARCEL</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="p">]</span> <span class="o">*</span> <span class="mi">7</span><span class="p">,</span> <span class="c1"># 7-кол-во колонок в таблице на уточнение</span>
+    <span class="n">CNST_NEWPARCEL</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="p">]</span> <span class="o">*</span> <span class="mi">5</span><span class="p">,</span> <span class="c1"># 5 кол-во колонок в таблице  на образование</span>
+    <span class="n">CNST_UNDEFINE</span><span class="p">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+<span class="p">}</span>
+
+
+<span class="n">CNST_NEWPARCEL</span> <span class="o">=</span> <span class="s1">&#39;newparcel&#39;</span>
+<span class="n">CNST_EXISTPARCEL</span> <span class="o">=</span> <span class="s1">&#39;existparcel&#39;</span>
+<span class="n">CNST_UNDEFINE</span> <span class="o">=</span> <span class="s1">&#39;undefine&#39;</span>
+
+<span class="n">META_TPL_ORDINATE</span> <span class="o">=</span> <span class="p">{</span>  <span class="c1"># шаблон для пребразвоания в вордовском tpl</span>
+    <span class="n">CNST_EXISTPARCEL</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="p">]</span> <span class="o">*</span> <span class="mi">7</span><span class="p">,</span> <span class="c1"># 7-кол-во колонок в таблице на уточнение</span>
+    <span class="n">CNST_NEWPARCEL</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="p">]</span> <span class="o">*</span> <span class="mi">5</span><span class="p">,</span> <span class="c1"># 5 кол-во колонок в таблице  на образование</span>
+    <span class="n">CNST_UNDEFINE</span><span class="p">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+<span class="p">}</span>
+
+
+<div class="viewcode-block" id="XMLElemenBase"><a class="viewcode-back" href="../test.html#test.XMLElemenBase">[документация]</a><span class="k">class</span> <span class="nc">XMLElemenBase</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">       qweqwe</span>
+
+<span class="sd">        :param node - ewrwer</span>
+<span class="sd">        :return  json(object)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">node</span> <span class="o">=</span> <span class="n">node</span>
+
+<div class="viewcode-block" id="XMLElemenBase.to_dict"><a class="viewcode-back" href="../test.html#test.XMLElemenBase.to_dict">[документация]</a>    <span class="k">def</span> <span class="nf">to_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            Return json - object, based on the dictionary in config</span>
+<span class="sd">            (данные метод реализован у всех наследников, необходимых для render шааболонов)</span>
+
+<span class="sd">        :return: json()</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">pass</span></div></div>
+
+
+<div class="viewcode-block" id="StaticMethod"><a class="viewcode-back" href="../test.html#test.StaticMethod">[документация]</a><span class="k">class</span> <span class="nc">StaticMethod</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        sdfswerwe</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="c1"># @staticmethod</span>
+<div class="viewcode-block" id="StaticMethod.type_ordinate"><a class="viewcode-back" href="../test.html#test.StaticMethod.type_ordinate">[документация]</a>    <span class="k">def</span> <span class="nf">type_ordinate</span><span class="p">(</span><span class="n">node</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            kdfgljdfgdsggfsdfg</span>
+
+<span class="sd">        :param node:wer  wer</span>
+<span class="sd">        :return: ExistOrdinate ot NewOrdinate</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">isExist</span> <span class="o">=</span> <span class="n">CNST_UNDEFINE</span>
+        <span class="n">initial_node</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="k">if</span> <span class="n">node</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="c1"># may come  Element</span>
+            <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">node</span><span class="p">,</span> <span class="n">_Element</span><span class="p">):</span>
+                <span class="n">initial_node</span> <span class="o">=</span> <span class="n">node</span>
+                <span class="c1"># may come a List</span>
+            <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">node</span><span class="p">,</span> <span class="nb">list</span><span class="p">)</span> <span class="ow">and</span> <span class="n">node</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">initial_node</span> <span class="o">=</span> <span class="n">node</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+            <span class="c1"># get a type  of ordinates</span>
+            <span class="k">if</span> <span class="n">initial_node</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">isOrdinate</span> <span class="o">=</span> <span class="n">initial_node</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;.//Ordinate&#39;</span><span class="p">)</span>
+                <span class="n">isExistSubParcel</span> <span class="o">=</span> <span class="kc">True</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">initial_node</span><span class="o">.</span><span class="n">xpath</span><span class="p">(</span><span class="s1">&#39;ancestor::*[name() = &quot;SpecifyRelatedParcel&quot; or &#39;</span>
+                                                                  <span class="s1">&#39;name() = &quot;ExistSubParcel&quot;]&#39;</span><span class="p">))</span> <span class="o">&gt;</span> <span class="mi">0</span>\
+                                           <span class="ow">or</span> <span class="n">initial_node</span><span class="o">.</span><span class="n">tag</span> <span class="o">==</span> <span class="s1">&#39;ExistSubParcel&#39;</span> <span class="k">else</span> <span class="kc">False</span>
+                <span class="n">isExist</span> <span class="o">=</span> <span class="n">CNST_EXISTPARCEL</span> <span class="k">if</span> <span class="p">((</span><span class="n">isOrdinate</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">)</span> <span class="ow">or</span> <span class="n">isExistSubParcel</span><span class="p">)</span> <span class="k">else</span> <span class="n">CNST_NEWPARCEL</span>
+        <span class="k">return</span> <span class="n">isExist</span></div>
+
+<div class="viewcode-block" id="StaticMethod.get_empty_tpl"><a class="viewcode-back" href="../test.html#test.StaticMethod.get_empty_tpl">[документация]</a>    <span class="k">def</span> <span class="nf">get_empty_tpl</span><span class="p">(</span><span class="n">node</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">		sfsdf</span>
+<span class="sd">		</span>
+<span class="sd">        :param node: node</span>
+<span class="sd">        :return: Return empty tpl rows  for word, depends on Type Ordinate</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">node</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">name_type_ord</span> <span class="o">=</span> <span class="n">StaticMethod</span><span class="o">.</span><span class="n">type_ordinate</span><span class="p">(</span><span class="n">node</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">META_TPL_ORDINATE</span><span class="p">[</span><span class="n">name_type_ord</span><span class="p">]</span>
+        <span class="k">return</span> <span class="kc">None</span></div>
+
+<div class="viewcode-block" id="StaticMethod.merge_array_list"><a class="viewcode-back" href="../test.html#test.StaticMethod.merge_array_list">[документация]</a>    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">merge_array_list</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">array_value</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            преобразоание  списков ключей и массива значений в словарь</span>
+<span class="sd">			</span>
+<span class="sd">        :param key: ключи словаря</span>
+<span class="sd">        :param array_value: массив значений</span>
+<span class="sd">        :return:  [{ &#39;id&#39;: 1, &#39;name&#39;: &#39;ЗУ1&#39;}, { &#39;id&#39;: 1, &#39;name&#39;: &#39;ЗУ1&#39;},]</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="nb">list</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">key</span> <span class="ow">and</span> <span class="n">array_value</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="n">array_value</span><span class="p">:</span>
+                <span class="n">res</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">dict</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">_</span><span class="p">)))</span>
+        <span class="k">return</span> <span class="n">res</span></div>
+
+<div class="viewcode-block" id="StaticMethod.xml_key_to_text"><a class="viewcode-back" href="../test.html#test.StaticMethod.xml_key_to_text">[документация]</a>    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">xml_key_to_text</span><span class="p">(</span><span class="n">node</span><span class="p">,</span> <span class="n">path</span><span class="p">,</span> <span class="n">name_xsd</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            получение знсачения ноды по ключу из справоника node  узел - где ищем path парсер - что(как) ищем name_xsd наименование сравочнка text</span>
+
+<span class="sd">        :param node: узел</span>
+<span class="sd">        :param path: как ищем</span>
+<span class="sd">        :param name_xsd:  xsd file</span>
+<span class="sd">        :return: value</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">name_xsd</span><span class="p">:</span>
+            <span class="n">logging</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;Не передан справочник&quot;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="s1">&#39;&#39;</span>
+        <span class="n">_list</span> <span class="o">=</span> <span class="n">node</span><span class="o">.</span><span class="n">xpath</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+        <span class="k">if</span> <span class="n">_list</span><span class="p">:</span>
+            <span class="n">path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">cnfg</span><span class="o">.</span><span class="n">PATH_XSD</span><span class="p">,</span> <span class="n">name_xsd</span><span class="p">)</span>
+            <span class="n">res</span> <span class="o">=</span> <span class="n">value_from_xsd</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">_list</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+            <span class="n">node</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">res</span></div></div>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Larisa.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'1',
+            LANGUAGE:'ru',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
